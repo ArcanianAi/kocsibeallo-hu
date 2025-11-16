@@ -1,0 +1,27 @@
+uuid: 55639c3f-de00-4238-b631-3481cdb13442
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.file.audio.field_folder
+  module:
+    - file
+id: file.audio.default
+targetEntityType: file
+bundle: audio
+mode: default
+content:
+  field_folder:
+    type: options_select
+    weight: 41
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

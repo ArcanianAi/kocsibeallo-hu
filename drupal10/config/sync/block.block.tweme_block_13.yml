@@ -1,0 +1,25 @@
+uuid: bd397828-1441-4b05-ae1b-4d81819f5653
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+  module:
+    - block_content
+  theme:
+    - tweme
+id: tweme_block_13
+theme: tweme
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+settings:
+  id: 'block_content:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+  label: 'Kövessen minket'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

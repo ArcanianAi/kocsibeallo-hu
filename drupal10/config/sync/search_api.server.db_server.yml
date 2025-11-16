@@ -1,0 +1,14 @@
+langcode: hu
+status: true
+dependencies: {  }
+id: db_server
+name: 'Database Server'
+description: 'Database backend for Search API'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

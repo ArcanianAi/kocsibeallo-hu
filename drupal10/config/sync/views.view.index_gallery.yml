@@ -1,0 +1,413 @@
+uuid: null
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gallery_tag
+    - search_api.index.galleries
+    - taxonomy.vocabulary.cimkek
+    - taxonomy.vocabulary.kocsibeallo_tipus
+  module:
+    - search_api
+    - user
+id: index_gallery
+label: 'Index Gallery'
+module: views
+description: 'Gallery view using Search API with faceted search'
+tag: ''
+base_table: search_api_index_galleries
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Kocsibeálló képgaléria - Megvalósított referenciák fotókkal'
+      fields:
+        field_telikert_kep:
+          id: field_telikert_kep
+          table: search_api_index_galleries
+          field: field_telikert_kep
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_link: content
+            image_style: medium
+            image_loading:
+              attribute: lazy
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 1
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        title:
+          id: title
+          table: search_api_index_galleries
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+          element_type: h4
+          element_class: heading-primary
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: string
+          settings:
+            link_to_entity: true
+        field_gallery_tag:
+          id: field_gallery_tag
+          table: search_api_index_galleries
+          field: field_gallery_tag
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+          element_type: span
+          element_class: price
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: full
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: Következő
+            previous: Előző
+            first: Első
+            last: Utolsó
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Elemek oldalanként'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Összes -'
+            offset: false
+            offset_label: Eltolás
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          exposed_sorts_label: ''
+          expose_sort_order: false
+          text_input_required: ''
+          text_input_required_format: null
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: search_api_tag
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'Nincs megjeleníthető tartalom.'
+            format: basic_html
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: search_api_index_galleries
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      filters:
+        status:
+          id: status
+          table: search_api_index_galleries
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+        field_gallery_tag:
+          id: field_gallery_tag
+          table: search_api_index_galleries
+          field: field_gallery_tag
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_gallery_tag_op
+            label: 'Gallery tag'
+            description: ''
+            use_operator: false
+            operator: field_gallery_tag_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_gallery_tag
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: field_gallery_tag
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_cimkek:
+          id: field_cimkek
+          table: search_api_index_galleries
+          field: field_cimkek
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_cimkek_op
+            label: Címkék
+            description: ''
+            use_operator: false
+            operator: field_cimkek_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_cimkek
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: cimkek
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'col-md-6 col-sm-6 col-xs-12 product'
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              foto_a_galeriahoz: teaser
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+          preserve_facet_query_args: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_gallery_tag'
+        - 'config:search_api.index.galleries'
+        - 'search_api_list:galleries'
+  page_1:
+    id: page_1
+    display_title: 'Galéria oldal'
+    display_plugin: page
+    position: 1
+    display_options:
+      exposed_form:
+        type: basic
+        options: '{}'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: none
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: |-
+            <div class="gallery-intro container">
+            <p class="lead" style="font-size: 1.3em; margin: 20px 0;">Fedezze fel <strong>100+ megvalósított kocsibeálló projektünket</strong> képekkel és részletes leírásokkal. Inspirálódjon referenciáinkból és találja meg az Önnek legmegfelelőbb megoldást!</p>
+
+            <div class="gallery-stats row" style="margin: 30px 0; text-align: center;">
+            <div class="col-md-2 col-sm-4 col-xs-6"><div style="padding: 15px; border: 2px solid #ac9c58; margin: 5px;"><strong style="font-size: 2em; color: #ac9c58;">64</strong><br><small>egyedi gyártású</small></div></div>
+            <div class="col-md-2 col-sm-4 col-xs-6"><div style="padding: 15px; border: 2px solid #ac9c58; margin: 5px;"><strong style="font-size: 2em; color: #ac9c58;">28</strong><br><small>Ximax referencia</small></div></div>
+            <div class="col-md-2 col-sm-4 col-xs-6"><div style="padding: 15px; border: 2px solid #ac9c58; margin: 5px;"><strong style="font-size: 2em; color: #ac9c58;">55</strong><br><small>dupla kocsibeálló</small></div></div>
+            <div class="col-md-2 col-sm-4 col-xs-6"><div style="padding: 15px; border: 2px solid #ac9c58; margin: 5px;"><strong style="font-size: 2em; color: #ac9c58;">45</strong><br><small>fa szerkezetű</small></div></div>
+            <div class="col-md-2 col-sm-4 col-xs-6"><div style="padding: 15px; border: 2px solid #ac9c58; margin: 5px;"><strong style="font-size: 2em; color: #ac9c58;">9</strong><br><small>napelemes</small></div></div>
+            </div>
+
+            <p style="text-align: center; margin: 30px 0;"><a href="/hu/ajánlatkérés" class="btn btn-primary btn-lg" style="font-size: 1.2em; padding: 15px 40px;">Kérjen ingyenes árajánlatot »</a></p>
+            </div>
+          tokenize: false
+      display_extenders: {  }
+      path: kepgaleria
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'facets_filter:f'
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:facets.facet.cimkek'
+        - 'config:facets.facet.gallery_tag'
+        - 'config:facets.facet.oldalzaras_anyaga'
+        - 'config:facets.facet.stilus'
+        - 'config:facets.facet.szerkezet_anyaga'
+        - 'config:facets.facet.termek_tipus'
+        - 'config:facets.facet.tetofedes_anyaga'
+        - 'config:field.storage.node.field_gallery_tag'
+        - 'config:search_api.index.galleries'
+        - 'search_api_list:galleries'

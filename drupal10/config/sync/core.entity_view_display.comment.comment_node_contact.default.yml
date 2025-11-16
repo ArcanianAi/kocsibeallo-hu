@@ -1,0 +1,29 @@
+uuid: 34019a1e-a444-43c1-a3fe-f21473de1d5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_contact
+    - field.field.comment.comment_node_contact.comment_body
+  module:
+    - text
+id: comment.comment_node_contact.default
+targetEntityType: comment
+bundle: comment_node_contact
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

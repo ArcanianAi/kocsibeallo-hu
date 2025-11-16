@@ -1,0 +1,25 @@
+uuid: e9fa9f16-35bb-495c-822d-0ce93f24943c
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:34cd7cc5-64be-4c54-8b68-75a1b8c095d9'
+  module:
+    - block_content
+  theme:
+    - porto
+id: porto_block_78
+theme: porto
+region: footer_31
+weight: 0
+provider: null
+plugin: 'block_content:34cd7cc5-64be-4c54-8b68-75a1b8c095d9'
+settings:
+  id: 'block_content:34cd7cc5-64be-4c54-8b68-75a1b8c095d9'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

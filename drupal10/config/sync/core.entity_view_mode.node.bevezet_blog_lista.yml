@@ -1,0 +1,11 @@
+uuid: c9aa7778-25d5-44ad-af1d-a1ede46ca2ea
+langcode: hu
+status: true
+dependencies:
+  module:
+    - node
+id: node.bevezet_blog_lista
+label: bevezet_blog_lista
+description: ''
+targetEntityType: node
+cache: true

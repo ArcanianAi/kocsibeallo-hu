@@ -1,0 +1,26 @@
+uuid: b4dc3de2-d6bd-4315-9ac0-cfeb61cd68a5
+langcode: hu
+status: true
+dependencies:
+  config:
+    - filter.format.webform_default
+  module:
+    - comment
+    - filter
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
+id: authenticated
+label: 'Azonosított felhasználó'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format webform_default'
+  - 'view media'

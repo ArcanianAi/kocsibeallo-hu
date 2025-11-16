@@ -1,0 +1,10 @@
+uuid: 9887c9ec-44d3-4c6d-97b4-6c47e9852c0c
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vpZysv3RHJjhYzq7O_q5q8mVlHdrSzKELmXyiX6RtV0
+name: 'Teljes HTML'
+format: full_html
+weight: 1
+filters: {  }

@@ -1,0 +1,26 @@
+uuid: b76d805e-a4d3-4fbb-a943-6d7bc66b140f
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_simplenews_term
+    - node.type.simplenews
+    - taxonomy.vocabulary.newsletter
+id: node.simplenews.field_simplenews_term
+field_name: field_simplenews_term
+entity_type: node
+bundle: simplenews
+label: 'Newsletter category'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      newsletter: newsletter
+    sort:
+      field: _none
+field_type: entity_reference

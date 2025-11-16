@@ -1,0 +1,21 @@
+uuid: 9a02d193-9ecf-43f2-9e39-e141ac720484
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_twitter_link
+    - node.type.team
+id: node.team.field_twitter_link
+field_name: field_twitter_link
+entity_type: node
+bundle: team
+label: 'Twitter Link'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'http://twitter.com/#'
+default_value_callback: ''
+settings: {  }
+field_type: string

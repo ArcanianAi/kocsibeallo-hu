@@ -1,0 +1,21 @@
+uuid: 92f12985-218b-4150-a3be-8f6f631ce8ad
+langcode: hu
+status: true
+dependencies:
+  module:
+    - comment
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'Névtelen felhasználó'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'post comments'
+  - 'search content'
+  - 'view media'

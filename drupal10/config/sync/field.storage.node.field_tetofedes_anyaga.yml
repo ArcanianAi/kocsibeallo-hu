@@ -1,0 +1,20 @@
+uuid: d9671eee-be26-4636-b9af-bdfe94471103
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tetofedes_anyaga
+field_name: field_tetofedes_anyaga
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

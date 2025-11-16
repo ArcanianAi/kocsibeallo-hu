@@ -1,0 +1,30 @@
+uuid: 2b87132e-ff94-4bd9-91d4-1ce80eff8299
+langcode: hu
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:86f8f044-32ca-4a70-ae0f-9014d7831f09'
+  module:
+    - block_content
+    - system
+  theme:
+    - porto
+id: porto_block_93
+theme: porto
+region: after_content
+weight: 21
+provider: null
+plugin: 'block_content:86f8f044-32ca-4a70-ae0f-9014d7831f09'
+settings:
+  id: 'block_content:86f8f044-32ca-4a70-ae0f-9014d7831f09'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /kepgaleria

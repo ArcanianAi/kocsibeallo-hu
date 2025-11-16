@@ -1,0 +1,9 @@
+uuid: 3362a5c9-783c-4a29-9a95-972a784998c3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media Folders'
+vid: media_folders
+description: 'Use media folders to organize your media'
+weight: 4
+new_revision: false

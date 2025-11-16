@@ -1,0 +1,33 @@
+uuid: d764112c-8a99-44fb-9008-a371ccc6eee4
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.comment_node_testimonials
+    - node.type.testimonials
+  module:
+    - comment
+id: node.testimonials.comment_node_testimonials
+field_name: comment_node_testimonials
+entity_type: node
+bundle: testimonials
+label: Comments
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

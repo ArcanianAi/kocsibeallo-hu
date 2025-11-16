@@ -1,0 +1,9 @@
+uuid: 35e778b0-41af-4648-a5d9-7ef2066b6c63
+langcode: en
+status: true
+dependencies: {  }
+name: Stílus
+vid: st_lus
+description: 'A kocsibeálló stílusa: egyenes, íves, stb.'
+weight: -9
+new_revision: false

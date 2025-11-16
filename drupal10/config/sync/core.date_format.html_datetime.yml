@@ -1,0 +1,10 @@
+uuid: 284ac0a1-1dcc-48e0-b731-0d1b3384d461
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jxfClwZIRXIdcvMrE--WkcZxDGUVoOIE3Sm2NRZlFuE
+id: html_datetime
+label: 'HTML dátum idővel'
+locked: true
+pattern: 'Y-m-d\TH:i:sO'

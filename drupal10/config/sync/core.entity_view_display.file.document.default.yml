@@ -1,0 +1,23 @@
+uuid: f8733e15-c6f6-44f1-ba8c-509462b1644d
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.file.document.field_folder
+  module:
+    - file
+id: file.document.default
+targetEntityType: file
+bundle: document
+mode: default
+content:
+  field_folder:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

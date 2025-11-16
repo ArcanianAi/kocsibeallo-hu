@@ -1,0 +1,139 @@
+uuid: 4b1d2206-f2a0-456e-994e-592f0b82320a
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.node.twitter_feed.comment_node_twitter_feed
+    - field.field.node.twitter_feed.field_tweet_count
+    - field.field.node.twitter_feed.field_twitter_consumer_key
+    - field.field.node.twitter_feed.field_twitter_consumer_secret
+    - field.field.node.twitter_feed.field_twitter_handle
+    - field.field.node.twitter_feed.field_twitter_user_secret
+    - field.field.node.twitter_feed.field_twitter_user_token
+    - node.type.twitter_feed
+  module:
+    - comment
+    - path
+id: node.twitter_feed.default
+targetEntityType: node
+bundle: twitter_feed
+mode: default
+content:
+  comment_node_twitter_feed:
+    type: comment_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tweet_count:
+    type: string_textfield
+    weight: 36
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter_consumer_key:
+    type: string_textfield
+    weight: 32
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter_consumer_secret:
+    type: string_textfield
+    weight: 33
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter_handle:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter_user_secret:
+    type: string_textfield
+    weight: 35
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter_user_token:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

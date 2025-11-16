@@ -1,0 +1,23 @@
+uuid: 8718c705-9df8-4d61-af24-a19f2417736c
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_color
+    - node.type.parallax
+  module:
+    - options
+id: node.parallax.field_text_color
+field_name: field_text_color
+entity_type: node
+bundle: parallax
+label: 'Text Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: black
+default_value_callback: ''
+settings: {  }
+field_type: list_string

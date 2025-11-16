@@ -1,0 +1,9 @@
+uuid: 38786805-12fe-41e6-a93e-19bc58604f34
+langcode: en
+status: true
+dependencies: {  }
+name: 'Oldalzárás anyaga'
+vid: oldalzaras_anyaga
+description: 'Képgalériához készült szótár'
+weight: -6
+new_revision: false

@@ -1,0 +1,26 @@
+uuid: c566b0ef-c9a5-4cf4-ba2e-a2780fd3cc70
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_oldalzaras_anyaga
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.oldalzaras_anyaga
+id: node.foto_a_galeriahoz.field_oldalzaras_anyaga
+field_name: field_oldalzaras_anyaga
+entity_type: node
+bundle: foto_a_galeriahoz
+label: 'Oldalzárás anyaga'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      oldalzaras_anyaga: oldalzaras_anyaga
+    sort:
+      field: _none
+field_type: entity_reference

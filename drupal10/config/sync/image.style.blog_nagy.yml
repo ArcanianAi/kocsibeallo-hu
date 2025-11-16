@@ -1,0 +1,15 @@
+uuid: d1cfa335-737b-49c8-afa6-68249dd57d53
+langcode: en
+status: true
+dependencies: {  }
+name: blog_nagy
+label: 'Blog nagy'
+effects:
+  0e533e68-73a0-489d-9b07-0f3ddf912046:
+    uuid: 0e533e68-73a0-489d-9b07-0f3ddf912046
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 840
+      height: 400
+      anchor: center-center

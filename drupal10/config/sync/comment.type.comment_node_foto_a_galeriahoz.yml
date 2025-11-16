@@ -1,0 +1,8 @@
+uuid: 9d5e4667-088d-4ad1-9708-5c1a115852ff
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_foto_a_galeriahoz
+label: 'Fotó a galériához comment'
+target_entity_type_id: node
+description: null

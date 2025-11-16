@@ -1,0 +1,9 @@
+uuid: baaf49e1-a908-43d8-80d1-8b08f06f7e29
+langcode: en
+status: true
+dependencies: {  }
+name: Címkék
+vid: cimkek
+description: 'Kocsibeálló címkék'
+weight: -5
+new_revision: false

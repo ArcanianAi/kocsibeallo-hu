@@ -1,0 +1,25 @@
+uuid: 6356e6d3-dfdf-40a2-aa43-8ce4082b9e80
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+  module:
+    - block_content
+  theme:
+    - ohm
+id: ohm_block_13
+theme: ohm
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+settings:
+  id: 'block_content:1da43500-d0b9-46b8-80a7-12ce8e60aeb1'
+  label: 'Kövessen minket'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

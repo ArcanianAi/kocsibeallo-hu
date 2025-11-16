@@ -1,0 +1,14 @@
+uuid: b2523d3c-64be-4512-a4cc-397c4299bd1e
+langcode: hu
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: 8rVcRXLnTAEoWs7zl8du-7RIUnayqUcGYnvb3JT21-o
+id: time_zones
+label: Időzónák
+category: 'Dátum és idő'
+likert: false
+options: ''

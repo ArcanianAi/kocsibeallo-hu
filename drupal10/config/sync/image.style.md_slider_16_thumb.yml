@@ -1,0 +1,16 @@
+uuid: 5eb5cdd8-50b5-4562-8f90-7ef64506fac4
+langcode: en
+status: true
+dependencies: {  }
+name: md_slider_16_thumb
+label: md_slider_16_thumb
+effects:
+  b3e1018f-f252-4c03-98a2-e4a6970f93f7:
+    uuid: b3e1018f-f252-4c03-98a2-e4a6970f93f7
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 100
+      height: 75
+      anchor: center-center
+      scaleup: false

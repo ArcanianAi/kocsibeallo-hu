@@ -1,0 +1,100 @@
+uuid: abfde21d-b5a2-4c80-ae65-38f133846b47
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_team.default
+    - field.field.node.team.body
+    - field.field.node.team.comment_node_team
+    - field.field.node.team.field_facebook_link
+    - field.field.node.team.field_image
+    - field.field.node.team.field_linkedin_link
+    - field.field.node.team.field_team_bio
+    - field.field.node.team.field_team_category
+    - field.field.node.team.field_twitter_link
+    - node.type.team
+  module:
+    - comment
+    - image
+    - text
+    - user
+id: node.team.default
+targetEntityType: node
+bundle: team
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  comment_node_team:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_facebook_link:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_linkedin_link:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_team_bio:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_team_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_twitter_link:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,28 @@
+uuid: 877d52ef-29a5-4742-bb85-2dda85b4d81e
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.article
+    - taxonomy.vocabulary.tags
+_core:
+  default_config_hash: QdUgf_beeoaPiyKorFv0q1fcJpWH_uZTqe_xoVJacrw
+id: node.article.field_tags
+field_name: field_tags
+entity_type: node
+bundle: article
+label: Címkék
+description: 'Egy vesszővel elválasztott felsorolás, mint például Esztergom, Tapolca, "Székesfehérvár, Fejér megye".'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+field_type: entity_reference

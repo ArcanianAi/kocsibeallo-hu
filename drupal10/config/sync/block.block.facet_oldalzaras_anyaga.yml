@@ -1,0 +1,27 @@
+uuid: 9155e6e8-1942-426a-82d3-7c1bb86d72ae
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.oldalzaras_anyaga
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_oldalzaras_anyaga
+theme: porto
+region: left_sidebar
+weight: 4
+provider: null
+plugin: 'facet_block:oldalzaras_anyaga'
+settings:
+  id: 'facet_block:oldalzaras_anyaga'
+  label: 'Oldalzárás anyaga'
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

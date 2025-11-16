@@ -1,0 +1,25 @@
+uuid: 9cd98172-276f-4c09-bd31-f28ae63f5cd8
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:c09f3235-2d35-4c49-b635-2f701441d645'
+  module:
+    - block_content
+  theme:
+    - zen
+id: zen_block_12
+theme: zen
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:c09f3235-2d35-4c49-b635-2f701441d645'
+settings:
+  id: 'block_content:c09f3235-2d35-4c49-b635-2f701441d645'
+  label: Elérhetőségünk
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

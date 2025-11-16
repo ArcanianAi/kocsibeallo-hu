@@ -1,0 +1,9 @@
+uuid: 632dffd1-7ec6-485a-9efb-a03bfd7550c4
+langcode: en
+status: true
+dependencies: {  }
+name: Típus
+vid: kocsibeallo_tipus
+description: 'Kocsibeálló típusok'
+weight: -10
+new_revision: false

@@ -1,0 +1,32 @@
+uuid: 0938c7c0-7f24-43a0-871b-54dfa2adab65
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:c50ccdef-758f-4e60-afaf-b45c450633d7'
+  module:
+    - block_content
+    - system
+  theme:
+    - porto_sub
+id: porto_sub_block_29
+theme: porto_sub
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:c50ccdef-758f-4e60-afaf-b45c450633d7'
+settings:
+  id: 'block_content:c50ccdef-758f-4e60-afaf-b45c450633d7'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /<front>
+      /nivo-slider

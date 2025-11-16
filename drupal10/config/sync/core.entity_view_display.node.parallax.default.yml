@@ -1,0 +1,91 @@
+uuid: 99ae93e4-6825-4b62-b9f8-4cdce1a1f689
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_parallax.default
+    - field.field.node.parallax.comment_node_parallax
+    - field.field.node.parallax.field_big_caption
+    - field.field.node.parallax.field_image
+    - field.field.node.parallax.field_parallax_category
+    - field.field.node.parallax.field_parallax_icon
+    - field.field.node.parallax.field_small_caption
+    - field.field.node.parallax.field_text_color
+    - node.type.parallax
+  module:
+    - comment
+    - image
+    - options
+    - user
+id: node.parallax.default
+targetEntityType: node
+bundle: parallax
+mode: default
+content:
+  comment_node_parallax:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_big_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_parallax_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_parallax_icon:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_small_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_text_color:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

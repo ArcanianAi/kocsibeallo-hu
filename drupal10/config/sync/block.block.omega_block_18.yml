@@ -1,0 +1,30 @@
+uuid: d041329f-4a1a-416a-9307-137c7ab3f731
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:3f4e4200-0e62-4264-9b77-a33271432bc9'
+  module:
+    - block_content
+    - system
+  theme:
+    - omega
+id: omega_block_18
+theme: omega
+region: ''
+weight: -17
+provider: null
+plugin: 'block_content:3f4e4200-0e62-4264-9b77-a33271432bc9'
+settings:
+  id: 'block_content:3f4e4200-0e62-4264-9b77-a33271432bc9'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /right-sidebar

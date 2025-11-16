@@ -1,0 +1,10 @@
+uuid: e7720569-a103-4e36-a027-5e5a0457990d
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BCM-vV1zzRaLHN18dqAR_CuGOj8AFJvTx7BKl_8Gcxc
+id: tools
+label: Eszközök
+description: 'Műveletek felhasználóknak, gyakran más modulok révén'
+locked: true

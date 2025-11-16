@@ -1,0 +1,22 @@
+uuid: 1c4bbc95-8820-4886-b65e-a4d737c19554
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_foto_a_galeriahoz
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.comment_node_foto_a_galeriahoz.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: comment_node_foto_a_galeriahoz
+label: Comment
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

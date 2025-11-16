@@ -1,0 +1,22 @@
+uuid: 49e4190f-1488-4602-8295-b0cf24ae7514
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_description
+    - node.type.portfolio
+  module:
+    - text
+id: node.portfolio.field_portfolio_description
+field_name: field_portfolio_description
+entity_type: node
+bundle: portfolio
+label: 'Portfolio Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,20 @@
+uuid: 1928fb5c-89a4-41d1-86ac-f511170d24c6
+langcode: hu
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: i0snV8Wj--OkRW12UdachUiYiz3FbeMwHu_pZYfzKLc
+name: 'Egyszerű oldal'
+type: page
+description: 'Az <em>egyszerű oldal</em> használatos az állandó tartalmakhoz, ilyen például a „Bemutatkozás” oldal.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

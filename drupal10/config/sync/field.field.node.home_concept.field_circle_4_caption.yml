@@ -1,0 +1,19 @@
+uuid: 1f665643-875a-4b11-8297-71388d9d8ec0
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_circle_4_caption
+    - node.type.home_concept
+id: node.home_concept.field_circle_4_caption
+field_name: field_circle_4_caption
+entity_type: node
+bundle: home_concept
+label: 'Circle 4 Caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

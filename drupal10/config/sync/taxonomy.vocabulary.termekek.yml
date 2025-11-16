@@ -1,0 +1,9 @@
+uuid: 19793c1e-3197-4555-b7ce-f1a369aaa0d7
+langcode: en
+status: true
+dependencies: {  }
+name: Termékek
+vid: termekek
+description: null
+weight: -4
+new_revision: false

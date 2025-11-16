@@ -1,0 +1,33 @@
+uuid: 2f63b059-a462-409f-8802-29215fafb7db
+langcode: hu
+status: true
+dependencies:
+  config:
+    - webform.webform.ajanlatkeres
+  module:
+    - system
+    - webform
+  theme:
+    - porto
+id: porto_ajanlatkeres_webform
+theme: porto
+region: left_sidebar
+weight: 10
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Ajánlatkérés Webform'
+  label_display: '0'
+  provider: webform
+  webform_id: ajanlatkeres
+  default_data: ''
+  redirect: false
+  lazy: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /kepgaleria
+      /kepgaleria/*

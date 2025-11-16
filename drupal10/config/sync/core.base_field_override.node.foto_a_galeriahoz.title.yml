@@ -1,0 +1,18 @@
+uuid: 34a2b785-4df2-4bc8-88e8-e61944faea97
+langcode: hu
+status: true
+dependencies:
+  config:
+    - node.type.foto_a_galeriahoz
+id: node.foto_a_galeriahoz.title
+field_name: title
+entity_type: node
+bundle: foto_a_galeriahoz
+label: Cím
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

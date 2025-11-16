@@ -1,0 +1,42 @@
+uuid: 7cf70a40-80cf-4dfe-a9a8-9926794ddb63
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:c40bf226-1011-49b4-a763-9ff552b7cd7c'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - omega
+id: omega_block_7
+theme: omega
+region: ''
+weight: -16
+provider: null
+plugin: 'block_content:c40bf226-1011-49b4-a763-9ff552b7cd7c'
+settings:
+  id: 'block_content:c40bf226-1011-49b4-a763-9ff552b7cd7c'
+  label: 'Kocsibeálló blog'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      3: '3'
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /right-sidebar
+      /blog
+      /blog/*
+      /blog-medium-image

@@ -1,0 +1,632 @@
+features:
+  name: 0
+  slogan: 0
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 0
+  path: 'public://deluxe-kocsibeallo-logo-150px.png'
+favicon:
+  use_default: 1
+  path: ''
+  mimetype: image/jpeg
+user_css: |-
+  #header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
+  .page-kepgaleria {overflow:hidden;}
+  #mainMenu .dropdown-menu .active-trail {
+      background: #ac9c58;
+      color: #fff !important;
+  }
+  /*Homepage bővebben gomb*/
+  .frontpage .col-md-8 .btn-flat {
+      background-color: #ac9c58;
+      border: 1px solid #ac9c58;
+      border-radius: 0px;
+      padding: 8px 12px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 300;
+  }
+
+  .frontpage .col-md-8 .btn-flat:hover {
+      background-color: #fff;
+      border: 1px solid #ac9c58;
+      color:#ac9c58;
+      text-decoration: none;
+  }
+  .frontpage .col-md-8 .btn-flat .fa {display:none;}
+
+  /*MOBILE DROPDOWN*/
+  #header .header-btn-collapse-nav {
+      background: transparent;
+      color: #ac9c58;
+      float: right;
+      border: 1px solid #ac9c58;
+      padding: 10px 15px;
+      margin: 0px;
+  }
+
+  @media (max-width: 991px) {
+  #header .header-nav-main nav>ul li a {
+      font-size: 14px;
+      font-style: normal;
+      line-height: 20px;
+      padding: 15px 8px;
+      margin: 1px 0;
+      border-radius: 4px;
+      color: #fff;
+  }
+  #header .header-nav-main nav {margin: 20px 0 5px;}
+  .header-btn-collapse-nav .fa.fa-bars {
+  font-size:18px;
+  }
+  }
+
+  /*Header 2022-06-09*/
+  #header .header-body {
+      background: #011e41;
+      border-top: 0px;
+      padding: 15px 0;
+  }
+
+  #header .header-nav-main nav>ul>li>a {
+  color:#fff;
+  font-size:15px;
+  font-weight:300;
+  letter-spacing: 1px;
+  }
+
+  #header .header-nav-main nav > ul > li > a {
+      border-radius: 4px;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 20px;
+      padding: 10px 13px;
+      text-transform: uppercase;
+  }
+
+  #header .header-nav-main nav>ul>li>a:hover {color:#ac9c63;}
+  #header .header-nav-main nav>ul>li>a.active {color:#ac9c63;}
+
+  #header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
+  .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {background-color:#ac9c63;}
+
+  #header.header-narrow .header-logo img {
+      margin: 0px;
+      width: 100%;
+      aspect-ratio: auto;
+      height: auto;
+  }
+  /*FOOTER 2022-06-09*/
+  #footer.color-primary .footer-copyright {
+      background: #011e41!important;
+  }
+
+  #footer.color-primary .footer-ribbon {
+      background: #011e41!important;
+  }
+  #block-block-88 .content .col-md-7>p {color:#fff;}
+
+  #footer a:hover {
+      color: #011e41;
+  }
+  #footer .region-footer-bottom a:hover {color: #fff;}
+  #footer .phone {
+      color: #011e41;
+  }
+
+  html #footer.color-primary {
+      background: #ffffff;
+      border-top-color: #dedede;
+  }
+  #footer {
+      border-top: 1px solid; }
+
+  #footer h1, #footer h2, #footer h3, #footer h4, #footer h5,  #footer a {
+      color: #ac9c58;
+  }
+  #footer.color p {
+      color: #011228;
+  }
+
+  @media (min-width: 992px) {
+  .main-footer .col-md-2 {
+      width: 50%;
+      display: flex;
+      align-content: flex-start;
+      justify-content: flex-end;
+      flex-direction: row;
+  }
+  .main-footer .col-md-3 {
+      width: 50%;
+  }
+  #block-block-91 {text-align:right;}
+  #block-block-91 h2 {font-weight:700;}
+  }
+
+  /*Gombok beállításai 2022-06-09*/
+  html .btn-primary {
+      color: #fff;
+      text-shadow: none;
+      background-color: #ac9c58;
+      border-radius: 0px;
+      border-color: #ac9c58;
+  }
+  .btn {padding: 8px 20px 8px 20px;}
+  #edit-submitted-csatolmany-feltoltese-upload {margin-bottom:20px;}
+
+  /*Betűtípus beállítás 2022-06-09*/
+  body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+  }
+  h1,h2,h3,h5,h6 {
+  font-family: 'Playfair Display', serif;
+  }
+  h4 {
+  font-family: 'Poppins', sans-serif;
+  }
+
+  h1,h2 {
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ac9c63;
+  }
+
+  /*DROPDOWN 2022-06-09*/
+  #header .header-nav-main nav>ul>li.dropdown .dropdown-menu {
+  border-radius: 0px;
+  border: 0;
+  border-top: 0px;
+  margin-top:0px;
+  min-width:218px;
+  }
+
+  html .btn-primary:hover {
+      color: #fff;
+      text-shadow: none;
+      background-color: #fff;
+      color:#ac9c58;
+      border-radius: 0px;
+      border-color: #ac9c58;
+  }
+
+  /*KÉPGALÉRIA*/
+  .shop ul.products {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+  .node-type-product-display .page-header h1,
+  .view-index-gallery li.pager-ellipsis {display: none;}
+  /* Ajanlatkeres CSS-ek */
+
+  #webform-submission-ajanlatkeres-add-form label,
+  #webform-submission-ajanlatkeres-add-form .fieldset-wrapper label,
+  #node-144 .webform-component label {
+      font-weight: bold;
+  }
+  #webform-submission-ajanlatkeres-add-form label.option,
+  #webform-submission-ajanlatkeres-add-form .fieldset-wrapper div label,
+  #node-144 .webform-component .form-item label {
+      font-weight: normal;
+  }
+
+  .form-textarea-wrapper .form-textarea {
+      height: auto;
+  }
+
+  #webform-client-form-145 .form-actions {
+      padding: 0 15px;
+  }
+  input.form-checkbox, input.form-radio {
+      vertical-align: top;
+  }
+
+  .col-md-12 .webform-component--referencia-kep{
+      display: none;
+  }
+
+
+
+  /* Galéria shop CSS-ek */
+  .shop ul.products .product {
+      min-height: 375px;
+  }
+  .product-thumb-info .product-thumb-info-image::before {
+      z-index: 100;
+  }
+  .product-thumb-info .product-thumb-info-act {
+      z-index: 100;
+  }
+  .product-thumb-info h4 {
+      min-height: 1px;
+      line-height: 1.4em;
+  font-weight:400;
+  font-size:1.2em;
+  margin-bottom:10px;
+  }
+  .product-thumb-info-content span.price {
+      color: rgba(145,145,145,1);
+      line-height: 1.3em;
+      min-height: 20px;
+  }
+  .field-slideshow-wrapper .field-slideshow {
+      max-height: 260px;
+  }
+
+  .field-name-field-telikert-kep.field-type-image .field-item {
+      margin-bottom: 30px;
+  }
+  .field-name-field-telikert-kep.field-type-image .field-item a.fancybox {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 4px;
+  }
+  .field-name-field-telikert-kep.field-type-image .field-item a.fancybox::before {
+      content: '';
+      background-color: rgba(23,23,23,0.8);
+      width: calc( 100% - 8px );
+      height: calc( 100% - 8px );
+      display: block;
+      position: absolute;
+      border-radius: 2px;
+      transition: all 300ms ease 0ms;
+      opacity: 0;
+      z-index: 100;
+  }
+  .field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::before {
+      opacity: 1;
+  }
+  .field-name-field-telikert-kep.field-type-image .field-item a.fancybox::after {
+      content: '\f00e';
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 50px;
+      position: absolute;
+      top: 50%;
+      left: calc( 50% - 24px );
+      color: #fff;
+      transition: all 300ms ease 0ms;
+      opacity: 0;
+      z-index: 100;
+  }
+  .field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::after {
+      opacity: 1;
+      top: calc( 50% - 35px );
+  }
+  .fancybox img {
+      transition: all 300ms ease 0ms;
+  }
+  .fancybox:hover img {
+      -webkit-transform: scale(1.1,1.1);
+      -moz-transform: scale(1.1,1.1);
+      -ms-transform: scale(1.1,1.1);
+      -o-transform: scale(1.1,1.1);
+      transform: scale(1.1,1.1);
+      transition: all 300ms ease 0ms;
+  }
+
+  /* Galéria Facet CSS-ek */
+  .facetapi-processed {
+      float: none !important;
+      margin: 5px auto;
+  }
+  .facetapi-processed.pagination-lg > li > a,
+  .facetapi-processed.pagination-lg > li > span {
+      display: inline;
+      padding: 8px;
+      font-size: 95%;
+      font-weight: 400;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0;
+      background-color: #ac9b63;
+      margin: 2px 1px;
+      border: 1px solid #ac9b63;
+  }
+  .facetapi-processed.pagination-lg > li > a:hover,
+  .facetapi-processed.pagination-lg > li > span {
+      background-color: #fff;
+  border: 1px solid #ac9b63;
+    color: #ac9b63;
+  }
+  .facetapi-processed.pagination-lg > li > span {
+      margin-right: 150px;
+  }
+  .facetapi-processed.pagination-lg > li > span> a.facetapi-active {
+      color: #fff;
+  }
+  .facetapi-processed.pagination-lg > li > span> a.facetapi-active:hover {
+      color: #000;
+  }
+  .block-facetapi h4 {
+      min-height: 1.3em;
+      margin-bottom: 0px;
+  }
+  .block-facetapi .content {
+      margin-bottom: 20px;
+  }
+
+
+  /* Nyito oldali CSS-ek  */
+
+
+  .frontpage  .col-md-8 {
+          width: 100%;
+          padding: 20px 18px;
+
+   }
+
+  .panels-flexible-region-44-center {
+      float: left;
+      width: 100%;
+  }
+
+  section.section {
+      background: #eee;
+      padding-top:0px;
+  }
+
+  .frontpage .col-md-4 {
+      width: 100%;
+      padding-left: 0px;
+      padding-right:0px;
+  }
+
+
+  .frontpage .col-sm-4 {
+      background-color: white;
+      margin: 8px;
+      padding-right: 0px;
+      padding-left: 0px;
+  }
+
+  .frontpage .row {
+      margin-right: 0px;
+      margin-left: 0px;
+  }
+
+
+  h4 {
+      font-size: 19px;
+      line-height: 22px;
+      margin-bottom: 8px;
+      color: #003768;
+      min-height: 44px;
+      overflow: hidden;
+  }
+
+  .frontpage .img-max img {
+      min-width: 100%;
+  }
+
+
+
+  @media (min-width: 992px)
+  {
+      .frontpage .col-sm-4 {
+          width: 31%;
+      }
+
+      .frontpage .col-md-8 {
+          width: 100%;
+          height: 300px;
+          padding: 30px 25px;
+      }
+  }
+
+  @media (min-width: 768px)
+  {
+      .frontpage .col-sm-4 {
+          width: 47%;
+      }
+
+  }
+
+
+  @media (min-width: 992px) {
+  #header .header-nav-main nav > ul > li > span{
+      color: #fff;
+      border-radius: 0px;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing:1px;
+      line-height: 20px;
+      padding: 10px 13px;
+      text-transform: uppercase;
+      position: relative;
+      display: block;
+  }
+  }
+
+  @media (min-width: 992px) {
+  #header .header-nav-main nav > ul > li:hover > span{
+      background: #ac9c63;
+      color: #FFF;
+  }
+  }
+  /*Módósítva 2022-06-10*/
+  @media (max-width: 991px) {
+  #header .header-nav-main nav > ul > li > span{
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      font-size: 15px;
+      font-style: normal;
+      line-height: 45px;
+      padding: 7px 8px;
+      margin: 1px 0;
+      border-radius: 4px;
+  }
+  }
+
+  @media (min-width: 992px){
+  .view-index-gallery .col-md-4 {
+      width: 50% !important;
+  }
+  }
+
+  #edit-submitted-csatolmany-feltoltese-ajax-wrapper .description {
+     display: none;
+  }
+  #edit-submitted-csatolmany-feltoltese-upload {
+     float: left;
+  }
+
+  /* Blog  */
+  .post-meta-user {display: none !important}
+  .post-meta-comments {display: none !important}
+  .post-block .post-author {display: none !important}
+  .post-meta {margin-bottom: 40px !important}
+  .post-author {display: none !important}
+
+  .field-name-field-kepek .field-item {float: left; padding-right: 40px;padding-bottom: 20px;}
+
+  .myButton {
+  	background-color:#ac9c58;
+  	border-radius:0px;
+  	border:1px solid #ac9c58;
+  	display:inline-block;
+  	cursor:pointer;
+  	color:#ffffff;
+  	font-size:18px;
+          text-transform:uppercase;
+  	font-weight:normal;
+  	padding:12px 15px;
+  	text-decoration:none;
+  	text-shadow:none;
+  }
+  .myButton:hover {
+  	background-color:#fff;
+          text-decoration: none;
+          border:1px solid #ac9c58;
+          color: #ac9c58;
+  }
+  .myButton:active {
+  	position:relative;
+  	top:1px;
+  }
+
+  .box-right {
+       float: right;
+       width: 30%;
+       background-color: rgb(216, 226, 232);
+       margin-left: 10px;
+       padding: 5px;
+  }
+
+  ul {padding-left: 20px;}
+
+  .region-before-content {margin-bottom: 25px;}
+
+
+  /* Blog Posts Section on Homepage - 3 Column Grid */
+  .view-blog.view-display-id-block_1 {
+      margin: 40px 0;
+  }
+
+  .view-blog.view-display-id-block_1 .view-header {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .view-blog.view-display-id-block_1 .view-content {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+  }
+
+  .view-blog.view-display-id-block_1 .views-row {
+      width: 33.333%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+  }
+
+  @media (max-width: 991px) {
+      .view-blog.view-display-id-block_1 .views-row {
+          width: 50%;
+      }
+  }
+
+  @media (max-width: 767px) {
+      .view-blog.view-display-id-block_1 .views-row {
+          width: 100%;
+      }
+  }
+
+  .view-blog.view-display-id-block_1 .node--type-article.node--view-mode-teaser {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .view-blog.view-display-id-block_1 .node--type-article.node--view-mode-teaser .field--name-field-image {
+      margin-bottom: 15px;
+  }
+
+  .view-blog.view-display-id-block_1 .node--type-article.node--view-mode-teaser .field--name-field-image img {
+      width: 100%;
+      height: auto;
+  }
+
+  .view-blog.view-display-id-block_1 .node__title {
+      font-size: 18px;
+      line-height: 1.3em;
+      margin: 15px 15px 10px;
+      min-height: 50px;
+  }
+
+  .view-blog.view-display-id-block_1 .node__title a {
+      color: #003768;
+  }
+
+  .view-blog.view-display-id-block_1 .node--type-article.node--view-mode-teaser .field--name-body {
+      padding: 0 15px;
+      margin-bottom: 15px;
+      flex-grow: 1;
+  }
+
+  .view-blog.view-display-id-block_1 .node--type-article.node--view-mode-teaser .node__links {
+      padding: 0 15px 15px;
+  }
+
+  .view-blog.view-display-id-block_1 h2.view-title {
+      text-align: center;
+      font-size: 32px;
+      color: #ac9c63;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+  }
+skin_color: '011e41'
+secondary_color: ac9c58
+tertiary_color: 2BAAB1
+quaternary_color: 383f48
+background_color: light
+body_background_color: ffffff
+site_layout: wide
+breadcrumbs: true
+sticky_header: true
+logo_height: '54'
+sticky_logo_height: '40'
+header_layout: h_fullwidth
+ribbon: true
+ribbon_text: 'Lépjen velünk kapcsolatba'
+footer_color: primary

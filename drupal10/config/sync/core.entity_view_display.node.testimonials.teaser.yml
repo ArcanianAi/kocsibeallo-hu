@@ -1,0 +1,65 @@
+uuid: 7940fa55-91bd-4e82-8b5c-9c96bea67fda
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.testimonials.comment_node_testimonials
+    - field.field.node.testimonials.field_image
+    - field.field.node.testimonials.field_testimonial_content
+    - field.field.node.testimonials.field_testimonial_info
+    - field.field.node.testimonials.field_testimonial_name
+    - node.type.testimonials
+  module:
+    - image
+    - text
+    - user
+id: node.testimonials.teaser
+targetEntityType: node
+bundle: testimonials
+mode: teaser
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_testimonial_content:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 160
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_testimonial_info:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_testimonial_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment_node_testimonials: true
+  langcode: true
+  search_api_excerpt: true

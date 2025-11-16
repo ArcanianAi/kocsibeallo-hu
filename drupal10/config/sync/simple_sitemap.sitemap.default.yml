@@ -1,0 +1,13 @@
+uuid: 6f9fc8e2-55f9-4496-aabe-50ee4bd81a12
+langcode: hu
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.default_hreflang
+_core:
+  default_config_hash: rzLPapRSW-bgTs4MObzlqsqwj5IxPGO9EQZolw2ZzFc
+id: default
+label: Alapértelmezés
+description: 'Az alapértelmezett „hreflang” szerkezetű oldaltérkép. Webcímeket sorol fel a korszerű keresőmotorok általi beindexeléshez.'
+type: default_hreflang
+weight: 0

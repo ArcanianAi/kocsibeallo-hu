@@ -1,0 +1,22 @@
+{
+  "name": "drupal/porto_theme",
+  "type": "drupal-theme",
+  "description": "Porto Theme is now available on Drupal ^9 || ^10. Porto is a professional and multipurpose Drupal theme for any business or portfolio website. It’s fully responsive design ready to look stunning on any device.",
+  "keywords": ["Drupal Port Theme"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/porto_theme",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/porto_theme",
+    "source": "https://git.drupalcode.org/project/porto_theme"
+  },
+  "authors": [
+        {
+            "name": "Minh Hoang (@hoangd)",
+            "homepage": "https://www.drupal.org/u/hoangd",
+            "role": "Maintainer"
+        }
+    ],
+  "require": { 
+	"drupal/core": "^9.3 || ^10"	
+  }
+}

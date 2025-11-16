@@ -1,0 +1,26 @@
+uuid: 37b5a387-80d1-4170-9aef-5d2053f61fd6
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parallax_category
+    - node.type.parallax
+    - taxonomy.vocabulary.parallax
+id: node.parallax.field_parallax_category
+field_name: field_parallax_category
+entity_type: node
+bundle: parallax
+label: 'Parallax Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parallax: parallax
+    sort:
+      field: _none
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: bbf30cef-f466-4482-aadb-c363145af3cc
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:b32437d0-8497-435c-b3af-f3945bb8d690'
+  module:
+    - block_content
+    - system
+  theme:
+    - tweme
+id: tweme_block_8
+theme: tweme
+region: ''
+weight: -19
+provider: null
+plugin: 'block_content:b32437d0-8497-435c-b3af-f3945bb8d690'
+settings:
+  id: 'block_content:b32437d0-8497-435c-b3af-f3945bb8d690'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /custom-header

@@ -1,0 +1,87 @@
+uuid: d365ce7b-589e-41c1-a96c-02be497eee7f
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_twitter_feed.default
+    - field.field.node.twitter_feed.comment_node_twitter_feed
+    - field.field.node.twitter_feed.field_tweet_count
+    - field.field.node.twitter_feed.field_twitter_consumer_key
+    - field.field.node.twitter_feed.field_twitter_consumer_secret
+    - field.field.node.twitter_feed.field_twitter_handle
+    - field.field.node.twitter_feed.field_twitter_user_secret
+    - field.field.node.twitter_feed.field_twitter_user_token
+    - node.type.twitter_feed
+  module:
+    - comment
+    - user
+id: node.twitter_feed.default
+targetEntityType: node
+bundle: twitter_feed
+mode: default
+content:
+  comment_node_twitter_feed:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_tweet_count:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_twitter_consumer_key:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_twitter_consumer_secret:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_twitter_handle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_twitter_user_secret:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_twitter_user_token:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

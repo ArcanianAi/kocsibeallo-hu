@@ -1,0 +1,8 @@
+uuid: c905d512-7af5-46ac-9674-fae94838c6ea
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_twitter_feed
+label: 'Twitter Feed comment'
+target_entity_type_id: node
+description: null

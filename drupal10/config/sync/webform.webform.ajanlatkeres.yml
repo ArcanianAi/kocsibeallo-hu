@@ -1,0 +1,361 @@
+uuid: 42c95851-df22-473e-90c6-6440ce0789ad
+langcode: hu
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: ajanlatkeres
+title: Ajánlatkérés
+description: 'Kocsibeálló építésére vonatkozó ajánlatkérés'
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': 'Az Ön neve'
+    '#required': true
+  phone:
+    '#type': tel
+    '#title': 'Az Ön telefonszáma'
+    '#required': true
+  email:
+    '#type': email
+    '#title': 'Az Ön email címe'
+    '#required': true
+  location:
+    '#type': textfield
+    '#title': 'Építés helyszíne'
+    '#required': true
+  car_count:
+    '#type': number
+    '#title': 'Autók száma'
+    '#required': true
+    '#default_value': 1
+    '#min': 1
+    '#max': 10
+  type:
+    '#type': select
+    '#title': 'Választott típus'
+    '#required': true
+    '#options':
+      'Egyedi nyitott': 'Egyedi nyitott'
+      XIMAX: XIMAX
+      Palram: Palram
+      Napelemes: Napelemes
+      'Zárt garázs': 'Zárt garázs'
+    '#empty_option': '-Válasszon-'
+  size:
+    '#type': fieldset
+    '#title': Méret
+    '#description': 'Kérjük, adja meg az autóbeálló hosszát és szélességét méterben.'
+  length:
+    '#type': number
+    '#title': hossz
+    '#required': true
+    '#min': 1
+    '#step': 0.1
+    '#field_suffix': m
+  width:
+    '#type': number
+    '#title': szélesség
+    '#required': true
+    '#min': 1
+    '#step': 0.1
+    '#field_suffix': m
+  message:
+    '#type': textarea
+    '#title': 'Kérdések, megjegyzések'
+    '#rows': 5
+  attachment:
+    '#type': managed_file
+    '#title': 'Csatolmány feltöltése'
+    '#description': 'Kérem mellékeljen egy képet a házról vagy a környezetről, hogy ehhez illeszkedő autóbeállóra tehessünk ajánlatot.'
+    '#file_extensions': 'jpg jpeg png gif pdf doc docx'
+    '#max_filesize': '24'
+    '#multiple': false
+    '#required': false
+    '#uri_scheme': private
+  actions:
+    '#type': webform_actions
+    '#title': submit_actions
+    '#submit__label': Beküldés
+css: |-
+  .webform-submission-ajanlatkeres-form .form-item {
+      margin-bottom: 20px;
+  }
+  .webform-submission-ajanlatkeres-form input[type=text],
+  .webform-submission-ajanlatkeres-form input[type=email],
+  .webform-submission-ajanlatkeres-form input[type=tel],
+  .webform-submission-ajanlatkeres-form input[type=number],
+  .webform-submission-ajanlatkeres-form select,
+  .webform-submission-ajanlatkeres-form textarea {
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 0px;
+      font-size: 14px;
+      width: 100%;
+      max-width: 100%;
+  }
+  .webform-submission-ajanlatkeres-form input[type=tel] {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+  .webform-submission-ajanlatkeres-form textarea {
+      min-height: 150px;
+  }
+  .webform-submission-ajanlatkeres-form fieldset {
+      border: 0;
+      padding: 0;
+      margin: 30px 0 20px 0;
+  }
+  .webform-submission-ajanlatkeres-form fieldset legend,
+  .webform-submission-ajanlatkeres-form .fieldset-legend {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #011e41;
+  }
+  .webform-submission-ajanlatkeres-form label {
+      font-weight: 400;
+      margin-bottom: 5px;
+      display: block;
+      color: #011e41;
+  }
+  .webform-submission-ajanlatkeres-form .form-required {
+      color: #ac9c58;
+  }
+  .webform-submission-ajanlatkeres-form .btn-primary,
+  .webform-submission-ajanlatkeres-form .webform-button--submit {
+      background-color: #ac9c58 !important;
+      border-color: #ac9c58 !important;
+      color: #fff !important;
+      border-radius: 0px !important;
+      padding: 12px 30px !important;
+      font-weight: normal !important;
+      font-size: 15px !important;
+      margin-top: 10px;
+  }
+  .webform-submission-ajanlatkeres-form .btn-primary:hover,
+  .webform-submission-ajanlatkeres-form .webform-button--submit:hover {
+      background-color: #fff !important;
+      color: #ac9c58 !important;
+      border-color: #ac9c58 !important;
+  }
+  .webform-submission-ajanlatkeres-form input[type=file] {
+      display: inline-block;
+  }
+  .webform-submission-ajanlatkeres-form .form-managed-file .button {
+      background-color: #ac9c58 !important;
+      border-color: #ac9c58 !important;
+      color: #fff !important;
+      border-radius: 0px !important;
+      padding: 8px 20px !important;
+      font-weight: normal !important;
+      margin-left: 10px;
+  }
+  .webform-submission-ajanlatkeres-form .form-managed-file .button:hover {
+      background-color: #fff !important;
+      color: #ac9c58 !important;
+      border-color: #ac9c58 !important;
+  }
+  .webform-submission-ajanlatkeres-form .description {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+  }
+  .webform-submission-ajanlatkeres-form .form-item-car-count input {
+      max-width: 200px;
+  }
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: true
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_url: ''
+  confirmation_title: 'Köszönjük ajánlatkérését!'
+  confirmation_message: 'Köszönjük, hogy érdeklődik kocsibeálló építésünk iránt. Munkatársunk hamarosan felveszi Önnel a kapcsolatot.'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_remote_addr: true
+  form_login: false
+  form_login_message: ''
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    handler_id: email
+    label: 'Email notification'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: info@kocsibeallo.hu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: '[webform_submission:values:email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:name:raw]'
+      reply_to: '[webform_submission:values:email:raw]'
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Új ajánlatkérés érkezett'
+      body: |-
+        Új ajánlatkérés érkezett a kocsibeallo.hu weboldalról.
+
+        [webform_submission:values]
+
+        ---
+        Ezt az emailt automatikusan küldte a weboldal.
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

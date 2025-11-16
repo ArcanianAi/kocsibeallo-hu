@@ -1,0 +1,8 @@
+uuid: f727c80a-b0f9-4041-abe3-b985d4b9237a
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_home_concept
+label: 'Home Concept comment'
+target_entity_type_id: node
+description: null

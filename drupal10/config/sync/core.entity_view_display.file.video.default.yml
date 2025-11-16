@@ -1,0 +1,23 @@
+uuid: 50d7234d-99dd-4ccb-afca-de5d6e259fa4
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.file.video.field_folder
+  module:
+    - file
+id: file.video.default
+targetEntityType: file
+bundle: video
+mode: default
+content:
+  field_folder:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

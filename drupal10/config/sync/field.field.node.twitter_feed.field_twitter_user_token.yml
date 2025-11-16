@@ -1,0 +1,19 @@
+uuid: b92afbe9-3c73-47bb-ab78-ca56012ce33a
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_twitter_user_token
+    - node.type.twitter_feed
+id: node.twitter_feed.field_twitter_user_token
+field_name: field_twitter_user_token
+entity_type: node
+bundle: twitter_feed
+label: 'Twitter User Token'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

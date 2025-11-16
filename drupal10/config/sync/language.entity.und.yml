@@ -1,0 +1,11 @@
+uuid: cc12786d-0c34-4281-8939-fe4d368a991a
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: eNX6lLCKDaY83nCMh20My---y03KbiFlv802DKCCpvg
+id: und
+label: 'Nincs megadva'
+direction: ltr
+weight: 2
+locked: true

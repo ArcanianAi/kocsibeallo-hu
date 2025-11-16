@@ -1,0 +1,18 @@
+uuid: e7883029-0d9b-4c9e-8a0b-54264fbc7f3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Parallax
+type: parallax
+description: 'Use this to create content for a Parallax block. '
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,8 @@
+uuid: 31fe66b9-dcff-4347-864a-73830f668eca
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_tippek
+label: 'Tippek comment'
+target_entity_type_id: node
+description: null

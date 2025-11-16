@@ -1,0 +1,9 @@
+uuid: a5135501-ba62-406e-b9c7-be7eb7487645
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tetőszerkezet anyaga'
+vid: szerkezet_anyaga
+description: 'Képgalériához készült szótár'
+weight: -8
+new_revision: false

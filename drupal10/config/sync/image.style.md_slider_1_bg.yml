@@ -1,0 +1,16 @@
+uuid: cfaa15fb-d561-45fa-9452-dc677c0b5720
+langcode: en
+status: true
+dependencies: {  }
+name: md_slider_1_bg
+label: md_slider_1_bg
+effects:
+  7b048470-38cc-471c-8583-a8c670935cd1:
+    uuid: 7b048470-38cc-471c-8583-a8c670935cd1
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1040
+      height: 450
+      anchor: center-center
+      scaleup: true

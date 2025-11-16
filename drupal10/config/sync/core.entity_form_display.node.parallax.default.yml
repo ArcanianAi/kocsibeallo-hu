@@ -1,0 +1,137 @@
+uuid: accf1cac-6920-45b7-a012-0e9299be9838
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.node.parallax.comment_node_parallax
+    - field.field.node.parallax.field_big_caption
+    - field.field.node.parallax.field_image
+    - field.field.node.parallax.field_parallax_category
+    - field.field.node.parallax.field_parallax_icon
+    - field.field.node.parallax.field_small_caption
+    - field.field.node.parallax.field_text_color
+    - image.style.thumbnail
+    - node.type.parallax
+  module:
+    - comment
+    - image
+    - path
+id: node.parallax.default
+targetEntityType: node
+bundle: parallax
+mode: default
+content:
+  comment_node_parallax:
+    type: comment_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_big_caption:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_parallax_category:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_parallax_icon:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_small_caption:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_text_color:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

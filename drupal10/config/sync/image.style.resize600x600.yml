@@ -1,0 +1,15 @@
+uuid: a2c3b6bb-d783-48b0-a932-d052ffeb6619
+langcode: en
+status: true
+dependencies: {  }
+name: resize600x600
+label: 'Resize (600x600)'
+effects:
+  ac0e5a35-2892-43b5-94e9-e510aaec8381:
+    uuid: ac0e5a35-2892-43b5-94e9-e510aaec8381
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 600
+      anchor: center-center

@@ -1,0 +1,27 @@
+uuid: 75f829bf-bc82-4743-99d4-44f1d589aea5
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ogg_video
+    - node.type.video_background
+  module:
+    - file
+id: node.video_background.field_ogg_video
+field_name: field_ogg_video
+entity_type: node
+bundle: video_background
+label: 'OGG Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ''
+  file_extensions: ogv
+  max_filesize: ''
+  description_field: false
+field_type: file

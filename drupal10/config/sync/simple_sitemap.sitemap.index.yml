@@ -1,0 +1,13 @@
+uuid: ba92e892-ecff-485f-925a-b312e196a8ad
+langcode: hu
+status: false
+dependencies:
+  config:
+    - simple_sitemap.type.index
+_core:
+  default_config_hash: WffB95XdMvoUEvymTyLFLB-Q_JnCbbjy9Kj7TvlzN9s
+id: index
+label: 'Sitemap Index'
+description: 'Egy olyan oldaltérkép, amely más oldaltérkép-dokumentumokat sorol fel (ha több van). A legtöbb esetben ennek az összefoglaló oldaltérképnek kellene utolsóként elkészülnie, majd alapértelmezettnek lennie.'
+type: index
+weight: 1000

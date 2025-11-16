@@ -1,0 +1,19 @@
+uuid: 1995b19f-5186-4a9e-ac46-93c8177f1d29
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parallax_icon
+    - node.type.parallax
+id: node.parallax.field_parallax_icon
+field_name: field_parallax_icon
+entity_type: node
+bundle: parallax
+label: 'Parallax Icon'
+description: 'Add a Font Awesome(http://fortawesome.github.io/Font-Awesome/icons/) icon class.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

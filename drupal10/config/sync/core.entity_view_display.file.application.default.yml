@@ -1,0 +1,23 @@
+uuid: 9f27f258-b785-4509-9d7b-db1f38c3ad51
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.file.application.field_folder
+  module:
+    - file
+id: file.application.default
+targetEntityType: file
+bundle: application
+mode: default
+content:
+  field_folder:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,26 @@
+uuid: 2ca32aae-439d-46cb-a2f3-04b445dd1cc1
+langcode: hu
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ohm
+id: ohm_system_main
+theme: ohm
+region: ''
+weight: -33
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: |-
+      <front>
+      /node/1

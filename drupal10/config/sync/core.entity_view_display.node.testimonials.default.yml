@@ -1,0 +1,72 @@
+uuid: 720ef175-0c58-411a-ae69-79fd1e056178
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_testimonials.default
+    - field.field.node.testimonials.comment_node_testimonials
+    - field.field.node.testimonials.field_image
+    - field.field.node.testimonials.field_testimonial_content
+    - field.field.node.testimonials.field_testimonial_info
+    - field.field.node.testimonials.field_testimonial_name
+    - node.type.testimonials
+  module:
+    - comment
+    - image
+    - user
+id: node.testimonials.default
+targetEntityType: node
+bundle: testimonials
+mode: default
+content:
+  comment_node_testimonials:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_testimonial_content:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_testimonial_info:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_testimonial_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

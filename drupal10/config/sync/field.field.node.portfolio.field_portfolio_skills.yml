@@ -1,0 +1,26 @@
+uuid: 16d7ac5c-c03d-4795-b037-0bdd62d0bba2
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_skills
+    - node.type.portfolio
+    - taxonomy.vocabulary.skills
+id: node.portfolio.field_portfolio_skills
+field_name: field_portfolio_skills
+entity_type: node
+bundle: portfolio
+label: 'Portfolio Skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      skills: skills
+    sort:
+      field: _none
+field_type: entity_reference

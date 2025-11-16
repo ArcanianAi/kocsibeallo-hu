@@ -1,0 +1,28 @@
+uuid: 67e32e64-2e38-4e94-88f4-26098bde09ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - porto
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: porto_porto_system_main
+theme: porto
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: |-
+      <front>
+      /node/1

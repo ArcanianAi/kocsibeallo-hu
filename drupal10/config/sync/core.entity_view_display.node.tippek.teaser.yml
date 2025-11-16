@@ -1,0 +1,34 @@
+uuid: 2572de99-ee05-457a-918e-b95396ea78ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tippek.body
+    - field.field.node.tippek.comment_node_tippek
+    - node.type.tippek
+  module:
+    - text
+    - user
+id: node.tippek.teaser
+targetEntityType: node
+bundle: tippek
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment_node_tippek: true
+  langcode: true
+  search_api_excerpt: true

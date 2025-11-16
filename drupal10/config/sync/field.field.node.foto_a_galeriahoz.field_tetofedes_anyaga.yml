@@ -1,0 +1,26 @@
+uuid: ae4bfc56-9287-44ba-8f30-58026442ded5
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tetofedes_anyaga
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.tetofedes_anyaga
+id: node.foto_a_galeriahoz.field_tetofedes_anyaga
+field_name: field_tetofedes_anyaga
+entity_type: node
+bundle: foto_a_galeriahoz
+label: 'Tetőfedés anyaga'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tetofedes_anyaga: tetofedes_anyaga
+    sort:
+      field: _none
+field_type: entity_reference

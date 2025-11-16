@@ -1,0 +1,17 @@
+uuid: 546577bd-5ab1-4ea0-9c91-ddee081099ae
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zvXPpZGB9cBXSmreGM12--Y_YyAVspXcM_GY2vtjMyU
+name: md_slider_thumb
+label: 'MD Slider Thumb'
+effects:
+  md_slider_imgeffect_slider_thumb:
+    uuid: md_slider_imgeffect_slider_thumb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 160
+      height: 160
+      anchor: center-center

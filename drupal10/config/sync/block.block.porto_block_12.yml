@@ -1,0 +1,25 @@
+uuid: 78a965cc-9e69-4c28-b525-c39c1096e1d6
+langcode: hu
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c09f3235-2d35-4c49-b635-2f701441d645'
+  module:
+    - block_content
+  theme:
+    - porto
+id: porto_block_12
+theme: porto
+region: footer_11
+weight: -91
+provider: null
+plugin: 'block_content:c09f3235-2d35-4c49-b635-2f701441d645'
+settings:
+  id: 'block_content:c09f3235-2d35-4c49-b635-2f701441d645'
+  label: Elérhetőségünk
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

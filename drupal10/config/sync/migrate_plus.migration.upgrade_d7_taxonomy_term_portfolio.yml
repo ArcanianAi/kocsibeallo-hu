@@ -1,0 +1,93 @@
+uuid: bc92b456-218d-4930-b517-93a546299065
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_portfolio
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Portfolio)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: portfolio
+process:
+  tid:
+    -
+      plugin: get
+      source: tid
+  revision_id:
+    -
+      plugin: get
+      source: tid
+  vid:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_vocabulary
+      source: vid
+  name:
+    -
+      plugin: get
+      source: name
+  description/value:
+    -
+      plugin: get
+      source: description
+  description/format:
+    -
+      plugin: get
+      source: format
+  weight:
+    -
+      plugin: get
+      source: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d7_taxonomy_term_tags
+        - upgrade_d7_taxonomy_term_portfolio
+        - upgrade_d7_taxonomy_term_team
+        - upgrade_d7_taxonomy_term_parallax
+        - upgrade_d7_taxonomy_term_video_background
+        - upgrade_d7_taxonomy_term_skills
+        - upgrade_d7_taxonomy_term_newsletter
+        - upgrade_d7_taxonomy_term_kocsibeallo_tipus
+        - upgrade_d7_taxonomy_term_oldalzaras_anyaga
+        - upgrade_d7_taxonomy_term_szerkezet_anyaga
+        - upgrade_d7_taxonomy_term_tetofedes_anyaga
+        - upgrade_d7_taxonomy_term_media_folders
+        - upgrade_d7_taxonomy_term_st_lus
+        - upgrade_d7_taxonomy_term_cimkek
+        - upgrade_d7_taxonomy_term_termekek
+  parent:
+    -
+      plugin: default_value
+      default_value: 0
+      source: '@parent_id'
+  changed:
+    -
+      plugin: get
+      source: timestamp
+  langcode:
+    -
+      plugin: get
+      source: language
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: portfolio
+idMap: {  }
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_taxonomy_vocabulary
+include: null

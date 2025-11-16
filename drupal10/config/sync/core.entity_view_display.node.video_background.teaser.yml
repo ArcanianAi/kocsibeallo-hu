@@ -1,0 +1,42 @@
+uuid: a683692e-88b4-4fc6-8a0b-0702efd031e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.video_background.body
+    - field.field.node.video_background.comment_node_video_background
+    - field.field.node.video_background.field_mp4_video
+    - field.field.node.video_background.field_ogg_video
+    - field.field.node.video_background.field_video_background_category
+    - field.field.node.video_background.field_video_image
+    - node.type.video_background
+  module:
+    - text
+    - user
+id: node.video_background.teaser
+targetEntityType: node
+bundle: video_background
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment_node_video_background: true
+  field_mp4_video: true
+  field_ogg_video: true
+  field_video_background_category: true
+  field_video_image: true
+  langcode: true
+  search_api_excerpt: true

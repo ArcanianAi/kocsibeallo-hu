@@ -1,0 +1,22 @@
+uuid: bb5366ad-be75-42e7-919f-6a41c992a325
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tartalom2
+    - node.type.page
+  module:
+    - text
+id: node.page.field_tartalom2
+field_name: field_tartalom2
+entity_type: node
+bundle: page
+label: Tartalom2
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

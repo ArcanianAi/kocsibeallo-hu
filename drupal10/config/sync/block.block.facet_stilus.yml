@@ -1,0 +1,27 @@
+uuid: d8b11c22-ca24-4ae1-bc0c-01fb175fd7c4
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.stilus
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_stilus
+theme: porto
+region: left_sidebar
+weight: 1
+provider: null
+plugin: 'facet_block:stilus'
+settings:
+  id: 'facet_block:stilus'
+  label: Stílus
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

@@ -1,0 +1,19 @@
+uuid: e4f19df3-4a7b-4f92-8599-d2d679f21f7f
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_link
+    - node.type.portfolio
+id: node.portfolio.field_portfolio_link
+field_name: field_portfolio_link
+entity_type: node
+bundle: portfolio
+label: 'Portfolio Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

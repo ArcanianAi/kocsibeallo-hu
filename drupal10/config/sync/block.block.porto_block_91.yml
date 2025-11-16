@@ -1,0 +1,25 @@
+uuid: 58d53514-be46-4fd1-901b-c079a808feb4
+langcode: hu
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:31ae66c5-53e8-48b3-bcb8-110e439a47b9'
+  module:
+    - block_content
+  theme:
+    - porto
+id: porto_block_91
+theme: porto
+region: footer_21
+weight: 0
+provider: null
+plugin: 'block_content:31ae66c5-53e8-48b3-bcb8-110e439a47b9'
+settings:
+  id: 'block_content:31ae66c5-53e8-48b3-bcb8-110e439a47b9'
+  label: 'Deluxe Building Kft.'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

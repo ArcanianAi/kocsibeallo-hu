@@ -1,0 +1,29 @@
+uuid: bccd9596-85c5-42f7-a4c7-bcfbf8d8cbd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_carousel
+    - field.field.comment.comment_node_carousel.comment_body
+  module:
+    - text
+id: comment.comment_node_carousel.default
+targetEntityType: comment
+bundle: comment_node_carousel
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

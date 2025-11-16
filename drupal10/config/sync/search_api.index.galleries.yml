@@ -1,0 +1,166 @@
+uuid: null
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cimkek
+    - field.storage.node.field_gallery_tag
+    - field.storage.node.field_oldalzaras_anyaga
+    - field.storage.node.field_stilus
+    - field.storage.node.field_szerkezet_anyaga
+    - field.storage.node.field_termek_tipus
+    - field.storage.node.field_tetofedes_anyaga
+    - search_api.server.db_server
+  module:
+    - node
+id: galleries
+name: Galleries
+description: 'Search index for photo gallery content'
+read_only: false
+field_settings:
+  created:
+    label: Létrehozva
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_cimkek:
+    label: Címkék
+    datasource_id: 'entity:node'
+    property_path: field_cimkek
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_cimkek
+  field_gallery_tag:
+    label: 'Gallery tag'
+    datasource_id: 'entity:node'
+    property_path: field_gallery_tag
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_gallery_tag
+  field_oldalzaras_anyaga:
+    label: 'Oldalzárás anyaga'
+    datasource_id: 'entity:node'
+    property_path: field_oldalzaras_anyaga
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_oldalzaras_anyaga
+  field_stilus:
+    label: Stílus
+    datasource_id: 'entity:node'
+    property_path: field_stilus
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_stilus
+  field_szerkezet_anyaga:
+    label: 'Szerkezet anyaga'
+    datasource_id: 'entity:node'
+    property_path: field_szerkezet_anyaga
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_szerkezet_anyaga
+  field_termek_tipus:
+    label: 'Termék típus'
+    datasource_id: 'entity:node'
+    property_path: field_termek_tipus
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_termek_tipus
+  field_tetofedes_anyaga:
+    label: 'Tetőfedés anyaga'
+    datasource_id: 'entity:node'
+    property_path: field_tetofedes_anyaga
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tetofedes_anyaga
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: 'Közzétételi állapot'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Cím
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 8.0
+    dependencies:
+      module:
+        - node
+  type:
+    label: Tartalomtípus
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: Szerző
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - foto_a_galeriahoz
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_status: {  }
+  entity_type: {  }
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: false
+    title: true
+    alt: true
+    tags:
+      b: 2.0
+      em: 1.5
+      h1: 5.0
+      h2: 3.0
+      h3: 2.0
+      strong: 2.0
+      u: 1.5
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: db_server

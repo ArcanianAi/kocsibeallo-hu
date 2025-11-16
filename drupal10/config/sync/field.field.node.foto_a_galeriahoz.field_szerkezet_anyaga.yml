@@ -1,0 +1,26 @@
+uuid: 0bd3273b-e30b-4874-a119-60569a8564d1
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_szerkezet_anyaga
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.szerkezet_anyaga
+id: node.foto_a_galeriahoz.field_szerkezet_anyaga
+field_name: field_szerkezet_anyaga
+entity_type: node
+bundle: foto_a_galeriahoz
+label: 'Szerkezet anyaga'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      szerkezet_anyaga: szerkezet_anyaga
+    sort:
+      field: _none
+field_type: entity_reference

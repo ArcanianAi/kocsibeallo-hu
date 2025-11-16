@@ -1,0 +1,15 @@
+uuid: 6bfee897-cf00-4269-a577-11ad79d1c844
+langcode: en
+status: true
+dependencies: {  }
+name: kep_thumbnail
+label: 'Kep thumbnail'
+effects:
+  3cfd93b7-8603-4df5-bc41-ee31b524f2c8:
+    uuid: 3cfd93b7-8603-4df5-bc41-ee31b524f2c8
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 240
+      height: 200
+      anchor: center-center

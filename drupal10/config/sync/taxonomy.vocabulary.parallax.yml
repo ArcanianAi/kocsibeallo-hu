@@ -1,0 +1,9 @@
+uuid: cfcf388f-21cb-46ed-95c7-12fff990b8b7
+langcode: en
+status: true
+dependencies: {  }
+name: Parallax
+vid: parallax
+description: 'Taxonomy for use with the Parallax content type.'
+weight: 2
+new_revision: false

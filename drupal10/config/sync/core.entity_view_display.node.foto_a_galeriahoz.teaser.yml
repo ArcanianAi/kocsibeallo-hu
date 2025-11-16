@@ -1,0 +1,62 @@
+uuid: 0d9bc34c-0a0a-4f62-8b1e-f707ada26e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.foto_a_galeriahoz.body
+    - field.field.node.foto_a_galeriahoz.comment_node_foto_a_galeriahoz
+    - field.field.node.foto_a_galeriahoz.field_cimkek
+    - field.field.node.foto_a_galeriahoz.field_gallery_tag
+    - field.field.node.foto_a_galeriahoz.field_oldalzaras_anyaga
+    - field.field.node.foto_a_galeriahoz.field_stilus
+    - field.field.node.foto_a_galeriahoz.field_szerkezet_anyaga
+    - field.field.node.foto_a_galeriahoz.field_telikert_kep
+    - field.field.node.foto_a_galeriahoz.field_termek_tipus
+    - field.field.node.foto_a_galeriahoz.field_tetofedes_anyaga
+    - field.field.node.foto_a_galeriahoz.field_vissza_link
+    - node.type.foto_a_galeriahoz
+  module:
+    - text
+    - user
+id: node.foto_a_galeriahoz.teaser
+targetEntityType: node
+bundle: foto_a_galeriahoz
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 160
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_telikert_kep:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: -1
+    region: content
+hidden:
+  comment_node_foto_a_galeriahoz: true
+  field_cimkek: true
+  field_gallery_tag: true
+  field_oldalzaras_anyaga: true
+  field_stilus: true
+  field_szerkezet_anyaga: true
+  field_termek_tipus: true
+  field_tetofedes_anyaga: true
+  field_vissza_link: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,20 @@
+uuid: 4a13e51d-cf8c-4ef4-8db7-9ceb4bbf2f3a
+langcode: hu
+status: true
+dependencies:
+  module:
+    - comment
+    - node
+id: node.comment_node_twitter_feed
+field_name: comment_node_twitter_feed
+entity_type: node
+type: comment
+settings:
+  comment_type: comment_node_twitter_feed
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

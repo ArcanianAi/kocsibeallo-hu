@@ -1,0 +1,138 @@
+uuid: ff81e0da-b2f8-4a6a-bc97-168e6f991cb0
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_menu_links
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Menu links'
+source:
+  plugin: menu_link
+  constants:
+    bundle: menu_link_content
+process:
+  skip_translation:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: skip_translation
+  id:
+    -
+      plugin: get
+      source: mlid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  bundle:
+    -
+      plugin: get
+      source: constants/bundle
+  title:
+    -
+      plugin: get
+      source: link_title
+  description:
+    -
+      plugin: get
+      source: description
+  menu_name:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_menu
+      source: menu_name
+    -
+      plugin: skip_on_empty
+      method: row
+  link/uri:
+    -
+      plugin: link_uri
+      source: link_path
+  link/options:
+    -
+      plugin: get
+      source: options
+  route:
+    -
+      plugin: route
+      source:
+        - link_path
+        - options
+  route_name:
+    -
+      plugin: get
+      source: '@route/route_name'
+  route_parameters:
+    -
+      plugin: get
+      source: '@route/route_parameters'
+  url:
+    -
+      plugin: get
+      source: '@route/url'
+  options:
+    -
+      plugin: get
+      source: '@route/options'
+  external:
+    -
+      plugin: get
+      source: external
+  weight:
+    -
+      plugin: get
+      source: weight
+  expanded:
+    -
+      plugin: get
+      source: expanded
+  enabled:
+    -
+      plugin: get
+      source: enabled
+  parent:
+    -
+      plugin: menu_link_parent
+      source:
+        - plid
+        - '@menu_name'
+        - parent_link_path
+  changed:
+    -
+      plugin: get
+      source: updated
+destination:
+  plugin: 'entity:menu_link_content'
+  no_stub: true
+idMap: {  }
+migration_dependencies:
+  required:
+    - upgrade_d7_menu
+  optional:
+    - upgrade_d7_node_article
+    - upgrade_d7_node_carousel
+    - upgrade_d7_node_contact
+    - upgrade_d7_node_faq
+    - upgrade_d7_node_foto_a_galeriahoz
+    - upgrade_d7_node_home_concept
+    - upgrade_d7_node_our_history
+    - upgrade_d7_node_page
+    - upgrade_d7_node_parallax
+    - upgrade_d7_node_portfolio
+    - upgrade_d7_node_product_display
+    - upgrade_d7_node_simplenews
+    - upgrade_d7_node_story
+    - upgrade_d7_node_team
+    - upgrade_d7_node_testimonials
+    - upgrade_d7_node_tippek
+    - upgrade_d7_node_twitter_feed
+    - upgrade_d7_node_video_background
+    - upgrade_d7_node_webform
+    - upgrade_d7_menu
+include: null

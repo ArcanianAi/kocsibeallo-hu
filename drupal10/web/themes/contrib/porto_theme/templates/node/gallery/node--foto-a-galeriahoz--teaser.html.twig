@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Porto theme implementation for foto_a_galeriahoz nodes in teaser view mode.
+ *
+ * This template displays gallery items as Porto product cards.
+ *
+ * Available variables:
+ * - node: The node entity.
+ * - label: The title of the node.
+ * - content: All node fields rendered.
+ * - url: Direct URL of the current node.
+ * - attributes: HTML attributes for the wrapper.
+ */
+#}
+
+<span class="product-thumb-info">
+    <a href="{{ url }}">
+        <span class="product-thumb-info-image">
+            <span class="product-thumb-info-act">
+                <span class="product-thumb-info-act-left"><em>További</em></span>
+                <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Részletek</em></span>
+            </span>
+
+            {% if content.field_telikert_kep %}
+                {# Display only first image from gallery #}
+                {{ content.field_telikert_kep[0] }}
+            {% else %}
+                <img alt="" class="img-responsive" src="http://placehold.it/800x600/f0f0f0/999999?text=Nincs+kép">
+            {% endif %}
+
+        </span>
+    </a>
+    <span class="product-thumb-info-content">
+        <a href="{{ url }}">
+            <h4 class="heading-primary">{{ label }}</h4>
+
+            {% if content.body %}
+                <div class="product-description">
+                    {{ content.body }}
+                </div>
+            {% endif %}
+
+            <span class="price">
+                {% if content.field_gallery_tag %}
+                    {# Display only gallery tag like live site - single term #}
+                    {{ content.field_gallery_tag }}
+                {% endif %}
+            </span>
+        </a>
+    </span>
+</span>

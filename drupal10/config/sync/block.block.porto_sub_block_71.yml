@@ -1,0 +1,32 @@
+uuid: c0390535-2b79-41ff-bf80-1ab244fdf878
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:7afc60cf-b338-4584-ba90-ec4b7247e0f1'
+  module:
+    - block_content
+    - system
+  theme:
+    - porto_sub
+id: porto_sub_block_71
+theme: porto_sub
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:7afc60cf-b338-4584-ba90-ec4b7247e0f1'
+settings:
+  id: 'block_content:7afc60cf-b338-4584-ba90-ec4b7247e0f1'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /index-header-navbar-extra-info
+      /index-corporate-3

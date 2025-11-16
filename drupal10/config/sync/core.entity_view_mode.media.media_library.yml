@@ -1,0 +1,16 @@
+uuid: 110ccb77-12ad-4625-b6aa-b26c4985f571
+langcode: hu
+status: true
+dependencies:
+  module:
+    - media
+  enforced:
+    module:
+      - media_library
+_core:
+  default_config_hash: 04_dAqpWYP1WmsXZ7IXJ7-yarCvNddD10EUkBDtIFy4
+id: media.media_library
+label: Médiakönyvtár
+description: ''
+targetEntityType: media
+cache: true

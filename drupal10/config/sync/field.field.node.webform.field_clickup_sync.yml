@@ -1,0 +1,19 @@
+uuid: 92100f3d-a563-4902-89cd-1b6e4db36541
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clickup_sync
+    - node.type.webform
+id: node.webform.field_clickup_sync
+field_name: field_clickup_sync
+entity_type: node
+bundle: webform
+label: 'ClickUp Sync'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

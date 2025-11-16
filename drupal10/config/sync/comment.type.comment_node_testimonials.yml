@@ -1,0 +1,8 @@
+uuid: 5fdef4b0-d63f-40de-9d5d-385351561e59
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_testimonials
+label: 'Testimonials comment'
+target_entity_type_id: node
+description: null

@@ -1,0 +1,28 @@
+uuid: e4f24310-1442-46e0-a617-2e540f74fa29
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - olivero
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: porto_system_main
+theme: olivero
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: |-
+      <front>
+      /node/1

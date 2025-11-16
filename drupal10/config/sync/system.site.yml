@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: hu
+uuid: e856c808-80f8-46e3-9f12-e01fd29d1cf7
+name: Kocsibeallo.hu
+mail: info@kocsibeallo.hu
+slogan: 'Kocsibeálló minden időre'
+page:
+  403: ''
+  404: /node/39
+  front: /node/597
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: hu
+mail_notification: null

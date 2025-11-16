@@ -1,0 +1,21 @@
+uuid: c1365aa7-ffe0-4e71-9c76-e3e436f80c1c
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_circle_1_caption
+field_name: field_circle_1_caption
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 48e83b66-edfb-4026-bb1a-e7672db32bd2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - porto
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: porto_powered
+theme: porto
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Drupal működteti'
+  label_display: '0'
+  provider: system
+visibility: {  }

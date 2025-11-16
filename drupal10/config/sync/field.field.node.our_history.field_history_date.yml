@@ -1,0 +1,19 @@
+uuid: 265147d6-7dd1-4e4d-89bd-e2ae0ffe2255
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_history_date
+    - node.type.our_history
+id: node.our_history.field_history_date
+field_name: field_history_date
+entity_type: node
+bundle: our_history
+label: 'History Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

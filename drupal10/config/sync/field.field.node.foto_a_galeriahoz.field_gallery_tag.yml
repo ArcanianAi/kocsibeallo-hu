@@ -1,0 +1,26 @@
+uuid: 36859bcc-298e-4581-92bb-ba1d0dd17618
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gallery_tag
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.kocsibeallo_tipus
+id: node.foto_a_galeriahoz.field_gallery_tag
+field_name: field_gallery_tag
+entity_type: node
+bundle: foto_a_galeriahoz
+label: Típus
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      kocsibeallo_tipus: kocsibeallo_tipus
+    sort:
+      field: _none
+field_type: entity_reference

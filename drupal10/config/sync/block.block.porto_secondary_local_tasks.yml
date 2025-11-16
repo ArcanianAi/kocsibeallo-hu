@@ -1,0 +1,22 @@
+uuid: 3e3c48c7-b732-45e5-be5a-85990451031e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - porto
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: porto_secondary_local_tasks
+theme: porto
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Másodlagos fülek'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

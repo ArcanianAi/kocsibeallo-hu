@@ -1,0 +1,26 @@
+uuid: f8cd62ef-f7c0-488d-b0b7-e5242b3a4eee
+langcode: hu
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - tweme
+id: tweme_system_main
+theme: tweme
+region: ''
+weight: -23
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: |-
+      <front>
+      /node/1

@@ -1,0 +1,18 @@
+uuid: 73b2b6c5-3ff6-42f5-86cf-6eb8523ad5db
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Our History'
+type: our_history
+description: 'Use this to create content for the "Our History" view block.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

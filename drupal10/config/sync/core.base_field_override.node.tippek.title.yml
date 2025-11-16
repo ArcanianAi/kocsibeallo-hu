@@ -1,0 +1,18 @@
+uuid: d65dd414-2a3e-4277-a95e-faefe5961d78
+langcode: hu
+status: true
+dependencies:
+  config:
+    - node.type.tippek
+id: node.tippek.title
+field_name: title
+entity_type: node
+bundle: tippek
+label: Cím
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

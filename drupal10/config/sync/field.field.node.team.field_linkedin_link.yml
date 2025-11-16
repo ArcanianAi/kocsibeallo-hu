@@ -1,0 +1,21 @@
+uuid: 175911ab-9cb1-407d-ae69-d187e893794b
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linkedin_link
+    - node.type.team
+id: node.team.field_linkedin_link
+field_name: field_linkedin_link
+entity_type: node
+bundle: team
+label: 'LinkedIn Link'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'http://linkedin.com/#'
+default_value_callback: ''
+settings: {  }
+field_type: string

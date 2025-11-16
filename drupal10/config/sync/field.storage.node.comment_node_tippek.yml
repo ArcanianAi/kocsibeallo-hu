@@ -1,0 +1,20 @@
+uuid: 4391214d-fded-4e7d-96ce-1c45c165d91a
+langcode: hu
+status: true
+dependencies:
+  module:
+    - comment
+    - node
+id: node.comment_node_tippek
+field_name: comment_node_tippek
+entity_type: node
+type: comment
+settings:
+  comment_type: comment_node_tippek
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

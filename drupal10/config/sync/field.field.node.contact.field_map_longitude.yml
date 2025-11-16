@@ -1,0 +1,19 @@
+uuid: 5974d370-814c-4b8a-b1d0-fb4dded43b98
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_longitude
+    - node.type.contact
+id: node.contact.field_map_longitude
+field_name: field_map_longitude
+entity_type: node
+bundle: contact
+label: 'Map Longitude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

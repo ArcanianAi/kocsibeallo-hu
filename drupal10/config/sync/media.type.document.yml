@@ -1,0 +1,16 @@
+uuid: 0cd9b4e5-0f6a-4c8e-8803-67eb41c67814
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _D9q3XSnP6ik9we9UuoTvZsQKPuYNp_G9PfwVtWzgnQ
+id: document
+label: Dokumentum
+description: 'Egy feltöltött fájl vagy dokumentum, mint például egy PDF.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_document
+field_map:
+  name: name

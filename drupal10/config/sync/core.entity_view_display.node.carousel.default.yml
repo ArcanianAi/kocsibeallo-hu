@@ -1,0 +1,46 @@
+uuid: f587fe63-6afe-4fbc-ad82-8d3edb98e7ef
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_carousel.default
+    - field.field.node.carousel.comment_node_carousel
+    - field.field.node.carousel.field_image
+    - node.type.carousel
+  module:
+    - comment
+    - image
+    - user
+id: node.carousel.default
+targetEntityType: node
+bundle: carousel
+mode: default
+content:
+  comment_node_carousel:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

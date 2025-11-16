@@ -1,0 +1,68 @@
+uuid: 9035fda2-6de2-407e-8b1e-7370dc35456a
+langcode: hu
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.bevezet_blog_lista
+    - field.field.node.article.body
+    - field.field.node.article.comment
+    - field.field.node.article.comment_node_article
+    - field.field.node.article.field_image
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_thumbnail
+    - image.style.blog_nagy
+    - node.type.article
+  module:
+    - image
+    - text
+    - user
+id: node.article.bevezet_blog_lista
+targetEntityType: node
+bundle: article
+mode: bevezet_blog_lista
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 400
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: blog_nagy
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_thumbnail:
+    type: image_url
+    label: above
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment: true
+  comment_node_article: true
+  langcode: true
+  search_api_excerpt: true

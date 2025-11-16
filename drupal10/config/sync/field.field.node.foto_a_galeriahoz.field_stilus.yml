@@ -1,0 +1,26 @@
+uuid: 003f6400-af68-4372-980b-7b669f7866a0
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stilus
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.st_lus
+id: node.foto_a_galeriahoz.field_stilus
+field_name: field_stilus
+entity_type: node
+bundle: foto_a_galeriahoz
+label: Stílus
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      st_lus: st_lus
+    sort:
+      field: _none
+field_type: entity_reference

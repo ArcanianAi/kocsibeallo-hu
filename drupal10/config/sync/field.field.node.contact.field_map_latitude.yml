@@ -1,0 +1,19 @@
+uuid: ebfddf04-18d7-465b-a74d-a690b5b99fb1
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_latitude
+    - node.type.contact
+id: node.contact.field_map_latitude
+field_name: field_map_latitude
+entity_type: node
+bundle: contact
+label: 'Map Latitude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

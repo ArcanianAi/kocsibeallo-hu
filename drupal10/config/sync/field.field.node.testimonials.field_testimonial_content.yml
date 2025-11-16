@@ -1,0 +1,19 @@
+uuid: cc127c62-f442-48d7-9a06-f6057b22c5a5
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_testimonial_content
+    - node.type.testimonials
+id: node.testimonials.field_testimonial_content
+field_name: field_testimonial_content
+entity_type: node
+bundle: testimonials
+label: 'Testimonial Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

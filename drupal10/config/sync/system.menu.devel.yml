@@ -1,0 +1,8 @@
+uuid: 4a63dd81-f2e4-48bf-8205-0f21a7f749f4
+langcode: en
+status: true
+dependencies: {  }
+id: devel
+label: Fejlesztés
+description: 'Fejlesztési hivatkozás'
+locked: false

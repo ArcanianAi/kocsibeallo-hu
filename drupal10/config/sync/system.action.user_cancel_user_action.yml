@@ -1,0 +1,13 @@
+uuid: d1986a2f-da47-4b57-b64c-02bf274a7c62
+langcode: hu
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: nvrL9bFilzBvm2bjO9rQnFDpBA7dBBUjShSSt6NS-DU
+id: user_cancel_user_action
+label: 'A kiválasztott felhasználók törlése'
+type: user
+plugin: user_cancel_user_action
+configuration: {  }

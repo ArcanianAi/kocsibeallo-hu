@@ -1,0 +1,27 @@
+uuid: 64ac7ded-3703-43fe-a2fa-41c23a2b0084
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.file.document.field_folder
+  module:
+    - file
+id: file.document.default
+targetEntityType: file
+bundle: document
+mode: default
+content:
+  field_folder:
+    type: options_select
+    weight: 41
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

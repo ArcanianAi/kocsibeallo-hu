@@ -1,0 +1,8 @@
+uuid: 5be436a1-466c-4caa-9875-c1ab36d0e89e
+langcode: en
+status: true
+dependencies: {  }
+id: menu-one-page
+label: 'One Page'
+description: ''
+locked: false

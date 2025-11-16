@@ -1,0 +1,27 @@
+uuid: 11de60a5-57bb-44c9-b53f-f5603f37fdd6
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_folder
+    - taxonomy.vocabulary.media_folders
+  module:
+    - file
+id: file.document.field_folder
+field_name: field_folder
+entity_type: file
+bundle: document
+label: 'Media Folder'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media_folders: media_folders
+    sort:
+      field: _none
+field_type: entity_reference

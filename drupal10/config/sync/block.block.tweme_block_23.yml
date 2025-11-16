@@ -1,0 +1,30 @@
+uuid: 18378a22-b022-4d25-82d8-aea75cfe48c2
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:7e55f99e-3d2b-4392-b85d-455272956e71'
+  module:
+    - block_content
+    - system
+  theme:
+    - tweme
+id: tweme_block_23
+theme: tweme
+region: ''
+weight: -22
+provider: null
+plugin: 'block_content:7e55f99e-3d2b-4392-b85d-455272956e71'
+settings:
+  id: 'block_content:7e55f99e-3d2b-4392-b85d-455272956e71'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /nivo-slider

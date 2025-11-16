@@ -1,0 +1,19 @@
+uuid: f6e41635-15bd-4af7-8c10-f5e622036529
+langcode: hu
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: 4J2RPG4JmsD4Fm1NlIQY0JHkrJ08UUl0qTF0_EjUxvw
+id: relationship
+label: Kapcsolat
+category: Demographic
+likert: false
+options: |
+  Parent: Parent
+  'Significant Other': 'Significant Other'
+  Sibling: Sibling
+  Child: Child
+  Friend: Friend

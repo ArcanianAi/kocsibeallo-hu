@@ -1,0 +1,38 @@
+uuid: 123c47cf-d516-4c9c-9b48-1a058c0d348c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.our_history.body
+    - field.field.node.our_history.comment_node_our_history
+    - field.field.node.our_history.field_history_date
+    - field.field.node.our_history.field_history_image
+    - node.type.our_history
+  module:
+    - text
+    - user
+id: node.our_history.teaser
+targetEntityType: node
+bundle: our_history
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment_node_our_history: true
+  field_history_date: true
+  field_history_image: true
+  langcode: true
+  search_api_excerpt: true

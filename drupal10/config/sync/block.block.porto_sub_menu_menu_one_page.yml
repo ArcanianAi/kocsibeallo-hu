@@ -1,0 +1,29 @@
+uuid: 463fed0b-87db-400a-bcab-677b61a0ab05
+langcode: hu
+status: false
+dependencies:
+  config:
+    - system.menu.menu-one-page
+  module:
+    - system
+  theme:
+    - porto_sub
+id: porto_sub_menu_menu_one_page
+theme: porto_sub
+region: ''
+weight: 1
+provider: null
+plugin: 'system_menu_block:menu-one-page'
+settings:
+  id: 'system_menu_block:menu-one-page'
+  label: '<none>'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /one-page

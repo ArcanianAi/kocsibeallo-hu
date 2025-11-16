@@ -1,0 +1,23 @@
+uuid: 113e3d61-2291-4b95-8e1c-1fae5a120b87
+langcode: hu
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - olivero
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: olivero_search_form_wide
+theme: olivero
+region: secondary_menu
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Keresési űrlap (széles)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

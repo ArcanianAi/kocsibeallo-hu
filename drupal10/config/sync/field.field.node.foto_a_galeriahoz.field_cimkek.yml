@@ -1,0 +1,26 @@
+uuid: 7abf00d4-f66a-4368-b248-99da3a5b20be
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cimkek
+    - node.type.foto_a_galeriahoz
+    - taxonomy.vocabulary.cimkek
+id: node.foto_a_galeriahoz.field_cimkek
+field_name: field_cimkek
+entity_type: node
+bundle: foto_a_galeriahoz
+label: Címkék
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cimkek: cimkek
+    sort:
+      field: _none
+field_type: entity_reference

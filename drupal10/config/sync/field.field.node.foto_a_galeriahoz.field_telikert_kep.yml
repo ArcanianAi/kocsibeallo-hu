@@ -1,0 +1,33 @@
+uuid: 41c377d5-872f-48de-91ae-1e5a52aa0784
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telikert_kep
+    - node.type.foto_a_galeriahoz
+  module:
+    - image
+id: node.foto_a_galeriahoz.field_telikert_kep
+field_name: field_telikert_kep
+entity_type: node
+bundle: foto_a_galeriahoz
+label: 'Galéria képek'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: gallery/main
+  file_extensions: 'png gif jpg jpeg bmp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image: 0
+field_type: image

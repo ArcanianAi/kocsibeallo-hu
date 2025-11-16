@@ -1,0 +1,5 @@
+name: 'Gallery Custom'
+type: module
+description: 'Custom styling and functionality for gallery page'
+core_version_requirement: ^10
+package: Custom

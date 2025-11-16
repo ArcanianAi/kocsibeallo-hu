@@ -1,0 +1,27 @@
+uuid: dc1bb019-ba6f-4ec2-97f8-e87322a57426
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - porto
+_core:
+  default_config_hash: gmxYWWHmgbe0Pnv8y48ZLSLH5mEHejOjAP6RLxUfdzU
+id: porto_account_menu
+theme: porto
+region: header
+weight: -4
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'Felhasználói fiók menüje'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

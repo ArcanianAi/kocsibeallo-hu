@@ -1,0 +1,72 @@
+uuid: 64239839-3fc9-4ccf-831c-4276d5cab938
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.body
+    - field.field.node.article.comment
+    - field.field.node.article.comment_node_article
+    - field.field.node.article.field_image
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_thumbnail
+    - image.style.blog_nagy
+    - node.type.article
+  module:
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: O8PxzfG8DOHHRu6M23kwR6TDPq_MNfYQ10Mp367ICUQ
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 160
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: blog_nagy
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_thumbnail:
+    type: image_url
+    label: hidden
+    settings:
+      image_style: thumbnail
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  comment: true
+  comment_node_article: true
+  field_kepek: true
+  field_telikert_kep: true
+  langcode: true
+  search_api_excerpt: true

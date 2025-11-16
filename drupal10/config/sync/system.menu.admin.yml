@@ -1,0 +1,10 @@
+uuid: a0ad5867-5be0-440d-9980-4eb31eefc1fd
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sapEi2YDGoI9yQIT_WgIV2vUdQ6DScH0V3fAyTadAL0
+id: admin
+label: Adminisztráció
+description: 'Műveletek adminisztrátoroknak'
+locked: true

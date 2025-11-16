@@ -1,0 +1,8 @@
+uuid: bdcc2360-e89c-4743-a8a6-8cd5146aa506
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_team
+label: 'Team comment'
+target_entity_type_id: node
+description: null

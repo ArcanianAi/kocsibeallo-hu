@@ -1,0 +1,31 @@
+uuid: bc244568-193f-4136-a31c-f10868c7a14e
+langcode: hu
+status: false
+dependencies:
+  config:
+    - webform.webform.ajanlatkeres
+  module:
+    - system
+    - webform
+  theme:
+    - porto
+id: porto_sidebar_ajanlatkeres
+theme: porto
+region: header
+weight: 10
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Ajánlatkérés
+  label_display: visible
+  provider: webform
+  webform_id: ajanlatkeres
+  default_data: ''
+  redirect: false
+  lazy: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

@@ -1,0 +1,16 @@
+langcode: hu
+status: true
+dependencies:
+  config:
+    - search_api.index.galleries
+    - views.view.index_gallery
+  module:
+    - facets_pretty_paths
+    - search_api
+id: search_api__views_page__index_gallery__page_1
+name: 'Index Gallery - Page'
+filter_key: f
+url_processor: facets_pretty_paths
+breadcrumb:
+  active: false
+  group: false

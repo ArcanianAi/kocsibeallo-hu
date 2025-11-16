@@ -1,0 +1,43 @@
+uuid: de627ee7-d004-4f9d-b9f7-789902bf377f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_activecampaign_id
+    - field.field.user.user.field_author_bio
+    - field.field.user.user.user_picture
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_author_bio:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  member_for:
+    weight: 5
+    region: content
+  user_picture:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  field_activecampaign_id: true
+  langcode: true
+  search_api_excerpt: true

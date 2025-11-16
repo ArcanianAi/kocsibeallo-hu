@@ -1,0 +1,22 @@
+uuid: 7be80c0c-c594-4c31-aff6-76733a4b34f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - porto
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: porto_help
+theme: porto
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Súgó
+  label_display: '0'
+  provider: help
+visibility: {  }

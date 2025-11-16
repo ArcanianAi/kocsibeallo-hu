@@ -1,0 +1,8 @@
+uuid: 80c33d6f-5fac-4e58-a39c-e666ecef0bb8
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_parallax
+label: 'Parallax comment'
+target_entity_type_id: node
+description: null

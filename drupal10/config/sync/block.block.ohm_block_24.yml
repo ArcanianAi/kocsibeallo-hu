@@ -1,0 +1,30 @@
+uuid: bf51f3fd-70e7-40c7-b274-a93f7c8885e8
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:612a634f-676e-42b3-9bab-0ac85c296400'
+  module:
+    - block_content
+    - system
+  theme:
+    - ohm
+id: ohm_block_24
+theme: ohm
+region: ''
+weight: -23
+provider: null
+plugin: 'block_content:612a634f-676e-42b3-9bab-0ac85c296400'
+settings:
+  id: 'block_content:612a634f-676e-42b3-9bab-0ac85c296400'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /one-page

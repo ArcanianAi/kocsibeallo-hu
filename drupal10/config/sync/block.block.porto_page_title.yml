@@ -1,0 +1,20 @@
+uuid: b73fc901-f96c-482c-b1d5-a9c165d21e2d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - porto
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: porto_page_title
+theme: porto
+region: header
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Oldal címe'
+  label_display: '0'
+  provider: core
+visibility: {  }

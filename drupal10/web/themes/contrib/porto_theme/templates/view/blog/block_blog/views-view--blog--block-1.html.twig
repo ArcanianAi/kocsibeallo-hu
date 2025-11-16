@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Custom template for blog block_1 display on homepage.
+ */
+#}
+
+{%
+set classes = [
+dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+
+    <section class="section mt-none section-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 center">
+                    <h2 class="word-rotator-title">
+                        BLOG <strong>BEJEGYZÉSEINK</strong>
+                    </h2>
+                    {% if header %}
+                    {{ header }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mt-lg">
+                {{ rows }}
+            </div>
+        </div>
+    </section>
+
+    {{ exposed }}
+    {{ attachment_before }}
+    {{ empty }}
+    {{ pager }}
+    {{ attachment_after }}
+    {{ more }}
+    {{ feed_icons }}
+</div>
+

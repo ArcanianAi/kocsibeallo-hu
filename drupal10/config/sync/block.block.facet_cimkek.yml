@@ -1,0 +1,27 @@
+uuid: c2ae0de8-a9f5-4fa7-9fee-56aa70405c84
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.cimkek
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_cimkek
+theme: porto
+region: left_sidebar
+weight: 6
+provider: null
+plugin: 'facet_block:cimkek'
+settings:
+  id: 'facet_block:cimkek'
+  label: Címkék
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

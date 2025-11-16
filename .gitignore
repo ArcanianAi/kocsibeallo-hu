@@ -1,7 +1,27 @@
-# Drupal directories
+# Drupal 7 - Reference only (not in git)
 drupal7-codebase/
-drupal10/
 d7_codebase_backup_*.tar.gz
+d7_discovery/
+
+# Drupal 10 - Composer dependencies and generated files
+drupal10/vendor/
+drupal10/web/core/
+drupal10/web/modules/contrib/
+drupal10/web/themes/contrib/
+drupal10/web/profiles/contrib/
+drupal10/web/libraries/
+
+# Drupal 10 - User uploaded files (keep .htaccess only)
+drupal10/web/sites/*/files/*
+!drupal10/web/sites/*/files/.htaccess
+drupal10/web/sites/*/private/
+
+# Drupal 10 - Ignore default services file
+drupal10/web/sites/*/services*.yml
+
+# Drupal 10 - Settings local overrides
+drupal10/web/sites/*/settings.local.php
+drupal10/web/sites/*/settings.ddev.php
 
 # Database files
 database/

@@ -1,0 +1,1810 @@
+/* Hide system-generated "Címlap" (Home) link that appears at end of menu */
+#mainNav > li:last-child {
+    display: none !important;
+}
+
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
+.page-kepgaleria {overflow:hidden;}
+#mainMenu .dropdown-menu .active-trail {
+    background: #ac9c58;
+    color: #fff !important;
+}
+/*Homepage bővebben gomb*/
+.frontpage .col-md-8 .btn-flat {
+    background-color: #ac9c58;
+    border: 1px solid #ac9c58;
+    border-radius: 0px;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.frontpage .col-md-8 .btn-flat:hover {
+    background-color: #fff;
+    border: 1px solid #ac9c58;
+    color:#ac9c58;
+    text-decoration: none;
+}
+.frontpage .col-md-8 .btn-flat .fa {display:none;}
+
+/*MOBILE DROPDOWN*/
+#header .header-btn-collapse-nav {
+    background: transparent;
+    color: #ac9c58;
+    float: right;
+    border: 1px solid #ac9c58;
+    padding: 10px 15px;
+    margin: 0px;
+}
+
+@media (max-width: 991px) {
+#header .header-nav-main nav>ul li a {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 20px;
+    padding: 15px 8px;
+    margin: 1px 0;
+    border-radius: 4px;
+    color: #fff;
+}
+#header .header-nav-main nav {margin: 20px 0 5px;}
+.header-btn-collapse-nav .fa.fa-bars {
+font-size:18px;
+}
+}
+
+/*Header 2022-06-09*/
+#header .header-body {
+    background: #011e41;
+    border-top: 0px;
+    padding: 15px 0;
+}
+
+#header .header-nav-main nav>ul>li>a {
+color:#fff;
+font-size:15px;
+font-weight:300;
+letter-spacing: 1px;
+}
+
+#header .header-nav-main nav > ul > li > a {
+    border-radius: 4px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 10px 13px;
+    text-transform: uppercase;
+}
+
+#header .header-nav-main nav>ul>li>a:hover {color:#ac9c63;}
+#header .header-nav-main nav>ul>li>a.active {color:#ac9c63;}
+
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {background-color:#ac9c63;}
+
+#header.header-narrow .header-logo img {
+    margin: 0px;
+    width: 100%;
+    aspect-ratio: auto;
+    height: auto;
+}
+/*FOOTER 2022-06-09*/
+/* Main footer background - white/light */
+html #footer.color,
+html #footer.color-primary {
+    background: #ffffff;
+    border-top: 1px solid #dedede;
+}
+
+/* Footer copyright bar - dark blue */
+#footer.color .footer-copyright,
+#footer.color-primary .footer-copyright {
+    background: #011e41 !important;
+}
+
+#footer.color .footer-ribbon,
+#footer.color-primary .footer-ribbon {
+    background: #011e41 !important;
+}
+
+/* Footer headings - gold with Playfair Display */
+#footer h1, #footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ac9c63;
+    margin-bottom: 20px;
+}
+
+#footer h3, #footer h4, #footer h5, #footer h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #ac9c58;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+/* Footer links - gold */
+#footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #ac9c58;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #011e41;
+    text-decoration: none;
+}
+
+/* Footer body text - dark */
+#footer.color p,
+#footer.color-primary p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #011228;
+    line-height: 1.6;
+}
+
+/* Phone number - dark blue */
+#footer .phone {
+    font-family: 'Poppins', sans-serif;
+    color: #011e41;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* Copyright bar text - white */
+#block-porto-block-88 .col-md-7 > p,
+#block-block-88 .content .col-md-7 > p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #fff !important;
+}
+
+/* Copyright bar links - white with gold hover */
+.footer-copyright nav a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #fff;
+}
+
+.footer-copyright nav a:hover,
+#footer .region-footer-bottom a:hover {
+    color: #ac9c58;
+}
+
+/* Copyright bar layout - LEFT and RIGHT edge alignment */
+.footer-copyright .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Handle wrapper divs inside row */
+.footer-copyright .row > div,
+#block-porto-block-88,
+#block-porto-block-88 > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Left side - Copyright text - LEFT edge */
+.footer-copyright .col-md-7,
+#block-porto-block-88 .col-md-7,
+#block-block-88 .col-md-7 {
+    text-align: left !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    flex: 0 0 auto;
+}
+
+.footer-copyright .col-md-7 > p,
+#block-porto-block-88 .col-md-7 > p,
+#block-block-88 .col-md-7 > p {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+/* Right side - Nav links - RIGHT edge */
+.footer-copyright .col-md-4,
+.footer-copyright .col-md-5,
+#block-porto-block-88 .col-md-4,
+#block-block-88 .col-md-4,
+#block-porto-block-88 .col-md-5,
+#block-block-88 .col-md-5 {
+    text-align: right !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.footer-copyright nav,
+.footer-copyright nav#sub-menu {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-copyright nav ul {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.footer-copyright nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure full-width container */
+.footer-copyright .container {
+    width: 100%;
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Footer padding and spacing */
+#footer .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#footer .footer-copyright {
+    padding: 20px 0;
+}
+
+/* Footer email links */
+#footer .list-icons a {
+    color: #ac9c58;
+}
+
+#footer .list-icons a:hover {
+    color: #011e41;
+}
+
+/* Footer block headings - use Playfair Display */
+#block-porto-block-12 h2,
+#block-porto-block-91 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ac9c63;
+    margin-bottom: 20px;
+}
+
+/* Footer block h5 styling */
+#block-porto-block-12 h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    color: #ac9c58;
+    margin-bottom: 10px;
+}
+
+/* Footer block paragraph styling */
+#block-porto-block-91 p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+}
+
+/* Footer column layout and alignment */
+#footer .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Left column - Contact info - LEFT aligned */
+#footer .col-md-3:first-child,
+#block-porto-block-12 {
+    text-align: left;
+}
+
+/* Right column - Company info - RIGHT aligned */
+#footer .col-md-3:last-child,
+#block-porto-block-91,
+#block-block-91 {
+    text-align: right;
+}
+
+@media (min-width: 992px) {
+    #footer .col-md-3 {
+        width: 50%;
+    }
+
+    /* Ensure left alignment for contact block */
+    #block-porto-block-12 {
+        text-align: left;
+    }
+
+    /* Ensure right alignment for company block */
+    #block-porto-block-91,
+    #block-block-91 {
+        text-align: right;
+    }
+
+    #block-porto-block-91 h2,
+    #block-block-91 h2 {
+        font-weight: 700;
+    }
+}
+
+/* Mobile - center both */
+@media (max-width: 991px) {
+    #footer .col-md-3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+/*Gombok beállításai 2022-06-09*/
+html .btn-primary {
+    color: #fff;
+    text-shadow: none;
+    background-color: #ac9c58;
+    border-radius: 0px;
+    border-color: #ac9c58;
+}
+.btn {padding: 8px 20px 8px 20px;}
+#edit-submitted-csatolmany-feltoltese-upload {margin-bottom:20px;}
+
+/*Betűtípus beállítás 2022-06-09*/
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+h1,h2,h3,h5,h6 {
+font-family: 'Playfair Display', serif;
+}
+h4 {
+font-family: 'Poppins', sans-serif;
+}
+
+h1,h2 {
+margin: 0 0 32px;
+font-size: 32px;
+font-weight: bold;
+text-transform: uppercase;
+color: #ac9c63;
+}
+
+/*DROPDOWN 2022-06-09*/
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu {
+border-radius: 0px;
+border: 0;
+border-top: 0px;
+margin-top:0px;
+min-width:218px;
+}
+
+html .btn-primary:hover {
+    color: #fff;
+    text-shadow: none;
+    background-color: #fff;
+    color:#ac9c58;
+    border-radius: 0px;
+    border-color: #ac9c58;
+}
+
+/*KÉPGALÉRIA*/
+.shop ul.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.node-type-product-display .page-header h1,
+.view-index-gallery li.pager-ellipsis {display: none;}
+/* Ajanlatkeres CSS-ek */
+
+#webform-submission-ajanlatkeres-add-form label,
+#webform-submission-ajanlatkeres-add-form .fieldset-wrapper label,
+#node-144 .webform-component label {
+    font-weight: bold;
+}
+#webform-submission-ajanlatkeres-add-form label.option,
+#webform-submission-ajanlatkeres-add-form .fieldset-wrapper div label,
+#node-144 .webform-component .form-item label {
+    font-weight: normal;
+}
+
+.form-textarea-wrapper .form-textarea {
+    height: auto;
+}
+
+#webform-client-form-145 .form-actions {
+    padding: 0 15px;
+}
+input.form-checkbox, input.form-radio {
+    vertical-align: top;
+}
+
+.col-md-12 .webform-component--referencia-kep{
+    display: none;
+}
+
+
+
+/* Galéria shop CSS-ek */
+.shop ul.products .product {
+    min-height: 375px;
+}
+.product-thumb-info .product-thumb-info-image::before {
+    z-index: 100;
+}
+.product-thumb-info .product-thumb-info-act {
+    z-index: 100;
+}
+.product-thumb-info h4 {
+    min-height: 1px;
+    line-height: 1.4em;
+font-weight:400;
+font-size:1.2em;
+margin-bottom:10px;
+}
+.product-thumb-info-content span.price {
+    color: rgba(145,145,145,1);
+    line-height: 1.3em;
+    min-height: 20px;
+}
+.field-slideshow-wrapper .field-slideshow {
+    max-height: 260px;
+}
+
+/* Gallery card: Constrain image in teaser view to fill container properly */
+/* Make the link fill the container */
+.path-kepgaleria .product-thumb-info-image > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 260px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Make images fill the container with proper aspect ratio */
+.path-kepgaleria .product-thumb-info-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Make sure images stay inside the product-thumb-info-image span */
+.path-kepgaleria .product-thumb-info-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    max-height: 260px;
+}
+
+/* Gallery grid: Add clearfix every 2 cards for proper alignment */
+.path-kepgaleria .view-content .product:nth-child(2n+1),
+.view-index-gallery .view-content .product:nth-child(2n+1) {
+    clear: both !important;
+}
+
+/* Gallery cards: Ensure equal height cards for better alignment */
+.path-kepgaleria .view-content .product,
+.view-index-gallery .view-content .product,
+.path-kepgaleria .product,
+.view-index-gallery .product {
+    margin-bottom: 30px !important;
+    min-height: 600px !important;
+}
+
+.path-kepgaleria .product-thumb-info {
+    height: 100%;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+}
+
+.path-kepgaleria .product-thumb-info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Normalize description height to prevent varying card heights */
+.path-kepgaleria .product-thumb-info .product-description {
+    min-height: 80px;
+    overflow: hidden;
+}
+
+/* Gallery card title styling - match live site */
+.path-kepgaleria .product-thumb-info .heading-primary {
+    color: rgb(1, 30, 65) !important;
+}
+
+.path-kepgaleria .product-thumb-info .heading-primary a {
+    color: rgb(1, 30, 65) !important;
+}
+
+/* Gallery card description text - gray color like live site */
+.path-kepgaleria .product-thumb-info .product-description {
+    color: #777 !important;
+}
+
+.path-kepgaleria .product-thumb-info .product-description p {
+    color: #777 !important;
+}
+
+/* Gallery card tags - style as plain text, not bright blue links */
+.path-kepgaleria .product-thumb-info .price {
+    color: #777 !important;
+}
+
+.path-kepgaleria .product-thumb-info .price a {
+    color: #777 !important;
+    text-decoration: none !important;
+}
+
+.path-kepgaleria .product-thumb-info .price .gallery-tag,
+.path-kepgaleria .product-thumb-info .price .gallery-tags,
+.path-kepgaleria .product-thumb-info .price .gallery-style,
+.path-kepgaleria .product-thumb-info .price .gallery-material {
+    display: inline !important;
+    color: #777 !important;
+}
+
+.path-kepgaleria .product-thumb-info .price .gallery-tag a,
+.path-kepgaleria .product-thumb-info .price .gallery-tags a,
+.path-kepgaleria .product-thumb-info .price .gallery-style a,
+.path-kepgaleria .product-thumb-info .price .gallery-material a {
+    color: #777 !important;
+    pointer-events: none !important;
+}
+
+.field-name-field-telikert-kep.field-type-image .field-item {
+    margin-bottom: 30px;
+}
+.field-name-field-telikert-kep.field-type-image .field-item a.fancybox {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 4px;
+}
+.field-name-field-telikert-kep.field-type-image .field-item a.fancybox::before {
+    content: '';
+    background-color: rgba(23,23,23,0.8);
+    width: calc( 100% - 8px );
+    height: calc( 100% - 8px );
+    display: block;
+    position: absolute;
+    border-radius: 2px;
+    transition: all 300ms ease 0ms;
+    opacity: 0;
+    z-index: 100;
+}
+.field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::before {
+    opacity: 1;
+}
+.field-name-field-telikert-kep.field-type-image .field-item a.fancybox::after {
+    content: '\f00e';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: calc( 50% - 24px );
+    color: #fff;
+    transition: all 300ms ease 0ms;
+    opacity: 0;
+    z-index: 100;
+}
+.field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::after {
+    opacity: 1;
+    top: calc( 50% - 35px );
+}
+.fancybox img {
+    transition: all 300ms ease 0ms;
+}
+.fancybox:hover img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+    transition: all 300ms ease 0ms;
+}
+
+/* Galéria Facet CSS-ek */
+.facetapi-processed {
+    float: none !important;
+    margin: 5px auto;
+}
+.facetapi-processed.pagination-lg > li > a,
+.facetapi-processed.pagination-lg > li > span {
+    display: inline;
+    padding: 8px;
+    font-size: 95%;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0;
+    background-color: #ac9b63;
+    margin: 2px 1px;
+    border: 1px solid #ac9b63;
+}
+.facetapi-processed.pagination-lg > li > a:hover,
+.facetapi-processed.pagination-lg > li > span {
+    background-color: #fff;
+border: 1px solid #ac9b63;
+  color: #ac9b63;
+}
+.facetapi-processed.pagination-lg > li > span {
+    margin-right: 150px;
+}
+.facetapi-processed.pagination-lg > li > span> a.facetapi-active {
+    color: #fff;
+}
+.facetapi-processed.pagination-lg > li > span> a.facetapi-active:hover {
+    color: #000;
+}
+.block-facetapi h4 {
+    min-height: 1.3em;
+    margin-bottom: 0px;
+}
+.block-facetapi .content {
+    margin-bottom: 20px;
+}
+
+
+/* Nyito oldali CSS-ek  */
+
+
+.frontpage  .col-md-8 {
+        width: 100%;
+        padding: 20px 18px;
+
+ }
+
+.panels-flexible-region-44-center {
+    float: left;
+    width: 100%;
+}
+
+section.section {
+    background: #eee;
+    padding-top:0px;
+}
+
+.frontpage .col-md-4 {
+    width: 100%;
+    padding-left: 0px;
+    padding-right:0px;
+}
+
+
+.frontpage .col-sm-4 {
+    background-color: white;
+    margin: 8px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.frontpage .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+h4 {
+    font-size: 19px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    color: #003768;
+    min-height: 44px;
+    overflow: hidden;
+}
+
+.frontpage .img-max img {
+    min-width: 100%;
+}
+
+
+
+@media (min-width: 992px)
+{
+    .frontpage .col-sm-4 {
+        width: 31%;
+    }
+
+    .frontpage .col-md-8 {
+        width: 100%;
+        height: 300px;
+        padding: 30px 25px;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .frontpage .col-sm-4 {
+        width: 47%;
+    }
+
+}
+
+
+@media (min-width: 992px) {
+#header .header-nav-main nav > ul > li > span{
+    color: #fff;
+    border-radius: 0px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing:1px;
+    line-height: 20px;
+    padding: 10px 13px;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+}
+}
+
+@media (min-width: 992px) {
+#header .header-nav-main nav > ul > li:hover > span{
+    background: #ac9c63;
+    color: #FFF;
+}
+}
+/*Módósítva 2022-06-10*/
+@media (max-width: 991px) {
+#header .header-nav-main nav > ul > li > span{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 15px;
+    font-style: normal;
+    line-height: 45px;
+    padding: 7px 8px;
+    margin: 1px 0;
+    border-radius: 4px;
+}
+}
+
+@media (min-width: 992px){
+.view-index-gallery .col-md-6 {
+    width: 50% !important;
+}
+}
+
+#edit-submitted-csatolmany-feltoltese-ajax-wrapper .description {
+   display: none;
+}
+#edit-submitted-csatolmany-feltoltese-upload {
+   float: left;
+}
+
+/* Blog  */
+.post-meta-user {display: none !important}
+.post-meta-comments {display: none !important}
+.post-block .post-author {display: none !important}
+.post-meta {margin-bottom: 40px !important}
+.post-author {display: none !important}
+
+.field-name-field-kepek .field-item {float: left; padding-right: 40px;padding-bottom: 20px;}
+
+.myButton {
+	background-color:#ac9c58;
+	border-radius:0px;
+	border:1px solid #ac9c58;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:18px;
+        text-transform:uppercase;
+	font-weight:normal;
+	padding:12px 15px;
+	text-decoration:none;
+	text-shadow:none;
+}
+.myButton:hover {
+	background-color:#fff;
+        text-decoration: none;
+        border:1px solid #ac9c58;
+        color: #ac9c58;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.box-right {
+     float: right;
+     width: 30%;
+     background-color: rgb(216, 226, 232);
+     margin-left: 10px;
+     padding: 5px;
+}
+
+ul {padding-left: 20px;}
+
+.region-before-content {margin-bottom: 25px;}
+
+/* Hide exposed filter form on gallery page */
+.view-index-gallery .views-exposed-form {
+  display: none !important;
+}
+
+/* Gallery intro styling */
+.gallery-intro {
+  background: #f8f8f8;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+.gallery-intro .lead {
+  font-size: 1.3em;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.gallery-stats {
+  margin: 30px 0 !important;
+  text-align: center;
+}
+
+.gallery-stats > div > div {
+  padding: 20px;
+  border: 2px solid #ac9c58;
+  margin: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  min-height: 120px;
+}
+
+.gallery-stats > div > div:hover {
+  background-color: #ac9c58;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery-stats > div > div strong {
+  font-size: 2.5em;
+  color: #ac9c58;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.gallery-stats > div > div:hover strong {
+  color: white;
+}
+
+/* Facet blocks styling */
+.block-facet--links h2 {
+  background-color: #ac9c58;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+.facet-inactive ul,
+.facet-active ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: white;
+}
+
+.facet-inactive li,
+.facet-active li {
+  border-bottom: 1px solid #eee;
+}
+
+.facet-inactive li a,
+.facet-active li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.facet-inactive li a:hover,
+.facet-active li a:hover {
+  background-color: #f5f5f5;
+  padding-left: 20px;
+}
+
+.facet-item__count {
+  float: right;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.facet-item.is-active a {
+  background-color: #ac9c58 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.facet-item.is-active .facet-item__count {
+  color: white;
+}
+
+/* Gallery grid improvements */
+.view-index-gallery .view-content {
+  margin-top: 30px;
+}
+
+.view-index-gallery .views-row {
+  margin-bottom: 30px;
+}
+
+/* Force hide exposed form on all gallery pages */
+.views-exposed-form[data-drupal-selector='views-exposed-form-index-gallery-page-1'] {
+  display: none !important;
+}
+
+/* Hide filter text block */
+#block-porto-block-92 {
+  display: none !important;
+}
+
+/* Hide all search forms globally */
+.search-block-form,
+.search-form,
+#block-porto-porto-search-form,
+#block-porto-search-form-wide {
+  display: none !important;
+}
+
+/* Gallery Product Card Styling */
+.product-thumb-info .product-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.3em;
+  margin-bottom: 10px;
+  color: #000000;
+  min-height: 20px;
+}
+
+.product-thumb-info .product-description p {
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #000000;
+}
+
+/* Taxonomy field wrappers - display inline */
+.product-thumb-info .price .gallery-tag,
+.product-thumb-info .price .gallery-tags,
+.product-thumb-info .price .gallery-style,
+.product-thumb-info .price .gallery-material {
+  display: inline;
+}
+
+/* Field containers - display inline */
+.product-thumb-info .price .field--name-field-gallery-tag,
+.product-thumb-info .price .field--name-field-cimkek,
+.product-thumb-info .price .field--name-field-stilus,
+.product-thumb-info .price .field--name-field-szerkezet-anyaga {
+  display: inline;
+}
+
+/* Individual taxonomy terms - display inline with comma separator */
+.product-thumb-info .price .field__item {
+  display: inline;
+}
+
+.product-thumb-info .price .field__item::after {
+  content: ", ";
+  color: #919191;
+}
+
+.product-thumb-info .price .field__item:last-child::after {
+  content: "";
+}
+
+/* Price/taxonomy container */
+.product-thumb-info .price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  line-height: 1.6em;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Taxonomy term links styling */
+.product-thumb-info .price .field__item a {
+  font-family: 'Poppins', sans-serif;
+  color: #919191;
+  font-size: 1em;
+  line-height: 1.6em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.product-thumb-info .price .field__item a:hover {
+  color: #ac9c58;
+  text-decoration: none;
+}
+
+/* Ensure Porto product card image sizing and alignment */
+.product-thumb-info .product-thumb-info-image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.product-thumb-info .product-thumb-info-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gallery teaser body text styling */
+.node--view-mode-teaser .field--name-body {
+  font-size: 0.9em;
+  line-height: 1.4em;
+}
+
+/* Placeholder for empty images */
+.product-thumb-info .product-thumb-info-image:empty::after {
+  content: 'Kép migrálás alatt...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 14px;
+}
+
+/* Gallery items grid spacing */
+.view-index-gallery .product {
+  margin-bottom: 30px;
+  min-height: 375px;
+}
+
+/*
+ * Container Max-Width: Bootstrap 3 Standard
+ * - Screens ≥1200px: 1170px max-width (defined in bootstrap.css)
+ * - Ensures content doesn't stretch too wide on large screens
+ * - Follows web standards and best practices for readability
+ * - No override needed - Bootstrap default is optimal
+ */
+
+/* Constrain after_content region to match container max-width */
+.region-after-content,
+#block-porto-block-93 {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Responsive max-widths matching Bootstrap container */
+@media (min-width: 768px) {
+  .region-after-content,
+  #block-porto-block-93 {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .region-after-content,
+  #block-porto-block-93 {
+    max-width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .region-after-content,
+  #block-porto-block-93 {
+    max-width: 1170px;
+  }
+}
+
+/* Gallery 2-column responsive layout */
+.view-index-gallery .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+  align-items: stretch;
+}
+
+.view-index-gallery .product {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.view-index-gallery .product .product-thumb-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.view-index-gallery .product .product-thumb-info:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.view-index-gallery .product .product-thumb-info-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.view-index-gallery .product .product-thumb-info-content > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+
+.view-index-gallery .product .product-thumb-info-content .product-description {
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.view-index-gallery .product .product-thumb-info-content .price {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Ensure equal heights for product cards */
+@media (min-width: 992px) {
+  .view-index-gallery .col-md-6 {
+    display: flex;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .view-index-gallery .col-xs-12 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Tablet and Desktop: 2 columns */
+@media (min-width: 768px) {
+  .view-index-gallery .col-sm-6 {
+    width: 50%;
+  }
+}
+
+/* Title and content alignment */
+.view-index-gallery .product .heading-primary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #003768;
+  line-height: 1.4em;
+  min-height: 44px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Title link colors */
+.view-index-gallery .product .heading-primary a,
+.view-index-gallery .product-thumb-info-content > a {
+  color: #003768;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.view-index-gallery .product .heading-primary a:hover,
+.view-index-gallery .product-thumb-info-content > a:hover {
+  color: #ac9c58;
+  text-decoration: none;
+}
+
+.view-index-gallery .product .heading-primary span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover overlay alignment */
+.product-thumb-info .product-thumb-info-act {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.view-blog .views-row {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* Blog post article card - simple layout without date box */
+.view-blog article {
+  background: #fff;
+  position: relative;
+  padding: 0;
+  min-height: auto;
+}
+
+/* Hide date/author footer completely */
+.view-blog article footer,
+.view-blog article > footer,
+.view-blog .views-row article footer,
+article[data-history-node-id] footer,
+.node--type-article.node--view-mode-teaser footer {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Blog post title - Playfair Display like live site */
+.view-blog article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ac9c63;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.view-blog article h2 a {
+  color: #ac9c63;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.view-blog article h2 a:hover {
+  color: #011e41;
+  text-decoration: none;
+}
+
+/* Hide featured image in blog list view */
+.view-blog article .field--name-field-image,
+.view-blog article .field--type-image {
+  display: none !important;
+}
+
+/* Blog teaser text */
+.view-blog article .field--name-body,
+.view-blog article .field--type-text-with-summary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.view-blog article .field--name-body p,
+.view-blog article .field--type-text-with-summary p {
+  margin-bottom: 15px;
+}
+
+/* Tags styling */
+.view-blog article .field--name-field-tags,
+.view-blog article .field--type-entity-reference {
+  margin-bottom: 20px;
+}
+
+.view-blog article .field--name-field-tags .field__label,
+.view-blog article .field--type-entity-reference .field__label {
+  display: inline;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #999;
+  margin-right: 10px;
+}
+
+.view-blog article .field--name-field-tags .field__label::before,
+.view-blog article .field--type-entity-reference .field__label::before {
+  content: "\f02b";
+  font-family: 'FontAwesome';
+  margin-right: 5px;
+}
+
+.view-blog article .field--name-field-tags .field__item,
+.view-blog article .field--type-entity-reference .field__item {
+  display: inline;
+}
+
+.view-blog article .field--name-field-tags a,
+.view-blog article .field--type-entity-reference a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.view-blog article .field--name-field-tags a:hover,
+.view-blog article .field--type-entity-reference a:hover {
+  color: #ac9c58;
+}
+
+/* Read more button - "TOVÁBB" style */
+.view-blog article .links {
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.view-blog article .links li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.view-blog article .links a {
+  background-color: #ac9c58;
+  border-radius: 0px;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+  border: 1px solid #ac9c58;
+}
+
+.view-blog article .links a:hover {
+  background-color: #ffffff;
+  color: #ac9c58;
+  border-color: #ac9c58;
+}
+
+.view-blog article .links a .visually-hidden {
+  display: none;
+}
+
+/* Hide comment link */
+.view-blog article .links li:nth-child(2) {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .view-blog article .links {
+    text-align: center;
+  }
+}
+
+
+/* Pager list - reset default styles and make horizontal */
+.view-index-gallery nav.pager .pager,
+.path-kepgaleria nav.pager .pager {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+/* Pager items - display inline with Bootstrap styling */
+.view-index-gallery nav.pager .pager__item,
+.path-kepgaleria nav.pager .pager__item {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* Pager links - Bootstrap button style */
+.view-index-gallery nav.pager .pager__item a,
+.path-kepgaleria nav.pager .pager__item a,
+.view-index-gallery nav.pager .pager__item span,
+.path-kepgaleria nav.pager .pager__item span {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.42857;
+  color: #fff;
+  text-decoration: none;
+  background-color: #011e41;
+  border: 1px solid #011e41;
+  transition: all 0.3s;
+}
+
+/* First item - rounded left corners */
+.view-index-gallery nav.pager .pager__item:first-child a,
+.path-kepgaleria nav.pager .pager__item:first-child a,
+.view-index-gallery nav.pager .pager__item:first-child span,
+.path-kepgaleria nav.pager .pager__item:first-child span {
+  border-radius: 6px 0 0 6px;
+}
+
+/* Last item - rounded right corners */
+.view-index-gallery nav.pager .pager__item:last-child a,
+.path-kepgaleria nav.pager .pager__item:last-child a,
+.view-index-gallery nav.pager .pager__item:last-child span,
+.path-kepgaleria nav.pager .pager__item:last-child span {
+  border-radius: 0 6px 6px 0;
+}
+
+/* Hover state */
+.view-index-gallery nav.pager .pager__item a:hover,
+.path-kepgaleria nav.pager .pager__item a:hover {
+  background-color: #ac9c58;
+  border-color: #ac9c58;
+  color: #fff;
+}
+
+/* Active/current page */
+.view-index-gallery nav.pager .pager__item.is-active a,
+.path-kepgaleria nav.pager .pager__item.is-active a,
+.view-index-gallery nav.pager .pager__item.is-active span,
+.path-kepgaleria nav.pager .pager__item.is-active span {
+  background-color: #ac9c58;
+  border-color: #ac9c58;
+  color: #fff;
+  cursor: default;
+}
+
+/* Hide "OLDAL" text before page numbers */
+.view-index-gallery nav.pager .pager__item .visually-hidden,
+.path-kepgaleria nav.pager .pager__item .visually-hidden {
+  display: none;
+}
+
+/* Next/Previous button text - lowercase and add arrow symbols */
+.view-index-gallery nav.pager .pager__item--next a,
+.path-kepgaleria nav.pager .pager__item--next a,
+.view-index-gallery nav.pager .pager-next a,
+.path-kepgaleria nav.pager .pager-next a {
+  text-transform: lowercase;
+}
+
+.view-index-gallery nav.pager .pager__item--next a::after,
+.path-kepgaleria nav.pager .pager__item--next a::after,
+.view-index-gallery nav.pager .pager-next a::after,
+.path-kepgaleria nav.pager .pager-next a::after {
+  content: " ›";
+  margin-left: 4px;
+}
+
+.view-index-gallery nav.pager .pager__item--last a,
+.path-kepgaleria nav.pager .pager__item--last a,
+.view-index-gallery nav.pager .pager-last a,
+.path-kepgaleria nav.pager .pager-last a {
+  text-transform: lowercase;
+}
+
+.view-index-gallery nav.pager .pager__item--last a::after,
+.path-kepgaleria nav.pager .pager__item--last a::after,
+.view-index-gallery nav.pager .pager-last a::after,
+.path-kepgaleria nav.pager .pager-last a::after {
+  content: " »";
+  margin-left: 4px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .view-index-gallery nav.pager .pager__item a,
+  .path-kepgaleria nav.pager .pager__item a,
+  .view-index-gallery nav.pager .pager__item span,
+  .path-kepgaleria nav.pager .pager__item span {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+}
+
+
+/* Move Facebook icon to header - hide from content area */
+main .social-icons-facebook,
+.region-content .social-icons-facebook {
+  display: none !important;
+}
+
+/* Move Facebook icon to header - show in header */
+#header .header-social-icons {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+#header .header-social-icons .social-icons-facebook {
+  display: inline-block !important;
+}
+
+#header .header-social-icons .social-icons-facebook a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ac9c58;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+#header .header-social-icons .social-icons-facebook a i {
+  color: #fff;
+  font-size: 20px;
+}
+
+#header .header-social-icons .social-icons-facebook a:hover {
+  background-color: #fff;
+}
+
+#header .header-social-icons .social-icons-facebook a:hover i {
+  color: #ac9c58;
+}
+
+/* Make header nav relative for positioning */
+#header .header-nav-main {
+  position: relative;
+}
+
+/* Alternative: If header doesn't have social icons container, create space */
+#header .header-body {
+  position: relative;
+}
+
+/* Page header section - dark blue background like live site */
+.region-breadcrumb {
+  background-color: #011e41 !important;
+  padding: 20px 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Breadcrumb styling - horizontal list like live site */
+nav[aria-labelledby="system-breadcrumb"] {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+nav[aria-labelledby="system-breadcrumb"] ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav[aria-labelledby="system-breadcrumb"] li {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+
+nav[aria-labelledby="system-breadcrumb"] li::after {
+  content: '›';
+  margin: 0 8px;
+  color: #ac9c58;
+}
+
+nav[aria-labelledby="system-breadcrumb"] li:last-child::after {
+  content: '';
+  margin: 0;
+}
+
+nav[aria-labelledby="system-breadcrumb"] a {
+  color: #ac9c58;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+nav[aria-labelledby="system-breadcrumb"] a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav[aria-labelledby="system-breadcrumb"] li:last-child {
+  color: #fff;
+}
+
+/* Hide "Morzsa" heading */
+#system-breadcrumb {
+  display: none !important;
+}
+
+/* Page title section - also in dark blue */
+.page-header {
+  background-color: #011e41 !important;
+  padding: 20px 0 !important;
+  margin-bottom: 40px !important;
+}
+
+.page-header h1 {
+  color: #fff !important;
+  margin-bottom: 0 !important;
+}
+
+
+
+
+.md-slider-wrap {
+  overflow: hidden;
+}
+
+
+/* Fix image sizing - use object-fit to fill without distortion */
+.md-slider-wrap .md-main-img img {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  position: static !important;
+  left: auto !important;
+}
+
+/* Ensure container doesn't constrain slider */
+.slide-show-wrapper,
+.region-slide-show {
+  width: 100%;
+  overflow: visible !important;
+}
+
+
+/* Fix image sizing - cover the full area without jumping */
+.md-slider-wrap .md-main-img img {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Ensure slide items don't cause height changes */
+.md-slide-item {
+  height: 350px !important;
+}
+
+.md-slide-items {
+  height: 350px !important;
+}
+
+/* ============================================
+   SLIDER FIXES - Boxed layout with proper styling
+   ============================================ */
+
+/* Add margin around slideshow block */
+.slide-show-wrapper,
+#block-porto-frontpage {
+  margin: 30px 0 40px 0 !important;
+}
+
+/* Slider should fit container width */
+.md-slider-wrap {
+  width: 100% !important;
+  height: 350px !important;
+  max-width: 1170px !important;
+}
+
+/* Fix image sizing for boxed layout */
+.md-slider-wrap .md-main-img img {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Ensure consistent slide heights */
+.md-slide-item {
+  height: 350px !important;
+}
+
+.md-slide-items {
+  height: 350px !important;
+}
+
+/* Move slider bullets to bottom */
+.md-slider-wrap .md-bullet {
+  top: auto !important;
+  bottom: 20px !important;
+}
+
+/* Hide FŐOLDAL text on homepage */
+body.path-frontpage .main .page-header,
+body.path-frontpage h1.page-title {
+  display: none !important;
+}
+
+/* Also hide any standalone heading below slider */
+.main > h1:first-of-type {
+  display: none !important;
+}
+
+/* Additional fix for Főoldal heading */
+.main > h1 {
+  display: none !important;
+}
+
+/* Ensure slider bullets are visible and at bottom */
+.md-slider-wrap .md-bullet {
+  z-index: 100 !important;
+}
+
+/* Fix logo dimensions to match live site */
+.header-logo img {
+  width: 150px !important;
+  height: 45px !important;
+}
+
+/* Further reduce menu spacing to fit all items on one line */
+#header .header-nav-main nav > ul > li > a,
+#header nav > ul > li > a {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  font-size: 13px !important;
+}
+
+/* Ensure menu doesn't wrap */
+#header .header-nav-main nav > ul {
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+/* Fix menu styling to match live site */
+#header .header-nav-main nav > ul > li > a,
+#header nav > ul > li > a {
+  padding-left: 13px !important;
+  padding-right: 13px !important;
+  font-size: 15px !important;
+  color: #ac9c63 !important;  /* Gold color as default */
+  font-weight: 300 !important;
+}
+
+/* Menu hover - white color */
+#header .header-nav-main nav > ul > li > a:hover,
+#header nav > ul > li > a:hover {
+  color: #ffffff !important;
+}
+
+/* Further reduce padding to fit menu on one line while keeping 15px font */
+#header .header-nav-main nav > ul > li > a,
+#header nav > ul > li > a {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}

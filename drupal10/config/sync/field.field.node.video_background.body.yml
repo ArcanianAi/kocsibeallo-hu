@@ -1,0 +1,24 @@
+uuid: b013d0f8-68f4-4972-b053-ade4279aec35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.video_background
+  module:
+    - text
+id: node.video_background.body
+field_name: body
+entity_type: node
+bundle: video_background
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

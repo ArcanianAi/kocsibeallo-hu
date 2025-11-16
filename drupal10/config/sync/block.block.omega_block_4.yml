@@ -1,0 +1,32 @@
+uuid: b43809bd-1b41-4ce0-a4ef-1f2dbfff0f50
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a7e2c124-688e-430a-8c84-f9d2923e4dc0'
+  module:
+    - block_content
+    - system
+  theme:
+    - omega
+id: omega_block_4
+theme: omega
+region: ''
+weight: -29
+provider: null
+plugin: 'block_content:a7e2c124-688e-430a-8c84-f9d2923e4dc0'
+settings:
+  id: 'block_content:a7e2c124-688e-430a-8c84-f9d2923e4dc0'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /<front>
+      /nivo-slider

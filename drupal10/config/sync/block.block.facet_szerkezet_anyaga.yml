@@ -1,0 +1,27 @@
+uuid: 9b0e71f6-1c14-439b-a871-8fb27c9e4ffd
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.szerkezet_anyaga
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_szerkezet_anyaga
+theme: porto
+region: left_sidebar
+weight: 2
+provider: null
+plugin: 'facet_block:szerkezet_anyaga'
+settings:
+  id: 'facet_block:szerkezet_anyaga'
+  label: 'Szerkezet anyaga'
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

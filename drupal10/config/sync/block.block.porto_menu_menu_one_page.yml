@@ -1,0 +1,29 @@
+uuid: 5f5b2809-e28e-4def-b86e-c1e2d3f3233e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-one-page
+  module:
+    - system
+  theme:
+    - porto
+id: porto_menu_menu_one_page
+theme: porto
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:menu-one-page'
+settings:
+  id: 'system_menu_block:menu-one-page'
+  label: '<none>'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /one-page

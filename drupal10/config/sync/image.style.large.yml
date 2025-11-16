@@ -1,0 +1,17 @@
+uuid: 0fb0d7bb-6b5f-4163-a47d-837730d6d170
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rDR2BOewa2UFH9yG4tVvrGxEVv8U7LQo-RLkJhFpERs
+name: large
+label: 'Nagy (480×480 képpont)'
+effects:
+  d4438a5e-218a-4e30-ae9f-d199bf524fa6:
+    uuid: d4438a5e-218a-4e30-ae9f-d199bf524fa6
+    id: image_scale
+    weight: 0
+    data:
+      width: 480
+      height: 480
+      upscale: false

@@ -1,0 +1,20 @@
+uuid: 6d448a1b-88d7-40d4-aa99-1c78d08138dc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - porto
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: porto_primary_admin_actions
+theme: porto
+region: header
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Elsődleges adminisztrátori műveletek'
+  label_display: '0'
+  provider: core
+visibility: {  }

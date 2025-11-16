@@ -1,0 +1,22 @@
+uuid: dc5f8628-08cf-42ba-b0cb-f2bb3d1de1b9
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_html
+    - node.type.contact
+  module:
+    - text
+id: node.contact.field_map_html
+field_name: field_map_html
+entity_type: node
+bundle: contact
+label: 'Map HTML'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

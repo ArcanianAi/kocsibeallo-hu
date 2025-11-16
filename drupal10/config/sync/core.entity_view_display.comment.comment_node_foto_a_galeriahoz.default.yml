@@ -1,0 +1,29 @@
+uuid: aceeccd5-f15b-41e0-9bf4-c1623184910e
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_node_foto_a_galeriahoz
+    - field.field.comment.comment_node_foto_a_galeriahoz.comment_body
+  module:
+    - text
+id: comment.comment_node_foto_a_galeriahoz.default
+targetEntityType: comment
+bundle: comment_node_foto_a_galeriahoz
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

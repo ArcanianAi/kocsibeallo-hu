@@ -1,0 +1,111 @@
+uuid: d8a0fe85-1957-4fba-8078-1ea533342eb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_portfolio.default
+    - field.field.node.portfolio.body
+    - field.field.node.portfolio.comment_node_portfolio
+    - field.field.node.portfolio.field_image
+    - field.field.node.portfolio.field_portfolio_category
+    - field.field.node.portfolio.field_portfolio_client
+    - field.field.node.portfolio.field_portfolio_description
+    - field.field.node.portfolio.field_portfolio_link
+    - field.field.node.portfolio.field_portfolio_skills
+    - field.field.node.portfolio.field_thumbnail
+    - node.type.portfolio
+  module:
+    - comment
+    - image
+    - text
+    - user
+id: node.portfolio.default
+targetEntityType: node
+bundle: portfolio
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  comment_node_portfolio:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_portfolio_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_portfolio_client:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_portfolio_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_portfolio_link:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_portfolio_skills:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

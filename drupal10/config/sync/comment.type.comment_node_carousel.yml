@@ -1,0 +1,8 @@
+uuid: fb69900b-a34a-49bb-9390-cfea975e7c51
+langcode: en
+status: true
+dependencies: {  }
+id: comment_node_carousel
+label: 'Carousel comment'
+target_entity_type_id: node
+description: null

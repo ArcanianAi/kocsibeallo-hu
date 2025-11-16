@@ -1,0 +1,103 @@
+uuid: 12fb1deb-c426-4814-bde2-e4c771edc6b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.portfolio.body
+    - field.field.node.portfolio.comment_node_portfolio
+    - field.field.node.portfolio.field_image
+    - field.field.node.portfolio.field_portfolio_category
+    - field.field.node.portfolio.field_portfolio_client
+    - field.field.node.portfolio.field_portfolio_description
+    - field.field.node.portfolio.field_portfolio_link
+    - field.field.node.portfolio.field_portfolio_skills
+    - field.field.node.portfolio.field_thumbnail
+    - node.type.portfolio
+  module:
+    - image
+    - text
+    - user
+id: node.portfolio.teaser
+targetEntityType: node
+bundle: portfolio
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_portfolio_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_portfolio_client:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_portfolio_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_portfolio_link:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_portfolio_skills:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment_node_portfolio: true
+  langcode: true
+  search_api_excerpt: true

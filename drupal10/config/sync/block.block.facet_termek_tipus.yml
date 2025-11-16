@@ -1,0 +1,27 @@
+uuid: 2c0e2f72-5dd7-4fe0-a9af-5df69f372800
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.termek_tipus
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_termek_tipus
+theme: porto
+region: left_sidebar
+weight: 5
+provider: null
+plugin: 'facet_block:termek_tipus'
+settings:
+  id: 'facet_block:termek_tipus'
+  label: 'Termék típusok'
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'

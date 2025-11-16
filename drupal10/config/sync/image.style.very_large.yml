@@ -1,0 +1,15 @@
+uuid: 681f36d8-b5a3-48f1-a825-09faa73729b2
+langcode: en
+status: true
+dependencies: {  }
+name: very_large
+label: 'Very large (800x800)'
+effects:
+  631f89ef-2dba-4199-b4b5-bc4774c1f419:
+    uuid: 631f89ef-2dba-4199-b4b5-bc4774c1f419
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: 800
+      upscale: false

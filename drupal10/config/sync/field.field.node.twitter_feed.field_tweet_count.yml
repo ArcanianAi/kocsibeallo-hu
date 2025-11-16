@@ -1,0 +1,19 @@
+uuid: bad27dc2-b13f-44e7-86f8-c8853c9359c0
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tweet_count
+    - node.type.twitter_feed
+id: node.twitter_feed.field_tweet_count
+field_name: field_tweet_count
+entity_type: node
+bundle: twitter_feed
+label: 'Tweet Count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

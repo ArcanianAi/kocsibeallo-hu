@@ -1,0 +1,32 @@
+uuid: 802d7137-6d80-41df-b37e-bb295681f64d
+langcode: hu
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:42ecf166-b7e6-4479-a608-e4bd63aa38f8'
+  module:
+    - block_content
+    - system
+  theme:
+    - zen
+id: zen_block_19
+theme: zen
+region: ''
+weight: -15
+provider: null
+plugin: 'block_content:42ecf166-b7e6-4479-a608-e4bd63aa38f8'
+settings:
+  id: 'block_content:42ecf166-b7e6-4479-a608-e4bd63aa38f8'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      <front>
+      /nivo-slider

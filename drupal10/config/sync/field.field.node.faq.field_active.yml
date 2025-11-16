@@ -1,0 +1,23 @@
+uuid: 4b7f7795-4bce-4d9f-b58d-084aff4c32a9
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active
+    - node.type.faq
+id: node.faq.field_active
+field_name: field_active
+entity_type: node
+bundle: faq
+label: Active
+description: 'Check this box to make this question open by default.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: active
+  off_label: ''
+field_type: boolean

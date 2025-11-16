@@ -1,0 +1,9 @@
+uuid: a117e514-5496-487f-bd66-6727f41a2587
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tetőfedés anyaga'
+vid: tetofedes_anyaga
+description: 'Képgalériához készült szótár'
+weight: -7
+new_revision: false

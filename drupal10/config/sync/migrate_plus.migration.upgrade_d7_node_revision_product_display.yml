@@ -1,0 +1,113 @@
+uuid: 22388d1a-0452-4771-bb76-74b7ac172081
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_product_display
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node revisions (Product Display)'
+source:
+  plugin: d7_node_revision
+  node_type: product_display
+process:
+  nid:
+    -
+      plugin: get
+      source: nid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  comment_node_product_display/0/status:
+    -
+      plugin: get
+      source: comment
+  body:
+    -
+      plugin: get
+      source: body
+  field_product_description:
+    -
+      plugin: get
+      source: field_product_description
+  field_product_rating:
+    -
+      plugin: get
+      source: field_product_rating
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: product_display
+idMap: {  }
+migration_dependencies:
+  required:
+    - upgrade_d7_node_article
+    - upgrade_d7_node_carousel
+    - upgrade_d7_node_contact
+    - upgrade_d7_node_faq
+    - upgrade_d7_node_foto_a_galeriahoz
+    - upgrade_d7_node_home_concept
+    - upgrade_d7_node_our_history
+    - upgrade_d7_node_page
+    - upgrade_d7_node_parallax
+    - upgrade_d7_node_portfolio
+    - upgrade_d7_node_product_display
+    - upgrade_d7_node_simplenews
+    - upgrade_d7_node_story
+    - upgrade_d7_node_team
+    - upgrade_d7_node_testimonials
+    - upgrade_d7_node_tippek
+    - upgrade_d7_node_twitter_feed
+    - upgrade_d7_node_video_background
+    - upgrade_d7_node_webform
+  optional: {  }
+include: null

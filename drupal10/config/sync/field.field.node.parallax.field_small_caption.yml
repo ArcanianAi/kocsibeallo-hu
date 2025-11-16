@@ -1,0 +1,19 @@
+uuid: d85a95af-85d5-40c3-8f1b-89b67e70f5b7
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_small_caption
+    - node.type.parallax
+id: node.parallax.field_small_caption
+field_name: field_small_caption
+entity_type: node
+bundle: parallax
+label: 'Small Caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

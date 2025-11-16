@@ -1,0 +1,9 @@
+uuid: f5b5a97a-b0ce-4cdf-b5c6-9b05374c9a9e
+langcode: en
+status: true
+dependencies: {  }
+name: Portfolio
+vid: portfolio
+description: null
+weight: 1
+new_revision: false

@@ -1,0 +1,146 @@
+uuid: 0a8385e1-7b6a-489d-995a-a7c8777725ed
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_foto_a_galeriahoz
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Fotó a galériához)'
+source:
+  plugin: d7_node
+  node_type: foto_a_galeriahoz
+process:
+  nid:
+    -
+      plugin: get
+      source: tnid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  comment_node_foto_a_galeriahoz/0/status:
+    -
+      plugin: get
+      source: comment
+  body:
+    -
+      plugin: get
+      source: body
+  field_telikert_kep:
+    -
+      plugin: sub_process
+      source: field_telikert_kep
+      process:
+        target_id: fid
+        alt: alt
+        title: title
+        width: width
+        height: height
+  field_szerkezet_anyaga:
+    -
+      plugin: sub_process
+      source: field_szerkezet_anyaga
+      process:
+        target_id: tid
+  field_tetofedes_anyaga:
+    -
+      plugin: sub_process
+      source: field_tetofedes_anyaga
+      process:
+        target_id: tid
+  field_gallery_tag:
+    -
+      plugin: sub_process
+      source: field_gallery_tag
+      process:
+        target_id: tid
+  field_stilus:
+    -
+      plugin: sub_process
+      source: field_stilus
+      process:
+        target_id: tid
+  field_cimkek:
+    -
+      plugin: sub_process
+      source: field_cimkek
+      process:
+        target_id: tid
+  field_vissza_link:
+    -
+      plugin: field_link
+      source: field_vissza_link
+  field_oldalzaras_anyaga:
+    -
+      plugin: sub_process
+      source: field_oldalzaras_anyaga
+      process:
+        target_id: tid
+  field_termek_tipus:
+    -
+      plugin: sub_process
+      source: field_termek_tipus
+      process:
+        target_id: tid
+destination:
+  plugin: 'entity:node'
+  default_bundle: foto_a_galeriahoz
+idMap: {  }
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance
+include: null

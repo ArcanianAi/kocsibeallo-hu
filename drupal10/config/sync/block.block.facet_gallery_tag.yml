@@ -1,0 +1,27 @@
+uuid: cb7c4d1c-e803-443a-be74-82d53a7871dc
+langcode: hu
+status: true
+dependencies:
+  config:
+    - facets.facet.gallery_tag
+  module:
+    - facets
+    - system
+  theme:
+    - porto
+id: facet_gallery_tag
+theme: porto
+region: left_sidebar
+weight: 0
+provider: null
+plugin: 'facet_block:gallery_tag'
+settings:
+  id: 'facet_block:gallery_tag'
+  label: Típus
+  label_display: visible
+  provider: facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/kepgaleria*'
