@@ -63,9 +63,11 @@ d7_discovery/
 # Docker volumes
 .docker/
 
-# Environment files
+# Environment files and credentials
 .env
 .env.local
+.credentials
+.cloudways-credentials
 
 # OS files
 .DS_Store

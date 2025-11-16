@@ -263,6 +263,34 @@ $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = 'sites/default/files/private';
 ```
 
+### Redis Cache Configuration
+
+**Cloudways includes Redis by default!** Configure it in settings.php:
+
+```php
+/**
+ * Redis configuration (Cloudways includes Redis)
+ * Get Redis password from: Cloudways > Application > Access Details
+ */
+if (extension_loaded('redis')) {
+  $settings['redis.connection']['interface'] = 'PhpRedis';
+  $settings['redis.connection']['host'] = 'localhost';
+  $settings['redis.connection']['port'] = '6379';
+  // $settings['redis.connection']['password'] = 'your-redis-password';
+
+  $settings['cache']['default'] = 'cache.backend.redis';
+  $settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+  $settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+  $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+}
+```
+
+**Enable Redis module:**
+```bash
+cd drupal10/web
+../vendor/bin/drush en redis -y
+```
+
 ### Config Sync Directory
 
 ```php
