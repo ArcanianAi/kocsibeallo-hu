@@ -596,6 +596,9 @@ cd applications/[app-name]/public_html
 - **Local Deployment:** `docs/DEPLOYMENT_GUIDE.md`
 - **Restructure Plan:** `docs/RESTRUCTURE_PLAN.md`
 - **Environment URLs:** `docs/ENVIRONMENT_URLS.md`
+- **Linear Integration:** `docs/LINEAR_INTEGRATION.md` - Project management and open issues
+- **Porto Theme Customizations:** `docs/PORTO_THEME_CUSTOMIZATIONS.md`
+- **Settings.php Setup:** `docs/SETTINGS_PHP_SETUP.md`
 - **Cloudways Docs:** https://support.cloudways.com
 
 ---
