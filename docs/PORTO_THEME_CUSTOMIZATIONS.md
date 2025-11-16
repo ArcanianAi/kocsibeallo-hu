@@ -251,6 +251,36 @@ When making changes to Porto theme:
 
 ---
 
+---
+
+## 🐛 Common Issues & Fixes
+
+### Broken Skin CSS Reference
+
+**Problem:** Console error `css/skins/.css` (empty filename) causing CSS not to load
+
+**Cause:** The `skin_option` configuration key was not set, causing Porto to try loading an empty skin filename.
+
+**Solution:**
+```bash
+# Set the skin option to 'default'
+drush config:set porto.settings skin_option 'default' -y
+drush cr
+```
+
+**Verify Fix:**
+```bash
+drush config:get porto.settings skin_option
+# Should output: 'porto.settings:skin_option': default
+```
+
+**Prevention:** Always ensure `skin_option` is set in Porto theme settings. The available skins are:
+- `default` (recommended)
+- `skin-corporate-3` through `skin-corporate-8`
+- `skin-corporate-hosting`
+
+---
+
 **Last Updated:** 2025-11-16
-**Porto Theme Version:** 1.5
+**Porto Theme Version:** 1.5.4
 **Customization Level:** Extensive

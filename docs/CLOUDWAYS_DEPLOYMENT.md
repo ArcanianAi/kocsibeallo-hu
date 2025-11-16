@@ -313,12 +313,24 @@ $settings['config_sync_directory'] = '../config/sync';
 
 - [ ] SSH into Cloudways server
 - [ ] Navigate to application directory
+- [ ] Verify/create `settings.php` with production credentials (see `docs/SETTINGS_PHP_SETUP.md`)
 - [ ] Run post-deployment script:
   ```bash
   ./scripts/cloudways/post-deploy.sh
   ```
-- [ ] Verify site is working
-- [ ] Check for errors in logs
+  Or manually:
+  ```bash
+  cd web
+  ../vendor/bin/drush cr
+  ../vendor/bin/drush status  # Verify database connection
+  ```
+- [ ] Verify Porto theme skin is set:
+  ```bash
+  ../vendor/bin/drush config:get porto.settings skin_option
+  # Should show: 'porto.settings:skin_option': default
+  ```
+- [ ] Verify site is working (check homepage loads)
+- [ ] Check browser console for CSS/JS errors
 - [ ] Test critical functionality
 
 ### If Issues Occur
@@ -328,6 +340,78 @@ $settings['config_sync_directory'] = '../config/sync';
 - [ ] Verify file permissions
 - [ ] Check `settings.php` database credentials
 - [ ] Review recent commits in GitHub
+
+---
+
+## 📦 Transferring Files from Old D7 Server
+
+**Important:** The site files (images, uploads, etc.) are NOT in Git and must be transferred from the old Drupal 7 server.
+
+### File Transfer via SCP
+
+The old D7 server contains all the original site images and user-uploaded files (~1.8GB).
+
+**Old D7 Server Details:**
+- Host: `165.22.200.254`
+- User: `kocsibeall.ssh.d10`
+- Password: `D10Test99!`
+- Files Path: `/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files`
+
+**New D10 Production Server:**
+- Host: `159.223.220.3`
+- User: `xmudbprchx`
+- Files Path: `~/public_html/web/sites/default/files/`
+
+### Transfer Steps
+
+**1. Connect to new production server:**
+```bash
+ssh xmudbprchx@159.223.220.3
+```
+
+**2. Navigate to files directory:**
+```bash
+cd ~/public_html/web/sites/default/
+```
+
+**3. Run SCP transfer from old D7 server:**
+```bash
+scp -r kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/* files/
+# Enter password when prompted: D10Test99!
+```
+
+**4. Set correct permissions:**
+```bash
+chmod -R 755 files/
+chown -R xmudbprchx:xmudbprchx files/
+```
+
+**5. Verify transfer:**
+```bash
+du -sh files/
+# Should show ~1.8G
+ls files/ | head -20
+# Should show images and uploaded files
+```
+
+**6. Clear Drupal cache:**
+```bash
+cd ~/public_html/web
+../vendor/bin/drush cr
+```
+
+**7. Verify site:**
+Visit https://phpstack-958493-6003495.cloudwaysapps.com/ and check that all images load correctly.
+
+### Alternative: Using Rsync
+
+For future updates or incremental transfers:
+
+```bash
+rsync -avz --progress kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/ ~/public_html/web/sites/default/files/
+```
+
+**Note:** All credentials are stored in `.credentials` file (not in Git).
 
 ---
 
@@ -378,17 +462,33 @@ composer install --no-dev --optimize-autoloader
 
 ### Configuration import fails
 
+**Problem 1: Missing themes error**
+
+If you see errors like:
+```
+block.block.bartik_system_main requires theme bartik which will not be installed after import
+```
+
+This happens when the config has blocks for themes not installed on production (development/test themes).
+
+**Solution:** Import only specific configs instead of full import:
+```bash
+# Import only the config you need (e.g., Porto theme settings)
+../vendor/bin/drush config:set porto.settings skin_option 'default' -y
+../vendor/bin/drush cr
+```
+
+**Problem 2: Config directory not found**
+
 **Check config directory:**
 ```bash
-ls -la drupal10/config/sync/
+ls -la ../config/sync/
 # Should show 1000+ .yml files
 ```
 
-**Force import:**
-```bash
-cd drupal10/web
-../vendor/bin/drush config:import -y --source=../config/sync
-```
+**Problem 3: Database connection fails during import**
+
+Verify `settings.php` has correct database credentials. See `docs/SETTINGS_PHP_SETUP.md`
 
 ### Database connection errors
 
