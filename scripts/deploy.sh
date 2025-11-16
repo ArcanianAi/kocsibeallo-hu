@@ -264,17 +264,45 @@ SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" ssh \
 set -e
 cd ~/public_html
 
-echo "→ Checking for Composer..."
-if command -v composer &> /dev/null; then
-    echo "→ Running composer install..."
-    composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
-    echo "✓ Composer install complete"
-elif [ -f composer.phar ]; then
-    echo "→ Running composer.phar install..."
-    php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
-    echo "✓ Composer install complete"
+echo "→ Checking if Composer install needed..."
+
+# Check if vendor directory exists and has autoload
+if [ -f vendor/autoload.php ]; then
+    echo "✓ vendor/autoload.php exists"
+
+    # Check if composer.lock changed (need to reinstall)
+    LOCK_HASH_OLD=""
+    if [ -f /tmp/composer.lock.hash ]; then
+        LOCK_HASH_OLD=$(cat /tmp/composer.lock.hash)
+    fi
+
+    LOCK_HASH_NEW=$(md5sum composer.lock | awk '{print $1}')
+    echo "$LOCK_HASH_NEW" > /tmp/composer.lock.hash
+
+    if [ "$LOCK_HASH_OLD" = "$LOCK_HASH_NEW" ]; then
+        echo "✓ composer.lock unchanged - skipping composer install"
+    else
+        echo "→ composer.lock changed - running composer install..."
+        if command -v composer &> /dev/null; then
+            composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+            echo "✓ Composer install complete"
+        elif [ -f composer.phar ]; then
+            php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+            echo "✓ Composer install complete"
+        fi
+    fi
 else
-    echo "⚠ Composer not available - vendor/ from repo will be used"
+    echo "→ vendor/autoload.php missing - running composer install..."
+    if command -v composer &> /dev/null; then
+        composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+        echo "✓ Composer install complete"
+    elif [ -f composer.phar ]; then
+        php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+        echo "✓ Composer install complete"
+    else
+        echo "✗ ERROR: Composer not available and vendor/ missing!"
+        exit 1
+    fi
 fi
 EOFCOMPOSER
     mark_complete "step4"
