@@ -195,54 +195,77 @@ cd ~/public_html
 
 echo "→ Current directory: \$(pwd)"
 
-# Backup files directory
-if [ -d web/sites/default/files ]; then
-    echo "→ Backing up files directory..."
-    tar -czf /tmp/drupal_files_backup.tar.gz web/sites/default/files 2>/dev/null || true
-    echo "✓ Files backed up"
-fi
+# Check if this is already a git repository
+if [ -d .git ]; then
+    echo "→ Git repository detected - pulling latest changes..."
 
-# Remove old files but keep public_html directory
-echo "→ Cleaning old files..."
-find . -mindepth 1 -maxdepth 1 ! -name 'web' -exec rm -rf {} + 2>/dev/null || true
-if [ -d web ]; then
-    find web -mindepth 1 -maxdepth 1 ! -name 'sites' -exec rm -rf {} + 2>/dev/null || true
-    if [ -d web/sites ]; then
-        find web/sites -mindepth 1 -maxdepth 1 ! -name 'default' -exec rm -rf {} + 2>/dev/null || true
-        if [ -d web/sites/default ]; then
-            find web/sites/default -mindepth 1 -maxdepth 1 ! -name 'files' -exec rm -rf {} + 2>/dev/null || true
-        fi
+    # Stash any local changes (like settings.php)
+    if ! git diff --quiet 2>/dev/null; then
+        echo "  → Stashing local changes..."
+        git stash push -m "Auto-stash before deployment \$(date +%Y%m%d_%H%M%S)" 2>&1 | head -3
     fi
-fi
-echo "✓ Old files cleaned"
 
-# Clone to temp directory and move files
-echo "→ Cloning repository from GitHub..."
-cd /tmp
-rm -rf kocsibeallo-temp 2>/dev/null || true
-git clone ${GIT_REPO} kocsibeallo-temp 2>&1 | tail -5
-echo "✓ Repository cloned to temp"
+    # Pull latest from main
+    echo "  → Pulling from origin/main..."
+    git pull origin main 2>&1 | tail -5
 
-echo "→ Moving files to public_html..."
-cd kocsibeallo-temp
-cp -r * ~/public_html/ 2>/dev/null || true
-cp -r .[!.]* ~/public_html/ 2>/dev/null || true
-cd ~
-rm -rf /tmp/kocsibeallo-temp
-echo "✓ Files moved"
+    # Reapply stashed changes if any
+    if git stash list | grep -q "Auto-stash"; then
+        echo "  → Reapplying local changes..."
+        git stash pop 2>&1 | head -3 || echo "  (stash already applied or conflicts)"
+    fi
 
-# Restore files directory
-cd ~/public_html
-if [ -f /tmp/drupal_files_backup.tar.gz ]; then
-    echo "→ Restoring files directory..."
-    tar -xzf /tmp/drupal_files_backup.tar.gz
-    rm /tmp/drupal_files_backup.tar.gz
-    echo "✓ Files restored"
+    echo "✓ Code updated via git pull"
 else
-    echo "→ Creating files directory..."
-    mkdir -p web/sites/default/files
-    chmod 755 web/sites/default/files
-    echo "✓ Files directory created"
+    echo "→ No git repository found - cloning fresh..."
+
+    # Backup files directory if it exists
+    if [ -d web/sites/default/files ]; then
+        echo "  → Backing up files directory..."
+        tar -czf /tmp/drupal_files_backup.tar.gz web/sites/default/files 2>/dev/null || true
+        echo "  ✓ Files backed up"
+    fi
+
+    # Clone to temp directory
+    echo "  → Cloning repository from GitHub..."
+    cd /tmp
+    rm -rf kocsibeallo-temp 2>/dev/null || true
+    git clone ${GIT_REPO} kocsibeallo-temp 2>&1 | tail -5
+    echo "  ✓ Repository cloned"
+
+    # Move files
+    echo "  → Moving files to public_html..."
+    cd kocsibeallo-temp
+    # Remove old public_html content (except files)
+    cd ~/public_html
+    find . -mindepth 1 -maxdepth 1 ! -name 'web' -exec rm -rf {} + 2>/dev/null || true
+    if [ -d web/sites/default/files ]; then
+        find web -mindepth 1 ! -path "web/sites/default/files*" -exec rm -rf {} + 2>/dev/null || true
+    else
+        rm -rf web 2>/dev/null || true
+    fi
+
+    # Copy new files
+    cp -r /tmp/kocsibeallo-temp/* ~/public_html/ 2>/dev/null || true
+    cp -r /tmp/kocsibeallo-temp/.[!.]* ~/public_html/ 2>/dev/null || true
+    rm -rf /tmp/kocsibeallo-temp
+    echo "  ✓ Files moved"
+
+    # Restore files directory
+    cd ~/public_html
+    if [ -f /tmp/drupal_files_backup.tar.gz ]; then
+        echo "  → Restoring files directory..."
+        tar -xzf /tmp/drupal_files_backup.tar.gz
+        rm /tmp/drupal_files_backup.tar.gz
+        echo "  ✓ Files restored"
+    else
+        echo "  → Creating files directory..."
+        mkdir -p web/sites/default/files
+        chmod 755 web/sites/default/files
+        echo "  ✓ Files directory created"
+    fi
+
+    echo "✓ Fresh repository cloned"
 fi
 
 echo "→ Directory structure:"
