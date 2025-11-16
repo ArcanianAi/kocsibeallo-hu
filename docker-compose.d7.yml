@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  drupal7-php:
+    image: uselagoon/php-7.4-fpm:latest
+    container_name: pajfrsyfzm-d7-php
+    restart: unless-stopped
+    environment:
+      LAGOON_ROUTE: http://localhost:7080
+    volumes:
+      - ./drupal7-codebase:/app:delegated
+    networks:
+      d7-network:
+        aliases:
+          - php
+    depends_on:
+      drupal7-db:
+        condition: service_healthy
+
+  drupal7-nginx:
+    image: nginx:alpine
+    container_name: pajfrsyfzm-d7-nginx
+    restart: unless-stopped
+    ports:
+      - "7080:8080"
+    volumes:
+      - ./drupal7-codebase:/app:delegated
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - d7-network
+    depends_on:
+      - drupal7-php
+
+  drupal7-cli:
+    image: uselagoon/php-7.4-cli-drupal:latest
+    container_name: pajfrsyfzm-d7-cli
+    restart: unless-stopped
+    environment:
+      LAGOON_ROUTE: http://localhost:7080
+    volumes:
+      - ./drupal7-codebase:/app:delegated
+    networks:
+      - d7-network
+    depends_on:
+      - drupal7-db
+
+  drupal7-db:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: pajfrsyfzm-d7-db
+    restart: unless-stopped
+    ports:
+      - "7306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pajfrsyfzm
+      MYSQL_USER: drupal7
+      MYSQL_PASSWORD: drupal7pass
+    command: --max_allowed_packet=512M --innodb_log_file_size=512M --innodb_buffer_pool_size=1G --wait_timeout=300
+    volumes:
+      - d7-db-data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+    networks:
+      - d7-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  drupal7-phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: pajfrsyfzm-d7-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "7081:80"
+    depends_on:
+      - drupal7-db
+    environment:
+      PMA_HOST: drupal7-db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    networks:
+      - d7-network
+
+networks:
+  d7-network:
+    driver: bridge
+
+volumes:
+  d7-db-data:

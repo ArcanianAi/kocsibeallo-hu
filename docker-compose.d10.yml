@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  drupal10-cli:
+    image: uselagoon/php-8.3-cli-drupal:latest
+    container_name: pajfrsyfzm-d10-cli
+    restart: unless-stopped
+    environment:
+      LAGOON_ROUTE: http://localhost:8090
+      WEBROOT: web
+    volumes:
+      - ./drupal10:/app:delegated
+    networks:
+      - d10-network
+    depends_on:
+      - drupal10-mariadb
+
+  drupal10-php:
+    image: uselagoon/php-8.3-fpm:latest
+    container_name: pajfrsyfzm-d10-php
+    restart: unless-stopped
+    environment:
+      LAGOON_ROUTE: http://localhost:8090
+      WEBROOT: web
+    volumes:
+      - ./drupal10:/app:delegated
+    networks:
+      d10-network:
+        aliases:
+          - php
+    depends_on:
+      drupal10-mariadb:
+        condition: service_healthy
+
+  drupal10-nginx:
+    image: uselagoon/nginx-drupal:latest
+    container_name: pajfrsyfzm-d10-nginx
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    environment:
+      LAGOON_LOCALDEV_URL: http://localhost:8090
+      WEBROOT: web
+    volumes:
+      - ./drupal10:/app:delegated
+    networks:
+      - d10-network
+    depends_on:
+      - drupal10-php
+
+  drupal10-mariadb:
+    image: uselagoon/mariadb-drupal:latest
+    container_name: pajfrsyfzm-d10-mariadb
+    restart: unless-stopped
+    ports:
+      - "8306:3306"
+    environment:
+      MARIADB_DATABASE: drupal10
+      MARIADB_USER: drupal10
+      MARIADB_PASSWORD: drupal10pass
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - d10-db-data:/var/lib/mysql
+    networks:
+      - d10-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  drupal10-phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: pajfrsyfzm-d10-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    depends_on:
+      - drupal10-mariadb
+    environment:
+      PMA_HOST: drupal10-mariadb
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    networks:
+      - d10-network
+
+networks:
+  d10-network:
+    driver: bridge
+
+volumes:
+  d10-db-data:

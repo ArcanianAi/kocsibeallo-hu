@@ -1,0 +1,65 @@
+# Drupal directories
+drupal7-codebase/
+drupal10/
+d7_codebase_backup_*.tar.gz
+
+# Database files
+database/
+*.sql
+*.sql.gz
+
+# Backups
+backups/
+d7_backups/
+d7_discovery/
+
+# Docker volumes
+.docker/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules
+node_modules/
+
+# Composer vendor
+vendor/
+
+# Claude artifacts (optional - comment out if you want to include)
+claude-artifacts/
+.claude/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Migration artifacts (top-level only, not docs/migration)
+/migration/
+/example/
+
+# Large tar files
+*.tar
+*.tar.gz
+*.zip
+
+# CSV data files (keep documentation but not large data dumps)
+*.csv
+!docs/missing_files_list.csv
