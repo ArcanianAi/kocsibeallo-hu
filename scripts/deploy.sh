@@ -476,9 +476,49 @@ EOFSETTINGS
 fi
 echo ""
 
-# Step 7: Finalize deployment
+# Step 7: Import configuration (theme settings, blocks, views, etc.)
 if ! skip_if_complete "step7"; then
-    echo -e "${BLUE}[7/7]${NC} ${YELLOW}Finalizing deployment...${NC}"
+    echo -e "${BLUE}[7/8]${NC} ${YELLOW}Importing configuration (theme, blocks, views)...${NC}"
+SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" ssh \
+  -o StrictHostKeyChecking=no \
+  -o PreferredAuthentications=password \
+  -o PubkeyAuthentication=no \
+  ${PROD_USER}@${PROD_HOST} bash << 'EOFCONFIG'
+set -e
+cd ~/public_html/web
+
+if [ -f ../vendor/bin/drush ]; then
+    echo "→ Checking Drupal bootstrap..."
+    if ../vendor/bin/drush status 2>&1 | grep -q "Drupal bootstrap.*Successful"; then
+        echo "✓ Drupal is bootstrapped"
+
+        echo "→ Importing configuration from config/sync..."
+        echo "  (Includes porto.settings.yml with custom CSS, theme settings)"
+        CONFIG_OUTPUT=$(../vendor/bin/drush cim -y 2>&1)
+
+        # Show what was imported
+        if echo "$CONFIG_OUTPUT" | grep -q "The following items will be imported:"; then
+            echo "$CONFIG_OUTPUT" | grep -A 20 "The following items will be imported:" | head -25
+        elif echo "$CONFIG_OUTPUT" | grep -q "There are no changes to import"; then
+            echo "✓ Config already in sync - no changes to import"
+        else
+            echo "$CONFIG_OUTPUT" | tail -10
+        fi
+    else
+        echo "⚠ Drupal NOT bootstrapped - cannot import config"
+    fi
+else
+    echo "⚠ Drush not available - cannot import config"
+fi
+EOFCONFIG
+    mark_complete "step7"
+    echo -e "${GREEN}✓ Configuration imported${NC}"
+fi
+echo ""
+
+# Step 8: Database updates and finalize
+if ! skip_if_complete "step8"; then
+    echo -e "${BLUE}[8/8]${NC} ${YELLOW}Running database updates and clearing cache...${NC}"
 SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" ssh \
   -o StrictHostKeyChecking=no \
   -o PreferredAuthentications=password \
@@ -493,13 +533,11 @@ if [ -f ../vendor/bin/drush ]; then
         echo "✓ Drupal is bootstrapped"
 
         echo "→ Running database updates..."
-        ../vendor/bin/drush updb -y 2>&1 | tail -5 || echo "No updates needed"
+        ../vendor/bin/drush updb -y 2>&1 | tail -5 || echo "  No updates needed"
 
-        echo "→ Importing configuration..."
-        ../vendor/bin/drush cim -y 2>&1 | tail -5 || echo "Config already in sync"
-
-        echo "→ Clearing cache..."
+        echo "→ Clearing all caches..."
         ../vendor/bin/drush cr
+        echo "✓ Cache cleared"
     else
         echo "⚠ Drupal NOT bootstrapped - site may need installation"
         echo "→ Checking database tables..."
@@ -539,7 +577,7 @@ else
     echo "⚠ Drush not available"
 fi
 EOFFINAL
-    mark_complete "step7"
+    mark_complete "step8"
     echo -e "${GREEN}✓ Site finalized${NC}"
 fi
 echo ""
@@ -553,13 +591,14 @@ echo -e "${YELLOW}🌐 Production Site:${NC}"
 echo -e "   https://phpstack-958493-6003495.cloudwaysapps.com/"
 echo ""
 echo -e "${GREEN}Deployment Steps:${NC}"
-echo -e "  ✓ [1/7] Pushed to GitHub"
-echo -e "  ✓ [2/7] Tested GitHub connectivity"
-echo -e "  ✓ [3/7] Git cloned from GitHub"
-echo -e "  ✓ [4/7] Composer install"
-echo -e "  ✓ [5/7] Files synced (if needed)"
-echo -e "  ✓ [6/7] settings.php created"
-echo -e "  ✓ [7/7] drush updb + cim + cr"
+echo -e "  ✓ [1/8] Pushed to GitHub"
+echo -e "  ✓ [2/8] Tested GitHub connectivity"
+echo -e "  ✓ [3/8] Git cloned from GitHub"
+echo -e "  ✓ [4/8] Composer install"
+echo -e "  ✓ [5/8] Files synced (if needed)"
+echo -e "  ✓ [6/8] settings.php created"
+echo -e "  ✓ [7/8] Config import (theme, blocks, views)"
+echo -e "  ✓ [8/8] Database updates + cache clear"
 echo ""
 echo -e "${YELLOW}Issues Fixed:${NC}"
 echo -e "  ✓ ARC-686: Logo file deployed"
