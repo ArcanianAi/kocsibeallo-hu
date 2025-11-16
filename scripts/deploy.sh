@@ -411,8 +411,32 @@ else
     exit 1
 fi
 
-echo "→ Creating settings.php..."
-cat > settings.php << 'EOFPHP'
+# Check if settings.php needs to be created/updated
+SETTINGS_HASH_EXPECTED="FYf8Cg4KLg7KJBxqmTiKXo9J5H2xqKMxdT9YrV2eWxLpN4S6M8"
+NEEDS_UPDATE=0
+
+if [ ! -f settings.php ]; then
+    echo "→ settings.php missing - creating..."
+    NEEDS_UPDATE=1
+elif ! grep -q "$SETTINGS_HASH_EXPECTED" settings.php 2>/dev/null; then
+    echo "→ settings.php exists but hash_salt incorrect - updating..."
+    NEEDS_UPDATE=1
+elif ! grep -q "config_sync_directory.*config/sync" settings.php 2>/dev/null; then
+    echo "→ settings.php missing config_sync_directory - updating..."
+    NEEDS_UPDATE=1
+else
+    echo "✓ settings.php exists and is correct - skipping"
+fi
+
+if [ $NEEDS_UPDATE -eq 1 ]; then
+    # Backup existing settings.php if it exists
+    if [ -f settings.php ]; then
+        cp settings.php settings.php.backup.$(date +%Y%m%d_%H%M%S)
+        echo "  → Backed up existing settings.php"
+    fi
+
+    echo "  → Writing settings.php..."
+    cat > settings.php << 'EOFPHP'
 <?php
 $databases['default']['default'] = array (
   'database' => 'xmudbprchx',
@@ -443,8 +467,9 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 EOFPHP
-chmod 644 settings.php
-echo "✓ settings.php created"
+    chmod 644 settings.php
+    echo "  ✓ settings.php created"
+fi
 EOFSETTINGS
     mark_complete "step6"
     echo -e "${GREEN}✓ settings.php configured${NC}"
