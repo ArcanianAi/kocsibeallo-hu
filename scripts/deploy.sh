@@ -494,15 +494,17 @@ if [ -f ../vendor/bin/drush ]; then
 
         echo "→ Importing configuration from config/sync..."
         echo "  (Includes porto.settings.yml with custom CSS, theme settings)"
-        CONFIG_OUTPUT=$(../vendor/bin/drush cim -y 2>&1)
+        echo ""
 
-        # Show what was imported
-        if echo "$CONFIG_OUTPUT" | grep -q "The following items will be imported:"; then
-            echo "$CONFIG_OUTPUT" | grep -A 20 "The following items will be imported:" | head -25
-        elif echo "$CONFIG_OUTPUT" | grep -q "There are no changes to import"; then
-            echo "✓ Config already in sync - no changes to import"
+        # Run config import with real-time output
+        ../vendor/bin/drush cim -y 2>&1 | tail -30
+
+        if [ ${PIPESTATUS[0]} -eq 0 ]; then
+            echo ""
+            echo "✓ Configuration import complete"
         else
-            echo "$CONFIG_OUTPUT" | tail -10
+            echo ""
+            echo "⚠ Config import had issues (check output above)"
         fi
     else
         echo "⚠ Drupal NOT bootstrapped - cannot import config"
