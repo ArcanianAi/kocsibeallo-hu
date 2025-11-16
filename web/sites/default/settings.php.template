@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Drupal 10 settings.php template
+ *
+ * INSTRUCTIONS:
+ * 1. Copy this file to settings.php
+ * 2. Update the database credentials for your environment
+ * 3. NEVER commit settings.php to Git (it's in .gitignore)
+ */
+
+// Database configuration
+$databases['default']['default'] = array (
+  'database' => 'DATABASE_NAME',
+  'username' => 'DATABASE_USER',
+  'password' => 'DATABASE_PASSWORD',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'isolation_level' => 'READ COMMITTED',
+  'driver' => 'mysql',
+  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+);
+
+// Configuration sync directory
+$settings['config_sync_directory'] = '../config/sync';
+
+// Trusted host patterns
+// UPDATE THESE FOR YOUR DOMAIN
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^127\.0\.0\.1$',
+  // Add production domains here
+];
+
+// File paths
+$settings['file_public_path'] = 'sites/default/files';
+$settings['file_private_path'] = '../private';
+
+// Hash salt - GENERATE A UNIQUE VALUE
+$settings['hash_salt'] = 'GENERATE_UNIQUE_HASH_SALT_HERE';
+
+// Deployment identifier
+$settings['deployment_identifier'] = \Drupal::VERSION;
+
+// Skip file system permissions hardening
+$settings['skip_permissions_hardening'] = TRUE;
+
+// Environment-specific settings
+// Include environment-specific settings if they exist
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}

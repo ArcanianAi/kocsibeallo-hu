@@ -49,6 +49,7 @@ web/sites/*/services*.yml
 # Drupal 10 - Settings local overrides
 web/sites/*/settings.local.php
 web/sites/*/settings.ddev.php
+web/sites/default/settings.php
 
 # Database files
 database/
