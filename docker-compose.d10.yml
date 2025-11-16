@@ -9,7 +9,7 @@ services:
       LAGOON_ROUTE: http://localhost:8090
       WEBROOT: web
     volumes:
-      - ./drupal10:/app:delegated
+      - .:/app:delegated
     networks:
       - d10-network
     depends_on:
@@ -23,7 +23,7 @@ services:
       LAGOON_ROUTE: http://localhost:8090
       WEBROOT: web
     volumes:
-      - ./drupal10:/app:delegated
+      - .:/app:delegated
     networks:
       d10-network:
         aliases:
@@ -42,7 +42,7 @@ services:
       LAGOON_LOCALDEV_URL: http://localhost:8090
       WEBROOT: web
     volumes:
-      - ./drupal10:/app:delegated
+      - .:/app:delegated
     networks:
       - d10-network
     depends_on:

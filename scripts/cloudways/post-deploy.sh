@@ -43,7 +43,7 @@ print_success() {
 START_TIME=$(date +%s)
 
 # Check if we're in the right directory
-if [ ! -f "drupal10/composer.json" ]; then
+if [ ! -f "composer.json" ]; then
     print_error "Not in application root directory!"
     echo "  Current directory: $(pwd)"
     echo "  Please navigate to: applications/[app-name]/public_html"
@@ -55,8 +55,8 @@ echo ""
 
 # Step 1: Navigate to Drupal directory
 print_step "Step 1/7: Navigating to Drupal directory..."
-cd drupal10
-print_success "In drupal10 directory"
+# cd to app root (already there)
+print_success "In application root"
 
 # Step 2: Update Composer dependencies
 print_step "Step 2/7: Installing/Updating Composer dependencies..."
