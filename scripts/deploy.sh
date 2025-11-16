@@ -291,36 +291,62 @@ echo "→ Checking if Composer install needed..."
 
 # Check if vendor directory exists and has autoload
 if [ -f vendor/autoload.php ]; then
-    echo "✓ vendor/autoload.php exists"
+    echo "  ✓ vendor/autoload.php exists"
 
-    # Check if composer.lock changed (need to reinstall)
+    # Check if composer.lock changed since last deployment
     LOCK_HASH_OLD=""
     if [ -f /tmp/composer.lock.hash ]; then
         LOCK_HASH_OLD=$(cat /tmp/composer.lock.hash)
     fi
 
     LOCK_HASH_NEW=$(md5sum composer.lock | awk '{print $1}')
-    echo "$LOCK_HASH_NEW" > /tmp/composer.lock.hash
 
-    if [ "$LOCK_HASH_OLD" = "$LOCK_HASH_NEW" ]; then
-        echo "✓ composer.lock unchanged - skipping composer install"
+    if [ -n "$LOCK_HASH_OLD" ] && [ "$LOCK_HASH_OLD" = "$LOCK_HASH_NEW" ]; then
+        echo "  ✓ composer.lock unchanged (hash: ${LOCK_HASH_NEW:0:8}...)"
+        echo "✓ Composer dependencies up to date - SKIPPED"
     else
-        echo "→ composer.lock changed - running composer install..."
+        if [ -z "$LOCK_HASH_OLD" ]; then
+            echo "  → First deployment detected"
+        else
+            echo "  → composer.lock changed (${LOCK_HASH_OLD:0:8}... → ${LOCK_HASH_NEW:0:8}...)"
+        fi
+
+        # Save new hash
+        echo "$LOCK_HASH_NEW" > /tmp/composer.lock.hash
+
+        echo "  → Running composer install..."
         if command -v composer &> /dev/null; then
             composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
             echo "✓ Composer install complete"
         elif [ -f composer.phar ]; then
             php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
             echo "✓ Composer install complete"
+        else
+            echo "✗ ERROR: Composer not found!"
+            exit 1
         fi
     fi
 else
-    echo "→ vendor/autoload.php missing - running composer install..."
+    echo "  → vendor/autoload.php missing"
+    echo "  → Running full composer install..."
+
     if command -v composer &> /dev/null; then
         composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+
+        # Save hash after successful install
+        if [ -f composer.lock ]; then
+            md5sum composer.lock | awk '{print $1}' > /tmp/composer.lock.hash
+        fi
+
         echo "✓ Composer install complete"
     elif [ -f composer.phar ]; then
         php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -10
+
+        # Save hash after successful install
+        if [ -f composer.lock ]; then
+            md5sum composer.lock | awk '{print $1}' > /tmp/composer.lock.hash
+        fi
+
         echo "✓ Composer install complete"
     else
         echo "✗ ERROR: Composer not available and vendor/ missing!"
