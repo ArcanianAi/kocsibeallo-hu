@@ -6,7 +6,8 @@ This directory contains all scripts for deployment, migration, and utilities for
 
 ```
 scripts/
-├── deployment/     # Production deployment and setup scripts
+├── deployment/     # Local/development deployment and setup scripts
+├── cloudways/      # Cloudways production deployment scripts
 ├── migration/      # D7 to D10 migration helper scripts
 └── utilities/      # General utility scripts
 ```
@@ -59,7 +60,9 @@ These scripts were used during the Drupal 7 to Drupal 10 migration process:
 
 ## Deployment Scripts (`deployment/`)
 
-These scripts help with deploying and setting up the Drupal 10 environment.
+These scripts help with deploying and setting up the Drupal 10 environment in **local/development** environments.
+
+**For Cloudways production deployment, see:** `cloudways/` directory
 
 ### `setup.sh` (To be created)
 **Purpose:** Initial setup after cloning the repository
@@ -80,6 +83,40 @@ These scripts help with deploying and setting up the Drupal 10 environment.
 - Import configuration
 - Clear caches
 - Database updates
+
+---
+
+## Cloudways Production Scripts (`cloudways/`)
+
+Scripts specifically for Cloudways production environment deployment.
+
+### `post-deploy.sh`
+**Purpose:** Run AFTER Git pull completes on Cloudways (automatic or manual)
+
+**Usage:**
+```bash
+# SSH into Cloudways
+ssh master@server-ip -p port
+
+# Navigate to app
+cd applications/[app-name]/public_html
+
+# Run post-deployment
+./scripts/cloudways/post-deploy.sh
+```
+
+**Features:**
+- Installs Composer dependencies
+- Puts site in maintenance mode
+- Imports configuration
+- Runs database updates
+- Clears cache
+- Takes site out of maintenance mode
+
+**Why needed:**
+Cloudways Git deployment only pulls code. It does NOT automatically run Composer or Drush commands. This script handles the post-deployment tasks.
+
+**Documentation:** See `docs/CLOUDWAYS_DEPLOYMENT.md` for complete guide
 
 ---
 
