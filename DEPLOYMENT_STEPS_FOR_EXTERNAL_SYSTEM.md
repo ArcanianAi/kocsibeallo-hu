@@ -214,6 +214,29 @@ cd ~/public_html/web
 
 ---
 
+## Step 11: Fix sitemap
+
+**⚠️ ONE-TIME FIX** - Only needed on first deployment or if sitemap is missing pages
+
+**On D10 server:**
+```bash
+cd ~/public_html
+./scripts/fix-sitemap.sh
+```
+
+**What this does:**
+- Enables sitemap generation for all content types
+- Regenerates sitemap with all 200+ URLs
+- Gallery pages, blog posts, basic pages now indexed
+
+**Expected result:**
+- Before: 1 URL in sitemap (homepage only)
+- After: 200+ URLs in sitemap (matching D7: 265)
+
+**See**: `docs/SITEMAP_FIX.md` for details
+
+---
+
 ## Credentials
 
 From `.credentials` file:
@@ -279,6 +302,8 @@ From `.credentials` file:
    - **Content articles**: Check article images load correctly (no 404 errors)
    - **Blog posts**: Check blog images display correctly
    - **Product pages**: Check Palram, fedett parkoló pages have images
+   - **Sitemap**: https://phpstack-958493-6003495.cloudwaysapps.com/sitemap.xml
+     - **Verify**: Shows "A hivatkozások száma a webhelytérképen: 200+" (not just 1)
 
 ---
 
