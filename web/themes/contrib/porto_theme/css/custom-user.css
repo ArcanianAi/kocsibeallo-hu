@@ -578,7 +578,8 @@ margin-bottom:10px;
 }
 
 /* Gallery images grid layout - 2 columns like D7 */
-.field--name-field-telikert-kep {
+/* Target the actual HTML structure: article > div > div (gallery container) */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
@@ -587,20 +588,20 @@ margin-bottom:10px;
 
 /* Mobile: 1 column */
 @media (max-width: 767px) {
-    .field--name-field-telikert-kep {
+    .page-node-type-foto-a-galeriahoz article > div > div:first-child {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 }
 
-.field-name-field-telikert-kep.field-type-image .field-item,
-.field--name-field-telikert-kep .field__item {
+/* Gallery image items - each plain div containing a link */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div {
     margin-bottom: 0;
     position: relative;
 }
 
-.field-name-field-telikert-kep.field-type-image .field-item a.fancybox,
-.field--name-field-telikert-kep .field__item a {
+/* Gallery image links */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a {
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -610,15 +611,15 @@ margin-bottom:10px;
 }
 
 /* Ensure images fill container properly */
-.field--name-field-telikert-kep .field__item img {
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 4px;
 }
-/* Hover overlay - dark background on hover (D7 + D10 selectors) */
-.field-name-field-telikert-kep.field-type-image .field-item a.fancybox::before,
-.field--name-field-telikert-kep .field__item a::before {
+
+/* Hover overlay - dark background on hover */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a::before {
     content: '';
     background-color: rgba(23,23,23,0.8);
     width: 100%;
@@ -633,14 +634,12 @@ margin-bottom:10px;
     z-index: 100;
 }
 
-.field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::before,
-.field--name-field-telikert-kep .field__item a:hover::before {
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a:hover::before {
     opacity: 1;
 }
 
-/* Magnifying glass icon on hover (D7 + D10 selectors) */
-.field-name-field-telikert-kep.field-type-image .field-item a.fancybox::after,
-.field--name-field-telikert-kep .field__item a::after {
+/* Magnifying glass icon on hover */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a::after {
     content: '\f00e';
     font-family: FontAwesome;
     font-style: normal;
@@ -656,20 +655,17 @@ margin-bottom:10px;
     z-index: 100;
 }
 
-.field-name-field-telikert-kep.field-type-image .field-item a.fancybox:hover::after,
-.field--name-field-telikert-kep .field__item a:hover::after {
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a:hover::after {
     opacity: 1;
     top: calc(50% - 10px);
 }
 
-/* Image zoom effect on hover (D7 + D10 selectors) */
-.fancybox img,
-.field--name-field-telikert-kep .field__item a img {
+/* Image zoom effect on hover */
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a img {
     transition: all 300ms ease 0ms;
 }
 
-.fancybox:hover img,
-.field--name-field-telikert-kep .field__item a:hover img {
+.page-node-type-foto-a-galeriahoz article > div > div:first-child > div > a:hover img {
     -webkit-transform: scale(1.1,1.1);
     -moz-transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
