@@ -99,7 +99,27 @@ rm -rf /tmp/d7-files
 
 ---
 
-## Step 5: Import configuration
+## Step 5: Migrate content article images
+
+**⚠️ NEW STEP** - Fix private:// files used in content articles
+
+**On D10 server:**
+```bash
+cd ~/public_html
+./scripts/migrate-private-files-to-public.sh
+```
+
+**What this does:**
+- Copies content article images from private/ to public directory
+- Updates database URIs from `private://` to `public://`
+- **Preserves webform attachments** (stays private)
+- Creates database backup before changes
+
+**See**: `docs/PRIVATE_FILE_MIGRATION.md` for details
+
+---
+
+## Step 6: Import configuration
 
 **On D10 server:**
 ```bash
@@ -109,7 +129,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 6: Import slideshow data
+## Step 7: Import slideshow data
 
 **⚠️ NEW STEP** - Import homepage slideshow (MD Slider)
 
@@ -128,7 +148,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 7: Database updates
+## Step 8: Database updates
 
 **On D10 server:**
 ```bash
@@ -138,7 +158,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 8: Clear cache
+## Step 9: Clear cache
 
 **On D10 server:**
 ```bash
@@ -184,17 +204,24 @@ From `.credentials` file:
 
 3. **File sync takes 5-10 minutes** (~1.8GB transfer)
 
-4. **Step 6 (Slideshow import) is NEW**
+4. **Step 5 (Private file migration) is NEW**
+   - Must run AFTER file sync (Step 4)
+   - Fixes content article images with private:// URIs
+   - **Preserves webform attachments** (keeps them private)
+   - See `docs/PRIVATE_FILE_MIGRATION.md` for details
+
+5. **Step 7 (Slideshow import) is NEW**
    - Must run AFTER file sync (Step 4)
    - Imports homepage slideshow data into database
    - See `docs/SLIDESHOW_MIGRATION.md` for details
 
-5. **Run steps in order** - don't skip any
+6. **Run steps in order** - don't skip any
 
-6. **After deployment, verify:**
+7. **After deployment, verify:**
    - Homepage: https://phpstack-958493-6003495.cloudwaysapps.com/
    - Gallery: https://phpstack-958493-6003495.cloudwaysapps.com/kepgaleria
    - **Slideshow**: Check homepage slideshow appears and images display correctly
+   - **Content articles**: Check article images load correctly (no 404 errors)
 
 ---
 
