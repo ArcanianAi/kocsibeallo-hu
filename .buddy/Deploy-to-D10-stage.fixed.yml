@@ -55,3 +55,11 @@
     targets:
     - d10-kocsibeallo-stage
     run_as_script: true
+  - action: Execute ../vendor/bin/drush config:import -y
+    type: SSH_COMMAND
+    commands:
+    - cd ~/public_html/web
+    - ../vendor/bin/drush config:import -y
+    targets:
+    - d10-kocsibeallo-stage
+    run_as_script: true
