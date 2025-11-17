@@ -65,16 +65,6 @@
     - d10-kocsibeallo-stage
     run_as_script: true
     execute_every_command: true
-  - action: 'Execute '
-    type: SSH_COMMAND
-    commands:
-    - cd web
-    - '  ../vendor/bin/drush config:import -y'
-    - '  ../vendor/bin/drush cr'
-    - ""
-    targets:
-    - d10-kocsibeallo-stage
-    run_as_script: true
   - action: Execute ../vendor/bin/drush updatedb -y
     type: SSH_COMMAND
     commands:
@@ -88,6 +78,16 @@
     commands:
     - cd ~/public_html/web
     - ../vendor/bin/drush cache:rebuild
+    targets:
+    - d10-kocsibeallo-stage
+    run_as_script: true
+  - action: 'Execute '
+    type: SSH_COMMAND
+    commands:
+    - cd web
+    - '  ../vendor/bin/drush config:import -y'
+    - '  ../vendor/bin/drush cr'
+    - ""
     targets:
     - d10-kocsibeallo-stage
     run_as_script: true
