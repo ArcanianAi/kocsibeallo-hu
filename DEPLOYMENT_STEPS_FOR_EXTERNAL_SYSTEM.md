@@ -129,7 +129,26 @@ cd ~/public_html/web
 
 ---
 
-## Step 7: Import slideshow data
+## Step 7: Fix localhost image URLs
+
+**⚠️ NEW STEP** - Fix localhost:8090 URLs in content
+
+**On D10 server:**
+```bash
+cd ~/public_html/web
+../vendor/bin/drush sql-query --file=../database/migrations/fix_localhost_image_urls.sql
+```
+
+**What this does:**
+- Fixes 29 nodes with localhost:8090 image URLs
+- Replaces absolute localhost URLs with relative paths
+- Creates backup before changes
+
+**Affected pages**: Blog posts, Palram pages, product pages
+
+---
+
+## Step 8: Import slideshow data
 
 **⚠️ NEW STEP** - Import homepage slideshow (MD Slider)
 
@@ -148,7 +167,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 8: Database updates
+## Step 9: Database updates
 
 **On D10 server:**
 ```bash
@@ -158,7 +177,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 9: Clear cache
+## Step 10: Clear cache
 
 **On D10 server:**
 ```bash
@@ -210,18 +229,25 @@ From `.credentials` file:
    - **Preserves webform attachments** (keeps them private)
    - See `docs/PRIVATE_FILE_MIGRATION.md` for details
 
-5. **Step 7 (Slideshow import) is NEW**
+5. **Step 7 (Localhost URL fix) is NEW**
+   - Fixes 29 nodes with localhost:8090 image URLs
+   - Must run before cache clear
+   - Affects blog posts, Palram pages, product pages
+
+6. **Step 8 (Slideshow import) is NEW**
    - Must run AFTER file sync (Step 4)
    - Imports homepage slideshow data into database
    - See `docs/SLIDESHOW_MIGRATION.md` for details
 
-6. **Run steps in order** - don't skip any
+7. **Run steps in order** - don't skip any
 
-7. **After deployment, verify:**
+8. **After deployment, verify:**
    - Homepage: https://phpstack-958493-6003495.cloudwaysapps.com/
    - Gallery: https://phpstack-958493-6003495.cloudwaysapps.com/kepgaleria
    - **Slideshow**: Check homepage slideshow appears and images display correctly
    - **Content articles**: Check article images load correctly (no 404 errors)
+   - **Blog posts**: Check blog images display correctly
+   - **Product pages**: Check Palram, fedett parkoló pages have images
 
 ---
 
