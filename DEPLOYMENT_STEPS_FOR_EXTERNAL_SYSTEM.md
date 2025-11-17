@@ -127,6 +127,23 @@ cd ~/public_html/web
 ../vendor/bin/drush config:import -y
 ```
 
+**⚠️ Troubleshooting:** If config import fails with theme dependency errors (e.g., "block.block.bartik_system_main konfiguráció egy másik sminket igényel"), this means there are unused theme block configs in `config/sync/` blocking the import.
+
+**Fix:** Delete unused theme blocks locally and push:
+```bash
+# On local Mac
+cd /Volumes/T9/Sites/kocsibeallo-hu/config/sync
+rm block.block.bartik*.yml block.block.ohm*.yml block.block.omega*.yml \
+   block.block.porto_sub*.yml block.block.tweme*.yml block.block.zen*.yml
+git add -u config/sync/
+git commit -m "Remove unused theme block configs"
+git push origin main
+
+# Then retry deployment from Step 2
+```
+
+See `docs/GALLERY_FIELD_DISPLAY_FIX.md` for details.
+
 ---
 
 ## Step 7: Fix localhost image URLs
