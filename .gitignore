@@ -51,9 +51,12 @@ web/sites/*/settings.local.php
 web/sites/*/settings.ddev.php
 web/sites/default/settings.php
 
-# Database files
-database/
+# Database files (but allow migration SQL files)
+database/*
+!database/migrations/
+!database/migrations/*.sql
 *.sql
+!database/migrations/*.sql
 *.sql.gz
 
 # Backups

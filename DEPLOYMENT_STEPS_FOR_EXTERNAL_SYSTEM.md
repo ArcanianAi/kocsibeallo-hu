@@ -109,7 +109,26 @@ cd ~/public_html/web
 
 ---
 
-## Step 6: Database updates
+## Step 6: Import slideshow data
+
+**⚠️ NEW STEP** - Import homepage slideshow (MD Slider)
+
+**On D10 server:**
+```bash
+cd ~/public_html/web
+../vendor/bin/drush sql-query --file=../database/migrations/md_slider_homepage.sql
+```
+
+**What this does:**
+- Imports homepage slideshow configuration
+- Adds 8 slides with images
+- References slideshow image files (must be synced in Step 4)
+
+**See**: `docs/SLIDESHOW_MIGRATION.md` for details
+
+---
+
+## Step 7: Database updates
 
 **On D10 server:**
 ```bash
@@ -119,7 +138,7 @@ cd ~/public_html/web
 
 ---
 
-## Step 7: Clear cache
+## Step 8: Clear cache
 
 **On D10 server:**
 ```bash
@@ -165,12 +184,17 @@ From `.credentials` file:
 
 3. **File sync takes 5-10 minutes** (~1.8GB transfer)
 
-4. **Run steps in order** - don't skip any
+4. **Step 6 (Slideshow import) is NEW**
+   - Must run AFTER file sync (Step 4)
+   - Imports homepage slideshow data into database
+   - See `docs/SLIDESHOW_MIGRATION.md` for details
 
-5. **After deployment, verify:**
+5. **Run steps in order** - don't skip any
+
+6. **After deployment, verify:**
    - Homepage: https://phpstack-958493-6003495.cloudwaysapps.com/
    - Gallery: https://phpstack-958493-6003495.cloudwaysapps.com/kepgaleria
-   - Check gallery images display correctly
+   - **Slideshow**: Check homepage slideshow appears and images display correctly
 
 ---
 
