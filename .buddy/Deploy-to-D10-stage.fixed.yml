@@ -57,6 +57,7 @@
     run_as_script: true
   - action: Execute ../vendor/bin/drush config:import -y
     type: SSH_COMMAND
+    disabled: true
     commands:
     - cd ~/public_html/web
     - ../vendor/bin/drush config:import -y
