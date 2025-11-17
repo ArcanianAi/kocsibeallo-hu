@@ -63,6 +63,7 @@
     targets:
     - d10-kocsibeallo-stage
     run_as_script: true
+    execute_every_command: true
   - action: Execute ../vendor/bin/drush updatedb -y
     type: SSH_COMMAND
     commands:
