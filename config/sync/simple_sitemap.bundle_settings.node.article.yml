@@ -1,0 +1,14 @@
+uuid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+langcode: hu
+status: true
+dependencies:
+  config:
+    - node.type.article
+id: node.article
+target_entity_type_id: node
+bundle_name: article
+sitemap_variant: default
+index: true
+priority: '0.7'
+changefreq: monthly
+include_images: true

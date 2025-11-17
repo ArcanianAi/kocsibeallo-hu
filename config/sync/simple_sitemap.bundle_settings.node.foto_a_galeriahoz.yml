@@ -1,0 +1,14 @@
+uuid: b2c3d4e5-f6g7-8901-bcde-f12345678901
+langcode: hu
+status: true
+dependencies:
+  config:
+    - node.type.foto_a_galeriahoz
+id: node.foto_a_galeriahoz
+target_entity_type_id: node
+bundle_name: foto_a_galeriahoz
+sitemap_variant: default
+index: true
+priority: '0.8'
+changefreq: monthly
+include_images: true
