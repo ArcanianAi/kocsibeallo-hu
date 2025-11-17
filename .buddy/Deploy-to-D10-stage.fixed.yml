@@ -1,0 +1,7 @@
+- pipeline: deploy-to-d10-stage
+  name: Deploy to D10 stage
+  refs:
+  - refs/heads/main
+  events:
+  - type: WEBHOOK
+  fail_on_prepare_env_warning: true
