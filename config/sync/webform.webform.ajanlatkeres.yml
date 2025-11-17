@@ -47,6 +47,18 @@ elements: |-
       Napelemes: Napelemes
       'Zárt garázs': 'Zárt garázs'
     '#empty_option': '-Válasszon-'
+  ximax_type:
+    '#type': checkboxes
+    '#title': 'XIMAX autóbeálló típus'
+    '#options':
+      wing: 'Wing - egyenes'
+      linea: 'Linea - egyenes'
+      portoforte: 'Portoforte - íves'
+      neo: 'NEO - egyenes'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: XIMAX
   size:
     '#type': fieldset
     '#title': Méret
