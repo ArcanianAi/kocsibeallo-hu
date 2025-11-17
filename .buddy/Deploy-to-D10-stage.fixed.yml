@@ -27,3 +27,15 @@
     targets:
     - d10-kocsibeallo-stage
     run_as_script: true
+  - action: Execute fi
+    type: SSH_COMMAND
+    commands:
+    - cd ~/public_html
+    - ""
+    - "# Check if needed"
+    - "if [ ! -f vendor/autoload.php ]; then"
+    - '  composer install --no-dev --optimize-autoloader'
+    - fi
+    targets:
+    - d10-kocsibeallo-stage
+    run_as_script: true
