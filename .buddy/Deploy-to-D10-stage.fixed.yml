@@ -41,6 +41,7 @@
     run_as_script: true
   - action: Execute chmod -R 755 .
     type: SSH_COMMAND
+    disabled: true
     commands:
     - cd ~/public_html/web/sites/default/files
     - ""
