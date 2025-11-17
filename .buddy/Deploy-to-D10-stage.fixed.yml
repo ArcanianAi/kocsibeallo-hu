@@ -6,3 +6,24 @@
   - type: WEBHOOK
   - type: PUSH
   fail_on_prepare_env_warning: true
+  targets:
+  - target: d10-kocsibeallo-stage
+    type: SSH
+    name: D10 kocsibeallo stage
+    host: 159.223.220.3
+    auth:
+      username: kocsid10ssh
+      password: '!encrypted wQENVMUwrOn/5KmvjUq9nQ==.wcNHjVrP368JjXwCoJZIiQ=='
+  actions:
+  - action: Execute git restore web/themes/contrib/porto_theme
+    type: SSH_COMMAND
+    commands:
+    - cd ~/public_html
+    - git stash
+    - git pull origin main
+    - git stash pop
+    - git status web/themes/contrib/porto_theme
+    - git restore web/themes/contrib/porto_theme
+    targets:
+    - d10-kocsibeallo-stage
+    run_as_script: true
