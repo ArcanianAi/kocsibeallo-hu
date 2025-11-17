@@ -13,11 +13,11 @@ When trying to SSH into Cloudways from Claude Code using standard methods:
 
 ```bash
 # ❌ This FAILS:
-ssh kocsid10ssh@165.22.200.254 -p 22
+ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
 # Error: Too many authentication failures
 
 # ❌ This ALSO FAILS:
-sshpass -p 'PASSWORD' ssh kocsid10ssh@165.22.200.254
+sshpass -p 'PASSWORD' ssh SSH_USER (see .credentials)@D7_HOST (see .credentials)
 # Error: Permission denied, please try again
 # Error: Too many authentication failures
 ```
@@ -42,9 +42,9 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "YOUR_COMMAND_HERE"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "YOUR_COMMAND_HERE"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -75,9 +75,9 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "pwd"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "pwd"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -87,7 +87,7 @@ chmod +x /tmp/ssh_pwd.sh
 
 **Output:**
 ```
-/home/969836.cloudwaysapps.com/wdzpzmmtxg
+/home/969836.cloudwaysapps.com/DB_USER (see .credentials)
 ```
 
 ### Example 2: List Directory Contents
@@ -99,9 +99,9 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "cd public_html && ls -la"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "cd public_html && ls -la"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -118,10 +118,10 @@ set timeout 600  # 10 minutes for long-running command
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 \
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) \
           "cd public_html/drupal10 && composer install --no-dev --no-interaction"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -140,12 +140,12 @@ set timeout 60
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 \
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) \
           "cd public_html/drupal10/web && \
            ../vendor/bin/drush status && \
            ../vendor/bin/drush cr"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -168,9 +168,9 @@ spawn scp -o StrictHostKeyChecking=no \
           -o PubkeyAuthentication=no \
           -P 22 \
           /path/to/local/file.sql \
-          kocsid10ssh@165.22.200.254:~/
+          SSH_USER (see .credentials)@D7_HOST (see .credentials):~/
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -189,9 +189,9 @@ spawn scp -o StrictHostKeyChecking=no \
           -o PubkeyAuthentication=no \
           -P 22 \
           /path/to/local/file.txt \
-          kocsid10ssh@165.22.200.254:~/public_html/
+          SSH_USER (see .credentials)@D7_HOST (see .credentials):~/public_html/
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -208,7 +208,7 @@ chmod +x /tmp/scp_upload_dir.sh
 **Problem:** Server may block connections after too many rapid attempts.
 
 ```bash
-ssh: connect to host 165.22.200.254 port 22: Operation timed out
+ssh: connect to host D7_HOST (see .credentials) port 22: Operation timed out
 ```
 
 **Solution:** Wait 1-2 minutes between connection attempts if you hit rate limits.
@@ -261,9 +261,9 @@ spawn ssh -vvv \
           -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "pwd"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "pwd"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -280,9 +280,9 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "echo 'Connection successful'"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "echo 'Connection successful'"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 
@@ -303,14 +303,14 @@ Based on actual SSH verification (2025-11-16):
 
 | Path Type | Actual Path |
 |-----------|------------|
-| **Home Directory** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg` |
-| **Application Root** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html` |
-| **Drupal 10** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10` |
-| **Web Root** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web` |
-| **Config Sync** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/config/sync` |
-| **Private Files** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/private_html` |
-| **Logs** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/logs` |
-| **Git Repo** | `/home/969836.cloudwaysapps.com/wdzpzmmtxg/git_repo` |
+| **Home Directory** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)` |
+| **Application Root** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html` |
+| **Drupal 10** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10` |
+| **Web Root** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web` |
+| **Config Sync** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/config/sync` |
+| **Private Files** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/private_html` |
+| **Logs** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/logs` |
+| **Git Repo** | `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/git_repo` |
 
 ---
 
@@ -329,10 +329,10 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 \
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) \
           "cd public_html && ls -la drupal10"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 chmod +x /tmp/step1.sh
@@ -346,10 +346,10 @@ set timeout 600
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 \
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) \
           "cd public_html/drupal10 && composer install --no-dev --no-interaction"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 chmod +x /tmp/step2.sh
@@ -363,10 +363,10 @@ set timeout 60
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 \
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) \
           "cd public_html/drupal10/web && ../vendor/bin/drush cr"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 EOF
 chmod +x /tmp/step3.sh
@@ -398,10 +398,10 @@ set timeout 30
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "YOUR_COMMAND"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "YOUR_COMMAND"
 expect {
     "password:" {
-        send "KCSIssH3497!\r"
+        send "SSH_PASSWORD (see .credentials)\r"
         exp_continue
     }
     "Permission denied" {

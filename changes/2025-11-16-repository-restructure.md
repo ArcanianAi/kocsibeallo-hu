@@ -190,7 +190,7 @@ cd web
 
 **Before:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 cd drupal10        ← Extra level
 composer install
 cd web
@@ -199,7 +199,7 @@ cd web
 
 **After:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 composer install   ← Direct access
 cd web
 ../vendor/bin/drush status
@@ -254,10 +254,10 @@ docker exec pajfrsyfzm-d10-cli bash -c "cd /app/web && ../vendor/bin/drush statu
 
 ```bash
 # 1. SSH into Cloudways
-ssh kocsid10ssh@165.22.200.254 -p 22
+ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
 
 # 2. Check new structure
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 ls -la composer.json      # Should be HERE
 ls -la web/index.php      # Should exist
 ls -la config/sync/       # Should have files
@@ -307,8 +307,8 @@ git push origin main
 ### Step 3: SSH and Verify
 
 ```bash
-ssh kocsid10ssh@165.22.200.254 -p 22
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 
 # Verify new structure
 ls -la composer.json web/ config/
@@ -323,7 +323,7 @@ ls -la drupal10/
 Follow steps in `CLOUDWAYS_DEPLOYMENT_STEPS.md` with NEW PATHS:
 
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 
 # Install Composer dependencies
 composer install --no-dev --no-interaction
@@ -383,7 +383,7 @@ docker-compose -f docker-compose.d10.yml up -d
 **Solution:**
 ```bash
 # SSH into Cloudways
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html
 # Verify new structure works first!
 rm -rf drupal10/
 ```

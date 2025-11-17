@@ -56,7 +56,7 @@ The `skin_option` configuration was not set in production database, causing Port
 
 **Commands for verification:**
 ```bash
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 cd ~/public_html/web
 ../vendor/bin/drush config:get porto.settings skin_option
 ../vendor/bin/drush cr
@@ -109,7 +109,7 @@ Complete final verification checklist for production deployment.
 
 5. **Drupal Status**
    ```bash
-   ssh xmudbprchx@159.223.220.3
+   ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
    cd ~/public_html/web
    ../vendor/bin/drush status
    ../vendor/bin/drush watchdog:show --count=20
@@ -117,7 +117,7 @@ Complete final verification checklist for production deployment.
 
 6. **File Permissions**
    - [ ] Files directory writable: `web/sites/default/files/`
-   - [ ] Correct ownership: `xmudbprchx:xmudbprchx`
+   - [ ] Correct ownership: `DB_USER (see .credentials):DB_USER (see .credentials)`
 
 7. **Performance**
    - [ ] Page load time acceptable (< 3 seconds)
@@ -149,7 +149,7 @@ Install and configure Redis caching module for improved performance on Cloudways
 
 2. **Install Redis module:**
    ```bash
-   ssh xmudbprchx@159.223.220.3
+   ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
    cd ~/public_html
    composer require drupal/redis
    ```
@@ -242,7 +242,7 @@ Visual issue - logo doesn't display in Porto theme header.
 
 5. **Verify on production:**
    ```bash
-   ssh xmudbprchx@159.223.220.3
+   ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
    cd ~/public_html/web/themes/contrib/porto_theme/img/
    ls -lh deluxe-kocsibeallo-logo-150px.png
    ```

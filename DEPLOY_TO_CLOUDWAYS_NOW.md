@@ -27,24 +27,24 @@ Since SSH password authentication works from your Termius client, here's the com
 **On your local machine:**
 ```bash
 # Upload the database export to Cloudways
-scp -P 22 /Volumes/T9/Sites/kocsibeallo-hu/cloudways-db-export.sql kocsid10ssh@165.22.200.254:/home/kocsid10ssh/
+scp -P 22 /Volumes/T9/Sites/kocsibeallo-hu/cloudways-db-export.sql SSH_USER (see .credentials)@D7_HOST (see .credentials):/home/SSH_USER (see .credentials)/
 ```
 
-When prompted, enter password: `KCSIssH3497!`
+When prompted, enter password: `SSH_PASSWORD (see .credentials)`
 
 #### Step 2: Upload Deployment Script
 
 ```bash
 # Upload the deployment script
-scp -P 22 /Volumes/T9/Sites/kocsibeallo-hu/scripts/cloudways/production-deploy-full.sh kocsid10ssh@165.22.200.254:/home/kocsid10ssh/
+scp -P 22 /Volumes/T9/Sites/kocsibeallo-hu/scripts/cloudways/production-deploy-full.sh SSH_USER (see .credentials)@D7_HOST (see .credentials):/home/SSH_USER (see .credentials)/
 ```
 
 #### Step 3: SSH into Cloudways (via Termius or Terminal)
 
 **In Termius or Terminal:**
 ```bash
-ssh kocsid10ssh@165.22.200.254 -p 22
-# Password: KCSIssH3497!
+ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
+# Password: SSH_PASSWORD (see .credentials)
 ```
 
 #### Step 4: Locate Your Application Directory
@@ -66,7 +66,7 @@ cd [your-application-name]/public_html
 pwd
 ```
 
-**Expected path:** `/home/kocsid10ssh/applications/[app-name]/public_html`
+**Expected path:** `/home/SSH_USER (see .credentials)/applications/[app-name]/public_html`
 
 #### Step 5: Check Git Deployment Status
 
@@ -122,7 +122,7 @@ Enter: `y`
 
 When it asks for the path, enter:
 ```
-/home/kocsid10ssh/cloudways-db-export.sql
+/home/SSH_USER (see .credentials)/cloudways-db-export.sql
 ```
 
 #### Step 8: Verify Settings.php (when prompted)
@@ -133,7 +133,7 @@ The script will pause and ask you to verify `settings.php`. You need to ensure i
 
 In another terminal window, SSH in again and edit:
 ```bash
-cd /home/kocsid10ssh/applications/[app-name]/public_html/drupal10/web/sites/default
+cd /home/SSH_USER (see .credentials)/applications/[app-name]/public_html/drupal10/web/sites/default
 nano settings.php
 ```
 
@@ -144,9 +144,9 @@ Add or update these sections:
  * Production Database Configuration
  */
 $databases['default']['default'] = array (
-  'database' => 'wdzpzmmtxg',
-  'username' => 'wdzpzmmtxg',
-  'password' => 'fyQuAvP74q',
+  'database' => 'DB_USER (see .credentials)',
+  'username' => 'DB_USER (see .credentials)',
+  'password' => 'DB_PASSWORD (see .credentials)',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
@@ -183,7 +183,7 @@ if (extension_loaded('redis')) {
   $settings['redis.connection']['interface'] = 'PhpRedis';
   $settings['redis.connection']['host'] = 'localhost';
   $settings['redis.connection']['port'] = '6379';
-  $settings['redis.connection']['base'] = 'wdzpzmmtxg';
+  $settings['redis.connection']['base'] = 'DB_USER (see .credentials)';
   $settings['redis.connection']['password'] = 'ccp5TKzJx4';
 
   $settings['cache']['default'] = 'cache.backend.redis';
@@ -217,8 +217,8 @@ If the automated script has issues, follow these manual steps:
 
 #### 1. SSH into Cloudways
 ```bash
-ssh kocsid10ssh@165.22.200.254 -p 22
-# Password: KCSIssH3497!
+ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
+# Password: SSH_PASSWORD (see .credentials)
 ```
 
 #### 2. Navigate to Application
@@ -258,12 +258,12 @@ Add the production configuration (see Option A, Step 8 above).
 
 #### 7. Import Database
 ```bash
-mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < /home/kocsid10ssh/cloudways-db-export.sql
+mysql -u DB_USER (see .credentials) -pDB_PASSWORD (see .credentials) DB_USER (see .credentials) < /home/SSH_USER (see .credentials)/cloudways-db-export.sql
 ```
 
 #### 8. Enable Redis
 ```bash
-cd /home/kocsid10ssh/applications/[app-name]/public_html/drupal10/web
+cd /home/SSH_USER (see .credentials)/applications/[app-name]/public_html/drupal10/web
 ../vendor/bin/drush en redis -y
 ```
 
@@ -326,7 +326,7 @@ After deployment completes:
 ### Database Connection Errors
 ```bash
 # Test database connection
-mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg -e "SHOW TABLES;"
+mysql -u DB_USER (see .credentials) -pDB_PASSWORD (see .credentials) DB_USER (see .credentials) -e "SHOW TABLES;"
 ```
 
 If this fails, verify database credentials in settings.php.

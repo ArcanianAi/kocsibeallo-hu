@@ -29,7 +29,7 @@
 
 1. **SSH into production server:**
    ```bash
-   ssh xmudbprchx@159.223.220.3
+   ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
    ```
 
 2. **Create settings.php from template:**
@@ -46,9 +46,9 @@
    Update these values (from Cloudways > Application > Access Details):
    ```php
    $databases['default']['default'] = array (
-     'database' => 'xmudbprchx',
-     'username' => 'xmudbprchx',
-     'password' => '9nJbkdMBbM',
+     'database' => 'DB_USER (see .credentials)',
+     'username' => 'DB_USER (see .credentials)',
+     'password' => 'DB_PASSWORD (see .credentials)',
      'host' => 'localhost',
      'port' => '3306',
      // ... rest of config

@@ -8,7 +8,7 @@ PROD_HOST="159.223.220.3"
 PROD_PATH="~/public_html"
 GIT_REPO="https://github.com/ArcanianAi/kocsibeallo-hu.git"
 
-# Old D7 Server (source for files)
+# Old D7 Server (source for files) - see .credentials file
 D7_USER="kocsibeall.ssh.d10"
 D7_PASS="D10Test99!"
 D7_HOST="165.22.200.254"
@@ -227,25 +227,23 @@ if [ -d .git ]; then
         git stash pop 2>&1 | head -3 || echo "  (stash already applied or conflicts)"
     fi
 
-    # Restore any deleted/modified Porto theme files
-    echo "  → Checking for deleted Porto theme files..."
-    DELETED_COUNT=\$(git status --short | grep "^ D.*porto_theme" | wc -l)
-    MODIFIED_COUNT=\$(git status --short | grep "^ M.*porto_theme.*\.\(yml\|css\|js\)" | wc -l)
+    # Restore ALL deleted/modified Porto theme files
+    echo "  → Checking for deleted/modified Porto theme files..."
+    DELETED_COUNT=\$(git status --short web/themes/contrib/porto_theme/ | grep "^ D" | wc -l)
+    MODIFIED_COUNT=\$(git status --short web/themes/contrib/porto_theme/ | grep "^ M" | wc -l)
 
     if [ \$DELETED_COUNT -gt 0 ] || [ \$MODIFIED_COUNT -gt 0 ]; then
         echo "  ⚠ Found \$DELETED_COUNT deleted and \$MODIFIED_COUNT modified theme files"
-        echo "  → Restoring deleted Porto files..."
+        echo "  → Restoring ALL Porto theme files (CSS, JS, templates, config)..."
 
-        # Restore critical files
-        git restore web/themes/contrib/porto_theme/css/custom-user.css 2>/dev/null && echo "    ✓ Restored custom-user.css (39KB)" || true
-        git restore web/themes/contrib/porto_theme/css/custom-blog.css 2>/dev/null && echo "    ✓ Restored custom-blog.css" || true
-        git restore web/themes/contrib/porto_theme/js/header-fixes.js 2>/dev/null && echo "    ✓ Restored header-fixes.js" || true
-        git restore web/themes/contrib/porto_theme/js/blog-date-format.js 2>/dev/null && echo "    ✓ Restored blog-date-format.js" || true
+        # Restore entire Porto theme directory to correct state
+        git restore web/themes/contrib/porto_theme/ 2>&1 | grep -v "warning" || true
 
-        # Restore modified config files
-        git restore web/themes/contrib/porto_theme/porto.info.yml 2>/dev/null && echo "    ✓ Restored porto.info.yml" || true
-        git restore web/themes/contrib/porto_theme/porto.libraries.yml 2>/dev/null && echo "    ✓ Restored porto.libraries.yml" || true
-        git restore web/themes/contrib/porto_theme/porto.theme 2>/dev/null || true
+        echo "    ✓ Restored all Porto theme files:"
+        echo "      - CSS files (custom-user.css, custom-blog.css)"
+        echo "      - JS files (header-fixes.js, blog-date-format.js)"
+        echo "      - Templates (page--front.html.twig, gallery teaser, blog views)"
+        echo "      - Config files (porto.info.yml, porto.libraries.yml, porto.theme)"
 
         # Verify critical file
         if [ -f web/themes/contrib/porto_theme/css/custom-user.css ]; then
@@ -259,7 +257,7 @@ if [ -d .git ]; then
             echo "    ✗ ERROR: custom-user.css still missing!"
         fi
     else
-        echo "  ✓ No deleted Porto files detected"
+        echo "  ✓ No deleted/modified Porto files detected"
     fi
 
     echo "✓ Code updated via git pull"
@@ -406,73 +404,59 @@ EOFCOMPOSER
 fi
 echo ""
 
-# Step 5: Check if files need syncing from D7
+# Step 5: Sync all files from D7 to D10 (server-to-server on D10)
 if ! skip_if_complete "step5"; then
-    echo -e "${BLUE}[5/7]${NC} ${YELLOW}Checking files directory...${NC}"
+    echo -e "${BLUE}[5/7]${NC} ${YELLOW}Syncing files from D7 to D10 (server-to-server)...${NC}"
+    echo -e "${YELLOW}→ Running rsync on D10 server to download from D7 (~1.8GB, 5-10 minutes)...${NC}"
 
-    # Temporarily disable exit-on-error to capture the exit code
-    set +e
+    # SSH into D10 and run rsync to download from D7
     SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" ssh \
       -o StrictHostKeyChecking=no \
       -o PreferredAuthentications=password \
       -o PubkeyAuthentication=no \
-      ${PROD_USER}@${PROD_HOST} bash << 'EOFCHECK'
+      ${PROD_USER}@${PROD_HOST} bash << EOFFILESYNC
 set -e
+
+echo "  → Running rsync on D10 to download from D7..."
+echo "     (D7: ${D7_USER}@${D7_HOST})"
+
+# Create files directory if needed
+mkdir -p ~/public_html/web/sites/default/files
 cd ~/public_html/web/sites/default/files
 
-FILE_COUNT=$(find . -type f 2>/dev/null | wc -l | xargs)
-echo "→ Files in directory: $FILE_COUNT"
+# Run rsync with password using expect
+echo "     Starting rsync transfer with expect..."
+echo "     Source: ${D7_USER}@${D7_HOST}:${D7_FILES}/"
 
-if [ "$FILE_COUNT" -lt 100 ]; then
-    echo "⚠ Files directory needs syncing from D7"
-    exit 10
-else
-    echo "✓ Files directory OK"
-fi
-EOFCHECK
+expect << EOFEXPECT
+set timeout 600
+spawn rsync -avz --progress ${D7_USER}@${D7_HOST}:${D7_FILES}/ ./
+expect {
+    "password:" {
+        send "${D7_PASS}\r"
+        exp_continue
+    }
+    "yes/no" {
+        send "yes\r"
+        exp_continue
+    }
+    eof
+}
+EOFEXPECT
 
-    SYNC_NEEDED=$?
-    set -e
-if [ $SYNC_NEEDED -eq 10 ]; then
-    echo -e "${YELLOW}→ Syncing files from D7 server (~1.8GB, 5-10 minutes)...${NC}"
+echo "     ✓ Rsync transfer complete"
 
-    # Create temp directory
-    TEMP_DIR=$(mktemp -d)
-    trap "rm -rf $TEMP_DIR" EXIT
+# Set permissions
+chmod -R 755 . 2>/dev/null || true
 
-    echo "  → Downloading from D7 server..."
-    SSH_AUTH_SOCK="" sshpass -p "${D7_PASS}" scp -r \
-      -o StrictHostKeyChecking=no \
-      -o PreferredAuthentications=password \
-      -o PubkeyAuthentication=no \
-      -o Compression=yes \
-      ${D7_USER}@${D7_HOST}:${D7_FILES}/* \
-      ${TEMP_DIR}/ 2>&1 | tail -3
+# Count files
+FILE_COUNT=\$(find . -type f 2>/dev/null | wc -l)
+echo "  ✓ Total files in directory: \$FILE_COUNT"
 
-    FILE_COUNT=$(find ${TEMP_DIR} -type f | wc -l)
-    echo -e "${GREEN}  ✓ Downloaded ${FILE_COUNT} files${NC}"
+EOFFILESYNC
 
-    echo "  → Uploading to production..."
-    SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" scp -r \
-      -o StrictHostKeyChecking=no \
-      -o PreferredAuthentications=password \
-      -o PubkeyAuthentication=no \
-      -o Compression=yes \
-      ${TEMP_DIR}/* \
-      ${PROD_USER}@${PROD_HOST}:${PROD_PATH}/web/sites/default/files/ 2>&1 | tail -3
-
-    # Set permissions
-    SSH_AUTH_SOCK="" sshpass -p "${PROD_PASS}" ssh \
-      -o StrictHostKeyChecking=no \
-      -o PreferredAuthentications=password \
-      -o PubkeyAuthentication=no \
-      ${PROD_USER}@${PROD_HOST} "chmod -R 755 ${PROD_PATH}/web/sites/default/files"
-
-    echo -e "${GREEN}  ✓ Files synced from D7${NC}"
-else
-    echo -e "${GREEN}✓ Files directory verified${NC}"
-fi
     mark_complete "step5"
+    echo -e "${GREEN}✓ Files synced from D7 to D10${NC}"
 fi
 echo ""
 

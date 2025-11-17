@@ -20,8 +20,8 @@
 
 **Method A: Manual SSH (Termius or Terminal)**
 ```bash
-ssh kocsid10ssh@165.22.200.254 -p 22
-# Password: KCSIssH3497!
+# See .credentials file for SSH connection details
+ssh USER@HOST -p 22
 ```
 
 **Method B: SSH from Claude Code (Using Expect Scripts)**
@@ -30,12 +30,13 @@ Claude Code can automate SSH connections using expect scripts. Here's the workin
 
 ```bash
 # Create expect script for SSH command
+# See .credentials file for SSH_USER, SSH_HOST, and SSH_PASSWORD
 cat > /tmp/ssh_cmd.sh << 'EOF'
 #!/usr/bin/expect -f
 set timeout 30
-spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no kocsid10ssh@165.22.200.254 "YOUR_COMMAND_HERE"
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no SSH_USER@SSH_HOST "YOUR_COMMAND_HERE"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD\r"
 expect eof
 EOF
 
@@ -46,12 +47,13 @@ chmod +x /tmp/ssh_cmd.sh
 
 **Example: Check current directory**
 ```bash
+# Replace SSH_USER, SSH_HOST, SSH_PASSWORD with values from .credentials
 cat > /tmp/ssh_cmd.sh << 'EOF'
 #!/usr/bin/expect -f
 set timeout 30
-spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no kocsid10ssh@165.22.200.254 "pwd && ls -la"
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no SSH_USER@SSH_HOST "pwd && ls -la"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD\r"
 expect eof
 EOF
 chmod +x /tmp/ssh_cmd.sh
@@ -254,10 +256,12 @@ chmod 777 sites/default/files/private
 **Option A: If you have a database dump locally**
 ```bash
 # From your LOCAL machine, upload database dump
-scp -P 22 /path/to/database-dump.sql kocsid10ssh@165.22.200.254:/home/kocsid10ssh/
+# See .credentials for SSH_USER, SSH_HOST
+scp -P 22 /path/to/database-dump.sql SSH_USER@SSH_HOST:/home/SSH_USER/
 
 # Then on Cloudways server:
-mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < /home/kocsid10ssh/database-dump.sql
+# See .credentials for DB_USER, DB_PASSWORD, DB_NAME
+mysql -u DB_USER -pDB_PASSWORD DB_NAME < /home/SSH_USER/database-dump.sql
 ```
 
 **Option B: From Cloudways, connect to D10 local database**
@@ -268,10 +272,12 @@ mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < /home/kocsid10ssh/database-dump.sq
 docker exec pajfrsyfzm-d10-mariadb mysqldump -udrupal -pdrupal drupal10 > /tmp/prod-export.sql
 
 # Then upload to Cloudways:
-scp -P 22 /tmp/prod-export.sql kocsid10ssh@165.22.200.254:/home/kocsid10ssh/
+# See .credentials for SSH_USER, SSH_HOST
+scp -P 22 /tmp/prod-export.sql SSH_USER@SSH_HOST:/home/SSH_USER/
 
 # Import on Cloudways:
-mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < /home/kocsid10ssh/prod-export.sql
+# See .credentials for DB_USER, DB_PASSWORD, DB_NAME
+mysql -u DB_USER -pDB_PASSWORD DB_NAME < /home/SSH_USER/prod-export.sql
 ```
 
 ### ✅ Step 8: Enable Redis Module

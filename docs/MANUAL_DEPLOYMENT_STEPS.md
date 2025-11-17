@@ -20,7 +20,7 @@ Follow these steps to deploy the logo fix and restore database connection.
 
 ```bash
 # SSH to production
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 
 # Navigate to settings directory
 cd ~/public_html/web/sites/default
@@ -38,9 +38,9 @@ cat > settings.php << 'EOFPHP'
 
 // Database configuration
 $databases['default']['default'] = array (
-  'database' => 'xmudbprchx',
-  'username' => 'xmudbprchx',
-  'password' => '9nJbkdMBbM',
+  'database' => 'DB_USER (see .credentials)',
+  'username' => 'DB_USER (see .credentials)',
+  'password' => 'DB_PASSWORD (see .credentials)',
   'host' => 'localhost',
   'port' => '3306',
   'driver' => 'mysql',
@@ -120,7 +120,7 @@ cd ~/public_html/web
 
 ```bash
 # 1. SSH to production
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 
 # 2. Pull latest code
 cd ~/public_html
@@ -153,7 +153,7 @@ After deployment, verify:
 
 ### ✅ Database Connection
 ```bash
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 cd ~/public_html/web
 ../vendor/bin/drush status | grep "Database"
 # Should show: Connected
@@ -188,12 +188,12 @@ ls -lh web/sites/default/files/deluxe-kocsibeallo-logo-150px.png
 ```bash
 # Verify credentials in settings.php
 cd ~/public_html/web/sites/default
-grep "database.*xmudbprchx" settings.php
-grep "username.*xmudbprchx" settings.php
-grep "password.*9nJbkdMBbM" settings.php
+grep "database.*DB_USER (see .credentials)" settings.php
+grep "username.*DB_USER (see .credentials)" settings.php
+grep "password.*DB_PASSWORD (see .credentials)" settings.php
 
 # Test MySQL connection directly
-mysql -uxmudbprchx -p9nJbkdMBbM -h localhost xmudbprchx -e "SHOW TABLES;"
+mysql -uDB_USER (see .credentials) -pDB_PASSWORD (see .credentials) -h localhost DB_USER (see .credentials) -e "SHOW TABLES;"
 # Should list Drupal tables
 ```
 
@@ -245,7 +245,7 @@ cd ~/public_html/web
 
 ```bash
 # SSH to production
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 
 # Navigate to app
 cd ~/public_html

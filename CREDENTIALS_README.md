@@ -1,22 +1,34 @@
 # Production Credentials Management
 
-## 🔐 Storing Production Credentials
+## 🔐 Centralized Credential Storage
 
-This project uses a `.credentials` file to store production environment information securely.
+**All production credentials are now stored in `.credentials` file** - never committed to Git.
+
+This consolidation improves security by:
+- **Single source of truth** for all credentials
+- **No scattered passwords** in documentation files
+- **Easy credential rotation** - update one file
+- **Consistent naming** across all scripts
 
 ---
 
-## 📝 Setup Instructions
+## 📝 Current Setup (Already Configured)
 
-### 1. Copy the Example File
+✅ **The `.credentials` file has been created with all production credentials**
+
+This includes:
+- D10 Production Server (SSH, database, URLs)
+- D7 Production Server (for file migration)
+- Git repository information
+- Cloudways platform URLs
+
+### View Credentials
 
 ```bash
-cp .credentials.example .credentials
+cat .credentials
 ```
 
-### 2. Fill in Your Production Values
-
-Edit `.credentials` and add your actual Cloudways production credentials:
+### Edit Credentials (if needed)
 
 ```bash
 nano .credentials
@@ -24,11 +36,29 @@ nano .credentials
 code .credentials
 ```
 
-### 3. Never Commit the Real Credentials File
+**Important:** The `.credentials` file is in `.gitignore` and will **never** be committed to Git.
 
-The `.credentials` file is in `.gitignore` and will **never** be committed to Git.
+---
 
-**Only `.credentials.example` is committed** (with placeholder values).
+## 🔄 What Changed (2025-11-17)
+
+**All credentials have been removed from documentation files (.md)**
+
+Previously, credentials were scattered across:
+- `START_HERE.md`
+- `CLOUDWAYS_DEPLOYMENT_STEPS.md`
+- `docs/CLOUDWAYS_DEPLOYMENT.md`
+- `docs/MANUAL_DEPLOYMENT_STEPS.md`
+- `docs/LINEAR_INTEGRATION.md`
+- `docs/CLAUDE_CODE_SSH_AUTOMATION.md`
+- And other documentation files
+
+**Now:** All these files reference `.credentials` instead of containing actual passwords.
+
+Example replacements:
+- `Password: KCSIssH3497!` → `SSH_PASSWORD (see .credentials)`
+- `Host: 165.22.200.254` → `D7_HOST (see .credentials)`
+- `User: kocsid10ssh` → `SSH_USER (see .credentials)`
 
 ---
 

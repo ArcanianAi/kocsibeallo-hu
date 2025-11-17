@@ -33,6 +33,9 @@ echo "  - web/themes/contrib/porto_theme/css/custom-user.css (39KB - CRITICAL)" 
 echo "  - web/themes/contrib/porto_theme/js/blog-date-format.js" | tee -a "$REPORT_FILE"
 echo "  - web/themes/contrib/porto_theme/js/header-fixes.js" | tee -a "$REPORT_FILE"
 echo "  - web/themes/contrib/porto_theme/porto.info.yml (restore library refs)" | tee -a "$REPORT_FILE"
+echo "  - web/themes/contrib/porto_theme/templates/page--front.html.twig (restore container wrappers)" | tee -a "$REPORT_FILE"
+echo "  - web/themes/contrib/porto_theme/templates/node/gallery/node--foto-a-galeriahoz--teaser.html.twig (gallery card images)" | tee -a "$REPORT_FILE"
+echo "  - web/themes/contrib/porto_theme/templates/view/blog templates" | tee -a "$REPORT_FILE"
 echo "" | tee -a "$REPORT_FILE"
 
 echo -e "${YELLOW}Connecting to production...${NC}"
@@ -105,10 +108,30 @@ if git status --short | grep -q "^ M.*porto.theme"; then
     echo "  ✓ Restored"
 fi
 
-# Restore any modified templates
-echo "  → Restoring modified header templates..."
-git restore web/themes/contrib/porto_theme/templates/includes/header_option/*.html.twig 2>/dev/null || true
-echo "  ✓ Restored"
+# Restore ALL deleted and modified templates in Porto theme
+echo "  → Checking for deleted/modified templates..."
+
+# Get count of deleted and modified templates
+DELETED_TPL_COUNT=$(git status --short web/themes/contrib/porto_theme/templates/ | grep "^ D.*\.twig" | wc -l)
+MODIFIED_TPL_COUNT=$(git status --short web/themes/contrib/porto_theme/templates/ | grep "^ M.*\.twig" | wc -l)
+
+if [ $DELETED_TPL_COUNT -gt 0 ] || [ $MODIFIED_TPL_COUNT -gt 0 ]; then
+    echo "  → Found $DELETED_TPL_COUNT deleted and $MODIFIED_TPL_COUNT modified template files"
+    echo "  → Restoring ALL Porto theme templates..."
+
+    # Restore all templates directory
+    git restore web/themes/contrib/porto_theme/templates/ 2>&1 | grep -v "warning" || true
+
+    echo "  ✓ All templates restored"
+    echo ""
+    echo "  Templates restored include:"
+    echo "    - page--front.html.twig (slideshow container wrapper)"
+    echo "    - node--foto-a-galeriahoz--teaser.html.twig (gallery card images)"
+    echo "    - blog view templates"
+    echo "    - any other modified/deleted templates"
+else
+    echo "  ✓ No deleted/modified templates found"
+fi
 
 echo ""
 echo "=== 4. VERIFYING RESTORED FILES ==="
@@ -149,6 +172,27 @@ fi
 echo ""
 echo "  → Checking porto.info.yml libraries section:"
 grep -A5 "^libraries:" web/themes/contrib/porto_theme/porto.info.yml | sed 's/^/    /'
+
+# Verify page--front.html.twig has container wrapper
+echo ""
+if [ -f web/themes/contrib/porto_theme/templates/page--front.html.twig ]; then
+    if grep -q '<div class="container">' web/themes/contrib/porto_theme/templates/page--front.html.twig; then
+        echo "  ✓ page--front.html.twig: Contains container wrapper for slideshow"
+    else
+        echo "  ✗ page--front.html.twig: MISSING container wrapper!"
+    fi
+else
+    echo "  ✗ page--front.html.twig: FILE MISSING"
+fi
+
+# Verify gallery teaser template
+if [ -f web/themes/contrib/porto_theme/templates/node/gallery/node--foto-a-galeriahoz--teaser.html.twig ]; then
+    if grep -q 'product-thumb-info' web/themes/contrib/porto_theme/templates/node/gallery/node--foto-a-galeriahoz--teaser.html.twig; then
+        echo "  ✓ Gallery teaser template: Product card layout present"
+    fi
+else
+    echo "  ✗ Gallery teaser template: FILE MISSING (gallery cards will show text only)"
+fi
 
 echo ""
 echo "=== 5. CLEARING DRUPAL CACHE ==="

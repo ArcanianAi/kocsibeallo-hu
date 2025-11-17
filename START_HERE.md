@@ -47,12 +47,10 @@ You have **2 options** to complete the deployment:
    cd /Volumes/T9/Sites/kocsibeallo-hu
    ./upload-to-cloudways.sh
    ```
-   *(Will prompt for password 3 times: `KCSIssH3497!`)*
+   *(Will prompt for password 3 times - see `.credentials` file)*
 
 2. **SSH into Cloudways via Termius:**
-   - Host: `165.22.200.254`
-   - User: `kocsid10ssh`
-   - Password: `KCSIssH3497!`
+   - See `.credentials` file for SSH connection details
 
 3. **Run the deployment script:**
    ```bash
@@ -111,12 +109,15 @@ Here's what each file does:
 
 ## ⚙️ Key Credentials
 
-All stored in `.credentials` file:
+**All credentials stored in `.credentials` file** - never committed to Git.
 
-- **SSH:** kocsid10ssh@165.22.200.254 (password: `KCSIssH3497!`)
-- **Database:** wdzpzmmtxg / fyQuAvP74q
-- **Redis:** localhost:6379 / ccp5TKzJx4
-- **Site:** https://phpstack-969836-6003258.cloudwaysapps.com
+This includes:
+- SSH connection details (D10 and D7 servers)
+- Database credentials
+- Production site URLs
+- Git repository information
+
+**To access:** `cat .credentials`
 
 ---
 
@@ -130,8 +131,9 @@ Standard `ssh` or `sshpass` commands **don't work** - they fail with "Too many a
 ssh -o StrictHostKeyChecking=no \
     -o PreferredAuthentications=password \
     -o PubkeyAuthentication=no \
-    kocsid10ssh@165.22.200.254
+    USER@HOST
 ```
+(See `.credentials` for actual connection details)
 
 Full guide: `docs/CLAUDE_CODE_SSH_AUTOMATION.md`
 
@@ -177,7 +179,7 @@ cd drupal10 && ls -la vendor/ 2>&1
 ### Fastest Path to Production:
 
 1. **Open Termius** (SSH client that works with password)
-2. **Connect to:** kocsid10ssh@165.22.200.254
+2. **Connect using credentials from `.credentials` file**
 3. **Copy deployment script:**
    ```bash
    cd public_html

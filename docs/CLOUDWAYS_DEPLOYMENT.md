@@ -352,21 +352,21 @@ $settings['config_sync_directory'] = '../config/sync';
 The old D7 server contains all the original site images and user-uploaded files (~1.8GB).
 
 **Old D7 Server Details:**
-- Host: `165.22.200.254`
+- Host: `D7_HOST (see .credentials)`
 - User: `kocsibeall.ssh.d10`
 - Password: `D10Test99!`
 - Files Path: `/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files`
 
 **New D10 Production Server:**
-- Host: `159.223.220.3`
-- User: `xmudbprchx`
+- Host: `D10_HOST (see .credentials)`
+- User: `DB_USER (see .credentials)`
 - Files Path: `~/public_html/web/sites/default/files/`
 
 ### Transfer Steps
 
 **1. Connect to new production server:**
 ```bash
-ssh xmudbprchx@159.223.220.3
+ssh DB_USER (see .credentials)@D10_HOST (see .credentials)
 ```
 
 **2. Navigate to files directory:**
@@ -376,14 +376,14 @@ cd ~/public_html/web/sites/default/
 
 **3. Run SCP transfer from old D7 server:**
 ```bash
-scp -r kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/* files/
+scp -r kocsibeall.ssh.d10@D7_HOST (see .credentials):/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/* files/
 # Enter password when prompted: D10Test99!
 ```
 
 **4. Set correct permissions:**
 ```bash
 chmod -R 755 files/
-chown -R xmudbprchx:xmudbprchx files/
+chown -R DB_USER (see .credentials):DB_USER (see .credentials) files/
 ```
 
 **5. Verify transfer:**
@@ -408,7 +408,7 @@ Visit https://phpstack-958493-6003495.cloudwaysapps.com/ and check that all imag
 For future updates or incremental transfers:
 
 ```bash
-rsync -avz --progress kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/ ~/public_html/web/sites/default/files/
+rsync -avz --progress kocsibeall.ssh.d10@D7_HOST (see .credentials):/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/ ~/public_html/web/sites/default/files/
 ```
 
 **Note:** All credentials are stored in `.credentials` file (not in Git).

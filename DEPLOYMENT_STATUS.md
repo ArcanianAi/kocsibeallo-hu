@@ -11,7 +11,7 @@
 **Status:** ✅ COMPLETE
 
 - Code successfully deployed to Cloudways via Git
-- Verified path: `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html`
+- Verified path: `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html`
 - All files present:
   - ✓ `drupal10/` directory
   - ✓ `docs/` directory
@@ -37,9 +37,9 @@ Successfully established SSH connection using expect scripts:
 spawn ssh -o StrictHostKeyChecking=no \
           -o PreferredAuthentications=password \
           -o PubkeyAuthentication=no \
-          kocsid10ssh@165.22.200.254 "COMMAND"
+          SSH_USER (see .credentials)@D7_HOST (see .credentials) "COMMAND"
 expect "password:"
-send "KCSIssH3497!\r"
+send "SSH_PASSWORD (see .credentials)\r"
 expect eof
 ```
 
@@ -81,7 +81,7 @@ Created comprehensive documentation:
 
 **Required Action:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 ```
 
@@ -96,12 +96,12 @@ composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 **Required Actions:**
 1. Upload database to Cloudways:
    ```bash
-   scp cloudways-db-export.sql kocsid10ssh@165.22.200.254:~/
+   scp cloudways-db-export.sql SSH_USER (see .credentials)@D7_HOST (see .credentials):~/
    ```
 
 2. Import database:
    ```bash
-   mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < ~/cloudways-db-export.sql
+   mysql -u DB_USER (see .credentials) -pDB_PASSWORD (see .credentials) DB_USER (see .credentials) < ~/cloudways-db-export.sql
    ```
 
 **Why Pending:** SCP connection timeout with large file
@@ -111,12 +111,12 @@ composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 ### 3. Production settings.php Configuration
 **Status:** ❌ NOT YET UPDATED
 
-**File Location:** `/home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web/sites/default/settings.php`
+**File Location:** `/home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web/sites/default/settings.php`
 
 **Template Ready:** `drupal10/settings.production.php`
 
 **Required Changes:**
-- Database credentials: wdzpzmmtxg / fyQuAvP74q
+- Database credentials: DB_USER (see .credentials) / DB_PASSWORD (see .credentials)
 - Redis credentials: localhost:6379 / ccp5TKzJx4
 - Config sync directory: `../config/sync`
 - Trusted hosts: phpstack-969836-6003258.cloudwaysapps.com
@@ -129,7 +129,7 @@ composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 **Required Action:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web
 ../vendor/bin/drush config:import -y
 ```
 
@@ -140,7 +140,7 @@ cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
 
 **Required Actions:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web
 ../vendor/bin/drush updatedb -y
 ../vendor/bin/drush cr
 ```
@@ -152,7 +152,7 @@ cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
 
 **Required Action:**
 ```bash
-cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
+cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web
 ../vendor/bin/drush en redis -y
 ```
 
@@ -165,7 +165,7 @@ cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
 ### Issue 1: SSH Connection Rate Limiting
 **Problem:** After multiple connection attempts, SSH times out:
 ```
-ssh: connect to host 165.22.200.254 port 22: Operation timed out
+ssh: connect to host D7_HOST (see .credentials) port 22: Operation timed out
 ```
 
 **Impact:** Cannot run long-running commands (composer install, drush)
@@ -203,13 +203,13 @@ scp: Connection closed
 
 1. **SSH into Cloudways** (via Termius or after rate limit clears)
    ```bash
-   ssh kocsid10ssh@165.22.200.254 -p 22
-   # Password: KCSIssH3497!
+   ssh SSH_USER (see .credentials)@D7_HOST (see .credentials) -p 22
+   # Password: SSH_PASSWORD (see .credentials)
    ```
 
 2. **Navigate to application**
    ```bash
-   cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10
+   cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10
    ```
 
 3. **Run Composer Install** (5-10 minutes)
@@ -227,15 +227,15 @@ scp: Connection closed
 5. **Upload and Import Database**
    ```bash
    # Upload (from local machine):
-   scp -P 22 cloudways-db-export.sql kocsid10ssh@165.22.200.254:~/
+   scp -P 22 cloudways-db-export.sql SSH_USER (see .credentials)@D7_HOST (see .credentials):~/
 
    # Import (on Cloudways):
-   mysql -u wdzpzmmtxg -pfyQuAvP74q wdzpzmmtxg < ~/cloudways-db-export.sql
+   mysql -u DB_USER (see .credentials) -pDB_PASSWORD (see .credentials) DB_USER (see .credentials) < ~/cloudways-db-export.sql
    ```
 
 6. **Enable Redis**
    ```bash
-   cd /home/969836.cloudwaysapps.com/wdzpzmmtxg/public_html/drupal10/web
+   cd /home/969836.cloudwaysapps.com/DB_USER (see .credentials)/public_html/drupal10/web
    ../vendor/bin/drush en redis -y
    ```
 
@@ -329,8 +329,8 @@ Since SSH automation hit rate limits, here's the manual approach:
 ### Cloudways Support
 - Platform: https://platform.cloudways.com
 - Support: https://support.cloudways.com
-- Server IP: 165.22.200.254
-- Application: wdzpzmmtxg
+- Server IP: D7_HOST (see .credentials)
+- Application: DB_USER (see .credentials)
 
 ### Documentation References
 - `CLOUDWAYS_DEPLOYMENT_STEPS.md` - Step-by-step with verified paths
