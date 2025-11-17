@@ -20,6 +20,14 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+# Create reports directory if it doesn't exist
+REPORTS_DIR="$(cd "$(dirname "$0")/.." && pwd)/reports"
+mkdir -p "$REPORTS_DIR"
+
+# Generate timestamped report filename
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+REPORT_FILE="${REPORTS_DIR}/deployment-${TIMESTAMP}.txt"
+
 # State file for resuming deployment
 STATE_FILE="/tmp/kocsibeallo-deployment-state.txt"
 
@@ -44,30 +52,34 @@ skip_if_complete() {
 
 # Check if resuming
 if [ -f ${STATE_FILE} ]; then
-    echo -e "${YELLOW}========================================${NC}"
-    echo -e "${YELLOW}📋 RESUMING PREVIOUS DEPLOYMENT${NC}"
-    echo -e "${YELLOW}========================================${NC}"
-    echo -e "${YELLOW}Completed steps:${NC}"
-    cat ${STATE_FILE} | sed 's/^/  ✓ /'
-    echo ""
-    echo -e "${YELLOW}To start fresh, run: rm ${STATE_FILE}${NC}"
-    echo ""
+    echo -e "${YELLOW}========================================${NC}" | tee "$REPORT_FILE"
+    echo -e "${YELLOW}📋 RESUMING PREVIOUS DEPLOYMENT${NC}" | tee -a "$REPORT_FILE"
+    echo -e "${YELLOW}========================================${NC}" | tee -a "$REPORT_FILE"
+    echo -e "${YELLOW}Completed steps:${NC}" | tee -a "$REPORT_FILE"
+    cat ${STATE_FILE} | sed 's/^/  ✓ /' | tee -a "$REPORT_FILE"
+    echo "" | tee -a "$REPORT_FILE"
+    echo -e "${YELLOW}To start fresh, run: rm ${STATE_FILE}${NC}" | tee -a "$REPORT_FILE"
+    echo "" | tee -a "$REPORT_FILE"
 else
-    echo -e "${GREEN}========================================${NC}"
-    echo -e "${GREEN}🚀 PRODUCTION DEPLOYMENT (GIT-BASED)${NC}"
-    echo -e "${GREEN}========================================${NC}"
-    echo ""
+    echo -e "${GREEN}========================================${NC}" | tee "$REPORT_FILE"
+    echo -e "${GREEN}🚀 PRODUCTION DEPLOYMENT (GIT-BASED)${NC}" | tee -a "$REPORT_FILE"
+    echo -e "${GREEN}========================================${NC}" | tee -a "$REPORT_FILE"
+    echo "" | tee -a "$REPORT_FILE"
 fi
+
+echo "Report: $REPORT_FILE" | tee -a "$REPORT_FILE"
+echo "Date: $(date)" | tee -a "$REPORT_FILE"
+echo "" | tee -a "$REPORT_FILE"
 
 # Step 1: Push to GitHub
 if ! skip_if_complete "step1"; then
-    echo -e "${BLUE}[1/7]${NC} ${YELLOW}Pushing code to GitHub...${NC}"
-    echo "→ Local repository: https://github.com/ArcanianAi/kocsibeallo-hu"
-    git push origin main 2>&1 | grep -v "Everything up-to-date" || echo "✓ Already up to date"
+    echo -e "${BLUE}[1/7]${NC} ${YELLOW}Pushing code to GitHub...${NC}" | tee -a "$REPORT_FILE"
+    echo "→ Local repository: https://github.com/ArcanianAi/kocsibeallo-hu" | tee -a "$REPORT_FILE"
+    git push origin main 2>&1 | grep -v "Everything up-to-date" | tee -a "$REPORT_FILE" || echo "✓ Already up to date" | tee -a "$REPORT_FILE"
     mark_complete "step1"
-    echo -e "${GREEN}✓ Code pushed to GitHub${NC}"
+    echo -e "${GREEN}✓ Code pushed to GitHub${NC}" | tee -a "$REPORT_FILE"
 fi
-echo ""
+echo "" | tee -a "$REPORT_FILE"
 
 # Step 2: Test SSH connection to production
 if ! skip_if_complete "step2"; then
@@ -213,6 +225,41 @@ if [ -d .git ]; then
     if git stash list | grep -q "Auto-stash"; then
         echo "  → Reapplying local changes..."
         git stash pop 2>&1 | head -3 || echo "  (stash already applied or conflicts)"
+    fi
+
+    # Restore any deleted/modified Porto theme files
+    echo "  → Checking for deleted Porto theme files..."
+    DELETED_COUNT=\$(git status --short | grep "^ D.*porto_theme" | wc -l)
+    MODIFIED_COUNT=\$(git status --short | grep "^ M.*porto_theme.*\.\(yml\|css\|js\)" | wc -l)
+
+    if [ \$DELETED_COUNT -gt 0 ] || [ \$MODIFIED_COUNT -gt 0 ]; then
+        echo "  ⚠ Found \$DELETED_COUNT deleted and \$MODIFIED_COUNT modified theme files"
+        echo "  → Restoring deleted Porto files..."
+
+        # Restore critical files
+        git restore web/themes/contrib/porto_theme/css/custom-user.css 2>/dev/null && echo "    ✓ Restored custom-user.css (39KB)" || true
+        git restore web/themes/contrib/porto_theme/css/custom-blog.css 2>/dev/null && echo "    ✓ Restored custom-blog.css" || true
+        git restore web/themes/contrib/porto_theme/js/header-fixes.js 2>/dev/null && echo "    ✓ Restored header-fixes.js" || true
+        git restore web/themes/contrib/porto_theme/js/blog-date-format.js 2>/dev/null && echo "    ✓ Restored blog-date-format.js" || true
+
+        # Restore modified config files
+        git restore web/themes/contrib/porto_theme/porto.info.yml 2>/dev/null && echo "    ✓ Restored porto.info.yml" || true
+        git restore web/themes/contrib/porto_theme/porto.libraries.yml 2>/dev/null && echo "    ✓ Restored porto.libraries.yml" || true
+        git restore web/themes/contrib/porto_theme/porto.theme 2>/dev/null || true
+
+        # Verify critical file
+        if [ -f web/themes/contrib/porto_theme/css/custom-user.css ]; then
+            SIZE=\$(wc -c < web/themes/contrib/porto_theme/css/custom-user.css)
+            if [ \$SIZE -gt 30000 ]; then
+                echo "    ✓ Verified: custom-user.css (\$SIZE bytes)"
+            else
+                echo "    ⚠ Warning: custom-user.css only \$SIZE bytes (expected ~39KB)"
+            fi
+        else
+            echo "    ✗ ERROR: custom-user.css still missing!"
+        fi
+    else
+        echo "  ✓ No deleted Porto files detected"
     fi
 
     echo "✓ Code updated via git pull"
@@ -659,6 +706,12 @@ echo ""
 # Clean up state file on successful completion
 if [ -f ${STATE_FILE} ]; then
     rm ${STATE_FILE}
-    echo -e "${GREEN}✓ Deployment state cleared${NC}"
-    echo ""
+    echo -e "${GREEN}✓ Deployment state cleared${NC}" | tee -a "$REPORT_FILE"
+    echo "" | tee -a "$REPORT_FILE"
 fi
+
+echo -e "${BLUE}========================================${NC}" | tee -a "$REPORT_FILE"
+echo -e "${BLUE}📄 DEPLOYMENT REPORT${NC}" | tee -a "$REPORT_FILE"
+echo -e "${BLUE}========================================${NC}" | tee -a "$REPORT_FILE"
+echo "Report saved to: $REPORT_FILE" | tee -a "$REPORT_FILE"
+echo "" | tee -a "$REPORT_FILE"
