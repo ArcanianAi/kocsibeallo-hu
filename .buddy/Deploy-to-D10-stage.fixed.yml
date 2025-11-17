@@ -42,13 +42,12 @@
   - action: Execute chmod -R 755 .
     type: SSH_COMMAND
     commands:
-    - ssh-keyscan INSERT_HOSTNAME_HERE >> /root/.ssh/known_hosts
-    - ""
     - cd ~/public_html/web/sites/default/files
     - ""
     - rsync -avz --progress \
-    - '  kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/ \'
-    - '  ./'
+    - -e "ssh -o StrictHostKeyChecking=no" \
+    - kocsibeall.ssh.d10@165.22.200.254:/home/969836.cloudwaysapps.com/pajfrsyfzm/public_html/sites/default/files/ \
+    - "~/test/"
     - ""
     - "# Set permissions"
     - chmod -R 755 .
