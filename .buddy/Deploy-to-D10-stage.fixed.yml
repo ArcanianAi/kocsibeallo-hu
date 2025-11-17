@@ -42,6 +42,8 @@
   - action: Execute chmod -R 755 .
     type: SSH_COMMAND
     commands:
+    - ssh-keyscan INSERT_HOSTNAME_HERE >> /root/.ssh/known_hosts
+    - ""
     - cd ~/public_html/web/sites/default/files
     - ""
     - rsync -avz --progress \
