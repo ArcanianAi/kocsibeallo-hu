@@ -196,11 +196,21 @@ cd ~/public_html/web
 
 ## Step 10: Clear cache
 
+**⚠️ CRITICAL** - Clear cache after ANY deployment (config, CSS, code changes)
+
 **On D10 server:**
 ```bash
 cd ~/public_html/web
 ../vendor/bin/drush cache:rebuild
 ```
+
+**Why this is critical:**
+- **CSS changes** are cached by Drupal - won't apply without cache clear
+- **Config changes** are cached - won't take effect without cache clear
+- **Twig templates** are cached
+- **Theme registry** is cached
+
+**If gallery grid layout doesn't appear**: You forgot to clear cache!
 
 ---
 
@@ -260,7 +270,11 @@ From `.credentials` file:
 
 8. **After deployment, verify:**
    - Homepage: https://phpstack-958493-6003495.cloudwaysapps.com/
-   - Gallery: https://phpstack-958493-6003495.cloudwaysapps.com/kepgaleria
+   - Gallery listing: https://phpstack-958493-6003495.cloudwaysapps.com/kepgaleria
+   - **Gallery pages** (100+ pages affected):
+     - https://phpstack-958493-6003495.cloudwaysapps.com/ximax-portoforte-y-dupla-eloregyartott-kocsibeallo-ivelt-tetovel
+     - https://phpstack-958493-6003495.cloudwaysapps.com/egyedi-igenyek-szerint-tervezett-modern-kocsibeallo
+     - **Verify**: 2-column grid layout (desktop), hover effects work
    - **Slideshow**: Check homepage slideshow appears and images display correctly
    - **Content articles**: Check article images load correctly (no 404 errors)
    - **Blog posts**: Check blog images display correctly
