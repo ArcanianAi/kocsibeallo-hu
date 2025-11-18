@@ -34,17 +34,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_telikert_kep:
-    type: image
-    label: hidden
-    settings:
-      image_link: file
-      image_style: large
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
   comment_node_foto_a_galeriahoz:
     type: comment_default
     label: hidden
@@ -93,6 +82,18 @@ content:
       link: true
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_telikert_kep:
+    type: photoswipe_field_formatter
+    label: hidden
+    settings:
+      image_loading:
+        attribute: lazy
+      image_link: ''
+      image_style: large
+      photoswipe_node_style: large
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_termek_tipus:
     type: entity_reference_label

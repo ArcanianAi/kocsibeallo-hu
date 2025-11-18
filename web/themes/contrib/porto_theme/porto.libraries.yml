@@ -84,3 +84,13 @@ header-fixes:
   dependencies:
     - core/drupal
     - core/jquery
+
+photoswipe-body-images:
+  js:
+    js/photoswipe-body-images.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - photoswipe/photoswipe.cdn
+    - photoswipe/photoswipe.init

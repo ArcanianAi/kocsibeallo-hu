@@ -11,14 +11,14 @@ dependencies:
     - porto
 id: porto_ajanlatkeres_webform
 theme: porto
-region: left_sidebar
-weight: 10
+region: right_sidebar
+weight: -10
 provider: null
 plugin: webform_block
 settings:
   id: webform_block
-  label: 'Ajánlatkérés Webform'
-  label_display: '0'
+  label: AJÁNLATKÉRÉS
+  label_display: visible
   provider: webform
   webform_id: ajanlatkeres
   default_data: ''

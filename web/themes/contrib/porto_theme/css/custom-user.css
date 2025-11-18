@@ -1850,3 +1850,125 @@ body.path-frontpage h1.page-title {
   padding-left: 10px !important;
   padding-right: 10px !important;
 }
+
+/* ============================================
+   RESPONSIVE EMBEDDED IMAGES WITH LIGHTBOX
+   Added: 2025-11-17 (ARC-693)
+   ============================================ */
+
+/* Embedded images in content - responsive and contained */
+article img:not(.product-thumb-info img),
+.field--name-body img,
+.node__content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Image links (for lightbox) */
+article a img,
+.field--name-body a img,
+.node__content a img {
+  cursor: zoom-in;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+article a:hover img,
+.field--name-body a:hover img,
+.node__content a:hover img {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Ensure images don't break layout */
+article,
+.field--name-body,
+.node__content {
+  overflow-x: hidden;
+}
+
+/* Image alignment classes (if used in content) */
+img.align-left {
+  float: left;
+  margin: 0 20px 20px 0;
+  max-width: 50%;
+}
+
+img.align-right {
+  float: right;
+  margin: 0 0 20px 20px;
+  max-width: 50%;
+}
+
+img.align-center {
+  display: block;
+  margin: 20px auto;
+}
+
+/* Clearfix for floated images */
+.field--name-body::after,
+.node__content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive - mobile */
+@media (max-width: 768px) {
+  .field--name-body img,
+  .node__content img,
+  article img:not(.product-thumb-info img) {
+    margin: 15px auto;
+  }
+
+  img.align-left,
+  img.align-right {
+    float: none;
+    margin: 15px auto;
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   BLOG POST DATE BADGE (ARC-692)
+   Added: 2025-11-17
+   ============================================ */
+
+/* Blog post container needs relative positioning for date badge overlay */
+.blog-posts.single-post .post.post-large {
+  position: relative;
+}
+
+/* Date badge - positioned over featured image */
+.post-date {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #0088cc;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 60px;
+}
+
+.post-date .day {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.post-date .month {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1;
+}
