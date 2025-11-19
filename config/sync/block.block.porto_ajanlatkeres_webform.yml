@@ -11,7 +11,7 @@ dependencies:
     - porto
 id: porto_ajanlatkeres_webform
 theme: porto
-region: after_content
+region: right_sidebar
 weight: -10
 provider: null
 plugin: webform_block
@@ -25,10 +25,7 @@ settings:
   redirect: false
   lazy: false
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
+  request_path:
+    id: request_path
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      foto_a_galeriahoz: foto_a_galeriahoz
+    pages: "/kepgaleria\n/kepgaleria/*"
