@@ -979,6 +979,9 @@ article.post .btn-primary:focus {
   margin-bottom: 8px;
   line-height: 1.6;
   clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 
 /* Label styling (grey) */
