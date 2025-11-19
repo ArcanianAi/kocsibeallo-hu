@@ -1012,6 +1012,7 @@ article.post .btn-primary:focus {
 /* Hide the Drupal field wrapper div structure */
 .gallery-field__value > div {
   display: inline;
+  font-size: 0; /* Collapse whitespace */
 }
 
 /* Hide Drupal's redundant label (first div child) */
@@ -1022,6 +1023,7 @@ article.post .btn-primary:focus {
 /* Value container (second div child) - inline display */
 .gallery-field__value > div > div:nth-child(2) {
   display: inline;
+  font-size: 14px; /* Restore font size */
 }
 
 /* Multiple values - display inline with commas */
