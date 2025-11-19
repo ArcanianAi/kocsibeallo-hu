@@ -5,13 +5,13 @@ dependencies:
   config:
     - webform.webform.ajanlatkeres
   module:
-    - system
+    - node
     - webform
   theme:
     - porto
 id: porto_ajanlatkeres_webform
 theme: porto
-region: right_sidebar
+region: after_content
 weight: -10
 provider: null
 plugin: webform_block
@@ -25,9 +25,10 @@ settings:
   redirect: false
   lazy: false
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
-    pages: |-
-      /kepgaleria
-      /kepgaleria/*
+    bundles:
+      foto_a_galeriahoz: foto_a_galeriahoz
+    context_mapping:
+      node: '@node.node_route_context:node'
