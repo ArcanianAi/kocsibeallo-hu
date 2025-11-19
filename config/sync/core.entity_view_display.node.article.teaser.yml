@@ -31,16 +31,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  created:
-    type: timestamp
-    label: hidden
-    settings:
-      date_format: custom
-      custom_date_format: 'd M'
-      timezone: ''
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_image:
     type: image
     label: hidden
