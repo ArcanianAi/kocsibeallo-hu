@@ -964,3 +964,63 @@ article.post .btn-primary:focus {
 .node--type-foto-a-galeriahoz .field .field__item {
   display: inline;
 }
+
+/* FOOTER FIXES (ARC-720, ARC-721, ARC-722) */
+/* Add 1px grey separator line above footer */
+#footer {
+  border-top: 1px solid #ddd;
+}
+
+/* Remove/change footer ribbon background (ARC-721) */
+/* Change from bright blue to dark navy matching D7 */
+.footer-ribbon {
+  background: #011e41 !important;
+}
+
+/* Footer copyright styling - dark navy background like D7 */
+.footer-copyright {
+  background: #011e41 !important;
+}
+
+/* Ensure footer copyright container matches header width */
+.footer-copyright .container {
+  max-width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Footer link colors - golden accent like D7 */
+#footer a {
+  color: #ac9c58;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+/* GLOBAL LINK STYLING (ARC-723) */
+/* Dark blue links with hover underline and bold */
+a {
+  color: #011e41;
+}
+
+a:hover,
+a:focus {
+  color: #011e41;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Keep existing link colors where they're intentionally different */
+.btn a,
+.btn a:hover,
+.btn a:focus {
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: none;
+  font-weight: inherit;
+}
