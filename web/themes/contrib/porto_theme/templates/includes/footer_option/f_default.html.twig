@@ -1,10 +1,9 @@
-{% if footer_color_option == 'none' %}
-<footer id="footer" class="{% if arg == 'index-footer-color-primary' %}color color-primary {% elseif arg == 'index-footer-color-tertiary' %}color color-tertiary {% elseif arg == 'index-footer-color-quaternary' %} color color-quaternary {% elseif arg == 'index-footer-color-secondary' %}color color-secondary{% endif %}">
-{% else %}
-    <footer id="footer" class="color {{ footer_color_option }}">
-{% endif %}
+<footer id="footer" class="color color-primary">
     <div class="container">
         <div class="row">
+            <div class="footer-ribbon">
+                <span>Lépjen velünk kapcsolatba</span>
+            </div>
             {% if page.label_footer %}
                 {{ page.label_footer }}
             {% endif %}
