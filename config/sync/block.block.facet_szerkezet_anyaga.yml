@@ -11,8 +11,8 @@ dependencies:
     - porto
 id: facet_szerkezet_anyaga
 theme: porto
-region: left_sidebar
-weight: 2
+region: right_sidebar
+weight: -50
 provider: null
 plugin: 'facet_block:szerkezet_anyaga'
 settings:

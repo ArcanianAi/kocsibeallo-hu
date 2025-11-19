@@ -153,7 +153,14 @@ function porto_preprocess_node(&$variables) {
   } else {
     $variables['isLogin'] = TRUE;
   }
-  
+
+  // Attach Photoswipe lightbox for embedded body images (ARC-693)
+  // Apply to article, page, and gallery content types
+  $content_types_with_body = ['article', 'page', 'foto_a_galeriahoz'];
+  if (in_array($node->bundle(), $content_types_with_body)) {
+    $variables['#attached']['library'][] = 'porto/photoswipe-body-images';
+  }
+
 }
 
 /**

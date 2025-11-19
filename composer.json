@@ -8,13 +8,18 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
+        "bower-asset/photoswipe": "^5",
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.5",
         "drupal/core-project-message": "^10.5",
@@ -24,6 +29,7 @@
         "drupal/md_slider": "^1.5",
         "drupal/migrate_tools": "^6.1",
         "drupal/migrate_upgrade": "^4.0",
+        "drupal/photoswipe": "^5.0",
         "drupal/porto_theme": "^1.5",
         "drupal/search_api": "^1.40",
         "drupal/search_api_autocomplete": "^1.11",

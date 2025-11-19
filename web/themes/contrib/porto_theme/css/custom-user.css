@@ -1305,12 +1305,66 @@ ul {padding-left: 20px;}
   position: relative;
 }
 
-/* Blog post article card - simple layout without date box */
+/* Blog post article card - Porto theme card layout */
 .view-blog article {
   background: #fff;
   position: relative;
   padding: 0;
   min-height: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Blog card content wrapper - no padding, handled by individual elements */
+.view-blog article .node__content {
+  padding: 0;
+}
+
+/* Date badge - positioned over featured image */
+.view-blog article .field--name-created,
+.view-blog article .node__meta {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #011e41;
+  color: #fff;
+  padding: 10px 15px;
+  text-align: center;
+  z-index: 10;
+  line-height: 1;
+}
+
+.view-blog article .field--name-created .field__item,
+.view-blog article .date-display-single {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Split date display - day on top, month below */
+.view-blog .post-date-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #011e41;
+  color: #fff;
+  padding: 10px 15px;
+  text-align: center;
+  z-index: 10;
+  line-height: 1.2;
+}
+
+.view-blog .post-date-badge .day {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.view-blog .post-date-badge .month {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Hide date/author footer completely */
@@ -1333,6 +1387,7 @@ article[data-history-node-id] footer,
   text-transform: uppercase;
   color: #ac9c63;
   margin: 0 0 20px 0;
+  padding: 25px 25px 0 25px;
   line-height: 1.2;
 }
 
@@ -1347,10 +1402,30 @@ article[data-history-node-id] footer,
   text-decoration: none;
 }
 
-/* Hide featured image in blog list view */
+/* Featured image in blog list view - at top of card, no padding */
 .view-blog article .field--name-field-image,
 .view-blog article .field--type-image {
-  display: none !important;
+  margin: 0;
+  position: relative;
+}
+
+.view-blog article .field--name-field-image img,
+.view-blog article .field--type-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text content below image needs padding */
+.view-blog article .field--name-body,
+.view-blog article .field--name-field-tags,
+.view-blog article .links {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.view-blog article .links {
+  padding-bottom: 25px;
 }
 
 /* Blog teaser text */
@@ -1461,6 +1536,8 @@ article[data-history-node-id] footer,
 
 
 /* Pager list - reset default styles and make horizontal */
+/* Unified pager styling for both blog and gallery */
+.view-blog nav.pager .pager,
 .view-index-gallery nav.pager .pager,
 .path-kepgaleria nav.pager .pager {
   list-style: none;
@@ -1470,6 +1547,7 @@ article[data-history-node-id] footer,
 }
 
 /* Pager items - display inline with Bootstrap styling */
+.view-blog nav.pager .pager__item,
 .view-index-gallery nav.pager .pager__item,
 .path-kepgaleria nav.pager .pager__item {
   display: inline-block;
@@ -1477,8 +1555,10 @@ article[data-history-node-id] footer,
 }
 
 /* Pager links - Bootstrap button style */
+.view-blog nav.pager .pager__item a,
 .view-index-gallery nav.pager .pager__item a,
 .path-kepgaleria nav.pager .pager__item a,
+.view-blog nav.pager .pager__item span,
 .view-index-gallery nav.pager .pager__item span,
 .path-kepgaleria nav.pager .pager__item span {
   display: inline-block;
@@ -1494,22 +1574,27 @@ article[data-history-node-id] footer,
 }
 
 /* First item - rounded left corners */
+.view-blog nav.pager .pager__item:first-child a,
 .view-index-gallery nav.pager .pager__item:first-child a,
 .path-kepgaleria nav.pager .pager__item:first-child a,
+.view-blog nav.pager .pager__item:first-child span,
 .view-index-gallery nav.pager .pager__item:first-child span,
 .path-kepgaleria nav.pager .pager__item:first-child span {
   border-radius: 6px 0 0 6px;
 }
 
 /* Last item - rounded right corners */
+.view-blog nav.pager .pager__item:last-child a,
 .view-index-gallery nav.pager .pager__item:last-child a,
 .path-kepgaleria nav.pager .pager__item:last-child a,
+.view-blog nav.pager .pager__item:last-child span,
 .view-index-gallery nav.pager .pager__item:last-child span,
 .path-kepgaleria nav.pager .pager__item:last-child span {
   border-radius: 0 6px 6px 0;
 }
 
 /* Hover state */
+.view-blog nav.pager .pager__item a:hover,
 .view-index-gallery nav.pager .pager__item a:hover,
 .path-kepgaleria nav.pager .pager__item a:hover {
   background-color: #ac9c58;
@@ -1518,8 +1603,10 @@ article[data-history-node-id] footer,
 }
 
 /* Active/current page */
+.view-blog nav.pager .pager__item.is-active a,
 .view-index-gallery nav.pager .pager__item.is-active a,
 .path-kepgaleria nav.pager .pager__item.is-active a,
+.view-blog nav.pager .pager__item.is-active span,
 .view-index-gallery nav.pager .pager__item.is-active span,
 .path-kepgaleria nav.pager .pager__item.is-active span {
   background-color: #ac9c58;
@@ -1529,36 +1616,45 @@ article[data-history-node-id] footer,
 }
 
 /* Hide "OLDAL" text before page numbers */
+.view-blog nav.pager .pager__item .visually-hidden,
 .view-index-gallery nav.pager .pager__item .visually-hidden,
 .path-kepgaleria nav.pager .pager__item .visually-hidden {
   display: none;
 }
 
 /* Next/Previous button text - lowercase and add arrow symbols */
+.view-blog nav.pager .pager__item--next a,
 .view-index-gallery nav.pager .pager__item--next a,
 .path-kepgaleria nav.pager .pager__item--next a,
+.view-blog nav.pager .pager-next a,
 .view-index-gallery nav.pager .pager-next a,
 .path-kepgaleria nav.pager .pager-next a {
   text-transform: lowercase;
 }
 
+.view-blog nav.pager .pager__item--next a::after,
 .view-index-gallery nav.pager .pager__item--next a::after,
 .path-kepgaleria nav.pager .pager__item--next a::after,
+.view-blog nav.pager .pager-next a::after,
 .view-index-gallery nav.pager .pager-next a::after,
 .path-kepgaleria nav.pager .pager-next a::after {
   content: " ›";
   margin-left: 4px;
 }
 
+.view-blog nav.pager .pager__item--last a,
 .view-index-gallery nav.pager .pager__item--last a,
 .path-kepgaleria nav.pager .pager__item--last a,
+.view-blog nav.pager .pager-last a,
 .view-index-gallery nav.pager .pager-last a,
 .path-kepgaleria nav.pager .pager-last a {
   text-transform: lowercase;
 }
 
+.view-blog nav.pager .pager__item--last a::after,
 .view-index-gallery nav.pager .pager__item--last a::after,
 .path-kepgaleria nav.pager .pager__item--last a::after,
+.view-blog nav.pager .pager-last a::after,
 .view-index-gallery nav.pager .pager-last a::after,
 .path-kepgaleria nav.pager .pager-last a::after {
   content: " »";
@@ -1567,8 +1663,10 @@ article[data-history-node-id] footer,
 
 /* Mobile responsiveness */
 @media (max-width: 767px) {
+  .view-blog nav.pager .pager__item a,
   .view-index-gallery nav.pager .pager__item a,
   .path-kepgaleria nav.pager .pager__item a,
+  .view-blog nav.pager .pager__item span,
   .view-index-gallery nav.pager .pager__item span,
   .path-kepgaleria nav.pager .pager__item span {
     padding: 8px 12px;
@@ -1948,14 +2046,82 @@ img.align-center {
   position: absolute;
   top: 20px;
   left: 20px;
-  background: #0088cc;
+  background: #011e41;
   color: #fff;
   text-align: center;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 15px;
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   min-width: 60px;
+}
+
+/* Single blog post title */
+.blog-posts.single-post h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ac9c63;
+  margin: 25px 0 20px 0;
+  line-height: 1.2;
+}
+
+.blog-posts.single-post h2 a {
+  color: #ac9c63;
+  text-decoration: none;
+}
+
+/* Post meta - author, tags, comments */
+.blog-posts.single-post .post-meta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-posts.single-post .post-meta span {
+  margin-right: 15px;
+}
+
+.blog-posts.single-post .post-meta i {
+  color: #ac9c58;
+  margin-right: 5px;
+}
+
+.blog-posts.single-post .post-meta a {
+  color: #777;
+  text-decoration: none;
+}
+
+.blog-posts.single-post .post-meta a:hover {
+  color: #ac9c58;
+}
+
+/* Post image - featured image at top */
+.blog-posts.single-post .post-image {
+  margin-bottom: 0;
+}
+
+.blog-posts.single-post .post-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Post content area */
+.blog-posts.single-post .post-content {
+  padding: 0 20px 20px 20px;
+}
+
+/* Post body text */
+.blog-posts.single-post .post-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
 }
 
 .post-date .day {
@@ -1971,4 +2137,61 @@ img.align-center {
   font-size: 12px;
   text-transform: uppercase;
   line-height: 1;
+}
+
+/* ============================================
+   SITEMAP PAGE STYLING
+   ============================================ */
+
+.sitemap-content {
+  padding: 20px 0;
+}
+
+.sitemap-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #011e41;
+  border-bottom: 2px solid #ac9c63;
+  padding-bottom: 10px;
+  margin: 30px 0 15px 0;
+}
+
+.sitemap-content h3:first-child {
+  margin-top: 0;
+}
+
+.sitemap-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.sitemap-content ul ul {
+  margin-left: 25px;
+  margin-top: 8px;
+}
+
+.sitemap-content li {
+  padding: 6px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+.sitemap-content a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sitemap-content a:hover {
+  color: #ac9c63;
+}
+
+.sitemap-content ul ul a {
+  font-size: 14px;
+  color: #777;
+}
+
+.sitemap-content ul ul a:hover {
+  color: #ac9c63;
 }

@@ -29,6 +29,16 @@ content:
     settings:
       trim_length: 160
     third_party_settings: {  }
+    weight: 2
+    region: content
+  created:
+    type: timestamp
+    label: hidden
+    settings:
+      date_format: custom
+      custom_date_format: 'd M'
+      timezone: ''
+    third_party_settings: {  }
     weight: 1
     region: content
   field_image:
@@ -48,7 +58,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_thumbnail:
     type: image_url
@@ -56,7 +66,7 @@ content:
     settings:
       image_style: thumbnail
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   links:
     settings: {  }

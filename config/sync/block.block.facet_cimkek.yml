@@ -11,8 +11,8 @@ dependencies:
     - porto
 id: facet_cimkek
 theme: porto
-region: left_sidebar
-weight: 6
+region: right_sidebar
+weight: -10
 provider: null
 plugin: 'facet_block:cimkek'
 settings:

@@ -35,20 +35,7 @@
           src = src.replace(/\/styles\/[^\/]+\/public/, '');
         }
 
-        // Fix /system/files/ path to /sites/default/files/ for proper access
-        if (src && src.includes('/system/files/')) {
-          src = src.replace('/system/files/', '/sites/default/files/');
-        }
-
-        // Get image dimensions (or use natural size if available)
-        let width = $img.width() || 1200;
-        let height = $img.height() || 800;
-
-        // If natural dimensions available, use those
-        if (img.naturalWidth && img.naturalHeight) {
-          width = img.naturalWidth;
-          height = img.naturalHeight;
-        }
+        // Note: /system/files/ is a valid Drupal path for private files - don't convert it
 
         // Get caption from alt or title
         const caption = $img.attr('alt') || $img.attr('title') || '';
@@ -60,12 +47,14 @@
           $parent.addClass('photoswipe');
           $parent.attr({
             'href': src,
-            'data-size': width + 'x' + height,
             'data-caption': caption
           });
+          // Remove data-size to let PhotoSwipe auto-detect and maintain aspect ratio
+          $parent.removeAttr('data-size');
         } else {
-          // Wrap image in new Photoswipe link
-          $img.wrap('<a href="' + src + '" class="photoswipe" data-size="' + width + 'x' + height + '" data-caption="' + caption + '"></a>');
+          // Wrap image in new Photoswipe link without data-size
+          // PhotoSwipe will auto-detect dimensions and maintain aspect ratio
+          $img.wrap('<a href="' + src + '" class="photoswipe" data-caption="' + caption + '"></a>');
         }
       });
 

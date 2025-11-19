@@ -11,8 +11,8 @@ dependencies:
     - porto
 id: facet_tetofedes_anyaga
 theme: porto
-region: left_sidebar
-weight: 3
+region: right_sidebar
+weight: -40
 provider: null
 plugin: 'facet_block:tetofedes_anyaga'
 settings:

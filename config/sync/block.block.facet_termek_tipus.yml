@@ -11,8 +11,8 @@ dependencies:
     - porto
 id: facet_termek_tipus
 theme: porto
-region: left_sidebar
-weight: 5
+region: right_sidebar
+weight: -20
 provider: null
 plugin: 'facet_block:termek_tipus'
 settings:

@@ -11,8 +11,8 @@ dependencies:
     - porto
 id: facet_oldalzaras_anyaga
 theme: porto
-region: left_sidebar
-weight: 4
+region: right_sidebar
+weight: -30
 provider: null
 plugin: 'facet_block:oldalzaras_anyaga'
 settings:

@@ -59,6 +59,17 @@ elements: |-
       visible:
         ':input[name="type"]':
           value: XIMAX
+  palram_type:
+    '#type': checkboxes
+    '#title': 'Palram autóbeálló típus'
+    '#options':
+      arizona_5000: 'Arizona 5000'
+      arcadia: Arcadia
+      atlas_5000: 'Atlas 5000'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: Palram
   size:
     '#type': fieldset
     '#title': Méret
