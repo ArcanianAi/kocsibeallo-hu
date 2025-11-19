@@ -94,7 +94,7 @@ letter-spacing: 1px;
 /* Main footer background - white/light */
 html #footer.color,
 html #footer.color-primary {
-    background: #ffffff;
+    background: #ffffff !important;
     border-top: 1px solid #dedede;
 }
 
