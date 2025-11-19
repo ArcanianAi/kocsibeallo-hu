@@ -924,3 +924,43 @@ article.post .btn-primary:focus {
   border-color: #8a7049 !important;
   color: #fff !important;
 }
+
+/* GALLERY ENTRY - INLINE FIELD LABELS (ARC-716) */
+/* Fix taxonomy field labels to display inline with values */
+.node--type-foto-a-galeriahoz .field--label-inline {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.node--type-foto-a-galeriahoz .field--label-inline .field__label {
+  display: inline;
+  float: left;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.node--type-foto-a-galeriahoz .field--label-inline .field__label::after {
+  content: ":";
+}
+
+.node--type-foto-a-galeriahoz .field--label-inline .field__item,
+.node--type-foto-a-galeriahoz .field--label-inline .field__items {
+  display: inline;
+  overflow: hidden;
+}
+
+/* Alternative selector for Porto theme structure */
+.node--type-foto-a-galeriahoz .field .field__label {
+  display: inline;
+  float: left;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.node--type-foto-a-galeriahoz .field .field__label::after {
+  content: ":";
+}
+
+.node--type-foto-a-galeriahoz .field .field__item {
+  display: inline;
+}

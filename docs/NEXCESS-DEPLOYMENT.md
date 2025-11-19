@@ -4,20 +4,32 @@
 
 This guide covers deploying the Kocsibeallo.hu Drupal 10 site to Nexcess hosting.
 
+## Linear Project
+
+**Project:** Kocsibeallo.hu D7 - D10 migration
+**URL:** https://linear.app/arcanian/project/kocsibeallohu-d7-d10-migration-497436380d6b
+**Team:** Arcanian
+
 ---
 
 ## Server Details
 
 - **Provider**: Nexcess (Liquid Web)
-- **Username**: a17d7af6
-- **Site Directory**: `/home/a17d7af6/SITENAME.nxcli.io/html` (e.g., `9df7d73bf2.nxcli.io`)
-- **Logs**: `/home/a17d7af6/var/SITENAME.nxcli.io/logs/`
+- **SSH Host**: d99a9d9894.nxcli.io
+- **SSH Username**: a17d7af6_1
+- **SSH Password**: LongRagHaltsLied
+- **Site Directory**: `/home/a17d7af6/9df7d73bf2.nxcli.io/drupal`
+- **Webroot Symlink**: `/home/a17d7af6/9df7d73bf2.nxcli.io/html` → `drupal/web`
+- **Logs**: `/home/a17d7af6/var/9df7d73bf2.nxcli.io/logs/`
 
 **Important**: Nexcess uses site-specific directories, not `~/html`. Find your site directory:
 ```bash
 ls -la ~/
 # Look for directories ending in .nxcli.io
 ```
+
+### Firewall Note
+If SSH connection times out, you may need to add an exclusion in your local firewall for the Nexcess host IP (185.145.13.120).
 
 ---
 
@@ -397,10 +409,66 @@ Get Nexcess IP from control panel → Site Details.
 
 ---
 
+## Critical: Ensure Clean Git Working Directory
+
+After cloning or pulling, **always verify the git working directory is clean**:
+
+```bash
+cd ~/SITENAME.nxcli.io/drupal
+git status
+```
+
+If you see staged deletions or modifications (especially in `web/themes/contrib/porto_theme/`), reset them:
+
+```bash
+# Unstage all changes
+git restore --staged .
+
+# Restore all files to match repository
+git checkout -- .
+
+# Verify clean
+git status
+# Should show: "nothing to commit, working tree clean"
+```
+
+### Critical Porto Theme Files
+
+These files **must exist** for proper styling:
+
+**CSS Files:**
+- `web/themes/contrib/porto_theme/css/custom.css`
+- `web/themes/contrib/porto_theme/css/custom-blog.css`
+- `web/themes/contrib/porto_theme/css/custom-user.css`
+
+**JavaScript Files:**
+- `web/themes/contrib/porto_theme/js/header-fixes.js`
+- `web/themes/contrib/porto_theme/js/blog-date-format.js`
+- `web/themes/contrib/porto_theme/js/photoswipe-body-images.js`
+
+**Templates:**
+- `web/themes/contrib/porto_theme/templates/node/gallery/node--foto-a-galeriahoz--teaser.html.twig` (gallery grid)
+- `web/themes/contrib/porto_theme/templates/node/blog/node--article.html.twig`
+- `web/themes/contrib/porto_theme/templates/node/blog/node--blog.html.twig`
+- `web/themes/contrib/porto_theme/templates/view/blog/block_blog/*.html.twig`
+
+**Theme Configuration:**
+- `web/themes/contrib/porto_theme/porto.info.yml`
+- `web/themes/contrib/porto_theme/porto.libraries.yml`
+- `web/themes/contrib/porto_theme/porto.theme`
+
+If any of these are missing, the site will have broken styling, missing images in galleries, or broken blog layouts.
+
+---
+
 ## Post-Deployment Checklist
 
+- [ ] Git working directory is clean (`git status`)
 - [ ] Site loads without errors
 - [ ] All images display
+- [ ] Gallery page shows image grid (not just titles)
+- [ ] Facet filters have gold headers
+- [ ] Page title banners are dark blue
 - [ ] Forms work (test ajánlatkérés)
 - [ ] Admin login works
 - [ ] Cron runs successfully
