@@ -1,0 +1,94 @@
+{#
+/**
+ * @file
+ * Porto theme implementation for foto_a_galeriahoz nodes in full view mode.
+ *
+ * Available variables:
+ * - node: The node entity.
+ * - label: The title of the node.
+ * - content: All node fields rendered.
+ * - url: Direct URL of the current node.
+ * - attributes: HTML attributes for the wrapper.
+ */
+#}
+
+<article{{ attributes.addClass('photoswipe-gallery') }}>
+  {# Main gallery images #}
+  {% if content.field_telikert_kep %}
+    {{ content.field_telikert_kep }}
+  {% endif %}
+
+  {# Body content #}
+  {% if content.body %}
+    {{ content.body }}
+  {% endif %}
+
+  {# Taxonomy fields wrapper with proper classes #}
+  <div class="gallery-taxonomy-fields">
+    {# Típus (field_gallery_tag) #}
+    {% if content.field_gallery_tag %}
+      <div class="gallery-field gallery-field--tipus">
+        <span class="gallery-field__label">Típus</span>
+        <span class="gallery-field__value">{{ content.field_gallery_tag }}</span>
+      </div>
+    {% endif %}
+
+    {# Stílus #}
+    {% if content.field_stilus %}
+      <div class="gallery-field gallery-field--stilus">
+        <span class="gallery-field__label">Stílus</span>
+        <span class="gallery-field__value">{{ content.field_stilus }}</span>
+      </div>
+    {% endif %}
+
+    {# Szerkezet anyaga #}
+    {% if content.field_szerkezet_anyaga %}
+      <div class="gallery-field gallery-field--szerkezet">
+        <span class="gallery-field__label">Szerkezet anyaga</span>
+        <span class="gallery-field__value">{{ content.field_szerkezet_anyaga }}</span>
+      </div>
+    {% endif %}
+
+    {# Tetőfedés anyaga #}
+    {% if content.field_tetofedes_anyaga %}
+      <div class="gallery-field gallery-field--tetofedes">
+        <span class="gallery-field__label">Tetőfedés anyaga</span>
+        <span class="gallery-field__value">{{ content.field_tetofedes_anyaga }}</span>
+      </div>
+    {% endif %}
+
+    {# Oldalzárás anyaga #}
+    {% if content.field_oldalzaras_anyaga %}
+      <div class="gallery-field gallery-field--oldalzaras">
+        <span class="gallery-field__label">Oldalzárás anyaga</span>
+        <span class="gallery-field__value">{{ content.field_oldalzaras_anyaga }}</span>
+      </div>
+    {% endif %}
+
+    {# Termék típus #}
+    {% if content.field_termek_tipus %}
+      <div class="gallery-field gallery-field--termek">
+        <span class="gallery-field__label">Termék típus</span>
+        <span class="gallery-field__value">{{ content.field_termek_tipus }}</span>
+      </div>
+    {% endif %}
+
+    {# Címkék #}
+    {% if content.field_cimkek %}
+      <div class="gallery-field gallery-field--cimkek">
+        <span class="gallery-field__label">Címkék</span>
+        <span class="gallery-field__value">{{ content.field_cimkek }}</span>
+      </div>
+    {% endif %}
+  </div>
+
+  {# Back link #}
+  {% if content.field_vissza_link %}
+    {{ content.field_vissza_link }}
+  {% endif %}
+
+  {# Comments #}
+  {% if content.comment_node_foto_a_galeriahoz %}
+    {{ content.comment_node_foto_a_galeriahoz }}
+  {% endif %}
+</article>

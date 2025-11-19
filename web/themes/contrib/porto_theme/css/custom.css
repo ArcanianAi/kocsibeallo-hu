@@ -965,6 +965,87 @@ article.post .btn-primary:focus {
   display: inline;
 }
 
+/* GALLERY ENTRY - TAG STYLING (ARC-730) */
+/* Grey labels, dark blue values on single line */
+
+/* Taxonomy fields container */
+.gallery-taxonomy-fields {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Individual field row */
+.gallery-field {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  clear: both;
+}
+
+/* Label styling (grey) */
+.gallery-field__label {
+  color: #777;
+  font-weight: 600;
+}
+
+/* Add colon after label */
+.gallery-field__label::after {
+  content: ": ";
+}
+
+/* Value container (inline display) */
+.gallery-field__value {
+  display: inline;
+}
+
+/* Links inside values - dark blue */
+.gallery-field__value a {
+  color: #011e41;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.gallery-field__value a:hover {
+  color: #0088cc;
+  text-decoration: underline;
+}
+
+/* Hide the Drupal field wrapper div structure */
+.gallery-field__value > div {
+  display: inline;
+}
+
+/* Hide Drupal's redundant label (first div child) */
+.gallery-field__value > div > div:first-child {
+  display: none;
+}
+
+/* Value container (second div child) - inline display */
+.gallery-field__value > div > div:nth-child(2) {
+  display: inline;
+}
+
+/* Multiple values - display inline with commas */
+.gallery-field__value > div > div:nth-child(2) > div {
+  display: inline;
+}
+
+.gallery-field__value > div > div:nth-child(2) > div:not(:last-child)::after {
+  content: ", ";
+}
+
+/* Also support standard Drupal field classes if present */
+.gallery-field__value .field__label {
+  display: none;
+}
+
+.gallery-field__value .field__item {
+  display: inline;
+}
+
+.gallery-field__value .field__item:not(:last-child)::after {
+  content: ", ";
+}
+
 /* FOOTER FIXES (ARC-720, ARC-721, ARC-722) */
 /* Add 1px grey separator line above footer */
 #footer {
