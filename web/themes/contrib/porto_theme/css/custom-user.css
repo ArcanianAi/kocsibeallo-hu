@@ -2195,3 +2195,73 @@ img.align-center {
 .sitemap-content ul ul a:hover {
   color: #ac9c63;
 }
+
+/* ============================================
+   MAIN MENU STYLING (ARC-728, ARC-729)
+   - White text default
+   - Gold active state
+   - Gold hover state (no background change)
+   - White dropdown carets, gold on hover
+   ============================================ */
+
+/* Main menu items - WHITE by default */
+#header .header-nav-main nav > ul > li > a,
+#header nav > ul > li > a {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+/* Main menu items - GOLD on hover (no background) */
+#header .header-nav-main nav > ul > li > a:hover,
+#header nav > ul > li > a:hover,
+#header .header-nav-main nav > ul > li:hover > a {
+  color: #ac9c58 !important;
+  background: transparent !important;
+}
+
+/* Active menu item - GOLD */
+#header .header-nav-main nav > ul > li.active > a,
+#header .header-nav-main nav > ul > li > a.active,
+#header .header-nav-main nav > ul > li > a.is-active,
+#header nav > ul > li.active > a,
+#header nav > ul > li > a.active,
+#header nav > ul > li > a.is-active,
+#mainNav > li.active > a,
+#mainNav > li.active > a.is-active {
+  color: #ac9c58 !important;
+  background: transparent !important;
+}
+
+/* Dropdown caret icons - WHITE by default */
+#header .header-nav-main nav > ul > li > a .fa-caret-down,
+#header nav > ul > li > a .fa-caret-down,
+#mainNav > li > a .fa-caret-down,
+#mainNav > li.dropdown > a i {
+  color: #ffffff !important;
+}
+
+/* Dropdown caret icons - GOLD on hover */
+#header .header-nav-main nav > ul > li:hover > a .fa-caret-down,
+#header .header-nav-main nav > ul > li > a:hover .fa-caret-down,
+#header nav > ul > li:hover > a .fa-caret-down,
+#header nav > ul > li > a:hover .fa-caret-down,
+#mainNav > li:hover > a .fa-caret-down,
+#mainNav > li.dropdown:hover > a i {
+  color: #ac9c58 !important;
+}
+
+/* Remove any background color changes on hover */
+#header .header-nav-main nav > ul > li:hover,
+#header nav > ul > li:hover {
+  background: transparent !important;
+}
+
+/* Span elements (for non-link menu items) - same styling */
+#header .header-nav-main nav > ul > li > span {
+  color: #ffffff !important;
+}
+
+#header .header-nav-main nav > ul > li:hover > span {
+  color: #ac9c58 !important;
+  background: transparent !important;
+}
