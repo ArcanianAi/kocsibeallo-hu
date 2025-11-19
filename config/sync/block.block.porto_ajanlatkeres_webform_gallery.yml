@@ -1,4 +1,4 @@
-uuid: 2f63b059-a462-409f-8802-29215fafb7db
+uuid: 3a63b059-b462-509f-9802-39215fafb7dc
 langcode: hu
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - webform
   theme:
     - porto
-id: porto_ajanlatkeres_webform
+id: porto_ajanlatkeres_webform_gallery
 theme: porto
 region: right_sidebar
 weight: -10
@@ -25,11 +25,10 @@ settings:
   redirect: false
   lazy: false
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
-    pages: |-
-      /kepgaleria
-      /kepgaleria/*
-      /blog
-      /blog/*
+    bundles:
+      foto_a_galeriahoz: foto_a_galeriahoz
+    context_mapping:
+      node: '@node.node_route_context:node'
