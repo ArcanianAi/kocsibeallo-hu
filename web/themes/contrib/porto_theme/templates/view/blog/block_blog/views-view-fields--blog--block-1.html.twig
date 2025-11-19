@@ -47,11 +47,11 @@
         </div>
         {% endif %}
         {% if fields.title %}
-        <h4 class="heading-primary"><a href="{{ fields.path.content }}">{{ fields.title.content }}</a></h4>
+        <h4 class="heading-primary">{{ fields.title.content }}</h4>
         {% endif %}
         {% if fields.body %}
         <p>{{ fields.body.content }}</p>
-        <a href="{{ fields.path.content }}" class="btn btn-primary">Read More</a>
+        <a href="{{ path('entity.node.canonical', {'node': row.nid}) }}" class="btn btn-primary">Read More</a>
         {% endif %}
     </article>
 </div>
