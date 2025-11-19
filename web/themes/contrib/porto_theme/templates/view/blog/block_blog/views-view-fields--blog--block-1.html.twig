@@ -31,27 +31,24 @@
  * @ingroup themeable
  */
 #}
-<div class="col-md-4 col-sm-6">
-    <article class="post post-medium">
-        <div class="date">
-            {% if fields.created %}
-            <span class="day">{{ fields.created.content }}</span>
+<div class="col-md-4">
+    <div class="recent-posts mt-xl">
+        <article class="post">
+            <div class="date">
+                {% if fields.created %}
+                <span class="day">{{ fields.created.content }}</span>
+                {% endif %}
+                {% if fields.created_1 %}
+                <span class="month background-color-secondary">{{ fields.created_1.content }}</span>
+                {% endif %}
+            </div>
+            {% if fields.title %}
+            <h4>{{ fields.title.content }}</h4>
             {% endif %}
-            {% if fields.created_1 %}
-            <span class="month">{{ fields.created_1.content }}</span>
+            {% if fields.body %}
+            <p>{{ fields.body.content }}</p>
+            <a href="{{ path('entity.node.canonical', {'node': row.nid}) }}" class="btn btn-primary mt-md mb-xl">Read More</a>
             {% endif %}
-        </div>
-        {% if fields.field_image %}
-        <div class="post-image">
-            {{ fields.field_image.content }}
-        </div>
-        {% endif %}
-        {% if fields.title %}
-        <h4 class="heading-primary">{{ fields.title.content }}</h4>
-        {% endif %}
-        {% if fields.body %}
-        <p>{{ fields.body.content }}</p>
-        <a href="{{ path('entity.node.canonical', {'node': row.nid}) }}" class="btn btn-primary">Read More</a>
-        {% endif %}
-    </article>
+        </article>
+    </div>
 </div>
