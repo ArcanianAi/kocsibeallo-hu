@@ -263,12 +263,18 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     background-color: #0088cc;
 }
 
+/* BLOG PAGINATION - CONSISTENT HEIGHTS (ARC-731) */
 .view-blog-pages .pager .pager__items { margin: -10px 0 20px; }
 .view-blog-pages .pager li > a,
 .view-blog-pages .pager li > span {
     font-size: 18px;
     line-height: 1.33333;
     padding: 10px 16px;
+    min-height: 50px; /* Ensure consistent height for all buttons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 .view-blog-pages .pager li:first-child > a,
 .view-blog-pages .pager li:first-child > span {
@@ -287,6 +293,18 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     border-top-right-radius: 6px;
     -moz-border-top-right-radius: 6px;
     -webkit-border-top-right-radius: 6px;
+}
+
+/* Active state - dark blue to match site theme */
+.view-blog-pages .pager__item.is-active a {
+    background-color: #011e41;
+    border-color: #011e41;
+    color: #ffffff;
+}
+.view-blog-pages .pager__item.is-active a:hover,
+.view-blog-pages .pager__item.is-active a:focus {
+    background-color: #011e41;
+    border-color: #011e41;
 }
 
 .page-coming-soon .simplenews-subscriber-form{
