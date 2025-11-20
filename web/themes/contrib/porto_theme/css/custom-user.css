@@ -238,6 +238,12 @@ html #footer.color-primary {
     padding: 0 !important;
 }
 
+/* Footer nav links - capitalize only first letter, not all caps */
+.footer-copyright nav ul li a,
+#footer .footer-copyright nav ul li a {
+    text-transform: capitalize !important;
+}
+
 .footer-copyright nav ul {
     list-style: none;
     padding: 0 !important;
