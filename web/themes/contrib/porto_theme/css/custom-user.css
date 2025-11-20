@@ -2359,6 +2359,11 @@ article.post .post-date .month {
   color: #ffffff !important;
 }
 
+/* Fix date badge positioning on individual blog posts - make it fully visible */
+article.post-large .post-date {
+  margin-left: 0 !important;
+}
+
 /* Position date badge to LEFT of title on front page */
 /* Use float layout like D7 for proper text wrapping */
 .recent-posts .post {
