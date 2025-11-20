@@ -1,0 +1,11 @@
+uuid: 65a01eb6-1db3-4132-a866-514fd573d936
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Általános
+tags:
+  canonical_url: '[current-page:url]'
+  title: '[current-page:title] | [site:name]'

@@ -27,6 +27,7 @@
         "drupal/facets": "^3.0",
         "drupal/facets_pretty_paths": "^2.0",
         "drupal/md_slider": "^1.5",
+        "drupal/metatag": "^2.2",
         "drupal/migrate_tools": "^6.1",
         "drupal/migrate_upgrade": "^4.0",
         "drupal/photoswipe": "^5.0",

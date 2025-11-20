@@ -1,0 +1,12 @@
+uuid: 9d7e6423-f5be-4ad9-8357-903d61930070
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MvQPTbQx0Vxwy0ordSHyixdZmLCMpvMdLD69dlwkrKc
+id: user
+label: Felhasználó
+tags:
+  canonical_url: '[user:url]'
+  description: '[site:name]'
+  title: '[user:display-name] | [site:name]'
