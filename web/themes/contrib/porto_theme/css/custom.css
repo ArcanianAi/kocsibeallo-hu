@@ -555,8 +555,13 @@ nav.tabs ul li a.is-active{
     color: #333;
     text-decoration: none;
 }
-.form-select{
-    height: 34px;
+/* Quote form dropdown - fix text cutoff (ARC-735) */
+.form-select,
+select.form-control {
+  height: auto;
+  min-height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857;
 }
 
 /* STYLE GUIDE */
