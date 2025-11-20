@@ -2357,6 +2357,7 @@ article h4 a:hover,
   grid-template-rows: auto auto auto !important;
   gap: 0 !important;
   flex-grow: 1 !important;
+  align-items: baseline !important;
 }
 
 .recent-posts .post .date {
@@ -2368,14 +2369,12 @@ article h4 a:hover,
   margin-bottom: 0 !important;
   margin-top: 0 !important;
   margin-left: 0 !important;
-  align-self: start !important;
 }
 
 .recent-posts .post h4 {
   grid-column: 2 !important;
   grid-row: 1 !important;
   margin-bottom: 0 !important;
-  align-self: start !important;
 }
 
 /* Paragraph spans both columns on row 2 */
