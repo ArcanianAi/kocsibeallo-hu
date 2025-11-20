@@ -94,3 +94,13 @@ photoswipe-body-images:
     - core/once
     - photoswipe/photoswipe.cdn
     - photoswipe/photoswipe.init
+
+gallery-filter-limit:
+  css:
+    theme:
+      css/gallery-filter-limit.css: {}
+  js:
+    js/gallery-filter-limit.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

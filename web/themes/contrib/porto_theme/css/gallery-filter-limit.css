@@ -1,0 +1,113 @@
+/**
+ * @file
+ * Styles for gallery filter limiting functionality.
+ */
+
+/* Disabled filter links */
+a.facet-item.facet-link-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #999 !important;
+}
+
+a.facet-item.facet-link-disabled:hover {
+  text-decoration: none;
+  color: #999 !important;
+}
+
+/* Filter limit message */
+.filter-limit-message {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  color: #856404;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.filter-limit-message strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* Warning tooltip */
+.filter-warning-tooltip {
+  position: absolute;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInOut 3s ease-in-out;
+  margin-top: 5px;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* Active filter visual enhancement */
+.block-facets a.facet-item.is-active,
+.block-facets li.is-active > a.facet-item {
+  font-weight: 600;
+  color: #0066cc;
+  position: relative;
+}
+
+.block-facets a.facet-item.is-active::before,
+.block-facets li.is-active > a.facet-item::before {
+  content: "✓ ";
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+/* Filter count badge (optional) */
+.active-filter-count {
+  display: inline-block;
+  background-color: #0066cc;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter-limit-message {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .filter-warning-tooltip {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}

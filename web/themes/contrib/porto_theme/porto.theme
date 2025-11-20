@@ -38,6 +38,11 @@ function porto_preprocess_views_view(&$variables){
     if ($variables['view']->id() == 'blog') {
         $variables['#attached']['library'][] = 'porto/blog-date-format';
     }
+
+    // Attach gallery filter limiting JavaScript for gallery view
+    if ($variables['view']->id() == 'index_gallery') {
+        $variables['#attached']['library'][] = 'porto/gallery-filter-limit';
+    }
 }
 
 function porto_preprocess_page(&$variables) {
