@@ -279,10 +279,18 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     line-height: 1.33333;
     padding: 10px 16px;
     min-height: 50px; /* Ensure consistent height for all buttons */
+    min-width: 50px; /* Minimum width for square buttons */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Limit width of next/last buttons to prevent them from being too wide */
+.view-blog .pager .pager__item--next > a,
+.view-blog .pager .pager__item--last > a {
+    max-width: 160px;
 }
 .view-blog .pager li:first-child > a,
 .view-blog .pager li:first-child > span {
