@@ -315,6 +315,16 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     border-color: #011e41;
 }
 
+/* Hide visually-hidden text in pagination to prevent height issues */
+.view-blog .pager .visually-hidden {
+    position: absolute !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    width: 1px !important;
+    height: 1px !important;
+    word-wrap: normal !important;
+}
+
 .page-coming-soon .simplenews-subscriber-form{
     overflow: hidden;
     padding-bottom: 5px;
