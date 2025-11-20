@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display an article node in teaser view mode.
+ */
+#}
+{% set createdDate_d = node.getCreatedTime|date('d') %}
+{% set createdDate_m = node.getCreatedTime|date('M') %}
+
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+
+  {# Display field_image if it exists #}
+  {{ content.field_image }}
+
+  <div class="post-date">
+    <span class="day">{{ createdDate_d }}</span>
+    <span class="month">{{ createdDate_m }}</span>
+  </div>
+
+  <div class="post-content">
+
+    {% if label and not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+
+    {# Hide author information for teaser view #}
+    {# Author info intentionally removed for ARC-736 #}
+
+    <div{{ content_attributes }}>
+      {{ content|without('field_image') }}
+    </div>
+
+  </div>
+
+  {{ title_suffix }}
+
+</article>

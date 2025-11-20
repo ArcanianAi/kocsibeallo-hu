@@ -272,9 +272,9 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
 }
 
 /* BLOG PAGINATION - CONSISTENT HEIGHTS (ARC-731) */
-.view-blog-pages .pager .pager__items { margin: -10px 0 20px; }
-.view-blog-pages .pager li > a,
-.view-blog-pages .pager li > span {
+.view-blog .pager .pager__items { margin: -10px 0 20px; }
+.view-blog .pager li > a,
+.view-blog .pager li > span {
     font-size: 18px;
     line-height: 1.33333;
     padding: 10px 16px;
@@ -284,8 +284,8 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     justify-content: center;
     box-sizing: border-box;
 }
-.view-blog-pages .pager li:first-child > a,
-.view-blog-pages .pager li:first-child > span {
+.view-blog .pager li:first-child > a,
+.view-blog .pager li:first-child > span {
     border-bottom-left-radius: 6px;
     -moz-border-radius-bottomleft: 6px;
     -webkit-border-bottom-left-radius: 6px;
@@ -293,8 +293,8 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
     -moz-border-top-left-radius: 6px;
     -webkit-border-top-left-radius: 6px;
 }
-.view-blog-pages .pager li:last-child > a,
-.view-blog-pages .pager li:last-child > span {
+.view-blog .pager li:last-child > a,
+.view-blog .pager li:last-child > span {
     border-bottom-right-radius: 6px;
     -moz-border-radius-bottomright: 6px;
     -webkit-border-bottom-right-radius: 6px;
@@ -304,13 +304,13 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
 }
 
 /* Active state - dark blue to match site theme */
-.view-blog-pages .pager__item.is-active a {
+.view-blog .pager__item.is-active a {
     background-color: #011e41;
     border-color: #011e41;
     color: #ffffff;
 }
-.view-blog-pages .pager__item.is-active a:hover,
-.view-blog-pages .pager__item.is-active a:focus {
+.view-blog .pager__item.is-active a:hover,
+.view-blog .pager__item.is-active a:focus {
     background-color: #011e41;
     border-color: #011e41;
 }
@@ -1094,9 +1094,22 @@ article.post .btn-primary:focus {
   background: #011e41 !important;
 }
 
-/* Footer ribbon - decorative line through text (ARC-732) */
+/* Footer ribbon - decorative blue line above text (ARC-732) */
 .footer-ribbon {
   overflow: visible !important;
+  position: relative;
+}
+
+.footer-ribbon::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0088cc;
+  z-index: 0;
 }
 
 .footer-ribbon span {
@@ -1104,26 +1117,6 @@ article.post .btn-primary:focus {
   display: inline-block;
   padding: 0 20px;
   z-index: 1;
-}
-
-.footer-ribbon span::before,
-.footer-ribbon span::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 200vw;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.footer-ribbon span::before {
-  right: 100%;
-  margin-right: 15px;
-}
-
-.footer-ribbon span::after {
-  left: 100%;
-  margin-left: 15px;
 }
 
 /* Footer copyright styling - dark navy background like D7 */
@@ -1145,6 +1138,27 @@ article.post .btn-primary:focus {
 
 #footer a:hover {
   color: #fff;
+}
+
+/* BLOG DATE BOX ALIGNMENT (ARC-733) */
+/* Override absolute positioning to align date box with title */
+article.node--type-article .post-date,
+.view-blog article .post-date,
+article.post .post-date {
+  position: relative !important;
+  float: left !important;
+  top: auto !important;
+  left: auto !important;
+  margin-right: 15px !important;
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Ensure post-content flows next to the date box */
+article.node--type-article .post-content,
+.view-blog article .post-content,
+article.post .post-content {
+  overflow: hidden;
 }
 
 /* GLOBAL LINK STYLING (ARC-723) */

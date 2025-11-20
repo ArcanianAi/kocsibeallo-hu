@@ -18,7 +18,7 @@
             <h2><a href="{{ url }}">{{ label }}</a></h2>
 
             <div class="post-meta">
-                <span><i class="fa fa-user"></i> By {{ author_name }} </span>
+                {# <span><i class="fa fa-user"></i> By {{ author_name }} </span> #}
                 {% if content.field_tags|render %}
                     <span><i class="fa fa-tag"></i> {{ content.field_tags }} </span>
                 {% endif %}
