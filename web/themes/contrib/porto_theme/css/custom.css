@@ -273,24 +273,25 @@ aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom:
 
 /* BLOG PAGINATION - CONSISTENT HEIGHTS (ARC-731) */
 .view-blog .pager .pager__items { margin: -10px 0 20px; }
-.view-blog .pager li > a,
-.view-blog .pager li > span {
-    font-size: 18px;
-    line-height: 1.33333;
-    padding: 10px 16px;
-    min-height: 50px; /* Ensure consistent height for all buttons */
-    min-width: 50px; /* Minimum width for square buttons */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    white-space: nowrap; /* Prevent text wrapping */
+.view-blog nav.pager .pager__item > a,
+.view-blog nav.pager .pager__item > span {
+    font-size: 18px !important;
+    line-height: 1.33333 !important;
+    padding: 10px 16px !important;
+    min-height: 50px !important; /* Ensure consistent height for all buttons */
+    height: 50px !important; /* Force exact height */
+    min-width: 50px !important; /* Minimum width for square buttons */
+    display: inline-flex !important; /* Must override inline-block */
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important; /* Prevent text wrapping */
 }
 
 /* Limit width of next/last buttons to prevent them from being too wide */
-.view-blog .pager .pager__item--next > a,
-.view-blog .pager .pager__item--last > a {
-    max-width: 160px;
+.view-blog nav.pager .pager__item--next > a,
+.view-blog nav.pager .pager__item--last > a {
+    max-width: 160px !important;
 }
 .view-blog .pager li:first-child > a,
 .view-blog .pager li:first-child > span {
