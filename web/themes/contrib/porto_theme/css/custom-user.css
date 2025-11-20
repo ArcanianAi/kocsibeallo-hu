@@ -2347,3 +2347,37 @@ article h4 a:hover,
   background-color: #011e41 !important;
   color: #ffffff !important;
 }
+
+/* ============================================
+   BLOG CARD VERTICAL ALIGNMENT (ARC-744)
+   - Equal height cards in grid layout
+   ============================================ */
+
+/* Make row display flex to enable equal height columns */
+.view-blog .view-content > .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Make columns equal height */
+.view-blog .col-md-4 {
+  display: flex !important;
+}
+
+/* Make blog card containers fill column height */
+.recent-posts {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.recent-posts .post {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+/* Push button to bottom of card */
+.recent-posts .post p {
+  flex-grow: 1 !important;
+}
