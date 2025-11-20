@@ -45,3 +45,17 @@ article.post.post-large .post-date {
 article.post.post-large .post-content {
   overflow: hidden;
 }
+
+/* Hide author info from blog displays (ARC-736) */
+article.post .post-meta span .fa-user {
+  display: none !important;
+}
+
+article.post .post-meta span .fa-user + * {
+  display: none !important;
+}
+
+/* Hide the entire author span if it contains fa-user icon */
+.post-meta > span:first-child {
+  display: none !important;
+}
