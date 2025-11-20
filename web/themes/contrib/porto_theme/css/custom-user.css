@@ -2330,6 +2330,7 @@ article h4 a:hover,
    BLOG DATE BADGE STYLING (ARC-743)
    - Day number: dark blue text
    - Month: dark blue background with white text
+   - Position date after title on front page
    ============================================ */
 
 /* Day number - white text on dark blue background (matching /blog page) */
@@ -2346,6 +2347,22 @@ article h4 a:hover,
 .blog-posts .date .month {
   background-color: #011e41 !important;
   color: #ffffff !important;
+}
+
+/* Position date badge after title on front page */
+.recent-posts .post h4 {
+  display: inline-block !important;
+  margin-bottom: 0 !important;
+  margin-right: 15px !important;
+}
+
+.recent-posts .post .date {
+  display: inline-block !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin-bottom: 15px !important;
+  vertical-align: top !important;
 }
 
 /* ============================================
