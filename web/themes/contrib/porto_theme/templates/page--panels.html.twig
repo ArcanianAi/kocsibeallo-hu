@@ -75,7 +75,7 @@
                     {% if page_header_option == 'ph_light' or arg == 'index-page-header-light' or page_header_option == 'ph_parallax' or arg == 'index-page-header-parallax' or page_header_option == 'ph_center' or arg == 'index-page-header-center' or arg == 'index-page-header-color-primary' or arg == 'index-page-header-color-quaternary' or arg == 'index-page-header-color-secondary' or arg == 'index-page-header-color-tertinary' %}
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>{{ page_title | striptags }}</h1>
+                                <h2>{{ page_title | striptags }}</h2>
                                 {{ page.breadcrumb }}
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>{{ page_title | striptags }}</h1>
+                                <h2>{{ page_title | striptags }}</h2>
                             </div>
                         </div>
                     {% endif %}
