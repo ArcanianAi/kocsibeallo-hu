@@ -4,10 +4,12 @@ base theme: false
 #base theme: classy
 #dependencies:
   #  - classy:classy
-description: 'Porto is a professional and multipurpose Drupal theme for any business or portfolio website. It’s fully responsive design ready to look stunning on any device. Drupal core ^9 || ^10.'
+description: 'Porto is a professional and multipurpose Drupal theme for any business or portfolio website. It''s fully responsive design ready to look stunning on any device. Drupal core ^9 || ^10.'
 package: Core
 # version: '1.5'
 core_version_requirement: ^9 || ^10
+#Favicon
+favicon: favicon.jpg
 #Libraries
 libraries:
   - porto/custom-user-css
