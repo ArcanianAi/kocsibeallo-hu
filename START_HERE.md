@@ -223,6 +223,9 @@ docker exec pajfrsyfzm-d10-cli bash -c "cd /app/web && ../vendor/bin/drush sql-q
 |----|------|--------|
 | ARC-738 | Fix main menu dropdown caret color | N/A - already correct |
 | ARC-746 | Standardize title link colors to dark blue | `c516ffa` |
+| ARC-745 | Blog "Read More" button → "Bővebben" with gold styling | `7ff7c95` |
+| ARC-743 | Blog date badge dark blue styling | `4a7129c` |
+| ARC-744 | Blog card vertical alignment (equal heights) | `0e5ca16` |
 
 ### Recently Completed
 
