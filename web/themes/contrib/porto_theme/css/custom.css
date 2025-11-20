@@ -1081,6 +1081,38 @@ article.post .btn-primary:focus {
   background: #011e41 !important;
 }
 
+/* Footer ribbon - decorative line through text (ARC-732) */
+.footer-ribbon {
+  overflow: visible !important;
+}
+
+.footer-ribbon span {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.footer-ribbon span::before,
+.footer-ribbon span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 200vw;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-ribbon span::before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.footer-ribbon span::after {
+  left: 100%;
+  margin-left: 15px;
+}
+
 /* Footer copyright styling - dark navy background like D7 */
 .footer-copyright {
   background: #011e41 !important;
