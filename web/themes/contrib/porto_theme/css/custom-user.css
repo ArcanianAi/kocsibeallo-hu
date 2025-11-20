@@ -2430,6 +2430,15 @@ section.section-footer {
 }
 
 /* ============================================
+   BLOG LIST PAGE
+   ============================================ */
+
+/* Add spacing between last blog card and pager */
+.view-blog nav.pager {
+  margin-top: 65px !important;
+}
+
+/* ============================================
    BLOG SECTION HEADING
    ============================================ */
 
