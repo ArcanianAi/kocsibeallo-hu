@@ -32,3 +32,16 @@ article.post .date .day,
 article.post .date .month {
   color: #fff !important;
 }
+
+/* Blog cards - align date box to title top line (ARC-733) */
+article.post.post-large .post-date {
+  position: relative;
+  float: left;
+  margin-right: 15px;
+  margin-top: 0;
+}
+
+/* Adjust post-content to flow next to date box */
+article.post.post-large .post-content {
+  overflow: hidden;
+}
