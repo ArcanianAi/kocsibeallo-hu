@@ -2392,6 +2392,16 @@ article h4 a:hover,
 }
 
 /* ============================================
+   BLOG SECTION HEADING
+   ============================================ */
+
+/* Align blog section heading to left */
+.view-blog h2.word-rotator-title,
+.view-blog .view-header h2 {
+  text-align: left !important;
+}
+
+/* ============================================
    BLOG CARD VERTICAL ALIGNMENT (ARC-744)
    - Equal height cards in grid layout
    ============================================ */
