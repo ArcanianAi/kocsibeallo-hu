@@ -2344,7 +2344,8 @@ article h4 a:hover,
 .recent-posts .date .day,
 section.section .recent-posts .date .day,
 .view-blog .date .day,
-.blog-posts .date .day {
+.blog-posts .date .day,
+article.post .post-date .day {
   color: #011e41 !important;
   background-color: #f0f0f0 !important;
 }
@@ -2352,7 +2353,8 @@ section.section .recent-posts .date .day,
 /* Month - dark blue background with white text */
 .recent-posts .date .month,
 .view-blog .date .month,
-.blog-posts .date .month {
+.blog-posts .date .month,
+article.post .post-date .month {
   background-color: #011e41 !important;
   color: #ffffff !important;
 }
