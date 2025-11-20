@@ -121,6 +121,45 @@ Be aware to avoid this kind of errors>
     the provided media type
     image/jpeg"},"request_id":"req_011CVHfr8tXvN52oEDC2Av1W"}
 
+when making a screenshot, always resize it to be below the 3mb to avoid the following errors
+
+⏺ Read(/var/folders/wd/pttl8bn14rzcvlg9p4gsgv_40000gn/T/chrome-devtools-mcp-GxDg
+      3l/screenshot.png)
+  ⎿  Read image (7.2MB)
+  ⎿ API Error: 400 {"type":"error","error":{"type":"invalid_request_error","mess
+    age":"messages.36.content.0.tool_result.content.0.image.source.base64: image
+     exceeds 5 MB maximum: 10043492 bytes > 5242880
+    bytes"},"request_id":"req_011CVHipukpmWTbxLEGovfo9"}
+
+AVOID this errors>
+
+⏺ chrome-devtools - take_screenshot (MCP)(fullPage: true, quality: 50, format: "jpeg")
+  ⎿  # take_screenshot response
+     Took a screenshot of the full current page.
+  ⎿  [Image]
+  ⎿ API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"messages.11.content.45.image.source.base64.data: At least
+    one of the image dimensions exceed max allowed size: 8000 pixels"},"request_id":"req_011CVHjfmgX8c8rRrrv4BiUW"}
+
+
+take smaller screenshots.
+
+always take JPG screenshots to avoid this:
+
+chrome-devtools - take_screenshot (MCP)(format: "png")
+  ⎿  # take_screenshot response
+     Took a screenshot of the current page's viewport.
+  ⎿  [Image]
+  ⎿ API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"messages.3.content.12.image.source.base64.data: Image does
+     not match the provided media type image/jpeg"},"request_id":"req_011CVJdaHzJJsBGBf7GvemBo"}
+
+
+ chrome-devtools - take_screenshot (MCP)(format: "png")
+  ⎿  # take_screenshot response
+     Took a screenshot of the current page's viewport.
+  ⎿  [Image]
+  ⎿ API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"messages.11.content.9.image.source.base64.data: Image does
+     not match the provided media type image/jpeg"},"request_id":"req_011CVJjZK2jJpqxi2o5JjD8o"}
+
 
 
 ---
@@ -176,9 +215,16 @@ docker exec pajfrsyfzm-d10-cli bash -c "cd /app/web && ../vendor/bin/drush sql-q
 
 ---
 
-## Current Task Status (2025-11-19)
+## Current Task Status (2025-11-20)
 
 ### Completed Today
+
+| ID | Task | Commit |
+|----|------|--------|
+| ARC-738 | Fix main menu dropdown caret color | N/A - already correct |
+| ARC-746 | Standardize title link colors to dark blue | `c516ffa` |
+
+### Recently Completed
 
 | ID | Task | Commit |
 |----|------|--------|
@@ -186,38 +232,11 @@ docker exec pajfrsyfzm-d10-cli bash -c "cd /app/web && ../vendor/bin/drush sql-q
 | ARC-712 | Fix front page blog styling to match D7 | `b3f99a9` |
 | ARC-713 | Add footer contact ribbon | `6e1700d` |
 | ARC-715 | Add request for proposal form to gallery entries | `eaef355` |
-
-### In Progress
-
-**ARC-716: Fix tag display format on gallery entries**
-
-**Problem:** On gallery entry pages (foto_a_galeriahoz nodes), taxonomy fields display as:
-```
-Típus
-egyedi nyitott
-
-Stílus
-egyenes
-```
-
-Should display inline:
-```
-Típus: egyedi nyitott
-Stílus: egyenes
-```
-
-**Investigation Done:**
-- Config already has `label: inline` (see `core.entity_view_display.node.foto_a_galeriahoz.default.yml`)
-- D10 HTML output lacks standard Drupal field BEM classes
-- Need to add CSS to force inline display
-
-**Next Step:** Add CSS to `custom.css` to make field labels inline
+| ARC-719 | Limit gallery filtering combinations | `064129c` |
 
 ### Pending Tasks (from Linear)
 
-- ARC-717: Remove author from blog displays
-- ARC-718: Fix missing blog images on teaser view
-- ARC-719: Limit gallery filtering combinations
+Check Linear for remaining Triage tasks
 
 ---
 
