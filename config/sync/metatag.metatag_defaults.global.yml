@@ -9,4 +9,5 @@ label: Általános
 tags:
   canonical_url: '[current-page:url]'
   title: '[current-page:title] | [site:name]'
+  description: 'Egyedi és előregyártott kocsibeállók építése, napelemes autóbeállók és fedett parkolók kivitelezése. Ragasztott fa, alumínium és vas szerkezetekkel.'
   hreflang_xdefault: '[current-page:url]'

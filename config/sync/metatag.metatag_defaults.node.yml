@@ -8,5 +8,5 @@ id: node
 label: Tartalom
 tags:
   title: '[node:title-short] | [site:name]'
-  description: '[node:summary]'
+  description: '[node:meta-description]'
   canonical_url: '[node:url]'

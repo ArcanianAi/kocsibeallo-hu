@@ -27,6 +27,10 @@ function gallery_custom_token_info() {
     'name' => t('Short title'),
     'description' => t('Title truncated to 53 characters for SEO'),
   ];
+  $info['tokens']['node']['meta-description'] = [
+    'name' => t('Meta description'),
+    'description' => t('Auto-generated meta description with fallback from summary or body'),
+  ];
   return $info;
 }
 
@@ -46,6 +50,37 @@ function gallery_custom_tokens($type, $tokens, array $data, array $options, \Dru
           $title = mb_substr($title, 0, 50) . '...';
         }
         $replacements[$original] = $title;
+      }
+      elseif ($name == 'meta-description') {
+        $description = '';
+
+        // Try to get summary first
+        if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+          $body = $node->get('body')->first();
+          if ($body && !empty($body->summary)) {
+            $description = $body->summary;
+          }
+          elseif ($body && !empty($body->value)) {
+            // Fallback to body text if no summary
+            $text = strip_tags($body->value);
+            $text = preg_replace('/\s+/', ' ', $text); // Normalize whitespace
+            $text = trim($text);
+            // Truncate to 155 characters (optimal length for meta descriptions)
+            if (mb_strlen($text) > 155) {
+              $description = mb_substr($text, 0, 152) . '...';
+            }
+            else {
+              $description = $text;
+            }
+          }
+        }
+
+        // Final fallback to title if still empty
+        if (empty($description)) {
+          $description = $node->getTitle();
+        }
+
+        $replacements[$original] = $description;
       }
     }
   }
