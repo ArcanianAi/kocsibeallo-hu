@@ -210,7 +210,7 @@ function porto_add_regions_to_node($allowed_regions, &$variables) {
 }
 
 function porto_preprocess_html(&$variables) {
-    global $base_url;    
+    global $base_url;
     $theme_root = $base_url.'/'.\Drupal::service('extension.list.theme')->getPath('porto');
     $variables['theme_root'] = $theme_root;
     $current_path = \Drupal::service('path.current')->getPath();
@@ -225,6 +225,41 @@ function porto_preprocess_html(&$variables) {
     $current_path = \Drupal::service('path.current')->getPath();
     $variables['current_path'] = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
     $variables['custom_color'] =  theme_get_setting('custom_color');
+
+    // Add pagination meta tags (rel="next" and rel="prev") for SEO
+    $request = \Drupal::request();
+    $current_page = $request->query->get('page');
+
+    if ($current_page !== null) {
+        $current_page = (int) $current_page;
+        $current_url = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . $request->getPathInfo();
+        $query_params = $request->query->all();
+
+        // Add rel="prev" if not on first page
+        if ($current_page > 0) {
+            $prev_params = $query_params;
+            if ($current_page == 1) {
+                // Page 1 should link to page without ?page parameter
+                unset($prev_params['page']);
+            } else {
+                $prev_params['page'] = $current_page - 1;
+            }
+            $prev_url = $current_url . ($prev_params ? '?' . http_build_query($prev_params) : '');
+            $variables['#attached']['html_head_link'][][] = [
+                'rel' => 'prev',
+                'href' => $prev_url,
+            ];
+        }
+
+        // Add rel="next" (always add for paginated pages, Views will handle last page)
+        $next_params = $query_params;
+        $next_params['page'] = $current_page + 1;
+        $next_url = $current_url . '?' . http_build_query($next_params);
+        $variables['#attached']['html_head_link'][][] = [
+            'rel' => 'next',
+            'href' => $next_url,
+        ];
+    }
 }
 
 function porto_suggestions_node_alter(array &$suggestions, array $variables) {
