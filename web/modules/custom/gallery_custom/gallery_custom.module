@@ -12,9 +12,43 @@ use Drupal\Core\Routing\RouteMatchInterface;
  */
 function gallery_custom_page_attachments(array &$attachments) {
   $route_name = \Drupal::routeMatch()->getRouteName();
-  
+
   // Add custom CSS to gallery page
   if (strpos($route_name, 'view.index_gallery') === 0) {
     $attachments['#attached']['library'][] = 'porto/gallery_custom';
   }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function gallery_custom_token_info() {
+  $info['tokens']['node']['title-short'] = [
+    'name' => t('Short title'),
+    'description' => t('Title truncated to 53 characters for SEO'),
+  ];
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function gallery_custom_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'node' && !empty($data['node'])) {
+    $node = $data['node'];
+    foreach ($tokens as $name => $original) {
+      if ($name == 'title-short') {
+        $title = $node->getTitle();
+        // Truncate to 53 chars to keep total title under 70 with " | Kocsibeallo.hu"
+        if (mb_strlen($title) > 53) {
+          $title = mb_substr($title, 0, 50) . '...';
+        }
+        $replacements[$original] = $title;
+      }
+    }
+  }
+
+  return $replacements;
 }

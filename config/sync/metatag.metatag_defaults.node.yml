@@ -7,6 +7,6 @@ _core:
 id: node
 label: Tartalom
 tags:
-  title: '[node:title] | [site:name]'
+  title: '[node:title-short] | [site:name]'
   description: '[node:summary]'
   canonical_url: '[node:url]'
