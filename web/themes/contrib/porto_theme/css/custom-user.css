@@ -214,6 +214,7 @@ html #footer.color-primary {
     margin: 0 !important;
     padding: 0 !important;
     text-align: left !important;
+    margin-left: 50px !important;
 }
 
 /* Right side - Nav links - RIGHT edge */
@@ -2333,12 +2334,13 @@ article h4 a:hover,
    - Position date after title on front page
    ============================================ */
 
-/* Day number - white text on dark blue background (matching /blog page) */
+/* Day number - dark blue text on grey background */
 .recent-posts .date .day,
+section.section .recent-posts .date .day,
 .view-blog .date .day,
 .blog-posts .date .day {
-  color: #ffffff !important;
-  background-color: #011e41 !important;
+  color: #011e41 !important;
+  background-color: #f0f0f0 !important;
 }
 
 /* Month - dark blue background with white text */
@@ -2355,6 +2357,8 @@ article h4 a:hover,
   display: flex !important;
   flex-direction: column !important;
   flex-grow: 1 !important;
+  padding: 10px !important;
+  background: #ffffff !important;
 }
 
 .recent-posts .post .post-header {
@@ -2383,6 +2387,40 @@ article h4 a:hover,
 
 .recent-posts .post > a {
   margin-top: auto !important;
+  align-self: flex-end !important;
+}
+
+/* ============================================
+   FOOTER STYLING
+   ============================================ */
+
+/* Remove borders around footer area and reduce padding/background */
+section.section-footer {
+  border-top: none !important;
+  padding: 30px 0 10px 0 !important;
+  background: transparent !important;
+}
+
+#footer.color-primary {
+  border-top: 1px solid #dedede !important;
+  margin-top: 120px !important;
+}
+
+/* Limit first footer section height (before copyright) */
+#footer.color-primary > .container {
+  max-height: 230px !important;
+  overflow: hidden !important;
+}
+
+/* Match footer ribbon to dark blue like D7 */
+#footer.color-primary .footer-ribbon {
+  background: #011e41 !important;
+  margin-top: -125px !important;
+  z-index: 1 !important;
+}
+
+#footer.color-primary .footer-ribbon:before {
+  border-right-color: #011e41 !important;
 }
 
 /* ============================================
@@ -2400,10 +2438,26 @@ article h4 a:hover,
    - Equal height cards in grid layout
    ============================================ */
 
+/* Reduce whitespace after blog section title */
+.view-blog .row.mt-lg {
+  margin-top: 10px !important;
+}
+
+/* Add spacing between blog section and footer */
+.view-blog {
+  margin-bottom: 30px !important;
+}
+
 /* Make row display flex to enable equal height columns */
 .view-blog .view-content > .row {
   display: flex !important;
   flex-wrap: wrap !important;
+  align-items: stretch !important;
+}
+
+/* Make views-row containers not interfere with layout */
+.view-blog .views-row {
+  display: contents !important;
 }
 
 /* Make columns equal height */
@@ -2418,10 +2472,17 @@ article h4 a:hover,
   width: 100% !important;
 }
 
+/* Remove top margin from front page blog cards for alignment */
+.view-blog .recent-posts {
+  margin-top: 0 !important;
+}
+
 .recent-posts .post {
   display: flex !important;
   flex-direction: column !important;
   flex-grow: 1 !important;
+  padding: 10px !important;
+  background: #ffffff !important;
 }
 
 /* Push button to bottom of card */
