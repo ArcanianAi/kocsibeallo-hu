@@ -2350,44 +2350,38 @@ article h4 a:hover,
 }
 
 /* Position date badge to LEFT of title on front page */
-/* Keep flexbox for equal heights, but use grid for date+title layout */
+/* Use float layout like D7 for proper text wrapping */
 .recent-posts .post {
-  display: grid !important;
-  grid-template-columns: auto 1fr !important;
-  grid-template-rows: auto auto auto !important;
-  gap: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
   flex-grow: 1 !important;
-  align-items: baseline !important;
+}
+
+.recent-posts .post .post-header {
+  overflow: hidden !important;
+  margin-bottom: 7px !important;
 }
 
 .recent-posts .post .date {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  position: static !important;
-  float: none !important;
+  float: left !important;
   margin-right: 15px !important;
+  margin-top: 8px !important;
   margin-bottom: 0 !important;
-  margin-top: 0 !important;
   margin-left: 0 !important;
 }
 
 .recent-posts .post h4 {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
+  overflow: hidden !important;
   margin-bottom: 0 !important;
 }
 
-/* Paragraph spans both columns on row 2 */
+/* Paragraph and button below */
 .recent-posts .post > p {
-  grid-column: 1 / -1 !important;
-  grid-row: 2 !important;
-  margin-top: 15px !important;
+  flex-grow: 1 !important;
+  margin-top: 0 !important;
 }
 
-/* Button spans both columns on row 3 */
 .recent-posts .post > a {
-  grid-column: 1 / -1 !important;
-  grid-row: 3 !important;
   margin-top: auto !important;
 }
 
