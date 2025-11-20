@@ -2265,3 +2265,39 @@ img.align-center {
   color: #ac9c58 !important;
   background: transparent !important;
 }
+
+/* ============================================
+   CONSISTENT CLICKABLE TITLE LINK COLORS (ARC-746)
+   - Only LINKS in titles use dark blue (#011e41)
+   - Regular headings remain gold
+   ============================================ */
+
+/* Blog entry title LINKS - dark blue */
+.view-blog article h2 a,
+.blog-posts article h2 a,
+.post-title a,
+.entry-title a,
+main h2 a,
+main h3 a,
+main h4 a,
+.frontpage h4 a,
+article h4 a,
+.node--type-article h2 a,
+.node--type-article .node__title a {
+  color: #011e41 !important;
+}
+
+/* Hover state - gold */
+.view-blog article h2 a:hover,
+.blog-posts article h2 a:hover,
+.post-title a:hover,
+.entry-title a:hover,
+main h2 a:hover,
+main h3 a:hover,
+main h4 a:hover,
+.frontpage h4 a:hover,
+article h4 a:hover,
+.node--type-article h2 a:hover,
+.node--type-article .node__title a:hover {
+  color: #ac9c58 !important;
+}
