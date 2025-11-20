@@ -82,10 +82,18 @@ aside.sidebar [class^="webform-submission-contact"] .form-type-textarea textarea
 aside.sidebar [class^="webform-submission-contact"] input[type="submit"]{float: none; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; text-transform: capitalize;}
 aside.sidebar [class^="webform-submission-contact"] .form-actions{margin-bottom: 25px;}
 
-.form-required:after{
-    content: '*' !important;
-    background-image: none !important;
-    float: right;
+/* Quote form - asterisk position next to label (ARC-734) */
+.form-required {
+  display: inline-block;
+  text-align: left !important;
+}
+
+.form-required:after {
+  content: ' *' !important;
+  background-image: none !important;
+  float: none;
+  display: inline;
+  padding-left: 0.2em;
 }
 
 .blocktabs{
