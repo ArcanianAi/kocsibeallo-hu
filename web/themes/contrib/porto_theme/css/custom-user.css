@@ -2325,3 +2325,25 @@ article h4 a:hover,
   background-color: #948654 !important;
   color: #ffffff !important;
 }
+
+/* ============================================
+   BLOG DATE BADGE STYLING (ARC-743)
+   - Day number: dark blue text
+   - Month: dark blue background with white text
+   ============================================ */
+
+/* Day number - dark blue text on white/transparent background */
+.recent-posts .date .day,
+.view-blog .date .day,
+.blog-posts .date .day {
+  color: #011e41 !important;
+  background-color: #ffffff !important;
+}
+
+/* Month - dark blue background with white text */
+.recent-posts .date .month,
+.view-blog .date .month,
+.blog-posts .date .month {
+  background-color: #011e41 !important;
+  color: #ffffff !important;
+}
