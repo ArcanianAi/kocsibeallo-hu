@@ -54,7 +54,7 @@ display:
           type: image
           settings:
             image_link: content
-            image_style: medium
+            image_style: large
             image_loading:
               attribute: lazy
           group_column: ''
