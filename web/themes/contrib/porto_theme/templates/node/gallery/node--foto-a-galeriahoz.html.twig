@@ -13,28 +13,18 @@
 #}
 
 <article{{ attributes.addClass('photoswipe-gallery') }}>
-  {# Main gallery images with custom layout #}
+  {# Main gallery images - all in 2-column grid #}
   {% if content.field_telikert_kep %}
     <div class="gallery-images-wrapper">
-      {# First image - full width hero #}
-      {% if content.field_telikert_kep[0] %}
-        <div class="gallery-hero">
-          {{ content.field_telikert_kep[0] }}
-        </div>
-      {% endif %}
-
-      {# Remaining images - 2 per row #}
-      {% if content.field_telikert_kep|length > 1 %}
-        <div class="gallery-grid">
-          {% for key, item in content.field_telikert_kep %}
-            {% if key > 0 and key is not same as('#items') %}
-              <div class="gallery-grid-item">
-                {{ item }}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      {% endif %}
+      <div class="gallery-grid">
+        {% for key, item in content.field_telikert_kep %}
+          {% if key is not same as('#items') %}
+            <div class="gallery-grid-item">
+              {{ item }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   {% endif %}
 

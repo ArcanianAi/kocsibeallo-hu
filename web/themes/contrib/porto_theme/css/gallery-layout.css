@@ -1,6 +1,6 @@
 /**
  * Gallery Layout Styles
- * First image full width, remaining images in 2-column grid
+ * All images in 2-column grid (pairs in every row)
  * ARC-783
  */
 
@@ -8,29 +8,11 @@
   margin-bottom: 30px;
 }
 
-/* First image - full width hero */
-.gallery-hero {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.gallery-hero .photoswipe {
-  display: block;
-  width: 100%;
-}
-
-.gallery-hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Remaining images - 2 column grid */
+/* All images - 2 column grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  margin-top: 20px;
 }
 
 .gallery-grid-item {
