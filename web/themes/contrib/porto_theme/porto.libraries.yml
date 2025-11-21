@@ -104,3 +104,8 @@ gallery-filter-limit:
   dependencies:
     - core/drupal
     - core/once
+
+gallery-layout:
+  css:
+    theme:
+      css/gallery-layout.css: {}

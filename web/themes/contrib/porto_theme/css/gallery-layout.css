@@ -1,0 +1,62 @@
+/**
+ * Gallery Layout Styles
+ * First image full width, remaining images in 2-column grid
+ * ARC-783
+ */
+
+.gallery-images-wrapper {
+  margin-bottom: 30px;
+}
+
+/* First image - full width hero */
+.gallery-hero {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gallery-hero .photoswipe {
+  display: block;
+  width: 100%;
+}
+
+.gallery-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remaining images - 2 column grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery-grid-item {
+  width: 100%;
+}
+
+.gallery-grid-item .photoswipe {
+  display: block;
+  width: 100%;
+}
+
+.gallery-grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive: Single column on mobile */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* Ensure proper spacing */
+.photoswipe-gallery .gallery-images-wrapper + * {
+  margin-top: 40px;
+}

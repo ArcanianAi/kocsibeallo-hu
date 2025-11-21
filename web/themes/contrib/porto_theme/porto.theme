@@ -166,6 +166,11 @@ function porto_preprocess_node(&$variables) {
     $variables['#attached']['library'][] = 'porto/photoswipe-body-images';
   }
 
+  // Attach gallery layout CSS for gallery nodes (ARC-783)
+  if ($node->bundle() == 'foto_a_galeriahoz' && $view_mode == 'full') {
+    $variables['#attached']['library'][] = 'porto/gallery-layout';
+  }
+
 }
 
 /**
