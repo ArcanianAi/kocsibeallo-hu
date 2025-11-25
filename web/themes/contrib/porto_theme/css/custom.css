@@ -1333,3 +1333,38 @@ nav a:focus {
     line-height: 35px !important;
   }
 }
+
+/* Fix gallery hover overlay - center "További + Részletek" text properly */
+.thumb-info .thumb-info-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay should cover entire image and use flexbox for centering */
+.thumb-info .thumb-info-wrapper:after,
+.thumb-info .thumb-info-action-icon,
+.thumb-info .thumb-info-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Prevent slide-down animation - keep text centered */
+.thumb-info:hover .thumb-info-action-icon,
+.thumb-info:hover .thumb-info-action {
+  animation: none !important;
+  transform: none !important;
+  top: 0 !important;
+}
+
+/* Center the text content */
+.thumb-info .thumb-info-action-icon i,
+.thumb-info .thumb-info-action span {
+  position: static !important;
+  transform: none !important;
+}
