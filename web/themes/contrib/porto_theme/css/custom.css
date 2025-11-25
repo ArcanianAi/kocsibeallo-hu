@@ -1264,3 +1264,72 @@ nav a:focus {
   color: #CCA354 !important;
   border-color: #CCA354 !important;
 }
+
+/* Gallery pager styling - match blog page design with consistent button heights */
+.page-kepgaleria .pager__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+
+/* Consistent height for all pager elements */
+.page-kepgaleria .pager__item a,
+.page-kepgaleria .pager__item span {
+  display: inline-block;
+  min-width: 40px;
+  height: 40px !important;
+  line-height: 40px !important;
+  padding: 0 12px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Previous/Next buttons - ensure same height */
+.page-kepgaleria .pager__item--previous a,
+.page-kepgaleria .pager__item--next a {
+  height: 40px !important;
+  line-height: 40px !important;
+  padding: 0 15px;
+}
+
+/* Hover state */
+.page-kepgaleria .pager__item a:hover {
+  background-color: #CCA354;
+  border-color: #CCA354;
+  color: #ffffff;
+}
+
+/* Active/current page */
+.page-kepgaleria .pager__item.is-active a,
+.page-kepgaleria .pager__item.is-active span {
+  background-color: #1e3a5f;
+  border-color: #1e3a5f;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-kepgaleria .pager__item a,
+  .page-kepgaleria .pager__item span {
+    min-width: 35px;
+    height: 35px !important;
+    line-height: 35px !important;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .page-kepgaleria .pager__item--previous a,
+  .page-kepgaleria .pager__item--next a {
+    height: 35px !important;
+    line-height: 35px !important;
+  }
+}
