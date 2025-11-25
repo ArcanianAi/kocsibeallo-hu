@@ -1229,3 +1229,17 @@ nav a:focus {
     font-size: 14px;
   }
 }
+
+/* Fix webform field labels - dark color instead of gold */
+.webform-submission-ajanlatkeres-form label,
+.webform-submission-ajanlatkeres-form .form-item label,
+.webform-submission-ajanlatkeres-form .js-form-item label {
+  color: #333333 !important;
+}
+
+/* Also fix contact form labels */
+.webform-submission-kapcsolat-form label,
+.webform-submission-kapcsolat-form .form-item label,
+.webform-submission-kapcsolat-form .js-form-item label {
+  color: #333333 !important;
+}
