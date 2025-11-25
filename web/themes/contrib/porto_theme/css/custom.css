@@ -1368,3 +1368,89 @@ nav a:focus {
   position: static !important;
   transform: none !important;
 }
+
+/* FAQ page - replace light blue with dark blue and gold */
+.page-node-type-gyakran-ismételt-kérdések .panel-heading,
+.page-node-type-faq .panel-heading,
+.faq-question,
+.accordion-header,
+.panel-group .panel-heading {
+  background-color: #1e3a5f !important;
+  border-color: #1e3a5f !important;
+  color: #ffffff !important;
+}
+
+.page-node-type-gyakran-ismételt-kérdések .panel-heading a,
+.page-node-type-faq .panel-heading a,
+.faq-question a,
+.accordion-header a {
+  color: #ffffff !important;
+}
+
+/* Gold hover state */
+.page-node-type-gyakran-ismételt-kérdések .panel-heading:hover,
+.page-node-type-faq .panel-heading:hover,
+.faq-question:hover,
+.accordion-header:hover {
+  background-color: #CCA354 !important;
+  border-color: #CCA354 !important;
+}
+
+/* FAQ answer background */
+.panel-body,
+.faq-answer {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Gallery page - add tag styling and reduce gray section */
+.gallery-item-tags,
+.node--type-foto-a-galeriahoz.node--view-mode-teaser .field--name-field-gallery-tag,
+.node--type-foto-a-galeriahoz.node--view-mode-teaser .field--name-field-cimkek {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.gallery-item-tags .field__item,
+.field--name-field-gallery-tag .field__item,
+.field--name-field-cimkek .field__item {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #666;
+}
+
+.gallery-item-tags .field__item a,
+.field--name-field-gallery-tag .field__item a,
+.field--name-field-cimkek .field__item a {
+  color: #666;
+  text-decoration: none;
+}
+
+.gallery-item-tags .field__item:hover,
+.field--name-field-gallery-tag .field__item:hover,
+.field--name-field-cimkek .field__item:hover {
+  background-color: #CCA354;
+}
+
+.gallery-item-tags .field__item:hover a,
+.field--name-field-gallery-tag .field__item:hover a,
+.field--name-field-cimkek .field__item:hover a {
+  color: #ffffff;
+}
+
+/* Reduce large gray section on gallery page */
+.page-kepgaleria .gray-section,
+.page-kepgaleria .view-content {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  min-height: auto !important;
+}
+
+.page-kepgaleria .views-row {
+  margin-bottom: 30px;
+}
