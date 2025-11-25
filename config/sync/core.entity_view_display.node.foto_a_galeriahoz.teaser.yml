@@ -32,6 +32,22 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_gallery_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_cimkek:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -50,8 +66,6 @@ content:
     region: content
 hidden:
   comment_node_foto_a_galeriahoz: true
-  field_cimkek: true
-  field_gallery_tag: true
   field_oldalzaras_anyaga: true
   field_stilus: true
   field_szerkezet_anyaga: true
