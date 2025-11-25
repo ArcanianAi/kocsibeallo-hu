@@ -1243,3 +1243,24 @@ nav a:focus {
 .webform-submission-kapcsolat-form .js-form-item label {
   color: #333333 !important;
 }
+
+/* Fix menu dropdown caret colors - white by default, gold on hover */
+#header .header-nav-main nav > ul > li > a.dropdown-toggle:after,
+.nav-link.dropdown-toggle::after,
+.menu-item--expanded > a::after {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Gold caret on hover */
+#header .header-nav-main nav > ul > li > a.dropdown-toggle:hover:after,
+#header .header-nav-main nav > ul > li > a.dropdown-toggle:focus:after,
+#header .header-nav-main nav > ul > li.show > a.dropdown-toggle:after,
+.nav-link.dropdown-toggle:hover::after,
+.nav-link.dropdown-toggle:focus::after,
+.nav-link.dropdown-toggle.show::after,
+.menu-item--expanded > a:hover::after,
+.menu-item--expanded.show > a::after {
+  color: #CCA354 !important;
+  border-color: #CCA354 !important;
+}
