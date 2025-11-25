@@ -388,6 +388,20 @@ display:
             <p style="text-align: center; margin: 30px 0;"><a href="/hu/ajánlatkérés" class="btn btn-primary btn-lg" style="font-size: 1.2em; padding: 15px 40px;">Kérjen ingyenes árajánlatot »</a></p>
             </div>
           tokenize: false
+        area_text_custom_1:
+          id: area_text_custom_1
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: none
+          admin_label: 'Szűrő útmutató'
+          plugin_id: text_custom
+          empty: false
+          content: |-
+            <div class="gallery-filter-instructions">
+            <p>A szűrő segítségével kiválaszthatja a szerkezet és a fedés anyagát, valamint az Önnek tetsző stílust.</p>
+            </div>
+          tokenize: false
       display_extenders: {  }
       path: kepgaleria
     cache_metadata:

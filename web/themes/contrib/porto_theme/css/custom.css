@@ -1206,3 +1206,26 @@ nav a:focus {
   text-decoration: none;
   font-weight: inherit;
 }
+
+/* Gallery filter instructions */
+.gallery-filter-instructions {
+  margin: 20px 0 25px;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #CCA354;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.gallery-filter-instructions p {
+  margin: 0;
+  color: #333333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-filter-instructions {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
