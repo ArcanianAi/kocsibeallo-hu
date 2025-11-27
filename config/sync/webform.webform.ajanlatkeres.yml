@@ -88,6 +88,65 @@ elements: |-
     '#min': 1
     '#step': 0.1
     '#field_suffix': m
+  tartoszerkezet_anyaga:
+    '#type': checkboxes
+    '#title': 'Tartószerkezet anyaga'
+    '#options':
+      ragasztott_fa: 'ragasztott fa'
+      vas: vas
+      aluminium: alumínium
+    '#states':
+      visible:
+        - ':input[name="type"]':
+            value: 'Egyedi nyitott'
+        - ':input[name="type"]':
+            value: Napelemes
+        - ':input[name="type"]':
+            value: 'Zárt garázs'
+      required:
+        - ':input[name="type"]':
+            value: 'Egyedi nyitott'
+        - ':input[name="type"]':
+            value: Napelemes
+        - ':input[name="type"]':
+            value: 'Zárt garázs'
+  tetofedes_anyaga:
+    '#type': checkboxes
+    '#title': 'Tetőfedés anyaga'
+    '#options':
+      polikarbonat: polikarbonát
+      zsindely: zsindely
+      korcolt_lemez: 'korcolt lemez'
+      trapezlemez: trapézlemez
+      szendvicspanel: szendvicspanel
+      ragasztott_biztonsagi_uveg: 'ragasztott biztonsági üveg'
+    '#states':
+      visible:
+        - ':input[name="type"]':
+            value: 'Egyedi nyitott'
+        - ':input[name="type"]':
+            value: 'Zárt garázs'
+      required:
+        - ':input[name="type"]':
+            value: 'Egyedi nyitott'
+        - ':input[name="type"]':
+            value: 'Zárt garázs'
+  oldalzaras_anyaga:
+    '#type': checkboxes
+    '#title': 'Oldalzárás anyaga'
+    '#options':
+      hajópadlo: hajópadló
+      szendvics_panel: 'szendvics panel'
+      wpc: WPC
+      lecezes: lécezés
+      nemes_vakolat: 'nemes vakolat'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: 'Zárt garázs'
+      required:
+        ':input[name="type"]':
+          value: 'Zárt garázs'
   message:
     '#type': textarea
     '#title': 'Kérdések, megjegyzések'
