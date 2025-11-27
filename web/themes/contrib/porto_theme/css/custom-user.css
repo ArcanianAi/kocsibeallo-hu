@@ -1639,6 +1639,26 @@ article[data-history-node-id] footer,
   text-transform: lowercase;
 }
 
+/* Ensure next/last button content stays on one line */
+.view-blog nav.pager .pager__item--next a,
+.view-index-gallery nav.pager .pager__item--next a,
+.path-kepgaleria nav.pager .pager__item--next a,
+.view-blog nav.pager .pager__item--last a,
+.view-index-gallery nav.pager .pager__item--last a,
+.path-kepgaleria nav.pager .pager__item--last a {
+  white-space: nowrap;
+}
+
+/* Inner span should be inline to prevent line breaks */
+.view-blog nav.pager .pager__item--next a span[aria-hidden],
+.view-index-gallery nav.pager .pager__item--next a span[aria-hidden],
+.path-kepgaleria nav.pager .pager__item--next a span[aria-hidden],
+.view-blog nav.pager .pager__item--last a span[aria-hidden],
+.view-index-gallery nav.pager .pager__item--last a span[aria-hidden],
+.path-kepgaleria nav.pager .pager__item--last a span[aria-hidden] {
+  display: inline !important;
+}
+
 .view-blog nav.pager .pager__item--next a::after,
 .view-index-gallery nav.pager .pager__item--next a::after,
 .path-kepgaleria nav.pager .pager__item--next a::after,
