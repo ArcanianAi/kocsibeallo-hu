@@ -99,15 +99,19 @@ elements: |-
       visible:
         - ':input[name="type"]':
             value: 'Egyedi nyitott'
+        - or
         - ':input[name="type"]':
             value: Napelemes
+        - or
         - ':input[name="type"]':
             value: 'Zárt garázs'
       required:
         - ':input[name="type"]':
             value: 'Egyedi nyitott'
+        - or
         - ':input[name="type"]':
             value: Napelemes
+        - or
         - ':input[name="type"]':
             value: 'Zárt garázs'
   tetofedes_anyaga:
@@ -124,11 +128,13 @@ elements: |-
       visible:
         - ':input[name="type"]':
             value: 'Egyedi nyitott'
+        - or
         - ':input[name="type"]':
             value: 'Zárt garázs'
       required:
         - ':input[name="type"]':
             value: 'Egyedi nyitott'
+        - or
         - ':input[name="type"]':
             value: 'Zárt garázs'
   oldalzaras_anyaga:
