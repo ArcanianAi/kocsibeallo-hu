@@ -2531,3 +2531,55 @@ section.section-footer {
 .recent-posts .post p {
   flex-grow: 1 !important;
 }
+
+/* ============================================
+   INLINE GALLERY IMAGES ON CUSTOM PAGES
+   2-column grid layout for image links in body
+   (e.g., /napelemes-kocsibeallok, /egyedi-gyartasu-nyitott-kocsibeallok)
+   ============================================ */
+
+/* Create wrapper-like behavior for consecutive image links */
+.node--type-page .field--name-body {
+  position: relative;
+}
+
+/* Target image-only links in page body - display as 2-column grid */
+/* These are <a> tags containing only <img> that appear after content */
+.node--type-page .field--name-body > p > a:only-child,
+.node--type-page .field--name-body > a[href*="/sites/default/files/"] {
+  display: inline-block;
+  width: calc(50% - 15px);
+  margin: 0 7.5px 15px 7.5px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+/* First image in each row - no left margin */
+.node--type-page .field--name-body > p > a:only-child:nth-of-type(odd),
+.node--type-page .field--name-body > a[href*="/sites/default/files/"]:nth-of-type(odd) {
+  margin-left: 0;
+}
+
+/* Second image in each row - no right margin */
+.node--type-page .field--name-body > p > a:only-child:nth-of-type(even),
+.node--type-page .field--name-body > a[href*="/sites/default/files/"]:nth-of-type(even) {
+  margin-right: 0;
+}
+
+/* Images inside the links - fill the container */
+.node--type-page .field--name-body > p > a:only-child img,
+.node--type-page .field--name-body > a[href*="/sites/default/files/"] img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .node--type-page .field--name-body > p > a:only-child,
+  .node--type-page .field--name-body > a[href*="/sites/default/files/"] {
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+}
