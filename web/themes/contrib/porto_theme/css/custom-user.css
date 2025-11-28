@@ -2327,6 +2327,25 @@ nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
 }
 
 /* ============================================
+   FAQ TOGGLE COLORS - Use dark blue (#011e41) instead of light blue
+   ============================================ */
+html .toggle-primary .toggle label {
+  color: #011e41;
+  border-left-color: #011e41;
+  border-color: #011e41;
+}
+
+html .toggle-primary .toggle.active > label {
+  background-color: #011e41;
+  border-color: #011e41;
+  color: #ffffff;
+}
+
+html .toggle-primary.toggle-simple .toggle > label:after {
+  background-color: #011e41;
+}
+
+/* ============================================
    CONSISTENT CLICKABLE TITLE LINK COLORS (ARC-746)
    - Only LINKS in titles use dark blue (#011e41)
    - Regular headings remain gold
