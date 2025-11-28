@@ -2296,6 +2296,20 @@ ul.nav > li.dropdown:hover > a:after {
   border-color: #ac9c58 transparent transparent transparent !important;
 }
 
+/* Submenu caret CSS triangles (right-pointing arrows) - WHITE by default */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after,
+nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after {
+  border-color: transparent transparent transparent #ffffff !important;
+}
+
+/* Submenu caret CSS triangles - GOLD on hover */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a:after,
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after,
+nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a:after,
+nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
+  border-color: transparent transparent transparent #ac9c58 !important;
+}
+
 /* Remove any background color changes on hover */
 #header .header-nav-main nav > ul > li:hover,
 #header nav > ul > li:hover {
