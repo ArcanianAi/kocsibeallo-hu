@@ -18,7 +18,8 @@
     <div class="gallery-images-wrapper">
       <div class="gallery-grid">
         {% for key, item in content.field_telikert_kep %}
-          {% if key is not same as('#items') %}
+          {# Only render numeric keys (actual field items), skip metadata keys starting with # #}
+          {% if key matches '/^\\d+$/' %}
             <div class="gallery-grid-item">
               {{ item }}
             </div>
