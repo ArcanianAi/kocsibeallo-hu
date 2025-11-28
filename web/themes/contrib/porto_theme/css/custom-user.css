@@ -2280,6 +2280,22 @@ img.align-center {
   color: #ac9c58 !important;
 }
 
+/* Dropdown caret CSS triangles (::after) - WHITE by default */
+#header .header-nav-main nav > ul > li.dropdown > a:after,
+#header nav > ul > li.dropdown > a:after,
+ul.nav > li.dropdown > a:after {
+  border-color: #ffffff transparent transparent transparent !important;
+}
+
+/* Dropdown caret CSS triangles (::after) - GOLD on hover */
+#header .header-nav-main nav > ul > li.dropdown:hover > a:after,
+#header .header-nav-main nav > ul > li.dropdown > a:hover:after,
+#header nav > ul > li.dropdown:hover > a:after,
+#header nav > ul > li.dropdown > a:hover:after,
+ul.nav > li.dropdown:hover > a:after {
+  border-color: #ac9c58 transparent transparent transparent !important;
+}
+
 /* Remove any background color changes on hover */
 #header .header-nav-main nav > ul > li:hover,
 #header nav > ul > li:hover {
