@@ -460,6 +460,8 @@ input.form-checkbox, input.form-radio {
 }
 .product-thumb-info .product-thumb-info-act {
     z-index: 100;
+    top: 50% !important;
+    transform: translateY(-50%);
 }
 .product-thumb-info h4 {
     min-height: 1px;
