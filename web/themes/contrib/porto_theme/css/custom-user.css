@@ -2329,20 +2329,23 @@ nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
 /* ============================================
    FAQ TOGGLE COLORS - Use dark blue (#011e41) instead of light blue
    ============================================ */
-html .toggle-primary .toggle label {
-  color: #011e41;
-  border-left-color: #011e41;
-  border-color: #011e41;
+html .toggle-primary .toggle label,
+html body .toggle-primary .toggle label {
+  color: #011e41 !important;
+  border-left-color: #011e41 !important;
+  border-color: #011e41 !important;
 }
 
-html .toggle-primary .toggle.active > label {
-  background-color: #011e41;
-  border-color: #011e41;
-  color: #ffffff;
+html .toggle-primary .toggle.active > label,
+html body .toggle-primary .toggle.active > label {
+  background-color: #011e41 !important;
+  border-color: #011e41 !important;
+  color: #ffffff !important;
 }
 
-html .toggle-primary.toggle-simple .toggle > label:after {
-  background-color: #011e41;
+html .toggle-primary.toggle-simple .toggle > label:after,
+html body .toggle-primary.toggle-simple .toggle > label:after {
+  background-color: #011e41 !important;
 }
 
 /* ============================================
