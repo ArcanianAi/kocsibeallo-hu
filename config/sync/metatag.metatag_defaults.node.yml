@@ -2,11 +2,19 @@ uuid: 948be18a-2641-46fe-aeb3-746389826fdf
 langcode: hu
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
 id: node
 label: Tartalom
 tags:
-  title: '[node:title-short] | [site:name]'
-  description: '[node:meta-description]'
+  title: '[node:title] | [site:name]'
+  description: '[node:summary]'
+  abstract: '[node:summary]'
+  keywords: 'kocsibeálló, autóbeálló'
   canonical_url: '[node:url]'
+  og_image: '[node:field_telikert_kep:entity:url]'
+  schema_article_type: Article
+  schema_article_headline: '[node:title]'
+  schema_article_description: '[node:summary]'
+  schema_article_date_published: '[node:created:html_datetime]'
+  schema_article_date_modified: '[node:changed:html_datetime]'
+  schema_article_author: 'a:2:{s:5:"@type";s:12:"Organization";s:4:"name";s:15:"Deluxe Building";}'
+  schema_article_publisher: 'a:3:{s:5:"@type";s:12:"Organization";s:4:"name";s:15:"Deluxe Building";s:3:"url";s:25:"https://deluxebuilding.hu";}'

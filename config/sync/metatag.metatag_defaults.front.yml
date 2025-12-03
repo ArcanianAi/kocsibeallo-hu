@@ -2,10 +2,12 @@ uuid: 894c5a4c-4bfc-403b-9ead-5264ebcb8197
 langcode: hu
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
 id: front
 label: Címlap
 tags:
+  title: '[site:name] | [site:slogan]'
+  description: 'Kocsibeállókat építünk egyedi design alapján, fémből, fából, alumíniumból, egy, illetve dupla autós kivitelben, akár napelemes fedéssel is.'
+  abstract: 'Kocsibeállókat építünk egyedi design alapján, fémből, fából, alumíniumból, egy, illetve dupla autós kivitelben, akár napelemes fedéssel is.'
+  keywords: 'kocsibeálló, autóbeálló, előtető, gépkocsi beálló, napelemes autóbeálló'
   canonical_url: '[site:url]'
   shortlink: '[site:url]'

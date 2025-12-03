@@ -2,8 +2,6 @@ uuid: 65a01eb6-1db3-4132-a866-514fd573d936
 langcode: hu
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
 id: global
 label: Általános
 tags:
@@ -11,3 +9,9 @@ tags:
   title: '[current-page:title] | [site:name]'
   description: 'Egyedi és előregyártott kocsibeállók építése, napelemes autóbeállók és fedett parkolók kivitelezése. Ragasztott fa, alumínium és vas szerkezetekkel.'
   hreflang_xdefault: '[current-page:url]'
+  schema_web_site_type: WebSite
+  schema_web_site_name: kocsibeallo.hu
+  schema_web_site_url: 'https://kocsibeallo.hu'
+  schema_organization_type: Organization
+  schema_organization_name: 'Deluxe Building'
+  schema_organization_url: 'https://www.deluxebuilding.hu'
