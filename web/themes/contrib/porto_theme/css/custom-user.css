@@ -2764,15 +2764,15 @@ a[href*="/feed"],
 }
 
 /* ============================================
-   TAXONOMY TERM PAGE - 3 COLUMN GRID (ARC-862)
+   TAXONOMY TERM PAGE - 2 COLUMN GRID (ARC-862)
    Make taxonomy term pages display gallery items
-   in a 3-column grid like D7 site
+   in a 2-column grid like D7 site
    ============================================ */
 
 /* Target taxonomy term pages - views-row items should be in grid */
 .path-taxonomy .views-element-container > div > .views-row,
 body[class*="taxonomy-term"] .views-element-container > div > .views-row {
-  width: calc(33.333% - 20px);
+  width: calc(50% - 20px);
   display: inline-block;
   vertical-align: top;
   margin: 0 10px 30px 10px;
@@ -2804,14 +2804,6 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info {
 body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transform: translateY(-2px);
-}
-
-/* Tablet: 2 columns */
-@media (max-width: 991px) {
-  .path-taxonomy .views-element-container > div > .views-row,
-  body[class*="taxonomy-term"] .views-element-container > div > .views-row {
-    width: calc(50% - 20px);
-  }
 }
 
 /* Mobile: 1 column */
