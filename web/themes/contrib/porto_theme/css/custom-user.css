@@ -509,26 +509,26 @@ margin-bottom:10px;
     max-height: 260px;
 }
 
-/* Gallery grid: Add clearfix every 2 cards for proper alignment */
-.path-kepgaleria .view-content .product:nth-child(2n+1),
-.view-index-gallery .view-content .product:nth-child(2n+1) {
-    clear: both !important;
+/* Gallery grid: Use flexbox for equal height cards in each row */
+.path-kepgaleria .views-element-container > div,
+.view-index-gallery .views-element-container > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
 }
 
-/* Gallery cards: Ensure equal height cards for better alignment */
-.path-kepgaleria .view-content .product,
-.view-index-gallery .view-content .product,
+/* Gallery cards: Equal height in each row */
 .path-kepgaleria .product,
 .view-index-gallery .product {
     margin-bottom: 30px !important;
-    min-height: 600px !important;
+    display: flex !important;
+    float: none !important;
 }
 
 .path-kepgaleria .product-thumb-info {
     height: 100%;
-    min-height: 580px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .path-kepgaleria .product-thumb-info-content {
@@ -537,9 +537,9 @@ margin-bottom:10px;
     flex-direction: column;
 }
 
-/* Normalize description height to prevent varying card heights */
+/* Description takes remaining space to equalize card heights */
 .path-kepgaleria .product-thumb-info .product-description {
-    min-height: 80px;
+    flex: 1;
     overflow: hidden;
 }
 
@@ -2588,8 +2588,102 @@ section.section-footer {
 }
 
 /* ============================================
-   INLINE GALLERY IMAGES ON CUSTOM PAGES
-   2-column grid layout for photoswipe gallery images
+   GALLERY DETAIL PAGE TAXONOMY FIELD STYLING (ARC-848)
+   Fix spacing between label and value
+   ============================================ */
+
+/* Gallery taxonomy field container - override grid/flex layouts */
+.gallery-field {
+  display: block !important;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Label styling with colon */
+.gallery-field__label {
+  font-weight: bold;
+  display: inline !important;
+}
+
+.gallery-field__label::after {
+  content: ":\00a0";  /* colon + non-breaking space */
+}
+
+/* Value styling - inline display */
+.gallery-field__value {
+  display: inline !important;
+}
+
+/* The wrapper div inside value must also be inline */
+.gallery-field__value > div {
+  display: inline !important;
+}
+
+/* Hide the duplicate label inside the value */
+.gallery-field__value > div > div:first-child {
+  display: none !important;
+}
+
+/* Make the taxonomy terms display inline */
+.gallery-field__value > div > div:last-child {
+  display: inline !important;
+}
+
+.gallery-field__value > div > div:last-child > div {
+  display: inline !important;
+}
+
+/* Add comma separator between multiple terms */
+.gallery-field__value > div > div:last-child > div::after {
+  content: ", ";
+}
+
+.gallery-field__value > div > div:last-child > div:last-child::after {
+  content: "";
+}
+
+/* ============================================
+   WEBFORM LABELS - BOLD (ARC-849)
+   Make form labels bold to match D7 site styling
+   ============================================ */
+
+.webform-submission-form label {
+  font-weight: 700 !important;
+}
+
+/* Also target fieldset legends (for grouped fields like "Méret") */
+.webform-submission-form legend {
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   WEBFORM CHECKBOX ALIGNMENT (ARC-850)
+   Fix checkbox and label to display inline
+   ============================================ */
+
+.webform-submission-form .js-form-type-checkbox,
+.webform-submission-form .form-type-checkbox {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+}
+
+.webform-submission-form .js-form-type-checkbox input[type="checkbox"],
+.webform-submission-form .form-type-checkbox input[type="checkbox"] {
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+.webform-submission-form .js-form-type-checkbox label,
+.webform-submission-form .form-type-checkbox label {
+  display: inline !important;
+  margin-bottom: 0 !important;
+  font-weight: 400 !important; /* Checkbox labels should not be bold */
+}
+
+/* ============================================
+   INLINE GALLERY IMAGES ON CUSTOM PAGES (ARC-857)
+   3-column grid layout for photoswipe gallery images
    (e.g., /napelemes-kocsibeallok, /egyedi-gyartasu-nyitott-kocsibeallok)
    Structure: article.photoswipe-gallery > div > div > div > a.photoswipe
    ============================================ */
@@ -2598,12 +2692,12 @@ section.section-footer {
 body.page-node-type-page article.photoswipe-gallery > div > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 }
 
-/* Each div wrapper containing an image link - make 2-column */
+/* Each div wrapper containing an image link - make 3-column */
 body.page-node-type-page article.photoswipe-gallery > div > div > div:has(> a.photoswipe) {
-  width: calc(50% - 7.5px);
+  width: calc(33.333% - 14px);
   box-sizing: border-box;
 }
 
@@ -2615,8 +2709,15 @@ body.page-node-type-page article.photoswipe-gallery > div > div > div > a.photos
   border-radius: 4px;
 }
 
+/* Tablet: 2 columns */
+@media (max-width: 991px) {
+  body.page-node-type-page article.photoswipe-gallery > div > div > div:has(> a.photoswipe) {
+    width: calc(50% - 10px);
+  }
+}
+
 /* Mobile: 1 column */
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   body.page-node-type-page article.photoswipe-gallery > div > div > div:has(> a.photoswipe) {
     width: 100%;
   }
