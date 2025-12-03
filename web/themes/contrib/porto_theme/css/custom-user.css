@@ -2728,9 +2728,11 @@ body.page-node-type-page article.photoswipe-gallery > div > div > div > a.photos
    Remove the "Feliratkozás a következőre: ..." RSS feed link
    from taxonomy term listing pages
    ============================================ */
-.page-taxonomy-term .feed-icons,
+.feed-icon,
+.feed-icons,
+a.feed-icon,
+a[href*="/feed"],
 .page-taxonomy-term a[href*="/feed"],
-.view-taxonomy-term a[href*="/feed"],
-main a[href$="/feed"] {
+.view-taxonomy-term a[href*="/feed"] {
   display: none !important;
 }
