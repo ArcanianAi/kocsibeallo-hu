@@ -1550,8 +1550,7 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager,
 .view-index-gallery nav.pager .pager,
 .path-kepgaleria nav.pager .pager,
-.view-taxonomy-term nav.pager .pager,
-.page-taxonomy-term nav.pager .pager {
+.path-taxonomy nav.pager .pager {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1562,8 +1561,7 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item,
 .view-index-gallery nav.pager .pager__item,
 .path-kepgaleria nav.pager .pager__item,
-.view-taxonomy-term nav.pager .pager__item,
-.page-taxonomy-term nav.pager .pager__item {
+.path-taxonomy nav.pager .pager__item {
   display: inline-block;
   margin: 0 2px;
 }
@@ -1572,13 +1570,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item a,
 .view-index-gallery nav.pager .pager__item a,
 .path-kepgaleria nav.pager .pager__item a,
-.view-taxonomy-term nav.pager .pager__item a,
-.page-taxonomy-term nav.pager .pager__item a,
+.path-taxonomy nav.pager .pager__item a,
 .view-blog nav.pager .pager__item span,
 .view-index-gallery nav.pager .pager__item span,
 .path-kepgaleria nav.pager .pager__item span,
-.view-taxonomy-term nav.pager .pager__item span,
-.page-taxonomy-term nav.pager .pager__item span {
+.path-taxonomy nav.pager .pager__item span {
   display: inline-block;
   padding: 10px 16px;
   font-size: 18px;
@@ -1595,13 +1591,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item:first-child a,
 .view-index-gallery nav.pager .pager__item:first-child a,
 .path-kepgaleria nav.pager .pager__item:first-child a,
-.view-taxonomy-term nav.pager .pager__item:first-child a,
-.page-taxonomy-term nav.pager .pager__item:first-child a,
+.path-taxonomy nav.pager .pager__item:first-child a,
 .view-blog nav.pager .pager__item:first-child span,
 .view-index-gallery nav.pager .pager__item:first-child span,
 .path-kepgaleria nav.pager .pager__item:first-child span,
-.view-taxonomy-term nav.pager .pager__item:first-child span,
-.page-taxonomy-term nav.pager .pager__item:first-child span {
+.path-taxonomy nav.pager .pager__item:first-child span {
   border-radius: 6px 0 0 6px;
 }
 
@@ -1609,13 +1603,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item:last-child a,
 .view-index-gallery nav.pager .pager__item:last-child a,
 .path-kepgaleria nav.pager .pager__item:last-child a,
-.view-taxonomy-term nav.pager .pager__item:last-child a,
-.page-taxonomy-term nav.pager .pager__item:last-child a,
+.path-taxonomy nav.pager .pager__item:last-child a,
 .view-blog nav.pager .pager__item:last-child span,
 .view-index-gallery nav.pager .pager__item:last-child span,
 .path-kepgaleria nav.pager .pager__item:last-child span,
-.view-taxonomy-term nav.pager .pager__item:last-child span,
-.page-taxonomy-term nav.pager .pager__item:last-child span {
+.path-taxonomy nav.pager .pager__item:last-child span {
   border-radius: 0 6px 6px 0;
 }
 
@@ -1623,8 +1615,7 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item a:hover,
 .view-index-gallery nav.pager .pager__item a:hover,
 .path-kepgaleria nav.pager .pager__item a:hover,
-.view-taxonomy-term nav.pager .pager__item a:hover,
-.page-taxonomy-term nav.pager .pager__item a:hover {
+.path-taxonomy nav.pager .pager__item a:hover {
   background-color: #ac9c58;
   border-color: #ac9c58;
   color: #fff;
@@ -1634,13 +1625,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item.is-active a,
 .view-index-gallery nav.pager .pager__item.is-active a,
 .path-kepgaleria nav.pager .pager__item.is-active a,
-.view-taxonomy-term nav.pager .pager__item.is-active a,
-.page-taxonomy-term nav.pager .pager__item.is-active a,
+.path-taxonomy nav.pager .pager__item.is-active a,
 .view-blog nav.pager .pager__item.is-active span,
 .view-index-gallery nav.pager .pager__item.is-active span,
 .path-kepgaleria nav.pager .pager__item.is-active span,
-.view-taxonomy-term nav.pager .pager__item.is-active span,
-.page-taxonomy-term nav.pager .pager__item.is-active span {
+.path-taxonomy nav.pager .pager__item.is-active span {
   background-color: #ac9c58;
   border-color: #ac9c58;
   color: #fff;
@@ -1651,8 +1640,7 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item .visually-hidden,
 .view-index-gallery nav.pager .pager__item .visually-hidden,
 .path-kepgaleria nav.pager .pager__item .visually-hidden,
-.view-taxonomy-term nav.pager .pager__item .visually-hidden,
-.page-taxonomy-term nav.pager .pager__item .visually-hidden {
+.path-taxonomy nav.pager .pager__item .visually-hidden {
   display: none;
 }
 
@@ -1660,13 +1648,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item--next a,
 .view-index-gallery nav.pager .pager__item--next a,
 .path-kepgaleria nav.pager .pager__item--next a,
-.view-taxonomy-term nav.pager .pager__item--next a,
-.page-taxonomy-term nav.pager .pager__item--next a,
+.path-taxonomy nav.pager .pager__item--next a,
 .view-blog nav.pager .pager-next a,
 .view-index-gallery nav.pager .pager-next a,
 .path-kepgaleria nav.pager .pager-next a,
-.view-taxonomy-term nav.pager .pager-next a,
-.page-taxonomy-term nav.pager .pager-next a {
+.path-taxonomy nav.pager .pager-next a {
   text-transform: lowercase;
 }
 
@@ -1674,13 +1660,11 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item--next a,
 .view-index-gallery nav.pager .pager__item--next a,
 .path-kepgaleria nav.pager .pager__item--next a,
-.view-taxonomy-term nav.pager .pager__item--next a,
-.page-taxonomy-term nav.pager .pager__item--next a,
+.path-taxonomy nav.pager .pager__item--next a,
 .view-blog nav.pager .pager__item--last a,
 .view-index-gallery nav.pager .pager__item--last a,
 .path-kepgaleria nav.pager .pager__item--last a,
-.view-taxonomy-term nav.pager .pager__item--last a,
-.page-taxonomy-term nav.pager .pager__item--last a {
+.path-taxonomy nav.pager .pager__item--last a {
   white-space: nowrap;
 }
 
@@ -1688,26 +1672,22 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item--next a span[aria-hidden],
 .view-index-gallery nav.pager .pager__item--next a span[aria-hidden],
 .path-kepgaleria nav.pager .pager__item--next a span[aria-hidden],
-.view-taxonomy-term nav.pager .pager__item--next a span[aria-hidden],
-.page-taxonomy-term nav.pager .pager__item--next a span[aria-hidden],
+.path-taxonomy nav.pager .pager__item--next a span[aria-hidden],
 .view-blog nav.pager .pager__item--last a span[aria-hidden],
 .view-index-gallery nav.pager .pager__item--last a span[aria-hidden],
 .path-kepgaleria nav.pager .pager__item--last a span[aria-hidden],
-.view-taxonomy-term nav.pager .pager__item--last a span[aria-hidden],
-.page-taxonomy-term nav.pager .pager__item--last a span[aria-hidden] {
+.path-taxonomy nav.pager .pager__item--last a span[aria-hidden] {
   display: inline !important;
 }
 
 .view-blog nav.pager .pager__item--next a::after,
 .view-index-gallery nav.pager .pager__item--next a::after,
 .path-kepgaleria nav.pager .pager__item--next a::after,
-.view-taxonomy-term nav.pager .pager__item--next a::after,
-.page-taxonomy-term nav.pager .pager__item--next a::after,
+.path-taxonomy nav.pager .pager__item--next a::after,
 .view-blog nav.pager .pager-next a::after,
 .view-index-gallery nav.pager .pager-next a::after,
 .path-kepgaleria nav.pager .pager-next a::after,
-.view-taxonomy-term nav.pager .pager-next a::after,
-.page-taxonomy-term nav.pager .pager-next a::after {
+.path-taxonomy nav.pager .pager-next a::after {
   content: " ›";
   margin-left: 4px;
 }
@@ -1715,26 +1695,22 @@ article[data-history-node-id] footer,
 .view-blog nav.pager .pager__item--last a,
 .view-index-gallery nav.pager .pager__item--last a,
 .path-kepgaleria nav.pager .pager__item--last a,
-.view-taxonomy-term nav.pager .pager__item--last a,
-.page-taxonomy-term nav.pager .pager__item--last a,
+.path-taxonomy nav.pager .pager__item--last a,
 .view-blog nav.pager .pager-last a,
 .view-index-gallery nav.pager .pager-last a,
 .path-kepgaleria nav.pager .pager-last a,
-.view-taxonomy-term nav.pager .pager-last a,
-.page-taxonomy-term nav.pager .pager-last a {
+.path-taxonomy nav.pager .pager-last a {
   text-transform: lowercase;
 }
 
 .view-blog nav.pager .pager__item--last a::after,
 .view-index-gallery nav.pager .pager__item--last a::after,
 .path-kepgaleria nav.pager .pager__item--last a::after,
-.view-taxonomy-term nav.pager .pager__item--last a::after,
-.page-taxonomy-term nav.pager .pager__item--last a::after,
+.path-taxonomy nav.pager .pager__item--last a::after,
 .view-blog nav.pager .pager-last a::after,
 .view-index-gallery nav.pager .pager-last a::after,
 .path-kepgaleria nav.pager .pager-last a::after,
-.view-taxonomy-term nav.pager .pager-last a::after,
-.page-taxonomy-term nav.pager .pager-last a::after {
+.path-taxonomy nav.pager .pager-last a::after {
   content: " »";
   margin-left: 4px;
 }
@@ -1744,13 +1720,11 @@ article[data-history-node-id] footer,
   .view-blog nav.pager .pager__item a,
   .view-index-gallery nav.pager .pager__item a,
   .path-kepgaleria nav.pager .pager__item a,
-  .view-taxonomy-term nav.pager .pager__item a,
-  .page-taxonomy-term nav.pager .pager__item a,
+  .path-taxonomy nav.pager .pager__item a,
   .view-blog nav.pager .pager__item span,
   .view-index-gallery nav.pager .pager__item span,
   .path-kepgaleria nav.pager .pager__item span,
-  .view-taxonomy-term nav.pager .pager__item span,
-  .page-taxonomy-term nav.pager .pager__item span {
+  .path-taxonomy nav.pager .pager__item span {
     padding: 8px 12px;
     font-size: 16px;
   }
