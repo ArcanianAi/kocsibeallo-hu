@@ -10,8 +10,8 @@ logo:
   path: 'public://deluxe-kocsibeallo-logo-150px.png'
 favicon:
   use_default: 0
-  path: 'public://kocsibeallo-favicon.jpg'
-  mimetype: image/jpeg
+  path: 'public://favicon.ico'
+  mimetype: image/vnd.microsoft.icon
 user_css: |-
   #header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
   .page-kepgaleria {overflow:hidden;}
