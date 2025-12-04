@@ -2336,6 +2336,23 @@ nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
   border-color: transparent transparent transparent #ac9c58 !important;
 }
 
+/* Submenu Font Awesome caret icons (.fa-caret-down) - WHITE by default */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a .fa-caret-down,
+#header .dropdown-menu li.dropdown-submenu > a .fa-caret-down,
+.dropdown-menu li.dropdown-submenu > a .fa-caret-down {
+  color: #ffffff !important;
+}
+
+/* Submenu Font Awesome caret icons - GOLD on hover */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down,
+#header .dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
+#header .dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down,
+.dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
+.dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down {
+  color: #ac9c58 !important;
+}
+
 /* Remove any background color changes on hover */
 #header .header-nav-main nav > ul > li:hover,
 #header nav > ul > li:hover {
