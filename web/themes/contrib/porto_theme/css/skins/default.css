@@ -4648,3 +4648,19 @@ html.boxed .body {
 	border-top-color: #0088cc;
 }
 #mainNav > li.active > a,#mainNav > li.active > a.is-active { background: #0088cc; }
+
+/* ============================================
+   CUSTOM OVERRIDES - Submenu caret colors (ARC-867)
+   WHITE by default, GOLD on hover
+   ============================================ */
+
+/* Submenu caret CSS triangles - WHITE by default (override blue #0088cc) */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after {
+	border-color: transparent transparent transparent #ffffff !important;
+}
+
+/* Submenu caret CSS triangles - GOLD on hover */
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a:after,
+#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
+	border-color: transparent transparent transparent #ac9c58 !important;
+}
