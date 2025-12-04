@@ -43,14 +43,24 @@
         // Check if image is already wrapped in a link
         const $parent = $img.parent();
         if ($parent.is('a')) {
-          // Update existing link to be a Photoswipe link
-          $parent.addClass('photoswipe');
-          $parent.attr({
-            'href': src,
-            'data-caption': caption
-          });
-          // Remove data-size to let PhotoSwipe auto-detect and maintain aspect ratio
-          $parent.removeAttr('data-size');
+          const existingHref = $parent.attr('href') || '';
+          // If the link points to a page (not an image file), skip it - don't add photoswipe
+          // Check if href contains common image extensions or files path patterns
+          const isImageLink = /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(existingHref) ||
+                             existingHref.includes('/sites/default/files/') && !existingHref.includes('/node/');
+
+          if (isImageLink) {
+            // Update existing link to be a Photoswipe link
+            $parent.addClass('photoswipe');
+            $parent.attr({
+              'href': src,
+              'data-caption': caption
+            });
+            // Remove data-size to let PhotoSwipe auto-detect and maintain aspect ratio
+            $parent.removeAttr('data-size');
+          }
+          // If it's a page link, leave it alone - don't convert to photoswipe
+          return;
         } else {
           // Wrap image in new Photoswipe link without data-size
           // PhotoSwipe will auto-detect dimensions and maintain aspect ratio
