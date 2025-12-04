@@ -631,3 +631,4 @@ ribbon: true
 ribbon_text: 'Lépjen velünk kapcsolatba'
 footer_color: primary
 skin_option: default
+header_option: h_fullwidth
