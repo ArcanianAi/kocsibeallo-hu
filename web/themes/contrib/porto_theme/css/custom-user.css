@@ -2322,35 +2322,35 @@ ul.nav > li.dropdown:hover > a:after {
   border-color: #fff transparent transparent transparent !important;
 }
 
-/* Submenu caret CSS triangles (right-pointing arrows) - WHITE by default */
+/* Submenu caret CSS triangles (right-pointing arrows) - DARK BLUE by default (visible on white dropdown bg) */
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after,
 nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after {
-  border-color: transparent transparent transparent #ffffff !important;
+  border-color: transparent transparent transparent #011e41 !important;
 }
 
-/* Submenu caret CSS triangles - GOLD on hover */
+/* Submenu caret CSS triangles - WHITE on hover (visible on gold hover bg) */
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a:after,
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after,
 nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a:after,
 nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover:after {
-  border-color: transparent transparent transparent #ac9c58 !important;
+  border-color: transparent transparent transparent #ffffff !important;
 }
 
-/* Submenu Font Awesome caret icons (.fa-caret-down) - WHITE by default */
+/* Submenu Font Awesome caret icons (.fa-caret-down) - DARK BLUE by default (visible on white bg) */
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a .fa-caret-down,
 #header .dropdown-menu li.dropdown-submenu > a .fa-caret-down,
 .dropdown-menu li.dropdown-submenu > a .fa-caret-down {
-  color: #ffffff !important;
+  color: #011e41 !important;
 }
 
-/* Submenu Font Awesome caret icons - GOLD on hover */
+/* Submenu Font Awesome caret icons - WHITE on hover (visible on gold bg) */
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
 #header .header-nav-main nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down,
 #header .dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
 #header .dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down,
 .dropdown-menu li.dropdown-submenu:hover > a .fa-caret-down,
 .dropdown-menu li.dropdown-submenu > a:hover .fa-caret-down {
-  color: #ac9c58 !important;
+  color: #ffffff !important;
 }
 
 /* Remove any background color changes on hover */
