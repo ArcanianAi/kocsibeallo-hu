@@ -2267,15 +2267,15 @@ img.align-center {
   background: transparent !important;
 }
 
-/* Main menu items - GOLD on hover (no background) */
+/* Main menu items - GOLD background + white text on hover */
 #header .header-nav-main nav > ul > li > a:hover,
 #header nav > ul > li > a:hover,
 #header .header-nav-main nav > ul > li:hover > a {
-  color: #ac9c58 !important;
-  background: transparent !important;
+  color: #fff !important;
+  background-color: #ac9c58 !important;
 }
 
-/* Active menu item - GOLD */
+/* Active menu item - gold text only */
 #header .header-nav-main nav > ul > li.active > a,
 #header .header-nav-main nav > ul > li > a.active,
 #header .header-nav-main nav > ul > li > a.is-active,
@@ -2296,14 +2296,14 @@ img.align-center {
   color: #ffffff !important;
 }
 
-/* Dropdown caret icons - GOLD on hover */
+/* Dropdown caret icons - WHITE on hover (since background is gold) */
 #header .header-nav-main nav > ul > li:hover > a .fa-caret-down,
 #header .header-nav-main nav > ul > li > a:hover .fa-caret-down,
 #header nav > ul > li:hover > a .fa-caret-down,
 #header nav > ul > li > a:hover .fa-caret-down,
 #mainNav > li:hover > a .fa-caret-down,
 #mainNav > li.dropdown:hover > a i {
-  color: #ac9c58 !important;
+  color: #fff !important;
 }
 
 /* Dropdown caret CSS triangles (::after) - WHITE by default */
@@ -2313,13 +2313,13 @@ ul.nav > li.dropdown > a:after {
   border-color: #ffffff transparent transparent transparent !important;
 }
 
-/* Dropdown caret CSS triangles (::after) - GOLD on hover */
+/* Dropdown caret CSS triangles (::after) - WHITE on hover (since background is gold) */
 #header .header-nav-main nav > ul > li.dropdown:hover > a:after,
 #header .header-nav-main nav > ul > li.dropdown > a:hover:after,
 #header nav > ul > li.dropdown:hover > a:after,
 #header nav > ul > li.dropdown > a:hover:after,
 ul.nav > li.dropdown:hover > a:after {
-  border-color: #ac9c58 transparent transparent transparent !important;
+  border-color: #fff transparent transparent transparent !important;
 }
 
 /* Submenu caret CSS triangles (right-pointing arrows) - WHITE by default */
