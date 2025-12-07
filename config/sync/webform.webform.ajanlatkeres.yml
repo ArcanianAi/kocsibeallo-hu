@@ -79,14 +79,14 @@ elements: |-
     '#title': hossz
     '#required': true
     '#min': 1
-    '#step': 0.1
+    '#step': any
     '#field_suffix': m
   width:
     '#type': number
     '#title': szélesség
     '#required': true
     '#min': 1
-    '#step': 0.1
+    '#step': any
     '#field_suffix': m
   message:
     '#type': textarea
