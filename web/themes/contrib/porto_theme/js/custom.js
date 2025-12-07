@@ -8,13 +8,45 @@ jQuery(document).ready(function () {
     jQuery(".google-map").mouseleave(function () {
         jQuery('.google-map iframe').css("pointer-events", "none");
     });
+    // Add caret icons to dropdown menu items
     jQuery('#mainNav > li.dropdown > a').append('<i class="fa fa-caret-down"></i>');
+    jQuery('#mainNav li.dropdown-submenu > a').append('<i class="fa fa-caret-down"></i>');
 
+    // Mobile dropdown toggle - clicking on caret icon
     jQuery('#mainNav > li.dropdown > a .fa-caret-down').on('click', function (e) {
         e.preventDefault();
+        e.stopPropagation();
         if (jQuery(window).width() < 992) {
             jQuery(this).closest('li').toggleClass('opened');
+        }
+    });
 
+    // Mobile dropdown toggle - clicking on the link itself
+    // On mobile, first click opens dropdown, second click navigates
+    jQuery('#mainNav > li.dropdown > a').on('click', function (e) {
+        if (jQuery(window).width() < 992) {
+            var $li = jQuery(this).closest('li');
+            if (!$li.hasClass('opened')) {
+                // First click - open dropdown, prevent navigation
+                e.preventDefault();
+                // Close other open dropdowns
+                jQuery('#mainNav > li.dropdown.opened').not($li).removeClass('opened');
+                $li.addClass('opened');
+            }
+            // If already open, allow normal navigation (second click)
+        }
+    });
+
+    // Also handle nested dropdown-submenu items on mobile
+    jQuery('#mainNav li.dropdown-submenu > a').on('click', function (e) {
+        if (jQuery(window).width() < 992) {
+            var $li = jQuery(this).closest('li.dropdown-submenu');
+            if (!$li.hasClass('opened')) {
+                e.preventDefault();
+                // Close sibling submenus
+                $li.siblings('.dropdown-submenu.opened').removeClass('opened');
+                $li.addClass('opened');
+            }
         }
     });
     jQuery('.webform-submission-contact-advanced-form input[type="submit"]').val('Send Message');
