@@ -119,6 +119,11 @@ class PartytownResponseSubscriber implements EventSubscriberInterface {
       return;
     }
 
+    // Remove google_tag module scripts if Partytown handles GTM
+    if ($this->partytownManager->getGtmContainerId()) {
+      $content = $this->removeGoogleTagModuleScripts($content);
+    }
+
     // Inject Partytown configuration and snippet into <head>
     $content = $this->injectPartytownScripts($content);
 
@@ -211,6 +216,31 @@ class PartytownResponseSubscriber implements EventSubscriberInterface {
     // Also convert inline scripts from google_tag module
     // These typically have specific patterns we can identify
     $content = $this->convertInlineGoogleTagScripts($content);
+
+    return $content;
+  }
+
+  /**
+   * Remove google_tag module scripts to prevent duplicate GTM loading.
+   *
+   * When Partytown handles GTM directly, we need to remove the scripts
+   * that the google_tag module injects to avoid duplicate loading.
+   */
+  protected function removeGoogleTagModuleScripts(string $content): string {
+    // Remove script tags loading google_tag module's gtm.js and gtag.js
+    $content = preg_replace(
+      '/<script[^>]*src="[^"]*\/modules\/contrib\/google_tag\/js\/(gtm|gtag)\.js[^"]*"[^>]*><\/script>/i',
+      '<!-- google_tag script removed by Partytown -->',
+      $content
+    );
+
+    // Also remove the noscript iframe if we're handling GTM
+    // Keep it commented so we can see it was intentionally removed
+    $content = preg_replace(
+      '/<noscript><iframe[^>]*googletagmanager\.com\/ns\.html[^>]*><\/iframe><\/noscript>/i',
+      '<!-- noscript GTM iframe removed by Partytown (GTM loaded via web worker) -->',
+      $content
+    );
 
     return $content;
   }
