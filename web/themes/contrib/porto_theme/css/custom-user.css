@@ -2798,6 +2798,41 @@ a[href*="/feed"],
   .header-social-icons {
     display: none !important;
   }
+
+  /* Mobile menu items - DARK text like original D7 site */
+  #header .header-nav-main nav > ul > li > a,
+  #header .header-nav-main nav > ul > li > span {
+    color: #333333 !important;
+    background: transparent !important;
+  }
+
+  /* Mobile menu - active item gold */
+  #header .header-nav-main nav > ul > li.active > a,
+  #header .header-nav-main nav > ul > li > a.active,
+  #header .header-nav-main nav > ul > li > a.is-active {
+    color: #ac9c58 !important;
+  }
+
+  /* Mobile menu - hover state gold */
+  #header .header-nav-main nav > ul > li > a:hover,
+  #header .header-nav-main nav > ul > li > span:hover {
+    color: #ac9c58 !important;
+    background: transparent !important;
+  }
+
+  /* Mobile dropdown carets - dark by default */
+  #header .header-nav-main nav > ul > li > a .fa-caret-down,
+  #header .header-nav-main nav > ul > li.dropdown > a:after {
+    color: #333333 !important;
+    border-color: #333333 transparent transparent transparent !important;
+  }
+
+  /* Mobile dropdown carets - gold on hover */
+  #header .header-nav-main nav > ul > li:hover > a .fa-caret-down,
+  #header .header-nav-main nav > ul > li.dropdown:hover > a:after {
+    color: #ac9c58 !important;
+    border-color: #ac9c58 transparent transparent transparent !important;
+  }
 }
 
 /* Target taxonomy term pages - views-row items should be in grid */
