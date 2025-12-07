@@ -1,6 +1,6 @@
 uuid: 3a63b059-b462-509f-9802-39215fafb7dc
 langcode: hu
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.ajanlatkeres
