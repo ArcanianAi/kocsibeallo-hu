@@ -271,7 +271,7 @@ settings:
   confirmation_message: '<p style="font-size: 18px; margin-bottom: 20px;">Köszönjük, hogy érdeklődik kocsibeálló építésünk iránt!</p><p>Munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p><p style="margin-top: 20px;"><strong>Visszaigazoló emailt küldtünk az Ön által megadott email címre.</strong></p>'
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'Vissza az űrlaphoz'
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
