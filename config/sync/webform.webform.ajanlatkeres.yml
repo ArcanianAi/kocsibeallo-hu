@@ -88,71 +88,6 @@ elements: |-
     '#min': 1
     '#step': 0.1
     '#field_suffix': m
-  tartoszerkezet_anyaga:
-    '#type': checkboxes
-    '#title': 'Tartószerkezet anyaga'
-    '#options':
-      ragasztott_fa: 'ragasztott fa'
-      vas: vas
-      aluminium: alumínium
-    '#states':
-      visible:
-        - ':input[name="type"]':
-            value: 'Egyedi nyitott'
-        - or
-        - ':input[name="type"]':
-            value: Napelemes
-        - or
-        - ':input[name="type"]':
-            value: 'Zárt garázs'
-      required:
-        - ':input[name="type"]':
-            value: 'Egyedi nyitott'
-        - or
-        - ':input[name="type"]':
-            value: Napelemes
-        - or
-        - ':input[name="type"]':
-            value: 'Zárt garázs'
-  tetofedes_anyaga:
-    '#type': checkboxes
-    '#title': 'Tetőfedés anyaga'
-    '#options':
-      polikarbonat: polikarbonát
-      zsindely: zsindely
-      korcolt_lemez: 'korcolt lemez'
-      trapezlemez: trapézlemez
-      szendvicspanel: szendvicspanel
-      ragasztott_biztonsagi_uveg: 'ragasztott biztonsági üveg'
-    '#states':
-      visible:
-        - ':input[name="type"]':
-            value: 'Egyedi nyitott'
-        - or
-        - ':input[name="type"]':
-            value: 'Zárt garázs'
-      required:
-        - ':input[name="type"]':
-            value: 'Egyedi nyitott'
-        - or
-        - ':input[name="type"]':
-            value: 'Zárt garázs'
-  oldalzaras_anyaga:
-    '#type': checkboxes
-    '#title': 'Oldalzárás anyaga'
-    '#options':
-      hajópadlo: hajópadló
-      szendvics_panel: 'szendvics panel'
-      wpc: WPC
-      lecezes: lécezés
-      nemes_vakolat: 'nemes vakolat'
-    '#states':
-      visible:
-        ':input[name="type"]':
-          value: 'Zárt garázs'
-      required:
-        ':input[name="type"]':
-          value: 'Zárt garázs'
   message:
     '#type': textarea
     '#title': 'Kérdések, megjegyzések'
@@ -440,6 +375,105 @@ handlers:
       exclude_empty: true
       exclude_empty_checkbox: false
       exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_confirmation:
+    id: email
+    handler_id: email_confirmation
+    label: 'Visszaigazoló email'
+    notes: 'Well-formatted confirmation email to the submitter'
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: info@kocsibeallo.hu
+      from_options: {  }
+      from_name: 'Kocsibeálló.hu'
+      reply_to: info@kocsibeallo.hu
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Ajánlatkérését megkaptuk - Kocsibeálló.hu'
+      body: |-
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+          <div style="background-color: #011e41; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Kocsibeálló.hu</h1>
+          </div>
+
+          <div style="padding: 30px 20px; background-color: #f9f9f9;">
+            <h2 style="color: #011e41; margin-top: 0;">Tisztelt [webform_submission:values:name]!</h2>
+
+            <p style="line-height: 1.6;">Köszönjük, hogy érdeklődik kocsibeálló építési szolgáltatásaink iránt! Ajánlatkérését sikeresen rögzítettük, munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p>
+
+            <div style="background-color: #ffffff; border: 1px solid #ddd; border-left: 4px solid #ac9c58; padding: 20px; margin: 25px 0;">
+              <h3 style="color: #011e41; margin-top: 0; font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Az Ön által megadott adatok:</h3>
+
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 8px 0; color: #666; width: 40%;">Név:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:name]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Telefonszám:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:phone]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Email:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:email]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Építés helyszíne:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:location]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Autók száma:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:car_count]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Választott típus:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:type]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666;">Méret:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">[webform_submission:values:length] m x [webform_submission:values:width] m</td>
+                </tr>
+              </table>
+            </div>
+
+            <p style="line-height: 1.6;">Amennyiben kérdése van, forduljon hozzánk bizalommal az alábbi elérhetőségeken:</p>
+
+            <div style="background-color: #011e41; color: #ffffff; padding: 15px 20px; margin-top: 20px;">
+              <p style="margin: 5px 0;"><strong>Telefon:</strong> +36 30 367 5765</p>
+              <p style="margin: 5px 0;"><strong>Email:</strong> info@kocsibeallo.hu</p>
+              <p style="margin: 5px 0;"><strong>Weboldal:</strong> www.kocsibeallo.hu</p>
+            </div>
+          </div>
+
+          <div style="background-color: #ac9c58; padding: 15px; text-align: center;">
+            <p style="color: #ffffff; margin: 0; font-size: 12px;">Ez egy automatikus visszaigazoló email. Kérjük, ne válaszoljon erre az üzenetre.</p>
+          </div>
+        </div>
+      excluded_elements:
+        - ximax_type
+        - palram_type
+        - message
+        - attachment
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: true
       html: true
       attachments: false
       twig: false
