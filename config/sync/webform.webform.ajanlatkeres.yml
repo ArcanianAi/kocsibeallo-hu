@@ -349,7 +349,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: info@kocsibeallo.hu
+      to_mail: 'info@kocsibeallo.hu,hello@deluxebuilding.hu'
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
