@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * MD Slider slide template - Porto theme override.
+ *
+ * Adds fetchpriority="high" and loading="eager" to the first slide image
+ * for improved LCP (Largest Contentful Paint) performance.
+ *
+ * Variables:
+ * - index: The slide index (0-based or 1-based depending on slider config)
+ * - settings: Slide settings array
+ * - background_url: URL of the background image
+ * - background_style: Inline styles for the background
+ * - contentLayers: Array of layer content
+ */
+#}
+{% if settings.disabled != 1 %}
+<div class="md-slide-item {{ index }}" {{ attributes }}>
+<div class="md-main-img" style="{{ background_style }}">
+
+    {% if background_url %}
+        {# Add fetchpriority="high" and loading="eager" to the first slide for better LCP #}
+        {% if index == 0 or index == 1 or index == 'slide-0' or index == 'slide-1' %}
+            <img src="{{ background_url }}" alt="{{ settings.background_image_alt|raw }}" {{ background_style }} fetchpriority="high" loading="eager" />
+        {% else %}
+            <img src="{{ background_url }}" alt="{{ settings.background_image_alt|raw }}" {{ background_style }} loading="lazy" />
+        {% endif %}
+    {% endif %}
+
+</div>
+{% if settings.background_overlay  %}
+<div class="md-slider-overlay" style="background: {{ settings.background_overlay }}">
+</div>
+{% endif %}
+<div class="md-objects">
+    {% for contentLayer in contentLayers %}
+        {{ contentLayer }}
+    {% endfor %}
+</div>
+</div>
+{% endif %}

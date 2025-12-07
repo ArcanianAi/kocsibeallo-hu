@@ -231,6 +231,32 @@ function porto_preprocess_html(&$variables) {
     $variables['current_path'] = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
     $variables['custom_color'] =  theme_get_setting('custom_color');
 
+    // Preload LCP image on homepage for better PageSpeed performance
+    if (\Drupal::service('path.matcher')->isFrontPage()) {
+        // Try to get the first slider image from MD Slider
+        try {
+            $database = \Drupal::database();
+            $query = $database->select('md_slides', 's')
+                ->fields('s', ['background'])
+                ->condition('s.slid', 1)
+                ->orderBy('s.position', 'ASC')
+                ->range(0, 1);
+            $result = $query->execute()->fetchField();
+
+            if ($result) {
+                // Get the file URL from the file ID
+                $file = \Drupal\file\Entity\File::load($result);
+                if ($file) {
+                    $file_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+                    $variables['lcp_preload_image'] = $file_url;
+                }
+            }
+        }
+        catch (\Exception $e) {
+            // Silently fail if MD Slider is not installed or table doesn't exist
+        }
+    }
+
     // Add pagination meta tags (rel="next" and rel="prev") for SEO
     $request = \Drupal::request();
     $current_page = $request->query->get('page');

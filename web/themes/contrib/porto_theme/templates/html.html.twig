@@ -15,6 +15,21 @@ current_path ? 'context' ~ current_path|clean_class,
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {# Preconnect hints for third-party domains - improves PageSpeed #}
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    {# Preload LCP image on homepage for faster Largest Contentful Paint #}
+    {% if lcp_preload_image %}
+    <link rel="preload" as="image" href="{{ lcp_preload_image }}" fetchpriority="high">
+    {% endif %}
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
     <css-placeholder token="{{ placeholder_token|raw }}">
     {% if skin_option == 'none' %}
