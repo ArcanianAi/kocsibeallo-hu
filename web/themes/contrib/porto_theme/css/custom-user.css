@@ -70,6 +70,26 @@
 .header-btn-collapse-nav .fa.fa-bars {
 font-size:18px;
 }
+/* Sub-submenu items - WHITE text to match D7 */
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a,
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:link,
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:visited {
+    color: #ffffff !important;
+}
+/* Sub-submenu parent item (e.g., XIMAX kocsibeállók) - gold when expanded */
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li.dropdown-submenu.opened > a {
+    color: #ac9c58 !important;
+    background: #ac9c58 !important;
+    color: #ffffff !important;
+}
+/* Sub-submenu carets - white color */
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li.dropdown-submenu > a .fa-caret-down {
+    color: #ffffff !important;
+}
+/* Sub-submenu opened parent caret - stays white */
+#header .header-nav-main nav>ul>li.dropdown .dropdown-menu li.dropdown-submenu.opened > a .fa-caret-down {
+    color: #ffffff !important;
+}
 }
 
 /*Header 2022-06-09*/
