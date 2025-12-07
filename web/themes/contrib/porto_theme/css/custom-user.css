@@ -30,10 +30,10 @@
 
 /*MOBILE DROPDOWN*/
 #header .header-btn-collapse-nav {
-    background: transparent;
-    color: #ac9c58;
+    background: #CCC8B8 !important;
+    color: #333333 !important;
     float: right;
-    border: 1px solid #ac9c58;
+    border: 1px solid #CCC8B8 !important;
     padding: 10px 15px;
     margin: 0px;
 }
