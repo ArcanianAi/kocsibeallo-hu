@@ -101,6 +101,11 @@ elements: |-
     '#multiple': false
     '#required': false
     '#uri_scheme': private
+  gdpr_accept:
+    '#type': checkbox
+    '#title': 'Elolvastam és elfogadom az <a href="/adatvedelmi-nyilatkozat" target="_blank">Adatvédelmi nyilatkozatot</a>, valamint hozzájárulok személyes adataim kezeléséhez az ajánlatkérés feldolgozása céljából.'
+    '#required': true
+    '#required_error': 'Az ajánlatkérés beküldéséhez el kell fogadnia az Adatvédelmi nyilatkozatot.'
   actions:
     '#type': webform_actions
     '#title': submit_actions
@@ -370,7 +375,8 @@ handlers:
 
         ---
         Ezt az emailt automatikusan küldte a weboldal.
-      excluded_elements: {  }
+      excluded_elements:
+        - gdpr_accept
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
@@ -470,6 +476,7 @@ handlers:
         - palram_type
         - message
         - attachment
+        - gdpr_accept
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
