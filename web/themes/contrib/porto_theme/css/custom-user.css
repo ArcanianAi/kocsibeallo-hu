@@ -39,14 +39,20 @@
 }
 
 @media (max-width: 991px) {
-#header .header-nav-main nav>ul li a {
+#header .header-nav-main nav>ul>li>a,
+#header .header-nav-main nav>ul>li>a:link,
+#header .header-nav-main nav>ul>li>a:visited {
     font-size: 14px;
     font-style: normal;
     line-height: 20px;
     padding: 15px 8px;
     margin: 1px 0;
     border-radius: 4px;
-    color: #333333;
+    color: #333333 !important;
+}
+#header .header-nav-main nav>ul>li.active>a,
+#header .header-nav-main nav>ul>li.active-trail>a {
+    color: #ac9c58 !important;
 }
 #header .header-nav-main nav {margin: 20px 0 5px;}
 .header-btn-collapse-nav .fa.fa-bars {
