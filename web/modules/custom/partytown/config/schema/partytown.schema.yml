@@ -1,0 +1,34 @@
+partytown.settings:
+  type: config_object
+  label: 'Partytown settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    debug:
+      type: boolean
+      label: 'Debug mode'
+    lib_path:
+      type: string
+      label: 'Library path'
+    forward:
+      type: sequence
+      label: 'Event forwards'
+      sequence:
+        type: string
+        label: 'Forward function'
+    intercept_patterns:
+      type: sequence
+      label: 'Intercept patterns'
+      sequence:
+        type: string
+        label: 'URL pattern'
+    excluded_paths:
+      type: sequence
+      label: 'Excluded paths'
+      sequence:
+        type: string
+        label: 'Path pattern'
+    resolve_url:
+      type: boolean
+      label: 'Enable CORS proxy'

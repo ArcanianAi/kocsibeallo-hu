@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Partytown module - Offloads third-party scripts to a web worker.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function partytown_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.partytown':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Partytown offloads third-party scripts (Google Tag Manager, Facebook Pixel, Google Analytics, etc.) to a web worker, freeing up the main thread and improving Core Web Vitals metrics.') . '</p>';
+      $output .= '<h3>' . t('How it works') . '</h3>';
+      $output .= '<p>' . t('When enabled, Partytown:') . '</p>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('Intercepts configured third-party scripts') . '</li>';
+      $output .= '<li>' . t('Converts them to run in a web worker instead of the main thread') . '</li>';
+      $output .= '<li>' . t('Forwards events (like dataLayer.push) between threads') . '</li>';
+      $output .= '</ul>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('Configure Partytown at <a href=":url">Administration > Configuration > Web services > Partytown</a>.', [
+        ':url' => \Drupal\Core\Url::fromRoute('partytown.settings')->toString(),
+      ]) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function partytown_page_attachments_alter(array &$attachments) {
+  $config = \Drupal::config('partytown.settings');
+
+  if (!$config->get('enabled')) {
+    return;
+  }
+
+  // Log integration status with google_tag module
+  if (\Drupal::moduleHandler()->moduleExists('google_tag')) {
+    $forwards = $config->get('forward') ?? [];
+    if (!in_array('dataLayer.push', $forwards)) {
+      // Only log once per cache clear
+      static $logged = FALSE;
+      if (!$logged) {
+        \Drupal::logger('partytown')->notice('Google Tag module is enabled. Ensure "dataLayer.push" is in the forwards configuration for GTM to work properly.');
+        $logged = TRUE;
+      }
+    }
+  }
+}

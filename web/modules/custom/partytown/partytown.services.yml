@@ -1,0 +1,10 @@
+services:
+  partytown.manager:
+    class: Drupal\partytown\Service\PartytownManager
+    arguments: ['@config.factory', '@file_url_generator', '@extension.list.module']
+
+  partytown.response_subscriber:
+    class: Drupal\partytown\EventSubscriber\PartytownResponseSubscriber
+    arguments: ['@config.factory', '@partytown.manager', '@path.current', '@path_alias.manager', '@path.matcher']
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,7 @@
+name: 'Partytown'
+type: module
+description: 'Offloads third-party scripts (GTM, Facebook Pixel, etc.) to a web worker for improved PageSpeed performance.'
+package: 'Performance'
+core_version_requirement: ^10 || ^11
+configure: partytown.settings
+lifecycle: experimental

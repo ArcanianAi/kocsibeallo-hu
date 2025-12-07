@@ -1,0 +1,4 @@
+administer partytown:
+  title: 'Administer Partytown settings'
+  description: 'Configure Partytown third-party script offloading settings.'
+  restrict access: true

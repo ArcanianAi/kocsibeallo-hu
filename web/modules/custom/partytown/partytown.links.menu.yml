@@ -1,0 +1,6 @@
+partytown.settings:
+  title: 'Partytown'
+  description: 'Configure Partytown to offload third-party scripts to a web worker.'
+  route_name: partytown.settings
+  parent: system.admin_config_services
+  weight: 50

@@ -1,0 +1,16 @@
+partytown.settings:
+  path: '/admin/config/services/partytown'
+  defaults:
+    _form: '\Drupal\partytown\Form\PartytownSettingsForm'
+    _title: 'Partytown Settings'
+  requirements:
+    _permission: 'administer partytown'
+
+partytown.proxy:
+  path: '/partytown/proxy'
+  defaults:
+    _controller: '\Drupal\partytown\Controller\ProxyController::proxy'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE

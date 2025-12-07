@@ -1,0 +1,18 @@
+enabled: true
+debug: false
+lib_path: '/modules/custom/partytown/lib'
+forward:
+  - 'dataLayer.push'
+  - 'gtag'
+  - 'fbq'
+intercept_patterns:
+  - 'googletagmanager.com'
+  - 'google-analytics.com'
+  - 'connect.facebook.net'
+  - 'consent.cookiebot.com'
+excluded_paths:
+  - '/admin/*'
+  - '/user/*'
+  - '/node/*/edit'
+  - '/node/add/*'
+resolve_url: false
