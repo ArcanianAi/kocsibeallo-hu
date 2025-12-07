@@ -32,14 +32,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_gallery_tag:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_cimkek:
     type: entity_reference_label
     label: hidden
@@ -48,10 +40,13 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  links:
-    settings: {  }
+  field_gallery_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_telikert_kep:
     type: image
@@ -63,6 +58,11 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: -1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   comment_node_foto_a_galeriahoz: true

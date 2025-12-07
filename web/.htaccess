@@ -60,12 +60,6 @@ AddEncoding gzip svgz
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
-  # Force HTTPS redirect for all pages
-  # Check both HTTPS off AND X-Forwarded-Proto (for reverse proxy/Nginx SSL termination)
-  RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
   # you don't bounce between http and https.

@@ -33,6 +33,7 @@
         "drupal/migrate_upgrade": "^4.0",
         "drupal/photoswipe": "^5.0",
         "drupal/porto_theme": "^1.5",
+        "drupal/postmark": "^1.4",
         "drupal/redirect": "^1.12",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.40",

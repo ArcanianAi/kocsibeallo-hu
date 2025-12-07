@@ -167,6 +167,49 @@ After deployment:
 
 ---
 
+## Quick Reference - Local Docker Commands
+
+The Docker CLI container name is `pajfrsyfzm-d10-cli`. Use these simplified commands for common operations:
+
+### Clear Cache (Most Common)
+```bash
+docker exec pajfrsyfzm-d10-cli drush cr
+```
+
+### Import Configuration
+```bash
+docker exec pajfrsyfzm-d10-cli drush config:import -y
+```
+
+### Run Database Updates
+```bash
+docker exec pajfrsyfzm-d10-cli drush updatedb -y
+```
+
+### Check Drupal Status
+```bash
+docker exec pajfrsyfzm-d10-cli drush status
+```
+
+### List Running Containers
+```bash
+docker ps | grep pajfrsyfzm
+```
+
+### View Logs
+```bash
+docker logs pajfrsyfzm-d10-cli
+```
+
+### Interactive Shell Access
+```bash
+docker exec -it pajfrsyfzm-d10-cli bash
+```
+
+**Note:** The `drush` command is available directly in the container's PATH, so you don't need to specify the full path (`../vendor/bin/drush`).
+
+---
+
 ## Updating the Site (Pull Latest Changes)
 
 ### Step 1: Pull Latest Code
@@ -264,6 +307,60 @@ docker exec pajfrsyfzm-d10-cli bash -c "cd /app/web && ../vendor/bin/drush cr"
    ```bash
    ../vendor/bin/drush cr
    ```
+
+---
+
+## Email Configuration (Postmark)
+
+The site uses **Postmark** for reliable transactional email delivery. This ensures form submissions, notifications, and other system emails are delivered properly.
+
+### Prerequisites
+
+1. **Postmark Account:** Sign up at https://postmarkapp.com
+2. **Server API Token:** Get from Postmark dashboard → Servers → [Your Server] → API Tokens
+3. **Verified Sender Signature:** Add and verify `info@kocsibeallo.hu` in Postmark → Sender Signatures
+
+### Configuration Steps
+
+1. **Configure Postmark settings:**
+   - Go to `/admin/config/system/postmark` in Drupal admin
+   - Enter your **Server API Token**
+   - Set sender email to verified address (e.g., `info@kocsibeallo.hu`)
+
+2. **Configure Mail System:**
+   - Go to `/admin/config/system/mailsystem`
+   - Set **Default Mail System** to `Postmark`
+   - Optionally set specific modules (like Webform) to use Postmark
+
+3. **Test email delivery:**
+   - Use the test form at `/admin/config/system/postmark/test`
+   - Verify emails are received
+
+### Environment Variables (Optional)
+
+For security, you can set the API key via environment variable instead of storing in database:
+
+```php
+// In settings.php
+$config['postmark.settings']['postmark_api_key'] = getenv('POSTMARK_API_KEY');
+```
+
+Then set `POSTMARK_API_KEY` in your environment or `.env` file.
+
+### Webform Email Handlers
+
+The ajánlatkérés (RFQ) form is configured with two email handlers:
+
+1. **Admin Notification**
+   - To: `info@kocsibeallo.hu`, `hello@deluxebuilding.hu`
+   - Subject: "Új ajánlatkérés érkezett"
+   - Contains all submission data
+
+2. **Customer Confirmation**
+   - To: Submitter's email address
+   - From: `info@kocsibeallo.hu`
+   - Subject: "Köszönjük ajánlatkérését!"
+   - Well-formatted HTML with submission summary
 
 ---
 

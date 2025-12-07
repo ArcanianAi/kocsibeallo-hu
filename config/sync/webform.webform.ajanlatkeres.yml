@@ -404,9 +404,9 @@ handlers:
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: info@kocsibeallo.hu
+      from_mail: noreply@kocsibeallo.hu
       from_options: {  }
-      from_name: 'Kocsibeálló.hu'
+      from_name: Kocsibeálló.hu
       reply_to: info@kocsibeallo.hu
       return_path: ''
       sender_mail: ''

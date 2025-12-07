@@ -47,17 +47,6 @@ Disallow: /modules/README.txt
 Disallow: /sites/README.txt
 Disallow: /themes/README.txt
 Disallow: /web.config
-# Gallery facet filtering - limit crawling of excessive combinations
-# Allow single facet filters
-# Disallow combinations of 2+ facets to prevent URL explosion
-Disallow: /kepgaleria/*/*/*/*
-Disallow: /kepgaleria/*/*/*/stilus/
-Disallow: /kepgaleria/*/*/*/szerkezet_anyaga/
-Disallow: /kepgaleria/*/*/*/tetofedes_anyaga/
-Disallow: /kepgaleria/*/*/*/oldalzaras_anyaga/
-Disallow: /kepgaleria/*/*/*/termek_tipus/
-Disallow: /kepgaleria/*/*/*/cimkek/
-
 # Paths (clean URLs)
 Disallow: /admin/
 Disallow: /comment/reply/

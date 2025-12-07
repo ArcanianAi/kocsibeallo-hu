@@ -16,6 +16,21 @@ a.facet-item.facet-link-disabled:hover {
   color: #999 !important;
 }
 
+/* Instructional text above filters */
+.filter-instructional-text {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #CCA354;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.filter-instructional-text p {
+  margin: 0;
+  color: #333333;
+}
+
 /* Filter limit message */
 .filter-limit-message {
   background-color: #fff3cd;
@@ -101,6 +116,11 @@ a.facet-item.facet-link-disabled:hover {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .filter-instructional-text {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+
   .filter-limit-message {
     font-size: 13px;
     padding: 10px 12px;

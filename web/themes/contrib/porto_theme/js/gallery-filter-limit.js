@@ -26,6 +26,9 @@
    * Initialize filter limiting functionality.
    */
   function initializeFilterLimiting() {
+    // Show instructional text above filters
+    showInstructionalText();
+
     // Count active filters from URL path
     const activeFacets = getActiveFacetsFromUrl();
     const activeCount = activeFacets.length;
@@ -38,6 +41,27 @@
 
     // Add event listeners to all facet links
     addClickListeners(activeFacets);
+  }
+
+  /**
+   * Show instructional text above the filter sidebar.
+   */
+  function showInstructionalText() {
+    // Check if text already exists
+    if (document.querySelector('.filter-instructional-text')) {
+      return;
+    }
+
+    // Create instructional text element
+    const instructionalText = document.createElement('div');
+    instructionalText.className = 'filter-instructional-text';
+    instructionalText.innerHTML = '<p>A szűrő segítségével kiválaszthatja a szerkezet és a fedés anyagát, valamint az Önnek tetsző stílust.</p>';
+
+    // Insert at the top of the first facet block
+    const firstFacetBlock = document.querySelector('[id*="block-facet"]');
+    if (firstFacetBlock) {
+      firstFacetBlock.parentNode.insertBefore(instructionalText, firstFacetBlock);
+    }
   }
 
   /**

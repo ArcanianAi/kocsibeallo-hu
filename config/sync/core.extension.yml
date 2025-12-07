@@ -37,6 +37,7 @@ module:
   language: 0
   link: 0
   locale: 0
+  mailsystem: 0
   md_slider: 0
   media: 0
   media_library: 0
@@ -59,6 +60,7 @@ module:
   path_alias: 0
   photoswipe: 0
   phpass: 0
+  postmark: 0
   redirect: 0
   schema_article: 0
   schema_metatag: 0
