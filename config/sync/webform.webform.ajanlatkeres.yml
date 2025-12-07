@@ -125,11 +125,11 @@ css: |-
       border-radius: 0px;
       font-size: 14px;
       width: 100%;
-      max-width: 100%;
+      max-width: 400px;
   }
   .webform-submission-ajanlatkeres-form input[type=tel] {
       width: 100% !important;
-      max-width: 100% !important;
+      max-width: 400px !important;
   }
   .webform-submission-ajanlatkeres-form textarea {
       min-height: 150px;
