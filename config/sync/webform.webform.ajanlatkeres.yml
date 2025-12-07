@@ -265,10 +265,10 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
+  confirmation_type: inline
   confirmation_url: ''
   confirmation_title: 'Köszönjük ajánlatkérését!'
-  confirmation_message: 'Köszönjük, hogy érdeklődik kocsibeálló építésünk iránt. Munkatársunk hamarosan felveszi Önnel a kapcsolatot.'
+  confirmation_message: '<p style="font-size: 18px; margin-bottom: 20px;">Köszönjük, hogy érdeklődik kocsibeálló építésünk iránt!</p><p>Munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p><p style="margin-top: 20px;"><strong>Visszaigazoló emailt küldtünk az Ön által megadott email címre.</strong></p>'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
