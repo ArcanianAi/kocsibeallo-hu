@@ -42,16 +42,28 @@
 #header .header-nav-main nav>ul>li>a,
 #header .header-nav-main nav>ul>li>a:link,
 #header .header-nav-main nav>ul>li>a:visited {
-    font-size: 14px;
+    font-size: 15px;
     font-style: normal;
     line-height: 20px;
-    padding: 15px 8px;
+    padding: 10px 13px;
     margin: 1px 0;
-    border-radius: 4px;
+    border-radius: 0;
     color: #ffffff !important;
 }
 #header .header-nav-main nav>ul>li.active>a,
 #header .header-nav-main nav>ul>li.active-trail>a {
+    color: #ac9c58 !important;
+}
+/* Menu item separators */
+#header .header-nav-main nav>ul>li {
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+#header .header-nav-main nav>ul>li:last-child {
+    border-bottom: none;
+}
+/* Dropdown caret styling - gold color to match D7 */
+#header .header-nav-main nav>ul>li.dropdown>a .fa-caret-down,
+#header .header-nav-main nav>ul>li.dropdown>a::after {
     color: #ac9c58 !important;
 }
 #header .header-nav-main nav {margin: 20px 0 5px;}
