@@ -32,3 +32,12 @@ partytown.settings:
     resolve_url:
       type: boolean
       label: 'Enable CORS proxy'
+    gtm_container_id:
+      type: string
+      label: 'GTM Container ID'
+    facebook_pixel_id:
+      type: string
+      label: 'Facebook Pixel ID'
+    cookiebot_id:
+      type: string
+      label: 'Cookiebot ID'

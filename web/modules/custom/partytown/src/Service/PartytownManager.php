@@ -102,6 +102,27 @@ class PartytownManager {
   }
 
   /**
+   * Get GTM container ID.
+   */
+  public function getGtmContainerId(): ?string {
+    return $this->getConfig()->get('gtm_container_id');
+  }
+
+  /**
+   * Get Facebook Pixel ID.
+   */
+  public function getFacebookPixelId(): ?string {
+    return $this->getConfig()->get('facebook_pixel_id');
+  }
+
+  /**
+   * Get Cookiebot ID.
+   */
+  public function getCookiebotId(): ?string {
+    return $this->getConfig()->get('cookiebot_id');
+  }
+
+  /**
    * Get the Partytown configuration script to inject in <head>.
    */
   public function getConfigScript(): string {
@@ -169,7 +190,60 @@ HTML;
    * Get combined Partytown scripts (config + snippet) for injection.
    */
   public function getPartytownScripts(): string {
-    return $this->getConfigScript() . "\n" . $this->getSnippet();
+    return $this->getConfigScript() . "\n" . $this->getSnippet() . "\n" . $this->getThirdPartyScripts();
+  }
+
+  /**
+   * Get third-party scripts to run via Partytown.
+   *
+   * These scripts are injected with type="text/partytown" to run in a web worker.
+   */
+  public function getThirdPartyScripts(): string {
+    $scripts = [];
+
+    // Google Tag Manager
+    $gtm_id = $this->getGtmContainerId();
+    if (!empty($gtm_id)) {
+      // GTM dataLayer initialization and container script
+      $scripts[] = <<<HTML
+<script type="text/partytown">
+  /* Google Tag Manager via Partytown */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+</script>
+<script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id={$gtm_id}"></script>
+HTML;
+    }
+
+    // Cookiebot
+    $cookiebot_id = $this->getCookiebotId();
+    if (!empty($cookiebot_id)) {
+      $scripts[] = <<<HTML
+<script type="text/partytown" id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="{$cookiebot_id}" data-blockingmode="auto"></script>
+HTML;
+    }
+
+    // Facebook Pixel
+    $fb_pixel_id = $this->getFacebookPixelId();
+    if (!empty($fb_pixel_id)) {
+      $scripts[] = <<<HTML
+<script type="text/partytown">
+  /* Facebook Pixel via Partytown */
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '{$fb_pixel_id}');
+  fbq('track', 'PageView');
+</script>
+HTML;
+    }
+
+    return implode("\n", $scripts);
   }
 
   /**

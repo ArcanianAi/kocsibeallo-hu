@@ -88,6 +88,38 @@ class PartytownSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Proxy third-party script requests through your server to handle CORS restrictions. Enable only if scripts fail to load due to CORS errors. This adds server load.'),
     ];
 
+    // Third-party script injection section
+    $form['third_party'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Third-Party Scripts'),
+      '#open' => TRUE,
+      '#description' => $this->t('Configure third-party scripts to be directly injected with Partytown. These scripts will bypass any Drupal modules that normally load them (like Google Tag module) and run in a web worker instead.<br><br><strong>Important:</strong> When you configure scripts here, you should disable or uninstall the corresponding Drupal modules to avoid duplicate loading.'),
+    ];
+
+    $form['third_party']['gtm_container_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Google Tag Manager Container ID'),
+      '#default_value' => $config->get('gtm_container_id'),
+      '#description' => $this->t('GTM Container ID (e.g., GTM-XXXXXX). When set, GTM will be loaded via Partytown instead of the Google Tag module.'),
+      '#placeholder' => 'GTM-XXXXXX',
+    ];
+
+    $form['third_party']['cookiebot_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Cookiebot ID'),
+      '#default_value' => $config->get('cookiebot_id'),
+      '#description' => $this->t('Cookiebot account ID for consent management.'),
+      '#placeholder' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+    ];
+
+    $form['third_party']['facebook_pixel_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Facebook Pixel ID'),
+      '#default_value' => $config->get('facebook_pixel_id'),
+      '#description' => $this->t('Facebook Pixel ID for tracking. Note: If you have complex event tracking via GTM, leave this empty and configure Facebook Pixel through GTM instead.'),
+      '#placeholder' => 'XXXXXXXXXXXXXXXX',
+    ];
+
     $form['status'] = [
       '#type' => 'details',
       '#title' => $this->t('Module Status'),
@@ -166,6 +198,9 @@ class PartytownSettingsForm extends ConfigFormBase {
       ->set('intercept_patterns', $this->textareaToArray($form_state->getValue('intercept_patterns')))
       ->set('excluded_paths', $this->textareaToArray($form_state->getValue('excluded_paths')))
       ->set('resolve_url', (bool) $form_state->getValue('resolve_url'))
+      ->set('gtm_container_id', trim($form_state->getValue('gtm_container_id') ?? ''))
+      ->set('cookiebot_id', trim($form_state->getValue('cookiebot_id') ?? ''))
+      ->set('facebook_pixel_id', trim($form_state->getValue('facebook_pixel_id') ?? ''))
       ->save();
 
     parent::submitForm($form, $form_state);
