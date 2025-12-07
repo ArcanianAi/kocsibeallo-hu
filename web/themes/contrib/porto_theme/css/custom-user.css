@@ -2918,9 +2918,19 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
     margin-left: 0;
     margin-right: 0;
   }
-  
+
   .path-taxonomy .views-element-container > div,
   body[class*="taxonomy-term"] .views-element-container > div {
     margin: 0;
   }
+}
+
+/* ============================================
+   PHOTOSWIPE LIGHTBOX - Prevent image upscaling
+   Images should display at their natural size,
+   scaled down if larger than viewport, but never
+   upscaled beyond their original dimensions.
+   ============================================ */
+.pswp__img {
+  object-fit: scale-down !important;
 }
