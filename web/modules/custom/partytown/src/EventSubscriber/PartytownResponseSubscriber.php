@@ -157,7 +157,7 @@ class PartytownResponseSubscriber implements EventSubscriberInterface {
     // Use regex to handle attributes in head tag
     $pattern = '/(<head[^>]*>)/i';
 
-    if (preg_match($pattern, $content, $matches, PREG_OFFSET_MATCH)) {
+    if (preg_match($pattern, $content, $matches, \PREG_OFFSET_CAPTURE)) {
       $head_tag = $matches[1][0];
       $position = $matches[1][1] + strlen($head_tag);
 
