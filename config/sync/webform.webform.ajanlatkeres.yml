@@ -197,6 +197,30 @@ css: |-
   .webform-submission-ajanlatkeres-form .form-item-car-count input {
       max-width: 200px;
   }
+  /* Length and width fields - inline suffix styling */
+  .webform-submission-ajanlatkeres-form .form-item-length,
+  .webform-submission-ajanlatkeres-form .form-item-width {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+  }
+  .webform-submission-ajanlatkeres-form .form-item-length label,
+  .webform-submission-ajanlatkeres-form .form-item-width label {
+      width: 100%;
+      flex-shrink: 0;
+  }
+  .webform-submission-ajanlatkeres-form .form-item-length input[type=number],
+  .webform-submission-ajanlatkeres-form .form-item-width input[type=number] {
+      width: 100px !important;
+      max-width: 100px !important;
+      flex-shrink: 0;
+  }
+  .webform-submission-ajanlatkeres-form .form-item-length .field-suffix,
+  .webform-submission-ajanlatkeres-form .form-item-width .field-suffix {
+      font-weight: 400;
+      color: #333;
+  }
 javascript: ''
 settings:
   ajax: false
