@@ -2786,6 +2786,20 @@ a[href*="/feed"],
    in a 2-column grid like D7 site
    ============================================ */
 
+/* ============================================
+   MOBILE HAMBURGER MENU - Hide Facebook icon (ARC-869)
+   Facebook icon was overlapping the hamburger button
+   ============================================ */
+
+@media (max-width: 991px) {
+  /* Hide Facebook social icon on mobile to show hamburger menu */
+  #header .header-social-icons,
+  #header .social-icons-facebook,
+  .header-social-icons {
+    display: none !important;
+  }
+}
+
 /* Target taxonomy term pages - views-row items should be in grid */
 .path-taxonomy .views-element-container > div > .views-row,
 body[class*="taxonomy-term"] .views-element-container > div > .views-row {
