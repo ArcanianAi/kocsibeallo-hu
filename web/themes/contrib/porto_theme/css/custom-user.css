@@ -135,6 +135,11 @@ letter-spacing: 1px;
     gap: 6px;
 }
 
+/* Hide Facebook icon in header - overlaps menu */
+#header .header-social-icons {
+    display: none !important;
+}
+
 #header.header-narrow .header-logo img {
     margin: 0px;
     width: 100%;
