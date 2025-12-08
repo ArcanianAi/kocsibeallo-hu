@@ -158,6 +158,14 @@ letter-spacing: 1px;
 #header .header-logo {
     margin-right: 30px;
 }
+
+/* Fix menu item jumping when active - ensure consistent margins */
+#header .header-nav-main nav > ul > li,
+#header .header-nav-main nav > ul > li.active,
+#header .header-nav-main nav > ul > li.active-trail {
+    margin: 0 !important;
+}
+
 /*FOOTER 2022-06-09*/
 /* Main footer background - white/light */
 html #footer.color,
