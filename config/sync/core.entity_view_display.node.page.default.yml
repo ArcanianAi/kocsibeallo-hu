@@ -39,13 +39,14 @@ content:
     weight: 20
     region: content
   field_kepek:
-    type: image
+    type: photoswipe_field_formatter
     label: hidden
     settings:
-      image_link: file
-      image_style: kep_thumbnail
-      image_loading:
-        attribute: lazy
+      photoswipe_image_style: kep_thumbnail
+      photoswipe_caption: alt
+      photoswipe_caption_custom: ''
+      photoswipe_view_mode: ''
+      photoswipe_reference_image_field: ''
     third_party_settings: {  }
     weight: 10
     region: content
