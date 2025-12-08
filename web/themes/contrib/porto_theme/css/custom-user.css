@@ -153,6 +153,11 @@ letter-spacing: 1px;
     aspect-ratio: auto;
     height: auto;
 }
+
+/* Spacing between logo and navigation menu */
+#header .header-logo {
+    margin-right: 30px;
+}
 /*FOOTER 2022-06-09*/
 /* Main footer background - white/light */
 html #footer.color,
