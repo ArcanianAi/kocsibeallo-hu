@@ -143,7 +143,7 @@ letter-spacing: 1px;
 }
 
 /* Remove zoom cursor from frontpage images - they link to pages, not lightbox */
-.path-frontpage main a img {
+.path-frontpage a img {
     cursor: pointer !important;
 }
 
