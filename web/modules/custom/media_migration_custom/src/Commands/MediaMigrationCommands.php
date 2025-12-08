@@ -314,4 +314,168 @@ class MediaMigrationCommands extends DrushCommands {
 
     return $missing_count;
   }
+
+  /**
+   * Fix encoding issues in file URIs (Latin-1 to UTF-8 conversion).
+   *
+   * @command media:fix-encoding
+   * @aliases mfe
+   * @option dry-run Show what would be fixed without making changes
+   * @usage media:fix-encoding
+   *   Fix all file URI encoding issues.
+   * @usage media:fix-encoding --dry-run
+   *   Preview fixes without applying them.
+   */
+  public function fixEncoding($options = ['dry-run' => FALSE]) {
+    $database = \Drupal::database();
+    $file_system = \Drupal::service('file_system');
+    $dry_run = $options['dry-run'];
+
+    // Hungarian character mapping: Latin-1 byte to UTF-8 character
+    $latin1_to_utf8 = [
+      "\xe1" => 'á', // á
+      "\xe9" => 'é', // é
+      "\xed" => 'í', // í
+      "\xf3" => 'ó', // ó
+      "\xf6" => 'ö', // ö
+      "\xfa" => 'ú', // ú
+      "\xfc" => 'ü', // ü
+      "\xc1" => 'Á', // Á
+      "\xc9" => 'É', // É
+      "\xcd" => 'Í', // Í
+      "\xd3" => 'Ó', // Ó
+      "\xd6" => 'Ö', // Ö
+      "\xda" => 'Ú', // Ú
+      "\xdc" => 'Ü', // Ü
+      "\xf5" => 'ő', // ő (may appear as o with tilde in Latin-1)
+      "\xfb" => 'ű', // ű (may appear as u with circumflex in Latin-1)
+      "\xd5" => 'Ő', // Ő
+      "\xdb" => 'Ű', // Ű
+    ];
+
+    // Get all files - we'll check if their paths need fixing
+    $query = $database->select('file_managed', 'f');
+    $query->fields('f', ['fid', 'filename', 'uri']);
+    $query->condition('f.status', 1);
+    $files = $query->execute()->fetchAll();
+
+    $total = count($files);
+    $fixed = 0;
+    $not_found = 0;
+    $checked = 0;
+
+    $this->output()->writeln("Checking {$total} files for encoding issues...");
+    if ($dry_run) {
+      $this->output()->writeln("DRY RUN - no changes will be made.\n");
+    }
+
+    foreach ($files as $file) {
+      $checked++;
+      $uri = $file->uri;
+      $filename = $file->filename;
+
+      // Check if file exists with current URI
+      $real_path = $file_system->realpath($uri);
+      if ($real_path && file_exists($real_path)) {
+        continue; // File exists, no fix needed
+      }
+
+      // Try to fix the encoding
+      $fixed_uri = $uri;
+      $fixed_filename = $filename;
+
+      // Apply Latin-1 to UTF-8 conversion
+      foreach ($latin1_to_utf8 as $latin1 => $utf8) {
+        $fixed_uri = str_replace($latin1, $utf8, $fixed_uri);
+        $fixed_filename = str_replace($latin1, $utf8, $fixed_filename);
+      }
+
+      // Check if the fixed URI exists
+      $fixed_real_path = $file_system->realpath($fixed_uri);
+      if ($fixed_real_path && file_exists($fixed_real_path)) {
+        if ($dry_run) {
+          $this->output()->writeln("[{$file->fid}] Would fix:");
+          $this->output()->writeln("  FROM: {$uri}");
+          $this->output()->writeln("  TO:   {$fixed_uri}");
+        }
+        else {
+          // Update the database
+          $database->update('file_managed')
+            ->fields([
+              'uri' => $fixed_uri,
+              'filename' => $fixed_filename,
+            ])
+            ->condition('fid', $file->fid)
+            ->execute();
+          $this->output()->writeln("[{$file->fid}] Fixed: {$filename}");
+        }
+        $fixed++;
+      }
+      else {
+        // Try to find file on disk by searching the directory
+        $dir = dirname($uri);
+        $base = basename($uri);
+        $fixed_base = basename($fixed_uri);
+
+        // Get directory path
+        $dir_path = $file_system->realpath($dir);
+        if ($dir_path && is_dir($dir_path)) {
+          // Search for similar files
+          $found_file = NULL;
+          $search_patterns = [
+            $fixed_base,
+            str_replace(['-', '_'], ['*', '*'], $fixed_base),
+          ];
+
+          foreach (scandir($dir_path) as $disk_file) {
+            if ($disk_file === '.' || $disk_file === '..') continue;
+
+            // Check for similarity
+            if (strcasecmp($disk_file, $fixed_base) === 0 ||
+                similar_text(strtolower($disk_file), strtolower($fixed_base)) > strlen($fixed_base) * 0.8) {
+              $found_file = $disk_file;
+              break;
+            }
+          }
+
+          if ($found_file) {
+            $new_uri = $dir . '/' . $found_file;
+            if ($dry_run) {
+              $this->output()->writeln("[{$file->fid}] Would fix (found on disk):");
+              $this->output()->writeln("  FROM: {$uri}");
+              $this->output()->writeln("  TO:   {$new_uri}");
+            }
+            else {
+              $database->update('file_managed')
+                ->fields([
+                  'uri' => $new_uri,
+                  'filename' => $found_file,
+                ])
+                ->condition('fid', $file->fid)
+                ->execute();
+              $this->output()->writeln("[{$file->fid}] Fixed (found on disk): {$found_file}");
+            }
+            $fixed++;
+            continue;
+          }
+        }
+
+        // File truly not found
+        $not_found++;
+      }
+
+      if ($checked % 500 == 0) {
+        $this->output()->writeln("Checked {$checked} / {$total}...");
+      }
+    }
+
+    $action = $dry_run ? "Would fix" : "Fixed";
+    $this->output()->writeln("\n{$action} {$fixed} files with encoding issues.");
+    $this->output()->writeln("Truly missing (not fixable): {$not_found} files.");
+
+    if (!$dry_run && $fixed > 0) {
+      $this->output()->writeln("\nClearing caches...");
+      drupal_flush_all_caches();
+    }
+  }
 }
