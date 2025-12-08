@@ -129,10 +129,10 @@ letter-spacing: 1px;
 }
 
 /* Position dropdown caret next to menu text instead of below it */
-#header .header-nav-main nav > ul > li.dropdown > a::after {
-    display: inline-block !important;
-    margin-left: 6px;
-    vertical-align: middle;
+#header .header-nav-main nav > ul > li.dropdown > a {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
 }
 
 #header.header-narrow .header-logo img {
