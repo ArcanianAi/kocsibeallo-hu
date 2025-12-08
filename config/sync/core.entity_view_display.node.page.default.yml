@@ -42,7 +42,7 @@ content:
     type: photoswipe_field_formatter
     label: hidden
     settings:
-      photoswipe_image_style: kep_thumbnail
+      photoswipe_image_style: ''
       photoswipe_caption: alt
       photoswipe_caption_custom: ''
       photoswipe_view_mode: ''
