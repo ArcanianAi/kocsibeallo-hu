@@ -24,7 +24,7 @@ class MediaMigrationCommands extends DrushCommands {
 
     // Get all image files that don't have media entities yet
     $query = $database->select('file_managed', 'f');
-    $query->fields('f', ['fid', 'filename', 'uri']);
+    $query->fields('f', ['fid', 'filename', 'uri', 'created', 'changed']);
     $query->condition('f.filemime', 'image/%', 'LIKE');
     $query->condition('f.status', 1); // Only permanent files
 
@@ -78,18 +78,21 @@ class MediaMigrationCommands extends DrushCommands {
         // Truncate alt to 512 chars max
         $alt = mb_substr($alt, 0, 512);
 
-        // Create media entity
+        // Create media entity with preserved timestamps from original file
         $media = Media::create([
           'bundle' => 'image',
           'name' => $file_data->filename,
           'uid' => 1,
           'status' => 1,
+          'created' => $file_data->created,
           'field_media_image' => [
             'target_id' => $file_data->fid,
             'alt' => $alt,
             'title' => $alt,
           ],
         ]);
+        // Preserve the original file's changed timestamp
+        $media->setChangedTime($file_data->changed);
         $media->save();
 
         $created++;
@@ -157,6 +160,62 @@ class MediaMigrationCommands extends DrushCommands {
       $alt = $row->field_media_image_alt ?: '(no alt)';
       $this->output()->writeln("[{$row->mid}] {$row->name} - Alt: {$alt}");
     }
+  }
+
+  /**
+   * Fix timestamps on existing media entities to match their source files.
+   *
+   * @command media:fix-timestamps
+   * @aliases mft
+   * @usage media:fix-timestamps
+   *   Update all media entity timestamps to match their source file timestamps.
+   */
+  public function fixTimestamps() {
+    $database = \Drupal::database();
+
+    // Get all media entities with their associated files
+    $query = $database->select('media__field_media_image', 'm');
+    $query->fields('m', ['entity_id', 'field_media_image_target_id']);
+    $query->join('file_managed', 'f', 'm.field_media_image_target_id = f.fid');
+    $query->addField('f', 'created', 'file_created');
+    $query->addField('f', 'changed', 'file_changed');
+    $query->join('media_field_data', 'md', 'm.entity_id = md.mid');
+    $query->addField('md', 'created', 'media_created');
+    $query->addField('md', 'changed', 'media_changed');
+
+    $results = $query->execute()->fetchAll();
+    $total = count($results);
+    $fixed = 0;
+
+    $this->output()->writeln("Found {$total} media entities to check.");
+
+    foreach ($results as $row) {
+      // Only update if timestamps differ
+      if ($row->media_created != $row->file_created || $row->media_changed != $row->file_changed) {
+        $database->update('media_field_data')
+          ->fields([
+            'created' => $row->file_created,
+            'changed' => $row->file_changed,
+          ])
+          ->condition('mid', $row->entity_id)
+          ->execute();
+
+        // Also update revision table
+        $database->update('media_field_revision')
+          ->fields([
+            'changed' => $row->file_changed,
+          ])
+          ->condition('mid', $row->entity_id)
+          ->execute();
+
+        $fixed++;
+        if ($fixed % 100 == 0) {
+          $this->output()->writeln("Fixed {$fixed} media entities...");
+        }
+      }
+    }
+
+    $this->output()->writeln("Timestamp fix complete: {$fixed} media entities updated.");
   }
 
   /**
