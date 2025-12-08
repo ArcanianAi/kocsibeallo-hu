@@ -1,6 +1,6 @@
 /**
  * Gallery Layout Styles
- * All images in 2-column grid (pairs in every row)
+ * All images in 3-column grid
  * ARC-783
  */
 
@@ -8,10 +8,10 @@
   margin-bottom: 30px;
 }
 
-/* All images - 2 column grid */
+/* All images - 3 column grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -30,8 +30,14 @@
   display: block;
 }
 
-/* Responsive: Single column on mobile */
-@media (max-width: 768px) {
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 15px;
