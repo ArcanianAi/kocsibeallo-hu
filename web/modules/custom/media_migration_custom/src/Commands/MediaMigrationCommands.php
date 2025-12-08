@@ -239,4 +239,79 @@ class MediaMigrationCommands extends DrushCommands {
 
     $this->output()->writeln("Updated media {$mid} alt text to: {$alt}");
   }
+
+  /**
+   * Find missing files - files in DB but not on disk.
+   *
+   * @command media:find-missing
+   * @aliases mfm
+   * @option type Filter by type: public, private, or all
+   * @usage media:find-missing
+   *   Find all missing files.
+   * @usage media:find-missing --type=public
+   *   Find only missing public files.
+   */
+  public function findMissing($options = ['type' => 'all']) {
+    $database = \Drupal::database();
+    $file_system = \Drupal::service('file_system');
+
+    $query = $database->select('file_managed', 'f');
+    $query->fields('f', ['fid', 'filename', 'uri', 'filemime']);
+    $query->condition('f.status', 1);
+
+    if ($options['type'] === 'public') {
+      $query->condition('f.uri', 'public://%', 'LIKE');
+    }
+    elseif ($options['type'] === 'private') {
+      $query->condition('f.uri', 'private://%', 'LIKE');
+    }
+
+    $files = $query->execute()->fetchAll();
+    $total = count($files);
+    $missing = [];
+    $checked = 0;
+
+    $this->output()->writeln("Checking {$total} files...");
+
+    foreach ($files as $file) {
+      $real_path = $file_system->realpath($file->uri);
+      if (!$real_path || !file_exists($real_path)) {
+        $missing[] = $file;
+      }
+      $checked++;
+      if ($checked % 500 == 0) {
+        $this->output()->writeln("Checked {$checked} / {$total}...");
+      }
+    }
+
+    $missing_count = count($missing);
+    $this->output()->writeln("\nFound {$missing_count} missing files:\n");
+
+    // Group by directory
+    $by_dir = [];
+    foreach ($missing as $file) {
+      $dir = dirname($file->uri);
+      if (!isset($by_dir[$dir])) {
+        $by_dir[$dir] = [];
+      }
+      $by_dir[$dir][] = $file;
+    }
+
+    foreach ($by_dir as $dir => $files) {
+      $this->output()->writeln("{$dir}: " . count($files) . " missing");
+      // Show first 5 from each dir
+      $shown = 0;
+      foreach ($files as $file) {
+        if ($shown < 5) {
+          $this->output()->writeln("  - [{$file->fid}] {$file->filename}");
+          $shown++;
+        }
+      }
+      if (count($files) > 5) {
+        $this->output()->writeln("  ... and " . (count($files) - 5) . " more");
+      }
+    }
+
+    return $missing_count;
+  }
 }
