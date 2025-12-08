@@ -1292,9 +1292,11 @@ nav a:focus {
   box-sizing: border-box;
 }
 
-/* Previous/Next buttons - ensure same height */
+/* First/Previous/Next/Last buttons - ensure same height */
+.page-kepgaleria .pager__item--first a,
 .page-kepgaleria .pager__item--previous a,
-.page-kepgaleria .pager__item--next a {
+.page-kepgaleria .pager__item--next a,
+.page-kepgaleria .pager__item--last a {
   height: 40px !important;
   line-height: 40px !important;
   padding: 0 15px;
@@ -1327,8 +1329,10 @@ nav a:focus {
     font-size: 13px;
   }
 
+  .page-kepgaleria .pager__item--first a,
   .page-kepgaleria .pager__item--previous a,
-  .page-kepgaleria .pager__item--next a {
+  .page-kepgaleria .pager__item--next a,
+  .page-kepgaleria .pager__item--last a {
     height: 35px !important;
     line-height: 35px !important;
   }
