@@ -70,6 +70,55 @@ elements: |-
       visible:
         ':input[name="type"]':
           value: Palram
+  szerkezet_anyaga:
+    '#type': checkboxes
+    '#title': 'Tartószerkezet anyaga'
+    '#options':
+      ragasztott_fa: 'Ragasztott fa'
+      vas: Vas
+      aluminium: Alumínium
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: 'Egyedi nyitott'
+  tetofedes_anyaga:
+    '#type': checkboxes
+    '#title': 'Tetőfedés anyaga'
+    '#options':
+      polikarbonat: Polikarbonát
+      zsindely: Zsindely
+      korcolt_lemez: 'Korcolt lemez'
+      trapezlemez: Trapézlemez
+      szendvics_panel: 'Szendvics panel'
+      biztonsagi_uveg: 'Ragasztott biztonsági üveg'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: 'Egyedi nyitott'
+  oldalzaras_anyaga:
+    '#type': checkboxes
+    '#title': 'Oldalzárás anyaga'
+    '#options':
+      hajópadlo: Hajópadló
+      szendvics_panel: 'Szendvics panel'
+      wpc: WPC
+      lecezes: Lécezés
+      nemes_vakolat: 'Nemes vakolat'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          - value: 'Egyedi nyitott'
+          - value: 'Zárt garázs'
+  napelem_rendszer:
+    '#type': radios
+    '#title': 'Napelem rendszer telepítésére is kérek ajánlatot'
+    '#options':
+      igen: Igen
+      nem: Nem
+    '#states':
+      visible:
+        ':input[name="type"]':
+          value: Napelemes
   size:
     '#type': fieldset
     '#title': Méret
