@@ -30,14 +30,14 @@
   display: block;
 }
 
-/* Responsive: 2 columns on tablet, 1 on mobile */
-@media (max-width: 992px) {
+/* Responsive: 2 columns on small screens, 1 on mobile */
+@media (max-width: 767px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 15px;
