@@ -650,17 +650,24 @@ margin-bottom:10px;
     pointer-events: none !important;
 }
 
-/* Gallery images grid layout - 2 columns like D7 */
+/* Gallery images grid layout - 3 columns */
 /* Target the gallery-grid container specifically */
 .page-node-type-foto-a-galeriahoz .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 40px;
 }
 
+/* Tablet: 2 columns */
+@media (max-width: 991px) {
+    .page-node-type-foto-a-galeriahoz .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Mobile: 1 column */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
     .page-node-type-foto-a-galeriahoz .gallery-grid {
         grid-template-columns: 1fr;
         gap: 20px;
