@@ -1266,7 +1266,7 @@ nav a:focus {
 }
 
 /* Gallery pager styling - match blog page design with consistent button heights */
-.path-kepgaleria .pager__items {
+.path-kepgaleria nav.pager .pager__items {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1275,13 +1275,13 @@ nav a:focus {
 }
 
 /* Consistent height for all pager elements */
-.path-kepgaleria .pager__item a,
-.path-kepgaleria .pager__item span {
+.path-kepgaleria nav.pager .pager__item a,
+.path-kepgaleria nav.pager .pager__item span {
   display: inline-block;
   min-width: 40px;
   height: 40px !important;
   line-height: 40px !important;
-  padding: 0 12px;
+  padding: 0 12px !important;
   text-align: center;
   text-decoration: none;
   border: 1px solid #ddd;
@@ -1293,25 +1293,25 @@ nav a:focus {
 }
 
 /* First/Previous/Next/Last buttons - ensure same height */
-.path-kepgaleria .pager__item--first a,
-.path-kepgaleria .pager__item--previous a,
-.path-kepgaleria .pager__item--next a,
-.path-kepgaleria .pager__item--last a {
+.path-kepgaleria nav.pager .pager__item--first a,
+.path-kepgaleria nav.pager .pager__item--previous a,
+.path-kepgaleria nav.pager .pager__item--next a,
+.path-kepgaleria nav.pager .pager__item--last a {
   height: 40px !important;
   line-height: 40px !important;
-  padding: 0 15px;
+  padding: 0 15px !important;
 }
 
 /* Hover state */
-.path-kepgaleria .pager__item a:hover {
+.path-kepgaleria nav.pager .pager__item a:hover {
   background-color: #CCA354;
   border-color: #CCA354;
   color: #ffffff;
 }
 
 /* Active/current page */
-.path-kepgaleria .pager__item.is-active a,
-.path-kepgaleria .pager__item.is-active span {
+.path-kepgaleria nav.pager .pager__item.is-active a,
+.path-kepgaleria nav.pager .pager__item.is-active span {
   background-color: #1e3a5f;
   border-color: #1e3a5f;
   color: #ffffff;
@@ -1320,19 +1320,19 @@ nav a:focus {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .path-kepgaleria .pager__item a,
-  .path-kepgaleria .pager__item span {
+  .path-kepgaleria nav.pager .pager__item a,
+  .path-kepgaleria nav.pager .pager__item span {
     min-width: 35px;
     height: 35px !important;
     line-height: 35px !important;
-    padding: 0 10px;
+    padding: 0 10px !important;
     font-size: 13px;
   }
 
-  .path-kepgaleria .pager__item--first a,
-  .path-kepgaleria .pager__item--previous a,
-  .path-kepgaleria .pager__item--next a,
-  .path-kepgaleria .pager__item--last a {
+  .path-kepgaleria nav.pager .pager__item--first a,
+  .path-kepgaleria nav.pager .pager__item--previous a,
+  .path-kepgaleria nav.pager .pager__item--next a,
+  .path-kepgaleria nav.pager .pager__item--last a {
     height: 35px !important;
     line-height: 35px !important;
   }
