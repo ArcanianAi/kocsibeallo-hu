@@ -1,0 +1,5 @@
+services:
+  media_migration_custom.commands:
+    class: \Drupal\media_migration_custom\Commands\MediaMigrationCommands
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,8 @@
+name: Media Migration Custom
+type: module
+description: Migrate file entities to media entities
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:media
+  - drupal:file
