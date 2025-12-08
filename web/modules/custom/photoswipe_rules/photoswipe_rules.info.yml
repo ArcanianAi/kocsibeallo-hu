@@ -1,0 +1,8 @@
+name: 'PhotoSwipe Rules'
+type: module
+description: 'Configure where PhotoSwipe lightbox should be enabled or disabled.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - photoswipe:photoswipe
+configure: photoswipe_rules.settings

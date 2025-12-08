@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * PhotoSwipe Rules module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function photoswipe_rules_page_attachments(array &$attachments) {
+  $config = \Drupal::config('photoswipe_rules.settings');
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+
+  // Check if PhotoSwipe should be disabled for this page
+  $disabled = FALSE;
+  $excluded_paths = $config->get('excluded_paths');
+  $enabled_paths = $config->get('enabled_paths');
+
+  // Check excluded paths
+  if (!empty($excluded_paths)) {
+    $pages = mb_strtolower($excluded_paths);
+    $path_to_check = mb_strtolower($path_alias);
+
+    // Check <front> special case
+    if ($is_front && strpos($pages, '<front>') !== FALSE) {
+      $disabled = TRUE;
+    }
+
+    // Check path patterns
+    if (\Drupal::service('path.matcher')->matchPath($path_to_check, $pages)) {
+      $disabled = TRUE;
+    }
+    if (\Drupal::service('path.matcher')->matchPath(mb_strtolower($current_path), $pages)) {
+      $disabled = TRUE;
+    }
+  }
+
+  // Check enabled paths (overrides exclusions)
+  if ($disabled && !empty($enabled_paths)) {
+    $pages = mb_strtolower($enabled_paths);
+    $path_to_check = mb_strtolower($path_alias);
+
+    if (\Drupal::service('path.matcher')->matchPath($path_to_check, $pages)) {
+      $disabled = FALSE;
+    }
+    if (\Drupal::service('path.matcher')->matchPath(mb_strtolower($current_path), $pages)) {
+      $disabled = FALSE;
+    }
+  }
+
+  // Check content type exclusions
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $excluded_types = $config->get('excluded_content_types') ?: [];
+    if (in_array($node->bundle(), $excluded_types)) {
+      $disabled = TRUE;
+    }
+  }
+
+  // Get excluded selectors
+  $excluded_selectors = $config->get('excluded_selectors');
+  $selectors_array = [];
+  if (!empty($excluded_selectors)) {
+    $selectors_array = array_filter(array_map('trim', explode("\n", $excluded_selectors)));
+  }
+
+  // Pass settings to JavaScript
+  $attachments['#attached']['drupalSettings']['photoswipeRules'] = [
+    'disabled' => $disabled,
+    'excludedSelectors' => $selectors_array,
+  ];
+}

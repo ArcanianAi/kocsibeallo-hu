@@ -1,0 +1,6 @@
+photoswipe_rules.settings:
+  title: 'PhotoSwipe Rules'
+  description: 'Configure where PhotoSwipe lightbox should be enabled or disabled.'
+  route_name: photoswipe_rules.settings
+  parent: photoswipe.admin_settings
+  weight: 10

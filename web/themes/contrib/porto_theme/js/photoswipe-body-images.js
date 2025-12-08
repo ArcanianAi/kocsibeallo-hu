@@ -6,6 +6,7 @@
  * Photoswipe-compatible markup and initializes the lightbox.
  *
  * Created: 2025-11-17 (ARC-693)
+ * Updated: 2025-12-08 - Added support for PhotoSwipe Rules module
  */
 
 (function ($, Drupal, once) {
@@ -13,6 +14,14 @@
 
   Drupal.behaviors.photoswipeBodyImages = {
     attach: function (context, settings) {
+      // Check if PhotoSwipe is disabled for this page via PhotoSwipe Rules module
+      if (settings?.photoswipeRules?.disabled) {
+        return;
+      }
+
+      // Get excluded selectors from settings
+      const excludedSelectors = settings?.photoswipeRules?.excludedSelectors || [];
+
       // Find all images in body content that aren't already in photoswipe wrappers
       // Target article content area, excluding header and navigation
       const bodyImages = once('photoswipe-body-init', 'article img, .field--name-body img, .node__content img', context);
@@ -23,6 +32,15 @@
         // Skip if already wrapped in photoswipe link or if it's a thumbnail/icon
         if ($img.closest('a.photoswipe').length || $img.closest('.product-thumb-info').length) {
           return;
+        }
+
+        // Skip if image matches any excluded selector from PhotoSwipe Rules
+        if (excludedSelectors.length > 0) {
+          for (const selector of excludedSelectors) {
+            if ($img.closest(selector).length || $img.is(selector)) {
+              return;
+            }
+          }
         }
 
         // Get image source

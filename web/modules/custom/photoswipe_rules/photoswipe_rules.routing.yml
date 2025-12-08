@@ -1,0 +1,7 @@
+photoswipe_rules.settings:
+  path: '/admin/config/media/photoswipe/rules'
+  defaults:
+    _form: '\Drupal\photoswipe_rules\Form\PhotoswipeRulesSettingsForm'
+    _title: 'PhotoSwipe Rules'
+  requirements:
+    _permission: 'administer site configuration'

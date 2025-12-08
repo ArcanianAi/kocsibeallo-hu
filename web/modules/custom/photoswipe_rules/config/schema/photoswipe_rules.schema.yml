@@ -1,0 +1,19 @@
+photoswipe_rules.settings:
+  type: config_object
+  label: 'PhotoSwipe Rules settings'
+  mapping:
+    excluded_paths:
+      type: string
+      label: 'Excluded paths'
+    excluded_content_types:
+      type: sequence
+      label: 'Excluded content types'
+      sequence:
+        type: string
+        label: 'Content type'
+    excluded_selectors:
+      type: string
+      label: 'Excluded CSS selectors'
+    enabled_paths:
+      type: string
+      label: 'Enabled paths (override exclusions)'

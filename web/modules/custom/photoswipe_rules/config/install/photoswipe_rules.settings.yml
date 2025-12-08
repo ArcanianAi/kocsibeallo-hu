@@ -1,0 +1,5 @@
+excluded_paths: |
+  <front>
+excluded_content_types: []
+excluded_selectors: ''
+enabled_paths: ''
