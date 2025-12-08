@@ -142,6 +142,11 @@ letter-spacing: 1px;
     }
 }
 
+/* Remove zoom cursor from frontpage images - they link to pages, not lightbox */
+.path-frontpage main a img {
+    cursor: pointer !important;
+}
+
 #header.header-narrow .header-logo img {
     margin: 0px;
     width: 100%;
