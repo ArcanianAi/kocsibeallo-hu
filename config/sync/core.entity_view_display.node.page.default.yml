@@ -43,10 +43,10 @@ content:
     label: hidden
     settings:
       photoswipe_image_style: ''
+      photoswipe_reference_image_field: ''
+      photoswipe_view_mode: ''
       photoswipe_caption: alt
       photoswipe_caption_custom: ''
-      photoswipe_view_mode: ''
-      photoswipe_reference_image_field: ''
     third_party_settings: {  }
     weight: 10
     region: content
