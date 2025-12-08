@@ -107,7 +107,7 @@ letter-spacing: 1px;
 }
 
 #header .header-nav-main nav > ul > li > a {
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 15px;
     font-style: normal;
     font-weight: 300;
@@ -121,6 +121,12 @@ letter-spacing: 1px;
 
 #header .header-nav-main nav>ul>li.dropdown .dropdown-menu li a:hover {color:#fff; background-color: #ac9c58;}
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {background-color:#ac9c63;}
+
+/* Remove rounded corners from active/hover dropdown menu button */
+#header .header-nav-main nav > ul > li.dropdown:hover > a,
+#header .header-nav-main nav > ul > li.dropdown.open > a {
+    border-radius: 0 !important;
+}
 
 #header.header-narrow .header-logo img {
     margin: 0px;
@@ -2933,4 +2939,64 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
    ============================================ */
 .pswp__img {
   object-fit: scale-down !important;
+}
+
+/* ============================================
+   HEADER LAYOUT FIX - Menu and Facebook button
+   Display menu and FB button side by side on desktop
+   ============================================ */
+
+/* Desktop: Header layout with menu and FB button in one row */
+@media (min-width: 992px) {
+  /* Header body uses flexbox to align logo, nav, and social icons */
+  #header .header-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Header container should be full width */
+  #header .header-body > .container,
+  #header .header-body .header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  /* Logo area */
+  #header .header-logo {
+    flex-shrink: 0;
+  }
+
+  /* Navigation takes available space, leaves room for FB */
+  #header .header-nav-main {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 60px; /* Space for FB button */
+  }
+
+  /* Nav items in one row */
+  #header .header-nav-main nav > ul {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  /* Menu items - tighter padding for fit */
+  #header .header-nav-main nav > ul > li > a {
+    padding: 10px 10px;
+    white-space: nowrap;
+  }
+
+  /* Facebook button positioned at right */
+  #header .header-social-icons {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
 }
