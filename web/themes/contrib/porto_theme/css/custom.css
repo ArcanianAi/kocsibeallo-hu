@@ -1266,7 +1266,7 @@ nav a:focus {
 }
 
 /* Gallery pager styling - match blog page design with consistent button heights */
-.page-kepgaleria .pager__items {
+.path-kepgaleria .pager__items {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1275,8 +1275,8 @@ nav a:focus {
 }
 
 /* Consistent height for all pager elements */
-.page-kepgaleria .pager__item a,
-.page-kepgaleria .pager__item span {
+.path-kepgaleria .pager__item a,
+.path-kepgaleria .pager__item span {
   display: inline-block;
   min-width: 40px;
   height: 40px !important;
@@ -1293,25 +1293,25 @@ nav a:focus {
 }
 
 /* First/Previous/Next/Last buttons - ensure same height */
-.page-kepgaleria .pager__item--first a,
-.page-kepgaleria .pager__item--previous a,
-.page-kepgaleria .pager__item--next a,
-.page-kepgaleria .pager__item--last a {
+.path-kepgaleria .pager__item--first a,
+.path-kepgaleria .pager__item--previous a,
+.path-kepgaleria .pager__item--next a,
+.path-kepgaleria .pager__item--last a {
   height: 40px !important;
   line-height: 40px !important;
   padding: 0 15px;
 }
 
 /* Hover state */
-.page-kepgaleria .pager__item a:hover {
+.path-kepgaleria .pager__item a:hover {
   background-color: #CCA354;
   border-color: #CCA354;
   color: #ffffff;
 }
 
 /* Active/current page */
-.page-kepgaleria .pager__item.is-active a,
-.page-kepgaleria .pager__item.is-active span {
+.path-kepgaleria .pager__item.is-active a,
+.path-kepgaleria .pager__item.is-active span {
   background-color: #1e3a5f;
   border-color: #1e3a5f;
   color: #ffffff;
@@ -1320,8 +1320,8 @@ nav a:focus {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .page-kepgaleria .pager__item a,
-  .page-kepgaleria .pager__item span {
+  .path-kepgaleria .pager__item a,
+  .path-kepgaleria .pager__item span {
     min-width: 35px;
     height: 35px !important;
     line-height: 35px !important;
@@ -1329,10 +1329,10 @@ nav a:focus {
     font-size: 13px;
   }
 
-  .page-kepgaleria .pager__item--first a,
-  .page-kepgaleria .pager__item--previous a,
-  .page-kepgaleria .pager__item--next a,
-  .page-kepgaleria .pager__item--last a {
+  .path-kepgaleria .pager__item--first a,
+  .path-kepgaleria .pager__item--previous a,
+  .path-kepgaleria .pager__item--next a,
+  .path-kepgaleria .pager__item--last a {
     height: 35px !important;
     line-height: 35px !important;
   }
@@ -1448,13 +1448,13 @@ nav a:focus {
 }
 
 /* Reduce large gray section on gallery page */
-.page-kepgaleria .gray-section,
-.page-kepgaleria .view-content {
+.path-kepgaleria .gray-section,
+.path-kepgaleria .view-content {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
   min-height: auto !important;
 }
 
-.page-kepgaleria .views-row {
+.path-kepgaleria .views-row {
   margin-bottom: 30px;
 }
