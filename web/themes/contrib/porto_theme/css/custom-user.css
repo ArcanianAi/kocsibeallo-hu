@@ -955,7 +955,8 @@ h4 {
 }
 
 /* Technical info box - float right with text wrapping */
-article.photoswipe-gallery > div > div {
+/* Only target divs that contain .box-right, not all gallery divs */
+article.photoswipe-gallery > div > div:has(.box-right) {
     display: block !important;
 }
 
