@@ -390,6 +390,13 @@ class MediaMigrationCommands extends DrushCommands {
         $fixed_filename = str_replace($latin1, $utf8, $fixed_filename);
       }
 
+      // Only proceed if the conversion actually changed something
+      if ($fixed_uri === $uri) {
+        // No encoding issue, file is just missing
+        $not_found++;
+        continue;
+      }
+
       // Check if the fixed URI exists
       $fixed_real_path = $file_system->realpath($fixed_uri);
       if ($fixed_real_path && file_exists($fixed_real_path)) {
@@ -412,55 +419,7 @@ class MediaMigrationCommands extends DrushCommands {
         $fixed++;
       }
       else {
-        // Try to find file on disk by searching the directory
-        $dir = dirname($uri);
-        $base = basename($uri);
-        $fixed_base = basename($fixed_uri);
-
-        // Get directory path
-        $dir_path = $file_system->realpath($dir);
-        if ($dir_path && is_dir($dir_path)) {
-          // Search for similar files
-          $found_file = NULL;
-          $search_patterns = [
-            $fixed_base,
-            str_replace(['-', '_'], ['*', '*'], $fixed_base),
-          ];
-
-          foreach (scandir($dir_path) as $disk_file) {
-            if ($disk_file === '.' || $disk_file === '..') continue;
-
-            // Check for similarity
-            if (strcasecmp($disk_file, $fixed_base) === 0 ||
-                similar_text(strtolower($disk_file), strtolower($fixed_base)) > strlen($fixed_base) * 0.8) {
-              $found_file = $disk_file;
-              break;
-            }
-          }
-
-          if ($found_file) {
-            $new_uri = $dir . '/' . $found_file;
-            if ($dry_run) {
-              $this->output()->writeln("[{$file->fid}] Would fix (found on disk):");
-              $this->output()->writeln("  FROM: {$uri}");
-              $this->output()->writeln("  TO:   {$new_uri}");
-            }
-            else {
-              $database->update('file_managed')
-                ->fields([
-                  'uri' => $new_uri,
-                  'filename' => $found_file,
-                ])
-                ->condition('fid', $file->fid)
-                ->execute();
-              $this->output()->writeln("[{$file->fid}] Fixed (found on disk): {$found_file}");
-            }
-            $fixed++;
-            continue;
-          }
-        }
-
-        // File truly not found
+        // Encoding was fixed but file still not found
         $not_found++;
       }
 
