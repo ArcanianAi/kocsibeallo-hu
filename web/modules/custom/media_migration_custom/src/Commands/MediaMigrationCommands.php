@@ -437,4 +437,102 @@ class MediaMigrationCommands extends DrushCommands {
       drupal_flush_all_caches();
     }
   }
+
+  /**
+   * Pre-generate image style derivatives for all images.
+   *
+   * Nginx doesn't route missing image styles to Drupal for on-demand generation,
+   * so we need to pre-generate them.
+   *
+   * @command media:generate-styles
+   * @aliases mgs
+   * @option style Image style to generate (default: all)
+   * @option path Filter by path pattern (e.g., gallery/main)
+   * @usage media:generate-styles
+   *   Generate all image styles for all images.
+   * @usage media:generate-styles --style=large
+   *   Generate only the 'large' image style.
+   * @usage media:generate-styles --path=gallery/main
+   *   Generate styles only for gallery/main images.
+   */
+  public function generateStyles($options = ['style' => 'all', 'path' => NULL]) {
+    $database = \Drupal::database();
+    $file_system = \Drupal::service('file_system');
+
+    // Get all image styles
+    $style_storage = \Drupal::entityTypeManager()->getStorage('image_style');
+    if ($options['style'] === 'all') {
+      $styles = $style_storage->loadMultiple();
+    }
+    else {
+      $style = $style_storage->load($options['style']);
+      if (!$style) {
+        $this->output()->writeln("Image style '{$options['style']}' not found.");
+        return;
+      }
+      $styles = [$options['style'] => $style];
+    }
+
+    $this->output()->writeln("Will generate " . count($styles) . " image style(s): " . implode(', ', array_keys($styles)));
+
+    // Get all image files
+    $query = $database->select('file_managed', 'f');
+    $query->fields('f', ['fid', 'filename', 'uri']);
+    $query->condition('f.filemime', 'image/%', 'LIKE');
+    $query->condition('f.status', 1);
+    $query->condition('f.uri', 'public://%', 'LIKE');
+
+    if ($options['path']) {
+      $query->condition('f.uri', '%' . $database->escapeLike($options['path']) . '%', 'LIKE');
+    }
+
+    $files = $query->execute()->fetchAll();
+    $total = count($files);
+    $generated = 0;
+    $skipped = 0;
+    $errors = 0;
+
+    $this->output()->writeln("Processing {$total} image files...\n");
+
+    foreach ($files as $file) {
+      $source_path = $file_system->realpath($file->uri);
+      if (!$source_path || !file_exists($source_path)) {
+        $skipped++;
+        continue;
+      }
+
+      foreach ($styles as $style_name => $style) {
+        $derivative_uri = $style->buildUri($file->uri);
+        $derivative_path = $file_system->realpath($derivative_uri);
+
+        // Skip if derivative already exists
+        if ($derivative_path && file_exists($derivative_path)) {
+          continue;
+        }
+
+        try {
+          $result = $style->createDerivative($file->uri, $derivative_uri);
+          if ($result) {
+            $generated++;
+          }
+          else {
+            $errors++;
+          }
+        }
+        catch (\Exception $e) {
+          $errors++;
+          $this->output()->writeln("Error [{$file->fid}] {$style_name}: " . $e->getMessage());
+        }
+      }
+
+      if (($generated + $skipped + $errors) % 100 == 0) {
+        $this->output()->writeln("Progress: {$generated} generated, {$skipped} skipped, {$errors} errors...");
+      }
+    }
+
+    $this->output()->writeln("\nGeneration complete:");
+    $this->output()->writeln("  Generated: {$generated}");
+    $this->output()->writeln("  Skipped (source missing): {$skipped}");
+    $this->output()->writeln("  Errors: {$errors}");
+  }
 }
