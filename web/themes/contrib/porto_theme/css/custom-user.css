@@ -954,12 +954,19 @@ h4 {
 	top:1px;
 }
 
+/* Technical info box - float right with text wrapping */
+article.photoswipe-gallery > div > div {
+    display: block !important;
+}
+
 .box-right {
-     float: right;
-     width: 30%;
-     background-color: rgb(216, 226, 232);
-     margin-left: 10px;
-     padding: 5px;
+    float: right;
+    width: 35%;
+    background-color: rgb(216, 226, 232);
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 ul {padding-left: 20px;}
