@@ -128,6 +128,13 @@ letter-spacing: 1px;
     border-radius: 0 !important;
 }
 
+/* Position dropdown caret next to menu text instead of below it */
+#header .header-nav-main nav > ul > li.dropdown > a::after {
+    display: inline-block !important;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
 #header.header-narrow .header-logo img {
     margin: 0px;
     width: 100%;
