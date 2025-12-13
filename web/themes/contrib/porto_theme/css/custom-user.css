@@ -2650,6 +2650,8 @@ section.section-footer {
 
 #footer.color-primary .footer-ribbon:before {
   border-right-color: #011e41 !important;
+  border-left-color: transparent !important;
+  background: transparent !important;
 }
 
 /* ============================================
