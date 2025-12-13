@@ -249,8 +249,11 @@ html #footer.color-primary {
 }
 
 .footer-copyright nav a:hover,
-#footer .region-footer-bottom a:hover {
-    color: #ac9c58;
+#footer .region-footer-bottom a:hover,
+#footer nav a:hover,
+footer nav a:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
 }
 
 /* Copyright bar layout - LEFT and RIGHT edge alignment */
