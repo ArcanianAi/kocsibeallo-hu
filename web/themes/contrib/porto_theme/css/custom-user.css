@@ -3058,10 +3058,19 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
    Applies to both /ajánlatkérés (RFQ) and /kapcsolat (Contact)
    ============================================ */
 
-/* Label color - D7 uses #777 (gray), D10 was #333 (dark) */
+/* Label styling - D7 uses #777 (gray), font-weight 400 (normal) */
+/* Need specific selectors to override webform module's form-specific classes */
 .webform-submission-form label,
-.webform-submission-form .fieldset-legend {
+.webform-submission-form .fieldset-legend,
+.webform-submission-form .form-item label,
+.webform-submission-form .js-form-item label,
+.webform-submission-kapcsolat-form label,
+.webform-submission-kapcsolat-form .form-item label,
+.webform-submission-ajanlatkeres-form label,
+.webform-submission-ajanlatkeres-form .form-item label {
   color: #777 !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
 }
 
 /* Form item spacing - D7 uses 15px top and bottom */
@@ -3085,6 +3094,9 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
   font-size: 14px !important;
   color: #555 !important;
   height: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* Textarea specific - ensure consistent styling */
