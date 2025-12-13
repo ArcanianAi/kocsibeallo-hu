@@ -80,7 +80,9 @@ elements: |-
     '#states':
       visible:
         ':input[name="type"]':
-          value: 'Egyedi nyitott'
+          - value: 'Egyedi nyitott'
+          - value: 'Napelemes'
+          - value: 'Zárt garázs'
   tetofedes_anyaga:
     '#type': checkboxes
     '#title': 'Tetőfedés anyaga'
@@ -94,7 +96,8 @@ elements: |-
     '#states':
       visible:
         ':input[name="type"]':
-          value: 'Egyedi nyitott'
+          - value: 'Egyedi nyitott'
+          - value: 'Zárt garázs'
   oldalzaras_anyaga:
     '#type': checkboxes
     '#title': 'Oldalzárás anyaga'
@@ -107,8 +110,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="type"]':
-          - value: 'Egyedi nyitott'
-          - value: 'Zárt garázs'
+          value: 'Zárt garázs'
   napelem_rendszer:
     '#type': radios
     '#title': 'Napelem rendszer telepítésére is kérek ajánlatot'
