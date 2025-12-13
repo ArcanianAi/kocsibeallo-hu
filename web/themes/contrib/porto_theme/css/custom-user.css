@@ -3051,3 +3051,98 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
     z-index: 1000;
   }
 }
+
+/* ============================================
+   WEBFORM STYLING - MATCH D7 PRODUCTION (ARC-886)
+   Make form styling identical to D7 production site
+   Applies to both /ajánlatkérés (RFQ) and /kapcsolat (Contact)
+   ============================================ */
+
+/* Label color - D7 uses #777 (gray), D10 was #333 (dark) */
+.webform-submission-form label,
+.webform-submission-form .fieldset-legend {
+  color: #777 !important;
+}
+
+/* Form item spacing - D7 uses 15px top and bottom */
+.webform-submission-form .js-form-item,
+.webform-submission-form .form-item,
+.webform-submission-form .js-form-wrapper > .js-form-item {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+/* Input and textarea styling to match D7 */
+.webform-submission-form input[type="text"],
+.webform-submission-form input[type="email"],
+.webform-submission-form input[type="tel"],
+.webform-submission-form input[type="number"],
+.webform-submission-form textarea,
+.webform-submission-form select {
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  font-size: 14px !important;
+  color: #555 !important;
+  height: auto !important;
+}
+
+/* Textarea specific - ensure consistent styling */
+.webform-submission-form textarea {
+  min-height: 120px;
+}
+
+/* Select dropdown height to match inputs */
+.webform-submission-form select {
+  height: 34px !important;
+  line-height: 1.42857143;
+}
+
+/* Submit button - match D7 golden button style */
+.webform-submission-form .webform-button--submit,
+.webform-submission-form input[type="submit"],
+.webform-submission-form button[type="submit"] {
+  text-transform: none !important;
+  font-size: 14px !important;
+  padding: 8px 20px !important;
+  border-radius: 0 !important;
+}
+
+/* Required field asterisk color - keep it visible */
+.webform-submission-form .form-required::after {
+  color: #e74c3c;
+}
+
+/* Fieldset/composite field styling (like "Méret" with hossz/szélesség) */
+.webform-submission-form fieldset {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.webform-submission-form fieldset legend {
+  color: #777 !important;
+  margin-bottom: 5px;
+}
+
+/* Description text under fields */
+.webform-submission-form .description,
+.webform-submission-form .form-item .description {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* File upload button styling */
+.webform-submission-form input[type="file"] {
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Consistent focus state */
+.webform-submission-form input:focus,
+.webform-submission-form textarea:focus,
+.webform-submission-form select:focus {
+  border-color: #ac9c58 !important;
+  outline: none !important;
+  box-shadow: 0 0 3px rgba(172, 156, 88, 0.3) !important;
+}
