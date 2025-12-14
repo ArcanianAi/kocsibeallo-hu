@@ -47,6 +47,42 @@ elements: |-
       Napelemes: Napelemes
       'Zárt garázs': 'Zárt garázs'
     '#empty_option': '-Válasszon-'
+  size:
+    '#type': fieldset
+    '#title': Méret
+    '#description': 'Kérjük, adja meg az autóbeálló hosszát és szélességét méterben.'
+    '#states':
+      visible:
+        ':input[name="type"]':
+          '!value': ''
+  length:
+    '#type': number
+    '#title': hossz
+    '#required': true
+    '#min': 1
+    '#step': any
+    '#field_suffix': m
+    '#states':
+      visible:
+        ':input[name="type"]':
+          '!value': ''
+      required:
+        ':input[name="type"]':
+          '!value': ''
+  width:
+    '#type': number
+    '#title': szélesség
+    '#required': true
+    '#min': 1
+    '#step': any
+    '#field_suffix': m
+    '#states':
+      visible:
+        ':input[name="type"]':
+          '!value': ''
+      required:
+        ':input[name="type"]':
+          '!value': ''
   ximax_type:
     '#type': checkboxes
     '#title': 'XIMAX autóbeálló típus'
@@ -121,24 +157,6 @@ elements: |-
       visible:
         ':input[name="type"]':
           value: Napelemes
-  size:
-    '#type': fieldset
-    '#title': Méret
-    '#description': 'Kérjük, adja meg az autóbeálló hosszát és szélességét méterben.'
-  length:
-    '#type': number
-    '#title': hossz
-    '#required': true
-    '#min': 1
-    '#step': any
-    '#field_suffix': m
-  width:
-    '#type': number
-    '#title': szélesség
-    '#required': true
-    '#min': 1
-    '#step': any
-    '#field_suffix': m
   message:
     '#type': textarea
     '#title': 'Kérdések, megjegyzések'
