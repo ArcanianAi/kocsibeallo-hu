@@ -3256,12 +3256,16 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
   color: #ac9c58 !important;
 }
 
-/* Floating toggle button */
-.klaro .klaro-toggle {
-  background-color: #011e41 !important;
+/* Floating toggle button - positioned left */
+.klaro .klaro-toggle,
+.klaro_toggle_dialog {
+  background-color: white !important;
+  right: auto !important;
+  left: 20px !important;
 }
 
-.klaro .klaro-toggle:hover {
+.klaro .klaro-toggle:hover,
+.klaro_toggle_dialog:hover {
   background-color: #ac9c58 !important;
 }
 
