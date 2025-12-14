@@ -24,26 +24,24 @@ javascripts:
   - googleadservices.com
   - googleads.g.doubleclick.net
 callback_code: ''
-on_accept: |
-
-  function(opts) {
+on_accept: |-
+  (opts) => {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted'
+    gtag("consent", "update", {
+      "ad_storage": "granted",
+      "ad_user_data": "granted",
+      "ad_personalization": "granted"
     });
   }
-on_decline: |
-
-  function(opts) {
+on_decline: |-
+  (opts) => {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied'
+    gtag("consent", "update", {
+      "ad_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied"
     });
   }
 wrapper_identifier: {  }

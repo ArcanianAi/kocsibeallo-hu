@@ -1,0 +1,24 @@
+diff --git a/js/klaro.drupal.js b/js/klaro.drupal.js
+index 1234567..abcdefg 100644
+--- a/js/klaro.drupal.js
++++ b/js/klaro.drupal.js
+@@ -28,6 +28,21 @@ Drupal.behaviors.klaro = {
+         settings.klaro.config.services.forEach(function (service, a_index) {
+           // Set callback for each service.
+           settings.klaro.config.services[a_index].callback = Drupal.behaviors.klaro.serviceCallback;
++          // Convert onInit, onAccept, onDecline strings to functions.
++          if (service.onInit && typeof service.onInit === 'string' && service.onInit.trim().length > 0) {
++            try { settings.klaro.config.services[a_index].onInit = new Function('return ' + service.onInit)(); }
++            catch(e) { console.warn('Klaro: Error parsing onInit for ' + service.name, e); }
++          }
++          if (service.onAccept && typeof service.onAccept === 'string' && service.onAccept.trim().length > 0) {
++            try { settings.klaro.config.services[a_index].onAccept = new Function('return ' + service.onAccept)(); }
++            catch(e) { console.warn('Klaro: Error parsing onAccept for ' + service.name, e); }
++          }
++          if (service.onDecline && typeof service.onDecline === 'string' && service.onDecline.trim().length > 0) {
++            try { settings.klaro.config.services[a_index].onDecline = new Function('return ' + service.onDecline)(); }
++            catch(e) { console.warn('Klaro: Error parsing onDecline for ' + service.name, e); }
++          }
+           // Create regular expressions from config.
+           service.cookies.forEach(function (cookie, c_index) {
+             settings.klaro.config.services[a_index]['cookies'][c_index] = [new RegExp(cookie[0], 'i'), cookie[1] || '/', cookie[2] || location.host];
