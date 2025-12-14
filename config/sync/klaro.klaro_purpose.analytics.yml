@@ -1,0 +1,10 @@
+uuid: f640b55a-25bd-4934-b979-3b9a31918724
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DaAAmHlWMVahC2MmhRKQN8Lun9hBPT6LR6PCjkCEikI
+id: analytics
+label: Statisztika
+description: ''
+weight: 1

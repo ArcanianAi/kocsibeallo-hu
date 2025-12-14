@@ -1,0 +1,28 @@
+uuid: eed738a7-6185-4b25-92ba-653db1777337
+langcode: hu
+status: true
+dependencies: {  }
+id: clarity
+label: 'Microsoft Clarity'
+description: 'Felhasználói viselkedés elemzése és hőtérképek.'
+default: false
+purposes:
+  - analytics
+cookies:
+  -
+    regex: ^_cl
+    path: ''
+    domain: ''
+required: false
+opt_out: null
+only_once: null
+contextual_consent_only: null
+contextual_consent_text: null
+info_url: 'https://clarity.microsoft.com/'
+privacy_policy_url: 'https://privacy.microsoft.com/privacystatement'
+javascripts:
+  - clarity.ms
+callback_code: ''
+wrapper_identifier: {  }
+attachments: {  }
+weight: 3

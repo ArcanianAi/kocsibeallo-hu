@@ -1,0 +1,29 @@
+uuid: c8780ee2-b46d-43a9-ba62-ae0950425a5a
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HBeBrdoMQ8HHvIcge46zv21fgnD6c8V6FjQ_h1eiQkY
+id: cms
+label: Funkcionális
+description: 'Adatok tárolása (pl. munkamenet süti) a böngészőben (a weboldal használatához szükséges).'
+default: true
+purposes:
+  - cms
+cookies:
+  -
+    regex: '^[SESS|SSESS]'
+    path: ''
+    domain: ''
+required: true
+opt_out: false
+only_once: false
+contextual_consent_only: null
+contextual_consent_text: null
+info_url: 'https://www.drupal.org'
+privacy_policy_url: ''
+javascripts: {  }
+callback_code: ''
+wrapper_identifier: {  }
+attachments: {  }
+weight: -1

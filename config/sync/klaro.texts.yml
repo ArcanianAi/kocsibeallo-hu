@@ -1,0 +1,41 @@
+_core:
+  default_config_hash: FHr6psQnRtYvXa9wwVyQsT3ytUtv2w9OvbvbdMDq4a0
+langcode: hu
+consentModal:
+  title: 'Személyes adatok és sütik használata'
+  description: 'Kérjük, válassza ki a szolgáltatásokat és harmadik féltől származó alkalmazásokat, amelyeket használni szeretnénk.'
+  privacyPolicy:
+    name: 'Adatvédelmi tájékoztató'
+    text: 'További információkért olvassa el {privacyPolicy}.'
+    url: 'internal:/adatvédelmi-tájékoztató'
+consentNotice:
+  title: 'Személyes adatok és sütik használata'
+  changeDescription: 'A legutóbbi látogatás óta változások történtek, kérjük frissítse a beleegyezését.'
+  description: 'Kérjük, válassza ki a szolgáltatásokat és harmadik féltől származó alkalmazásokat, amelyeket használni szeretnénk. További információkért olvassa el {privacyPolicy}.'
+  learnMore: Testreszabás
+ok: Elfogadás
+save: Mentés
+decline: Elutasítom
+close: Bezár
+acceptAll: 'Összes elfogadása'
+acceptSelected: 'Kiválasztottak elfogadása'
+service:
+  disableAll:
+    title: 'Összes szolgáltatás kapcsolása'
+    description: 'Ezzel a kapcsolóval engedélyezheti/letilthatja az összes szolgáltatást.'
+  optOut:
+    title: (kikapcsolható)
+    description: 'Ez a szolgáltatás alapértelmezés szerint betöltődik (kikapcsolható).'
+  required:
+    title: '(mindig szükséges)'
+    description: 'Ez a szolgáltatás mindig szükséges.'
+  purposes: Célok
+  purpose: Cél
+contextualConsent:
+  acceptAlways: Mindig
+  acceptOnce: 'Igen (most)'
+  description: 'Külső tartalom betöltése a(z) {title} szolgáltatástól?'
+poweredBy: ''
+purposeItem:
+  service: szolgáltatás
+  services: szolgáltatás

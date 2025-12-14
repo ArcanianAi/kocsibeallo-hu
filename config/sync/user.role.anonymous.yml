@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - comment
+    - klaro
     - media
     - search
     - sitemap
@@ -20,4 +21,5 @@ permissions:
   - 'access sitemap'
   - 'post comments'
   - 'search content'
+  - 'use klaro'
   - 'view media'

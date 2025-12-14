@@ -1,0 +1,10 @@
+uuid: 08ceecad-2fcd-4741-931a-964b6645e759
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DdVZR131nyy6OVL9mBguPmzKgAzSs-6NjqEdbkF55NI
+id: external_content
+label: 'Beágyazott külső tartalom'
+description: ''
+weight: 6

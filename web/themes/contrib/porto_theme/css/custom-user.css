@@ -3163,3 +3163,123 @@ body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
   outline: none !important;
   box-shadow: 0 0 3px rgba(172, 156, 88, 0.3) !important;
 }
+
+/* ============================================
+   KLARO COOKIE CONSENT STYLING
+   Colors: Gold #ac9c58, Dark Blue #011e41
+   ============================================ */
+
+/* Main dialog - white background */
+.klaro .cookie-modal .cm-modal,
+.klaro .cookie-notice {
+  background: #fff !important;
+  color: #333 !important;
+}
+
+/* Title - dark blue */
+.klaro .cookie-modal .cm-modal .cm-header h1,
+.klaro .cookie-notice .cn-body h1 {
+  color: #011e41 !important;
+  font-weight: 600 !important;
+}
+
+/* Description text */
+.klaro .cookie-modal .cm-body,
+.klaro .cookie-notice .cn-body p {
+  color: #555 !important;
+}
+
+/* Links - gold color */
+.klaro .cookie-modal a,
+.klaro .cookie-notice a {
+  color: #ac9c58 !important;
+}
+
+.klaro .cookie-modal a:hover,
+.klaro .cookie-notice a:hover {
+  color: #011e41 !important;
+}
+
+/* Primary button (Save/Accept) - gold background */
+.klaro .cookie-modal .cm-btn-success,
+.klaro .cookie-notice .cn-buttons .cm-btn-success,
+.klaro .cm-btn-accept,
+.klaro .cm-btn-accept-all {
+  background-color: #ac9c58 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.klaro .cookie-modal .cm-btn-success:hover,
+.klaro .cookie-notice .cn-buttons .cm-btn-success:hover,
+.klaro .cm-btn-accept:hover,
+.klaro .cm-btn-accept-all:hover {
+  background-color: #011e41 !important;
+}
+
+/* Secondary button (Decline) - dark blue outline */
+.klaro .cookie-modal .cm-btn-decline,
+.klaro .cookie-notice .cn-buttons .cm-btn-decline {
+  background-color: transparent !important;
+  color: #011e41 !important;
+  border: 1px solid #011e41 !important;
+}
+
+.klaro .cookie-modal .cm-btn-decline:hover,
+.klaro .cookie-notice .cn-buttons .cm-btn-decline:hover {
+  background-color: #011e41 !important;
+  color: #fff !important;
+}
+
+/* Toggle switches - gold when active */
+.klaro .cookie-modal .cm-list-input:checked + .cm-list-label .slider,
+.klaro .cm-app-input:checked + .cm-app-label .slider {
+  background-color: #ac9c58 !important;
+}
+
+/* Toggle switches - gray when inactive */
+.klaro .cookie-modal .cm-list-label .slider,
+.klaro .cm-app-label .slider {
+  background-color: #ccc !important;
+}
+
+/* Purpose/Service titles */
+.klaro .cookie-modal .cm-list-title,
+.klaro .cm-purpose .cm-title {
+  color: #011e41 !important;
+  font-weight: 600 !important;
+}
+
+/* Service count links */
+.klaro .cookie-modal .cm-services,
+.klaro .cm-services-summary {
+  color: #ac9c58 !important;
+}
+
+/* Floating toggle button */
+.klaro .klaro-toggle {
+  background-color: #011e41 !important;
+}
+
+.klaro .klaro-toggle:hover {
+  background-color: #ac9c58 !important;
+}
+
+/* Klaro font family - match site fonts */
+.klaro .cookie-modal,
+.klaro .cookie-notice,
+.klaro .klaro-toggle {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.klaro .cookie-modal .cm-modal .cm-header h1,
+.klaro .cookie-notice .cn-body h1 {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Klaro title - smaller, not all caps */
+.klaro .cookie-modal .cm-modal .cm-header h1,
+.klaro .cookie-notice .cn-body h1 {
+  text-transform: none !important;
+  font-size: 1.4rem !important;
+}

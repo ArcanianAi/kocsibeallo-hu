@@ -1,0 +1,51 @@
+uuid: c80cd23e-34be-446d-87bc-dacc3cb1a84c
+langcode: hu
+status: true
+dependencies: {  }
+id: google_ads
+label: 'Google Ads'
+description: 'Google hirdetési konverziók követése.'
+default: false
+purposes:
+  - advertising
+cookies:
+  -
+    regex: ^_gcl_
+    path: ''
+    domain: ''
+required: false
+opt_out: null
+only_once: null
+contextual_consent_only: null
+contextual_consent_text: null
+info_url: 'https://ads.google.com/'
+privacy_policy_url: 'https://policies.google.com/privacy'
+javascripts:
+  - googleadservices.com
+  - googleads.g.doubleclick.net
+callback_code: ''
+on_accept: |
+
+  function(opts) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
+  }
+on_decline: |
+
+  function(opts) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'update', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+  }
+wrapper_identifier: {  }
+attachments: {  }
+weight: 4

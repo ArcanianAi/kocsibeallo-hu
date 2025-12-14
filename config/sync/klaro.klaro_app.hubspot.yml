@@ -1,0 +1,35 @@
+uuid: c73d6f65-e921-4411-8c8b-f5c5e10ce286
+langcode: hu
+status: true
+dependencies: {  }
+id: hubspot
+label: HubSpot
+description: 'Marketing és ügyfélkapcsolat-kezelő szolgáltatás.'
+default: false
+purposes:
+  - advertising
+cookies:
+  -
+    regex: ^hubspotutk
+    path: ''
+    domain: ''
+  -
+    regex: ^__hs
+    path: ''
+    domain: ''
+required: false
+opt_out: null
+only_once: null
+contextual_consent_only: null
+contextual_consent_text: null
+info_url: 'https://www.hubspot.com/'
+privacy_policy_url: 'https://legal.hubspot.com/privacy-policy'
+javascripts:
+  - hubspot.com
+  - hs-scripts.com
+  - hs-analytics.net
+  - hsforms.com
+callback_code: ''
+wrapper_identifier: {  }
+attachments: {  }
+weight: 2

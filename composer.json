@@ -21,12 +21,15 @@
     "require": {
         "bower-asset/photoswipe": "^5",
         "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^2.0",
         "drupal/core-composer-scaffold": "^10.5",
         "drupal/core-project-message": "^10.5",
         "drupal/core-recommended": "^10.5",
+        "drupal/eu_cookie_compliance": "^1.29",
         "drupal/facets": "^3.0",
         "drupal/facets_pretty_paths": "^2.0",
         "drupal/google_tag": "^2.0",
+        "drupal/klaro": "^3.0",
         "drupal/md_slider": "^1.5",
         "drupal/metatag": "^2.2",
         "drupal/migrate_tools": "^6.1",
@@ -55,7 +58,8 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
@@ -114,6 +118,11 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "patches": {
+            "drupal/klaro": {
+                "Add onInit, onAccept, onDecline callbacks for Consent Mode v2": "https://git.drupalcode.org/project/klaro/-/merge_requests/79.patch"
+            }
         }
     }
 }

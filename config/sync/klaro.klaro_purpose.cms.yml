@@ -1,0 +1,10 @@
+uuid: cb192e86-6fcc-4cd5-9450-cc03814d8356
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3j5wXqDkwDxjQzmBncu4QboNV0z9hzVwJug3j5IpigQ
+id: cms
+label: Funkcionális
+description: ''
+weight: -1
