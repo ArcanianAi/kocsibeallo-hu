@@ -9,6 +9,7 @@ services:
       LAGOON_ROUTE: http://localhost:7080
     volumes:
       - ./drupal7-codebase:/app:delegated
+      - ./database:/app/bigdump:delegated
     networks:
       d7-network:
         aliases:
@@ -59,7 +60,7 @@ services:
     command: --max_allowed_packet=512M --innodb_log_file_size=512M --innodb_buffer_pool_size=1G --wait_timeout=300
     volumes:
       - d7-db-data:/var/lib/mysql
-      - ./database:/docker-entrypoint-initdb.d
+      - ./database:/import-data
     networks:
       - d7-network
     healthcheck:

@@ -1,0 +1,17 @@
+{
+    "_hash": "fc658981396d1184ffd03ee904277b20b7ed6010993e6e6590b7f467e718e30a",
+    "patches": {
+        "drupal/klaro": [
+            {
+                "package": "drupal/klaro",
+                "description": "Add onInit, onAccept, onDecline callbacks for Consent Mode v2",
+                "url": "https://git.drupalcode.org/project/klaro/-/merge_requests/79.patch",
+                "sha256": "8b0e030499181e663caa917b964fbb327be0845cd49325c40a54ddf674329fe4",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}
