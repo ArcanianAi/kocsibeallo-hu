@@ -1,3 +1,35 @@
+/* ============================================
+   ADMIN TOOLBAR Z-INDEX FIX
+   Ensure Drupal admin toolbar stays above Porto sticky header
+   ============================================ */
+body.toolbar-horizontal #toolbar-bar,
+body.toolbar-horizontal .toolbar-tray-horizontal {
+  z-index: 1100 !important;
+}
+
+body.toolbar-horizontal #header .header-body,
+body.toolbar-horizontal.sticky-header-active #header .header-body {
+  z-index: 1000 !important;
+}
+
+/* Adjust body padding when toolbar is active */
+body.toolbar-horizontal.toolbar-fixed {
+  padding-top: 79px !important; /* toolbar height */
+}
+
+body.toolbar-horizontal.toolbar-fixed.toolbar-tray-open {
+  padding-top: 119px !important; /* toolbar + tray height */
+}
+
+/* Ensure sticky header accounts for toolbar */
+body.toolbar-horizontal.toolbar-fixed.sticky-header-active #header .header-body {
+  top: 39px !important; /* Below toolbar */
+}
+
+body.toolbar-horizontal.toolbar-fixed.toolbar-tray-open.sticky-header-active #header .header-body {
+  top: 79px !important; /* Below toolbar + tray */
+}
+
 /* Hide system-generated "Címlap" (Home) link that appears at end of menu */
 #mainNav > li:last-child {
     display: none !important;
