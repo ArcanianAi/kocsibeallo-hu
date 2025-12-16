@@ -216,7 +216,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: 'col-md-6 col-sm-6 col-xs-12'
           default_row_class: true
           uses_fields: false
       row:
