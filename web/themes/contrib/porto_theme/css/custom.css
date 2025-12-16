@@ -1458,3 +1458,28 @@ nav a:focus {
 .path-kepgaleria .views-row {
   margin-bottom: 30px;
 }
+
+/* Cache bust: 1765911170 */
+
+/* TAXONOMY TERM PAGE - Equal height cards in each row */
+.path-taxonomy .views-element-container > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.path-taxonomy .views-element-container > div > .product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.path-taxonomy .views-element-container > div > .product .product-thumb-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.path-taxonomy .views-element-container > div > .product .product-thumb-info-content {
+  flex: 1;
+}
