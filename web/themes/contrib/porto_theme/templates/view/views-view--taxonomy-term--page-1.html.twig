@@ -3,8 +3,8 @@
  * @file
  * Custom view template for taxonomy term page with Bootstrap grid layout.
  *
- * This template wraps the view rows in a Bootstrap row container to create
- * a 2-column grid layout matching the gallery page.
+ * Matches the gallery page layout - no .row wrapper needed as Bootstrap 3
+ * col-* classes use floats.
  */
 #}
 {%
@@ -18,7 +18,7 @@
   {{ title_suffix }}
 
   {% if header %}
-    <header class="taxonomy-term-description">
+    <header class="taxonomy-term-description" style="width: 100%; clear: both; margin-bottom: 20px;">
       {{ header }}
     </header>
   {% endif %}
@@ -27,9 +27,7 @@
   {{ attachment_before }}
 
   {% if rows -%}
-    <div class="row taxonomy-term-gallery">
-      {{ rows }}
-    </div>
+    {{ rows }}
   {% elseif empty -%}
     {{ empty }}
   {% endif %}

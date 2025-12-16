@@ -2967,57 +2967,6 @@ a[href*="/feed"],
   }
 }
 
-/* Target taxonomy term pages - views-row items should be in grid */
-.path-taxonomy .views-element-container > div > .views-row,
-body[class*="taxonomy-term"] .views-element-container > div > .views-row {
-  width: calc(50% - 20px);
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 10px 30px 10px;
-  box-sizing: border-box;
-}
-
-/* Make the container use flexbox for better alignment */
-.path-taxonomy .views-element-container > div,
-body[class*="taxonomy-term"] .views-element-container > div {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -10px;
-}
-
-/* Style the product cards inside views-row */
-.path-taxonomy .views-row .product-thumb-info,
-body[class*="taxonomy-term"] .views-row .product-thumb-info {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: all 0.3s;
-}
-
-/* Hover effect on cards */
-.path-taxonomy .views-row .product-thumb-info:hover,
-body[class*="taxonomy-term"] .views-row .product-thumb-info:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
-}
-
-/* Mobile: 1 column */
-@media (max-width: 575px) {
-  .path-taxonomy .views-element-container > div > .views-row,
-  body[class*="taxonomy-term"] .views-element-container > div > .views-row {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .path-taxonomy .views-element-container > div,
-  body[class*="taxonomy-term"] .views-element-container > div {
-    margin: 0;
-  }
-}
 
 /* ============================================
    PHOTOSWIPE LIGHTBOX - Prevent image upscaling
