@@ -1,0 +1,15 @@
+langcode: hu
+status: false
+dependencies: {  }
+id: production
+label: Production
+description: 'Production-only configuration (API keys, mail settings)'
+folder: ../config/production
+weight: 0
+storage: folder
+partial: false
+complete_list:
+  - postmark.settings
+  - mailsystem.settings
+  - system.mail
+partial_list: {  }

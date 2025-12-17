@@ -115,3 +115,7 @@ temp/
 # CSV data files (keep documentation but not large data dumps)
 *.csv
 !docs/missing_files_list.csv
+# Production config contains secrets - not tracked in git
+config/production/
+config/production-backup/
+fix_utf8_encoding.php
