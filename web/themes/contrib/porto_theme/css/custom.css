@@ -1486,9 +1486,14 @@ nav a:focus {
 
 /* FIX: Body images with inline width/height styles - maintain aspect ratio (ARC-806) */
 /* When WYSIWYG editor adds inline width/height, override height to maintain aspect ratio */
+/* Use multiple selectors for maximum coverage */
 article img[style*="width"][style*="height"],
-.field--name-body img[style*="width"][style*="height"],
-.text-formatted img[style*="width"][style*="height"] {
+article img[style*="height"][style*="width"],
+.field--name-body img[style*="width"],
+.text-formatted img[style*="width"],
+.photoswipe-gallery img[style*="width"],
+article .photoswipe img[style*="width"] {
   height: auto !important;
-  max-width: 100%;
+  max-width: 100% !important;
+  width: auto !important;
 }
