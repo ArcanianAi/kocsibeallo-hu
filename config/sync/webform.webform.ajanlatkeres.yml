@@ -508,7 +508,7 @@ handlers:
       body: |-
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
           <div style="background-color: #011e41; padding: 20px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Kocsibeálló.hu</h1>
+            <img src="https://www.kocsibeallo.hu/sites/default/files/deluxe-kocsibeallo-logo-150px.png" alt="Kocsibeálló.hu" style="max-width: 150px; height: auto;">
           </div>
 
           <div style="padding: 30px 20px;">
