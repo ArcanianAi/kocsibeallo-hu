@@ -1483,3 +1483,12 @@ nav a:focus {
 .path-taxonomy .views-element-container > div > .product .product-thumb-info-content {
   flex: 1;
 }
+
+/* FIX: Body images with inline width/height styles - maintain aspect ratio (ARC-806) */
+/* When WYSIWYG editor adds inline width/height, override height to maintain aspect ratio */
+article img[style*="width"][style*="height"],
+.field--name-body img[style*="width"][style*="height"],
+.text-formatted img[style*="width"][style*="height"] {
+  height: auto !important;
+  max-width: 100%;
+}
