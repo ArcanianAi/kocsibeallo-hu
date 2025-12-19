@@ -462,12 +462,82 @@ handlers:
       sender_name: ''
       subject: 'Új ajánlatkérés érkezett'
       body: |-
-        Új ajánlatkérés érkezett a kocsibeallo.hu weboldalról.
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+          <div style="background-color: #011e41; padding: 20px; text-align: center;">
+            <img src="https://www.kocsibeallo.hu/sites/default/files/deluxe-kocsibeallo-logo-150px.png" alt="Kocsibeálló.hu" style="max-width: 150px; height: auto;">
+          </div>
 
-        [webform_submission:values]
+          <div style="padding: 30px 20px;">
+            <h2 style="color: #011e41; margin-top: 0; margin-bottom: 20px;">Új ajánlatkérés érkezett</h2>
 
-        ---
-        Ezt az emailt automatikusan küldte a weboldal.
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold; width: 40%;">Név</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:name]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Telefonszám</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:phone]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Email</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:email]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Az építés helyszíne</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:location]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Autók száma</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:car_count]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Választott típus</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:type]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Szélesség</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:width] m</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Hosszúság</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:length] m</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">XIMAX típus</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:ximax_type]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Palram típus</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:palram_type]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Tartószerkezet anyaga</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:szerkezet_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Tetőfedés anyaga</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:tetofedes_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Oldalzárás anyaga</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:oldalzaras_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Napelem rendszer</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:napelem_rendszer]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Kérdések, megjegyzések</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:message]</td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="padding: 15px; text-align: center; background-color: #f5f5f5;">
+            <p style="color: #666; margin: 0; font-size: 12px;">Ezt az emailt automatikusan küldte a kocsibeallo.hu weboldal.</p>
+          </div>
+        </div>
       excluded_elements:
         - gdpr_accept
       ignore_access: false
@@ -553,6 +623,30 @@ handlers:
                 <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:length] m</td>
               </tr>
               <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">XIMAX típus</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:ximax_type]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Palram típus</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:palram_type]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Tartószerkezet anyaga</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:szerkezet_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Tetőfedés anyaga</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:tetofedes_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Oldalzárás anyaga</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:oldalzaras_anyaga]</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Napelem rendszer</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:napelem_rendszer]</td>
+              </tr>
+              <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Kérdések, megjegyzések</td>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:message]</td>
               </tr>
@@ -568,8 +662,6 @@ handlers:
           </div>
         </div>
       excluded_elements:
-        - ximax_type
-        - palram_type
         - attachment
         - gdpr_accept
       ignore_access: false
