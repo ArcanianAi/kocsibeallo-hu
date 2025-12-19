@@ -439,6 +439,158 @@ class MediaMigrationCommands extends DrushCommands {
   }
 
   /**
+   * Convert D7 media tokens in body fields to HTML image tags.
+   *
+   * D7 tokens look like: [[{"fid":"3689","view_mode":"default","fields":{...}}]]
+   * This converts them to proper <img> tags.
+   *
+   * @command media:convert-tokens
+   * @aliases mct
+   * @option dry-run Show what would be converted without making changes
+   * @option nid Process only a specific node ID
+   * @usage media:convert-tokens
+   *   Convert all D7 media tokens in body fields.
+   * @usage media:convert-tokens --dry-run
+   *   Preview conversions without applying them.
+   * @usage media:convert-tokens --nid=123
+   *   Convert tokens only in node 123.
+   */
+  public function convertTokens($options = ['dry-run' => FALSE, 'nid' => NULL]) {
+    $database = \Drupal::database();
+    $file_url_generator = \Drupal::service('file_url_generator');
+    $dry_run = $options['dry-run'];
+
+    // Find all body fields with D7 media tokens
+    $query = $database->select('node__body', 'b');
+    $query->fields('b', ['entity_id', 'body_value', 'body_format']);
+    $query->condition('b.body_value', '%[[{%fid%}]]%', 'LIKE');
+
+    if ($options['nid']) {
+      $query->condition('b.entity_id', $options['nid']);
+    }
+
+    $results = $query->execute()->fetchAll();
+    $total = count($results);
+
+    $this->output()->writeln("Found {$total} nodes with D7 media tokens.");
+
+    if ($total == 0) {
+      return;
+    }
+
+    if ($dry_run) {
+      $this->output()->writeln("DRY RUN - no changes will be made.\n");
+    }
+
+    $converted_count = 0;
+    $token_count = 0;
+    $errors = 0;
+
+    // D7 media token pattern: [[{"fid":"...","view_mode":"...","fields":{...}}]]
+    // The token is JSON wrapped in [[ and ]], with nested objects
+    $pattern = '/\[\[\{"fid":"(\d+)".*?\}\]\]/s';
+
+    foreach ($results as $row) {
+      $nid = $row->entity_id;
+      $body = $row->body_value;
+      $original_body = $body;
+
+      // Find all tokens in this body
+      if (preg_match_all($pattern, $body, $matches, PREG_SET_ORDER)) {
+        $this->output()->writeln("\nNode {$nid}: Found " . count($matches) . " token(s)");
+
+        foreach ($matches as $match) {
+          $full_token = $match[0];
+          $fid = $match[1];
+
+          // Parse the JSON to get additional info
+          $json_str = substr($full_token, 1, -1); // Remove outer [[ and ]]
+          $token_data = @json_decode($json_str, TRUE);
+
+          // Get alt text from token if available
+          $alt = '';
+          if ($token_data && isset($token_data['fields']['field_file_image_alt_text[und][0][value]'])) {
+            $alt = $token_data['fields']['field_file_image_alt_text[und][0][value]'];
+          }
+
+          // Look up the file
+          $file = File::load($fid);
+          if (!$file) {
+            $this->output()->writeln("  - Token fid={$fid}: File not found, skipping");
+            $errors++;
+            continue;
+          }
+
+          // Get file URL
+          $file_uri = $file->getFileUri();
+          $file_url = $file_url_generator->generateAbsoluteString($file_uri);
+
+          // If no alt from token, try to get from media entity
+          if (empty($alt)) {
+            $media_query = $database->select('media__field_media_image', 'm');
+            $media_query->fields('m', ['field_media_image_alt']);
+            $media_query->condition('m.field_media_image_target_id', $fid);
+            $media_alt = $media_query->execute()->fetchField();
+            if ($media_alt) {
+              $alt = $media_alt;
+            }
+            else {
+              // Last fallback: filename
+              $alt = pathinfo($file->getFilename(), PATHINFO_FILENAME);
+              $alt = str_replace(['-', '_'], ' ', $alt);
+              $alt = ucfirst($alt);
+            }
+          }
+
+          // Escape for HTML attribute
+          $alt_escaped = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
+
+          // Create the img tag
+          $img_tag = '<img src="' . $file_url . '" alt="' . $alt_escaped . '" class="img-responsive" />';
+
+          $this->output()->writeln("  - fid={$fid}: \"{$alt}\"");
+
+          // Replace the token with the img tag
+          $body = str_replace($full_token, $img_tag, $body);
+          $token_count++;
+        }
+
+        // Update the body field if changed
+        if ($body !== $original_body) {
+          if (!$dry_run) {
+            // Update node__body
+            $database->update('node__body')
+              ->fields(['body_value' => $body])
+              ->condition('entity_id', $nid)
+              ->execute();
+
+            // Update node_revision__body for current revision
+            $database->update('node_revision__body')
+              ->fields(['body_value' => $body])
+              ->condition('entity_id', $nid)
+              ->execute();
+
+            $this->output()->writeln("  Updated node {$nid}");
+          }
+          else {
+            $this->output()->writeln("  Would update node {$nid}");
+          }
+          $converted_count++;
+        }
+      }
+    }
+
+    $action = $dry_run ? "Would convert" : "Converted";
+    $this->output()->writeln("\n{$action} {$token_count} tokens in {$converted_count} nodes.");
+    $this->output()->writeln("Errors (files not found): {$errors}");
+
+    if (!$dry_run && $converted_count > 0) {
+      $this->output()->writeln("\nClearing caches...");
+      drupal_flush_all_caches();
+    }
+  }
+
+  /**
    * Pre-generate image style derivatives for all images.
    *
    * Nginx doesn't route missing image styles to Drupal for on-demand generation,
