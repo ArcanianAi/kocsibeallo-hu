@@ -1,0 +1,7 @@
+name: 'Webform Custom'
+type: module
+description: 'Custom webform modifications for consistent form IDs'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - webform:webform
