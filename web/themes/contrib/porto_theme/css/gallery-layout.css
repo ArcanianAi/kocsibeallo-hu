@@ -48,3 +48,14 @@
 .photoswipe-gallery .gallery-images-wrapper + * {
   margin-top: 40px;
 }
+
+/* Body content images - override inline styles from WYSIWYG editor */
+/* These images are inserted with inline width/height that causes distortion */
+article.photoswipe-gallery img[style*="width"],
+article.photoswipe-gallery img[style*="height"],
+article.photoswipe-gallery p img,
+article.photoswipe-gallery .photoswipe img {
+  height: auto !important;
+  max-width: 100% !important;
+  width: auto !important;
+}
