@@ -11,6 +11,10 @@
  * - content: All node fields rendered.
  * - url: Direct URL of the current node.
  * - attributes: HTML attributes for the wrapper.
+ * - gallery_image_url: URL to the gallery image (with image style applied).
+ * - gallery_image_alt: Alt text from media entity or node title.
+ * - gallery_image_title: Title from media entity or node title.
+ * - gallery_media: The media entity (if available).
  */
 #}
 
@@ -22,11 +26,14 @@
                 <span class="product-thumb-info-act-right"><em><i class="fa fa-plus"></i> Részletek</em></span>
             </span>
 
-            {% if content.field_telikert_kep %}
-                {# Display only first image from gallery #}
+            {% if gallery_image_url %}
+                {# Display image with proper alt text from media entity #}
+                <img src="{{ gallery_image_url }}" alt="{{ gallery_image_alt }}" title="{{ gallery_image_title }}" class="img-responsive">
+            {% elseif content.field_telikert_kep %}
+                {# Fallback to field render if preprocess didn't provide URL #}
                 {{ content.field_telikert_kep[0] }}
             {% else %}
-                <img alt="" class="img-responsive" src="http://placehold.it/800x600/f0f0f0/999999?text=Nincs+kép">
+                <img alt="Nincs kép" class="img-responsive" src="http://placehold.it/800x600/f0f0f0/999999?text=Nincs+kép">
             {% endif %}
 
         </span>
