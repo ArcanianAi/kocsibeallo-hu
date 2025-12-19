@@ -521,9 +521,9 @@ class MediaMigrationCommands extends DrushCommands {
             continue;
           }
 
-          // Get file URL
+          // Get file URL - use relative path for portability
           $file_uri = $file->getFileUri();
-          $file_url = $file_url_generator->generateAbsoluteString($file_uri);
+          $file_url = $file_url_generator->generateString($file_uri);
 
           // If no alt from token, try to get from media entity
           if (empty($alt)) {
