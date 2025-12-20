@@ -91,13 +91,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_telikert_kep:
-    type: file_generic
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
   field_termek_tipus:
     type: entity_reference_autocomplete
     weight: 10
@@ -179,4 +172,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_telikert_kep: true

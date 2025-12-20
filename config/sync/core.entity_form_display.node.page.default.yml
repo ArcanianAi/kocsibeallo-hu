@@ -51,13 +51,6 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_kepek:
-    type: file_generic
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
   field_tartalom2:
     type: text_textarea
     weight: 3
@@ -123,4 +116,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_kepek: true
