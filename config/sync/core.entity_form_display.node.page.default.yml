@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.comment_node_page
+    - field.field.node.page.field_gallery_media
     - field.field.node.page.field_kepek
     - field.field.node.page.field_tartalom2
     - node.type.page
   module:
     - comment
     - file
+    - media_library
     - path
     - text
 _core:
@@ -42,9 +44,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_gallery_media:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_kepek:
     type: file_generic
-    weight: 2
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber

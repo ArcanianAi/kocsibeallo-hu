@@ -1,0 +1,30 @@
+uuid: null
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gallery_media
+    - media.type.image
+    - node.type.page
+  module:
+    - media
+id: node.page.field_gallery_media
+field_name: field_gallery_media
+entity_type: node
+bundle: page
+label: 'Galéria képek (Média)'
+description: 'Válasszon képeket a médiatárból vagy töltsön fel újakat.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment_node_page.default
     - field.field.node.page.body
     - field.field.node.page.comment_node_page
+    - field.field.node.page.field_gallery_media
     - field.field.node.page.field_kepek
     - field.field.node.page.field_tartalom2
     - image.style.kep_thumbnail
@@ -13,6 +14,7 @@ dependencies:
   module:
     - comment
     - image
+    - photoswipe
     - text
     - user
 _core:
@@ -37,6 +39,20 @@ content:
       pager_id: 0
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_gallery_media:
+    type: photoswipe_field_formatter
+    label: hidden
+    settings:
+      photoswipe_thumbnail_style: large
+      photoswipe_thumbnail_style_first: ''
+      photoswipe_image_style: ''
+      photoswipe_reference_image_field: field_media_image
+      photoswipe_view_mode: default
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_kepek:
     type: photoswipe_field_formatter
