@@ -97,6 +97,20 @@ foreach ($nids as $nid) {
     }
 
     if (empty($files)) {
+      // Try searching by filename in any subdirectory (files may be in gallery/main/).
+      $filename = basename($uri);
+      $query = \Drupal::database()->select('file_managed', 'f')
+        ->fields('f', ['fid'])
+        ->condition('uri', '%' . $filename, 'LIKE')
+        ->range(0, 1)
+        ->execute();
+      $fid_result = $query->fetchField();
+      if ($fid_result) {
+        $files = [File::load($fid_result)];
+      }
+    }
+
+    if (empty($files)) {
       echo "  - File not found for URI: $uri\n";
       continue;
     }
