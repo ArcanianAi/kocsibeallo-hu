@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.foto_a_galeriahoz.body
     - field.field.node.foto_a_galeriahoz.comment_node_foto_a_galeriahoz
     - field.field.node.foto_a_galeriahoz.field_cimkek
+    - field.field.node.foto_a_galeriahoz.field_gallery_media
     - field.field.node.foto_a_galeriahoz.field_gallery_tag
     - field.field.node.foto_a_galeriahoz.field_oldalzaras_anyaga
     - field.field.node.foto_a_galeriahoz.field_stilus
@@ -20,6 +21,7 @@ dependencies:
     - comment
     - image
     - link
+    - photoswipe
     - text
     - user
 id: node.foto_a_galeriahoz.default
@@ -33,6 +35,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_gallery_media:
+    type: photoswipe_field_formatter
+    label: hidden
+    settings:
+      photoswipe_thumbnail_style: large
+      photoswipe_thumbnail_style_first: ''
+      photoswipe_image_style: ''
+      photoswipe_reference_image_field: field_media_image
+      photoswipe_view_mode: default
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: -1
     region: content
   comment_node_foto_a_galeriahoz:
     type: comment_default
@@ -87,11 +103,13 @@ content:
     type: photoswipe_field_formatter
     label: hidden
     settings:
+      photoswipe_thumbnail_style: large
+      photoswipe_thumbnail_style_first: ''
+      photoswipe_image_style: ''
+      photoswipe_reference_image_field: ''
+      photoswipe_view_mode: default
       image_loading:
         attribute: lazy
-      image_link: ''
-      image_style: large
-      photoswipe_node_style: large
     third_party_settings: {  }
     weight: 0
     region: content

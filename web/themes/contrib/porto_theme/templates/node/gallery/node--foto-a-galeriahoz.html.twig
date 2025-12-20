@@ -14,10 +14,15 @@
 
 <article{{ attributes.addClass('photoswipe-gallery') }}>
   {# Main gallery images - all in 2-column grid #}
-  {% if content.field_telikert_kep %}
+  {# Prefer new media field (field_gallery_media), fallback to old field (field_telikert_kep) #}
+  {% set has_media_gallery = node.field_gallery_media is not empty %}
+  {% set has_old_gallery = node.field_telikert_kep is not empty %}
+  {% set gallery_field = has_media_gallery ? content.field_gallery_media : content.field_telikert_kep %}
+
+  {% if has_media_gallery or has_old_gallery %}
     <div class="gallery-images-wrapper">
       <div class="gallery-grid">
-        {% for key, item in content.field_telikert_kep %}
+        {% for key, item in gallery_field %}
           {# Only render numeric keys (actual field items), skip metadata keys starting with # #}
           {% if key matches '/^\\d+$/' %}
             <div class="gallery-grid-item">

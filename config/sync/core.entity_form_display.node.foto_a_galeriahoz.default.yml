@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.foto_a_galeriahoz.body
     - field.field.node.foto_a_galeriahoz.comment_node_foto_a_galeriahoz
     - field.field.node.foto_a_galeriahoz.field_cimkek
+    - field.field.node.foto_a_galeriahoz.field_gallery_media
     - field.field.node.foto_a_galeriahoz.field_gallery_tag
     - field.field.node.foto_a_galeriahoz.field_oldalzaras_anyaga
     - field.field.node.foto_a_galeriahoz.field_stilus
@@ -19,6 +20,7 @@ dependencies:
     - comment
     - file
     - link
+    - media_library
     - path
     - text
 id: node.foto_a_galeriahoz.default
@@ -57,6 +59,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_gallery_media:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_gallery_tag:
     type: options_buttons
