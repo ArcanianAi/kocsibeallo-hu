@@ -54,18 +54,6 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_kepek:
-    type: photoswipe_field_formatter
-    label: hidden
-    settings:
-      photoswipe_image_style: ''
-      photoswipe_reference_image_field: ''
-      photoswipe_view_mode: ''
-      photoswipe_caption: alt
-      photoswipe_caption_custom: ''
-    third_party_settings: {  }
-    weight: 10
-    region: content
   field_tartalom2:
     type: text_default
     label: hidden
@@ -77,5 +65,6 @@ content:
     weight: 101
     region: content
 hidden:
+  field_kepek: true
   langcode: true
   search_api_excerpt: true
