@@ -3181,21 +3181,35 @@ a[href*="/feed"],
   color: #011e41 !important;
 }
 
-/* Primary button (Save/Accept) - gold background */
+/* Primary button (Accept All) - gold background, most prominent */
 .klaro .cookie-modal .cm-btn-success,
 .klaro .cookie-notice .cn-buttons .cm-btn-success,
-.klaro .cm-btn-accept,
 .klaro .cm-btn-accept-all {
   background-color: #ac9c58 !important;
   color: #fff !important;
   border: none !important;
+  font-weight: 600 !important;
 }
 
 .klaro .cookie-modal .cm-btn-success:hover,
 .klaro .cookie-notice .cn-buttons .cm-btn-success:hover,
-.klaro .cm-btn-accept:hover,
 .klaro .cm-btn-accept-all:hover {
   background-color: #011e41 !important;
+}
+
+/* Secondary button (Accept Selected) - less prominent, outline style */
+.klaro .cm-btn-accept:not(.cm-btn-accept-all) {
+  background-color: transparent !important;
+  color: #666 !important;
+  border: 1px solid #999 !important;
+  font-weight: 400 !important;
+  font-size: 0.9em !important;
+}
+
+.klaro .cm-btn-accept:not(.cm-btn-accept-all):hover {
+  background-color: #f0f0f0 !important;
+  color: #333 !important;
+  border-color: #666 !important;
 }
 
 /* Secondary button (Decline) - dark blue outline */
