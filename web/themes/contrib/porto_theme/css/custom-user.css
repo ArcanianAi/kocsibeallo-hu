@@ -3182,34 +3182,36 @@ a[href*="/feed"],
 }
 
 /* Primary button (Accept All) - gold background, most prominent */
-.klaro .cookie-modal .cm-btn-success,
-.klaro .cookie-notice .cn-buttons .cm-btn-success,
-.klaro .cm-btn-accept-all {
+.klaro .cm-btn-accept-all,
+.klaro .cm-btn-accept-all.cm-btn-success {
   background-color: #ac9c58 !important;
   color: #fff !important;
   border: none !important;
   font-weight: 600 !important;
 }
 
-.klaro .cookie-modal .cm-btn-success:hover,
-.klaro .cookie-notice .cn-buttons .cm-btn-success:hover,
-.klaro .cm-btn-accept-all:hover {
+.klaro .cm-btn-accept-all:hover,
+.klaro .cm-btn-accept-all.cm-btn-success:hover {
   background-color: #011e41 !important;
 }
 
-/* Secondary button (Accept Selected) - less prominent, outline style */
-.klaro .cm-btn-accept:not(.cm-btn-accept-all) {
+/* Secondary button (Accept Selected) - less prominent, gray outline style */
+.klaro .cm-btn-accept:not(.cm-btn-accept-all),
+.klaro .cm-btn-success.cm-btn-accept:not(.cm-btn-accept-all),
+.klaro .cm-btn-info.cm-btn-accept {
   background-color: transparent !important;
-  color: #666 !important;
-  border: 1px solid #999 !important;
+  color: #888 !important;
+  border: 1px solid #bbb !important;
   font-weight: 400 !important;
-  font-size: 0.9em !important;
+  font-size: 0.85em !important;
 }
 
-.klaro .cm-btn-accept:not(.cm-btn-accept-all):hover {
-  background-color: #f0f0f0 !important;
-  color: #333 !important;
-  border-color: #666 !important;
+.klaro .cm-btn-accept:not(.cm-btn-accept-all):hover,
+.klaro .cm-btn-success.cm-btn-accept:not(.cm-btn-accept-all):hover,
+.klaro .cm-btn-info.cm-btn-accept:hover {
+  background-color: #f5f5f5 !important;
+  color: #555 !important;
+  border-color: #999 !important;
 }
 
 /* Secondary button (Decline) - dark blue outline */
