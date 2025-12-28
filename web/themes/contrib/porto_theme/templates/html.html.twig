@@ -12,6 +12,18 @@ current_path ? 'context' ~ current_path|clean_class,
 <html{{ html_attributes }} class="{% if h_semi_transparent_option == 1 %}{{ 'side-header side-header-semi-transparent ' }}{% else %}{% if arg == 'index-header-side-header-semi-transparent' %}{{ 'side-header side-header-semi-transparent' }}{% endif %}{% endif %}{% if header_option == 'h_left' %}{{ 'side-header' }}{% elseif header_option == 'h_right' %}{{ 'side-header side-header-right' }}{% else %}{% if arg == 'index-header-side-header-left' %}{{ 'side-header' }}{% elseif arg == 'index-header-side-header-right' %}{{ 'side-header side-header-right' }}{% endif %}{% endif %} {% if arg == 'index-layout-boxed' %}{{ 'boxed' }}{% elseif arg == 'index-layout-dark' %}{{ 'dark' }}{% else %}{{ layout_option }}{% endif %}">
 
   <head>
+    {# Consent defaults MUST be set before GTM loads #}
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
