@@ -4749,25 +4749,35 @@ current_path ? 'context' ~ current_path|clean_class,
         {{ page_bottom }}
     </div>
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    {# Override Klaro button styles - must load last to override Klaro CSS #}
-    <style>
-      .klaro .cookie-modal .cm-footer-buttons .cm-btn.cm-btn-accept:not(.cm-btn-accept-all),
-      .klaro .cookie-modal .cm-footer-buttons .cm-btn.cm-btn-success.cm-btn-info,
-      .klaro .cm-btn.cm-btn-success.cm-btn-info.cm-btn-accept {
-        background-color: transparent !important;
-        color: #999 !important;
-        border: 1px solid #ccc !important;
-        font-weight: 400 !important;
-        font-size: 0.85em !important;
-      }
-      .klaro .cookie-modal .cm-footer-buttons .cm-btn.cm-btn-accept:not(.cm-btn-accept-all):hover,
-      .klaro .cookie-modal .cm-footer-buttons .cm-btn.cm-btn-success.cm-btn-info:hover,
-      .klaro .cm-btn.cm-btn-success.cm-btn-info.cm-btn-accept:hover {
-        background-color: #f5f5f5 !important;
-        color: #666 !important;
-        border-color: #999 !important;
-      }
-    </style>
+    {# Override Klaro 'Accept Selected' button to be less prominent than 'Accept All' #}
+    <script>
+      (function() {
+        function styleAcceptSelectedButton() {
+          var btn = document.querySelector('.klaro .cm-btn.cm-btn-accept:not(.cm-btn-accept-all)');
+          if (btn) {
+            btn.style.cssText = 'background-color: transparent !important; color: #999 !important; border: 1px solid #ccc !important; font-weight: 400 !important; font-size: 0.85em !important;';
+          }
+        }
+        // Run on DOM ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', styleAcceptSelectedButton);
+        } else {
+          styleAcceptSelectedButton();
+        }
+        // Also observe for Klaro modal appearing
+        var observer = new MutationObserver(function(mutations) {
+          styleAcceptSelectedButton();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        // Run periodically for first 3 seconds to catch Klaro init
+        var attempts = 0;
+        var interval = setInterval(function() {
+          styleAcceptSelectedButton();
+          attempts++;
+          if (attempts > 30) clearInterval(interval);
+        }, 100);
+      })();
+    </script>
   </body>
 </html>
 
