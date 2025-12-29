@@ -30,4 +30,5 @@ visibility:
     negate: true
     pages: |-
       <front>
+      /ajanlatkeres
       /ajánlatkérés
