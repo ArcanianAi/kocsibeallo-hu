@@ -466,74 +466,85 @@ handlers:
           <div style="background-color: #011e41; padding: 20px; text-align: center;">
             <img src="https://www.kocsibeallo.hu/sites/default/files/deluxe-kocsibeallo-logo-150px.png" alt="Kocsibeálló.hu" style="max-width: 150px; height: auto;">
           </div>
-
           <div style="padding: 30px 20px;">
             <h2 style="color: #011e41; margin-top: 0; margin-bottom: 20px;">Új ajánlatkérés érkezett</h2>
-
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold; width: 40%;">Név</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:name]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.name }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Telefonszám</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:phone]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.phone }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Email</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:email]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.email }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Az építés helyszíne</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:location]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.location }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Autók száma</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:car_count]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.car_count }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Választott típus</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:type]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.type }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Szélesség</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:width] m</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.width }} m</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Hosszúság</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:length] m</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.length }} m</td>
               </tr>
+              {% if data.ximax_type|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">XIMAX típus</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:ximax_type]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:ximax_type]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.palram_type|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Palram típus</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:palram_type]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:palram_type]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.szerkezet_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Tartószerkezet anyaga</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:szerkezet_anyaga]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:szerkezet_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.tetofedes_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Tetőfedés anyaga</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:tetofedes_anyaga]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:tetofedes_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.oldalzaras_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Oldalzárás anyaga</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:oldalzaras_anyaga]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:oldalzaras_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.napelem_rendszer %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Napelem rendszer</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:napelem_rendszer]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.napelem_rendszer }}</td>
               </tr>
+              {% endif %}
+              {% if data.message %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Kérdések, megjegyzések</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:message]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.message }}</td>
               </tr>
+              {% endif %}
             </table>
           </div>
-
           <div style="padding: 15px; text-align: center; background-color: #f5f5f5;">
             <p style="color: #666; margin: 0; font-size: 12px;">Ezt az emailt automatikusan küldte a kocsibeallo.hu weboldal.</p>
           </div>
@@ -546,7 +557,7 @@ handlers:
       exclude_attachments: false
       html: true
       attachments: false
-      twig: false
+      twig: true
       theme_name: ''
       parameters: {  }
       debug: false
@@ -580,83 +591,91 @@ handlers:
           <div style="background-color: #011e41; padding: 20px; text-align: center;">
             <img src="https://www.kocsibeallo.hu/sites/default/files/deluxe-kocsibeallo-logo-150px.png" alt="Kocsibeálló.hu" style="max-width: 150px; height: auto;">
           </div>
-
           <div style="padding: 30px 20px;">
-            <p style="font-size: 16px; margin-bottom: 5px;">Tisztelt <strong>[webform_submission:values:name]</strong>,</p>
-
+            <p style="font-size: 16px; margin-bottom: 5px;">Tisztelt <strong>{{ data.name }}</strong>,</p>
             <h2 style="color: #011e41; margin-top: 20px; margin-bottom: 10px;">Köszönjük ajánlatkérését!</h2>
             <p style="line-height: 1.6; margin-bottom: 25px;">Hamarosan küldjük előzetes ajánlatunkat.</p>
-
             <p style="font-weight: bold; margin-bottom: 15px;">Az Ön által megadott adatok a következők:</p>
-
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold; width: 40%;">Név</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:name]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.name }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Telefonszám</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:phone]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.phone }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Email</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:email]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.email }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Az építés helyszíne</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:location]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.location }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Autók száma</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:car_count]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.car_count }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Választott típus</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:type]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.type }}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Szélesség</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:width] m</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.width }} m</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Hosszúság</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:length] m</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.length }} m</td>
               </tr>
+              {% if data.ximax_type|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">XIMAX típus</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:ximax_type]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:ximax_type]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.palram_type|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Palram típus</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:palram_type]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:palram_type]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.szerkezet_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Tartószerkezet anyaga</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:szerkezet_anyaga]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:szerkezet_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.tetofedes_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Tetőfedés anyaga</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:tetofedes_anyaga]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:tetofedes_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.oldalzaras_anyaga|filter(v => v)|length > 0 %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Oldalzárás anyaga</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:oldalzaras_anyaga]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ webform_token('[webform_submission:values:oldalzaras_anyaga]', webform_submission, [], options) }}</td>
               </tr>
+              {% endif %}
+              {% if data.napelem_rendszer %}
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">Napelem rendszer</td>
-                <td style="padding: 10px; border-bottom: 1px solid #ddd;">[webform_submission:values:napelem_rendszer]</td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ data.napelem_rendszer }}</td>
               </tr>
+              {% endif %}
+              {% if data.message %}
               <tr>
                 <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; font-weight: bold;">Kérdések, megjegyzések</td>
-                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">[webform_submission:values:message]</td>
+                <td style="padding: 10px; background-color: #f5f5f5; border-bottom: 1px solid #ddd;">{{ data.message }}</td>
               </tr>
+              {% endif %}
             </table>
           </div>
-
           <div style="background-color: #011e41; padding: 15px; text-align: center;">
             <p style="color: #ffffff; margin: 0; font-size: 14px; font-weight: bold;">Deluxe Building Kft. Minden jog fenntartva.</p>
           </div>
-
           <div style="padding: 15px; text-align: center; background-color: #f5f5f5;">
             <p style="color: #666; margin: 0; font-size: 12px;">Ez egy automatikusan küldött rendszerüzenet. Azért látja, mert kitöltötte a kocsibeallo.hu ajánlatkérő űrlapját.</p>
           </div>
@@ -670,7 +689,7 @@ handlers:
       exclude_attachments: true
       html: true
       attachments: false
-      twig: false
+      twig: true
       theme_name: ''
       parameters: {  }
       debug: false
