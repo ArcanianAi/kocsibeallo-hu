@@ -1,5 +1,0 @@
-name: 'Login Redirect'
-type: module
-description: 'Redirects users to /admin after login.'
-core_version_requirement: ^10 || ^11
-package: Custom
