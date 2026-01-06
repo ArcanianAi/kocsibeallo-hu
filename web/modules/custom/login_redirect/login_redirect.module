@@ -3,7 +3,25 @@
 /**
  * @file
  * Redirects users to /admin after login.
- *
- * Uses an event subscriber to intercept the redirect response
- * and change the destination from /user/[uid]?check_logged_in=1 to /admin.
  */
+
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_user_login().
+ */
+function login_redirect_user_login(UserInterface $account) {
+  // Get the current request.
+  $request = \Drupal::request();
+
+  // Only redirect if there's no specific destination set.
+  if (!$request->query->has('destination')) {
+    // Set redirect to /admin.
+    $url = Url::fromRoute('system.admin')->toString();
+    $response = new RedirectResponse($url);
+    $response->send();
+    exit;
+  }
+}
