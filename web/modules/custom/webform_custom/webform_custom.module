@@ -50,13 +50,9 @@ function webform_custom_preprocess_form(array &$variables) {
   // Check if this is the ajanlatkeres webform
   if (isset($variables['element']['#id']) &&
       strpos($variables['element']['#id'], 'webform-submission-ajanlatkeres') === 0) {
-    // Remove contextual-region class from attributes
-    if (isset($variables['attributes']['class'])) {
-      $variables['attributes']['class'] = array_filter($variables['attributes']['class'], function($class) {
-        return $class !== 'contextual-region';
-      });
-      // Re-index the array
-      $variables['attributes']['class'] = array_values($variables['attributes']['class']);
+    // Remove contextual-region class using Attribute object's removeClass method
+    if (isset($variables['attributes']) && $variables['attributes'] instanceof \Drupal\Core\Template\Attribute) {
+      $variables['attributes']->removeClass('contextual-region');
     }
   }
 }
