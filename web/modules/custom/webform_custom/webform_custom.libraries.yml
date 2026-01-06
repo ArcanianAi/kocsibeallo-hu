@@ -1,0 +1,6 @@
+webform_custom:
+  version: 1.x
+  js:
+    js/webform_custom.js: {}
+  dependencies:
+    - core/drupal
