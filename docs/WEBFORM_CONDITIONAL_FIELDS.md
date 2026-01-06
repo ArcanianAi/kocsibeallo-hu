@@ -159,7 +159,57 @@ handlers:
 
 ---
 
-## 4. Hibaelhárítás
+## 4. CSS Class Normalizálás (HubSpot/Make Integráció)
+
+### Probléma
+A HubSpot és Make.com űrlap-követés CSS szelektorok alapján azonosítja az űrlapokat. Két probléma merült fel:
+
+1. **Node-specifikus form ID-k**: Sidebar blokkban az űrlap ID-ja tartalmazta a node ID-t (pl. `webform-submission-ajanlatkeres-node-123-add-form`), ami minden oldalon más volt.
+
+2. **contextual-region class**: A Drupal contextual modul hozzáadta a `contextual-region` osztályt az űrlaphoz, ami megzavarta a HubSpot követést.
+
+### Megoldás
+A `webform_custom` modul (`web/modules/custom/webform_custom/`) kezeli ezeket:
+
+#### Form ID normalizálás (PHP)
+```php
+// webform_custom.module - hook_form_alter()
+if (preg_match('/webform-submission-ajanlatkeres-node-\d+-add-form/', $form['#id'])) {
+  $form['#id'] = 'webform-submission-ajanlatkeres-add-form';
+  // Node-specifikus osztályok eltávolítása és #states szelektorok frissítése
+}
+```
+
+#### contextual-region eltávolítása (JavaScript)
+A contextual modul a theme rétegben adja hozzá az osztályt, amit PHP-ból nem lehet eltávolítani. Ezért JavaScript-tel távolítjuk el:
+
+```javascript
+// js/webform_custom.js
+Drupal.behaviors.webformCustomRemoveContextual = {
+  attach: function (context) {
+    var forms = context.querySelectorAll('form[id*="webform-submission-ajanlatkeres"].contextual-region');
+    forms.forEach(function (form) {
+      form.classList.remove('contextual-region');
+    });
+  }
+};
+```
+
+### Eredmény
+Az űrlap minden oldalon ugyanazokkal az osztályokkal jelenik meg:
+- `webform-submission-form`
+- `webform-submission-add-form`
+- `webform-submission-ajanlatkeres-form`
+- `webform-submission-ajanlatkeres-add-form`
+
+### Kapcsolódó fájlok
+- `web/modules/custom/webform_custom/webform_custom.module` - PHP hook-ok
+- `web/modules/custom/webform_custom/js/webform_custom.js` - JavaScript
+- `web/modules/custom/webform_custom/webform_custom.libraries.yml` - Library definíció
+
+---
+
+## 5. Hibaelhárítás
 
 ### Probléma: Checkbox értékek nem jelennek meg
 **Megoldás:** Használj `webform_token()` függvényt a `{{ data.field }}` helyett:
@@ -179,15 +229,17 @@ handlers:
 
 ---
 
-## 5. Módosítások Naplója
+## 6. Módosítások Naplója
 
 | Dátum | Változás |
 |-------|----------|
+| 2025-01-06 | CSS class normalizálás HubSpot/Make integrációhoz (contextual-region eltávolítása) |
 | 2025-01-05 | Twig sablonok hozzáadása mindkét email kezelőhöz, feltételes megjelenítés implementálása |
 
 ---
 
-## 6. Kapcsolódó Fájlok
+## 7. Kapcsolódó Fájlok
 
 - `config/sync/webform.webform.ajanlatkeres.yml` - Webform és handler konfiguráció
 - `config/sync/block.block.porto_ajanlatkeres_webform.yml` - Sidebar block konfiguráció
+- `web/modules/custom/webform_custom/` - Egyedi modul a form ID és CSS class normalizáláshoz
