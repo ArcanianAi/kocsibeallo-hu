@@ -17,6 +17,10 @@ use Drupal\Core\Form\FormStateInterface;
 function webform_custom_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // Only modify the ajanlatkeres webform
   if (strpos($form_id, 'webform_submission_ajanlatkeres') === 0) {
+    // Disable contextual links to prevent contextual-region class
+    // This ensures consistent CSS classes for HubSpot/Make integration
+    $form['#contextual_links'] = [];
+
     // Check if form ID contains node-specific pattern
     if (preg_match('/webform-submission-ajanlatkeres-node-\d+-add-form/', $form['#id'])) {
       // Standardize form ID
