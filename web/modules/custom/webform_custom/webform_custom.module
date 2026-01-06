@@ -20,39 +20,52 @@ use Drupal\Core\Form\FormStateInterface;
 function webform_custom_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // Only modify the ajanlatkeres webform
   if (strpos($form_id, 'webform_submission_ajanlatkeres') === 0) {
-    // Classes to remove for consistent tracking (HubSpot/Make integration)
-    $classes_to_remove = [
-      'contextual-region',
-    ];
-
-    // Remove unwanted classes from all ajanlatkeres forms
-    if (isset($form['#attributes']['class'])) {
-      $form['#attributes']['class'] = array_filter($form['#attributes']['class'], function($class) use ($classes_to_remove) {
-        // Remove contextual-region and node-specific classes
-        if (in_array($class, $classes_to_remove)) {
-          return false;
-        }
-        if (strpos($class, '-node-') !== false) {
-          return false;
-        }
-        return true;
-      });
-    }
+    // Add after_build callback to remove classes late in the build process
+    $form['#after_build'][] = '_webform_custom_remove_classes';
 
     // Check if form ID contains node-specific pattern
     if (preg_match('/webform-submission-ajanlatkeres-node-\d+-add-form/', $form['#id'])) {
       // Standardize form ID
       $form['#id'] = 'webform-submission-ajanlatkeres-add-form';
 
-      // Ensure generic class is present
-      if (isset($form['#attributes']['class']) && !in_array('webform-submission-ajanlatkeres-add-form', $form['#attributes']['class'])) {
-        $form['#attributes']['class'][] = 'webform-submission-ajanlatkeres-add-form';
+      // Remove node-specific classes
+      if (isset($form['#attributes']['class'])) {
+        $form['#attributes']['class'] = array_filter($form['#attributes']['class'], function($class) {
+          return strpos($class, '-node-') === false;
+        });
+        // Ensure generic class is present
+        if (!in_array('webform-submission-ajanlatkeres-add-form', $form['#attributes']['class'])) {
+          $form['#attributes']['class'][] = 'webform-submission-ajanlatkeres-add-form';
+        }
       }
 
       // Update #states selectors to use the generic form class
       _webform_custom_update_states_selectors($form, '.webform-submission-ajanlatkeres-add-form');
     }
   }
+}
+
+/**
+ * After build callback to remove unwanted CSS classes.
+ *
+ * This runs later in the form build process, after contextual module
+ * has added its classes.
+ */
+function _webform_custom_remove_classes(array $form, FormStateInterface $form_state) {
+  // Classes to remove for consistent tracking (HubSpot/Make integration)
+  $classes_to_remove = [
+    'contextual-region',
+  ];
+
+  if (isset($form['#attributes']['class'])) {
+    $form['#attributes']['class'] = array_filter($form['#attributes']['class'], function($class) use ($classes_to_remove) {
+      return !in_array($class, $classes_to_remove);
+    });
+    // Re-index the array
+    $form['#attributes']['class'] = array_values($form['#attributes']['class']);
+  }
+
+  return $form;
 }
 
 /**
