@@ -13,16 +13,10 @@ use Drupal\Core\Form\FormStateInterface;
  * Remove source entity from sidebar webform block to have consistent form IDs.
  * This prevents issues with Drupal States when the same form appears
  * on different pages.
- *
- * Also removes contextual-region class to ensure consistent CSS classes
- * for HubSpot/Make integration.
  */
 function webform_custom_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // Only modify the ajanlatkeres webform
   if (strpos($form_id, 'webform_submission_ajanlatkeres') === 0) {
-    // Add after_build callback to remove classes late in the build process
-    $form['#after_build'][] = '_webform_custom_remove_classes';
-
     // Check if form ID contains node-specific pattern
     if (preg_match('/webform-submission-ajanlatkeres-node-\d+-add-form/', $form['#id'])) {
       // Standardize form ID
@@ -46,26 +40,25 @@ function webform_custom_form_alter(array &$form, FormStateInterface $form_state,
 }
 
 /**
- * After build callback to remove unwanted CSS classes.
+ * Implements hook_preprocess_form().
  *
- * This runs later in the form build process, after contextual module
- * has added its classes.
+ * Remove contextual-region class from ajanlatkeres webform to ensure
+ * consistent CSS classes for HubSpot/Make integration.
+ * This runs during theme preprocessing, after contextual module has added its class.
  */
-function _webform_custom_remove_classes(array $form, FormStateInterface $form_state) {
-  // Classes to remove for consistent tracking (HubSpot/Make integration)
-  $classes_to_remove = [
-    'contextual-region',
-  ];
-
-  if (isset($form['#attributes']['class'])) {
-    $form['#attributes']['class'] = array_filter($form['#attributes']['class'], function($class) use ($classes_to_remove) {
-      return !in_array($class, $classes_to_remove);
-    });
-    // Re-index the array
-    $form['#attributes']['class'] = array_values($form['#attributes']['class']);
+function webform_custom_preprocess_form(array &$variables) {
+  // Check if this is the ajanlatkeres webform
+  if (isset($variables['element']['#id']) &&
+      strpos($variables['element']['#id'], 'webform-submission-ajanlatkeres') === 0) {
+    // Remove contextual-region class from attributes
+    if (isset($variables['attributes']['class'])) {
+      $variables['attributes']['class'] = array_filter($variables['attributes']['class'], function($class) {
+        return $class !== 'contextual-region';
+      });
+      // Re-index the array
+      $variables['attributes']['class'] = array_values($variables['attributes']['class']);
+    }
   }
-
-  return $form;
 }
 
 /**
