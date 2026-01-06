@@ -1,0 +1,5 @@
+services:
+  login_redirect.login_redirect_subscriber:
+    class: Drupal\login_redirect\EventSubscriber\LoginRedirectSubscriber
+    tags:
+      - { name: event_subscriber }
