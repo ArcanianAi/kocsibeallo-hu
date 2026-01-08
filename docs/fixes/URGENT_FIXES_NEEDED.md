@@ -210,10 +210,55 @@ Take screenshots for visual comparison.
 
 ---
 
+---
+
+## 🆕 Additional Fixes (2026-01-08)
+
+### 8. ~~**Login Redirect to Admin**~~ ✅ COMPLETED
+**Status:** Fixed - Users now redirect to `/admin` after login
+
+**Problem:** After login, users were redirected to `/user/1?check_logged_in=1` instead of the admin area.
+
+**Solution:**
+- Installed `drupal/redirect_after_login` contrib module
+- Configured at `/admin/config/people/redirect`
+- All roles redirect to `/admin` after login
+- Removed broken custom `login_redirect` module
+
+**Configuration:**
+| Role | Redirect URL |
+|------|--------------|
+| Azonosított felhasználó | /admin |
+| Adminisztrátor | /admin |
+| Tartalomszerkesztő | /admin |
+
+---
+
+### 9. ~~**CSS Class Normalization for HubSpot/Make**~~ ✅ COMPLETED
+**Status:** Fixed - Webform CSS classes now consistent for tracking
+
+**Problem:**
+- Form ID contained node-specific IDs (e.g., `webform-submission-ajanlatkeres-node-123-add-form`)
+- `contextual-region` class was added by Drupal, breaking HubSpot tracking
+
+**Solution:**
+- Created `webform_custom` module with:
+  - PHP hook to normalize form ID to `webform-submission-ajanlatkeres-add-form`
+  - JavaScript to remove `contextual-region` class
+
+**Files:**
+- `web/modules/custom/webform_custom/webform_custom.module`
+- `web/modules/custom/webform_custom/js/webform_custom.js`
+- `web/modules/custom/webform_custom/webform_custom.libraries.yml`
+
+See `docs/WEBFORM_CONDITIONAL_FIELDS.md` for detailed documentation.
+
+---
+
 **Status:** ✅ **READY FOR PRODUCTION**
-**Blocking Issues:** None - All 7 issues resolved!
-**Completed:** 7 of 7 issues resolved ✅
+**Blocking Issues:** None - All 9 issues resolved!
+**Completed:** 9 of 9 issues resolved ✅
 **Target:** Proceed with Phase 5 deployment
 
-**Last Updated:** 2025-12-15
-**Completion Date:** 2025-12-15
+**Last Updated:** 2026-01-08
+**Completion Date:** 2025-12-15 (original), 2026-01-08 (additional fixes)
